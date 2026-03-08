@@ -662,18 +662,19 @@ animation:floatImage 4s ease-in-out infinite;
 }
 
 
-.card-layout{
-display:grid;
-grid-template-columns: 1.4fr 1fr;
-gap:40px;
+.card-image{
+display:flex;
+justify-content:flex-end;
 align-items:center;
 }
 
 .card-image img{
-width:160px;
+width:130px;      /* smaller size */
+max-width:180px;
 height:auto;
-border-radius:10px;
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
+border-radius:8px;
+object-fit:cover;
+box-shadow:0 6px 18px rgba(0,0,0,0.4);
 }
 
 .card-text{
