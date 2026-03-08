@@ -3,1149 +3,1198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chittaranjan Govindaraju Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-     
+<title>Chittaranjan Govindaraju — Mechanical Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
-body{background:#0a192f;color:white;}
-
-#circuit-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
-
-nav{position:fixed;width:100%;background:#020c1b;padding:15px;text-align:center;z-index:1000;box-shadow:0 0 5px #ffa600;}
-nav a{color:white;margin:0 15px;text-decoration:none;}
-
-header{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
-
-.glow-name{
-font-family:'EB Garamond', serif;
-font-size:52px;
-color:#ffffff;
-text-shadow:0 0 2px #ffa600;
-letter-spacing:2px;
+:root {
+  --bg: #080d14;
+  --bg2: #0d1520;
+  --bg3: #111c2e;
+  --accent: #e8a020;
+  --accent2: #f0c060;
+  --teal: #3dd6c8;
+  --text: #d4dce8;
+  --muted: #6b7e96;
+  --border: rgba(232,160,32,0.15);
+  --card-bg: rgba(13,21,32,0.85);
 }
 
-.typing{font-size:30px;color:#ffa600;white-space:nowrap;overflow:hidden;width:0;animation:typing 4s steps(40,end) forwards;}
-@keyframes typing{from{width:0}to{width:100%}}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
-section{padding:40px 80px;}
-h2{
-font-family:'EB Garamond', serif;
-text-align:center;
-color:#ffa600;
-margin-bottom:20px;
-font-size:30px;
-letter-spacing:1px;
+html { scroll-behavior: smooth; }
+
+
+
+body {
+
+ background:
+  linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+  url("c.jpeg") center/cover no-repeat fixed;
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+̣;'[]
+/* ─── NOISE TEXTURE OVERLAY ─── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.35;
 }
 
-.card{
-background:#112240cc;
-padding:20px;
-margin:20px auto;
-border-radius:10px;
-box-shadow:0 0 5px #ffa600;
-max-width:1400px;
-width:100%;
+/* ─── CANVAS ─── */
+#circuit-bg {
+  position: fixed; inset: 0;
+  z-index: 0; pointer-events: none;
 }
 
-.expandable{cursor:pointer;}
-.expandable-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
-.expand-icon{font-size:22px;color:#ffa600;transition:transform 0.4s ease;}
-.expandable.active .expand-icon{transform:rotate(45deg);}
-
-.full-text{max-height:0;opacity:0;overflow:hidden;transition:max-height 0.8s ease, opacity 0.5s ease;}
-.expandable.active .full-text{max-height:1200px;opacity:1;margin-top:10px;}
-.expandable.active .short-text{display:none;}
-
-.edu-cards{display:flex;
-           flex-direction:column;
-           gap:20px;
-           max-height:0;
-           opacity:0;
-           overflow:hidden;
-           transition:max-height 0.8s ease, opacity 0.5s ease;}
-.expandable.active .edu-cards{max-height:3000px;opacity:1;}
-
-.edu-card{background:#1a2a4f;padding:25px 35px;border-radius:8px;box-shadow:0 0 5px #ffa600;width:100%;}
-
-.skill-bar{margin:10px 0;}
-.bar{background:#233554;border-radius:20px;overflow:hidden;}
-.progress{height:10px;background:#ffa600;width:0;animation:load 3s forwards;}
-@keyframes load{to{width:80%}}
-
-button{background:#ffa600;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;}
-footer{text-align:center;padding:20px;background:#020c1b;}
-p{color:#cbd5e1;}
-
-.skill-card{
-background:#1a2a4f;
-padding:20px;
-margin:20px auto;
-border-radius:10px;
-box-shadow:0 0 5px #ffa600;
-max-width:1400px;
-width:100%;
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  background: rgba(8,13,20,0.92);
+  backdrop-filter: blur(16px);/
+  border-bottom: 1px solid var(--border);
 }
-
-.skill{
-margin:12px 0;
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 18px 28px;
+  transition: color 0.25s, background 0.25s;
+  border-right: 1px solid var(--border);
 }
+nav a:first-child { border-left: 1px solid var(--border); }
+nav a:hover { color: var(--accent); background: rgba(232,160,32,0.05); }
 
-.skill-name{
-display:flex;
-justify-content:space-between;
-font-size:14px;
-}
-
-.skill-bar{
-background:#233554;
-border-radius:20px;
-overflow:hidden;
-height:8px;
-margin-top:4px;
-}
-
-.skill-fill{
-height:100%;
-background:#ffa600;
-border-radius:20px;
-animation:fillBar 2s forwards;
-}
-
-@keyframes fillBar{
-from{width:0;}
-}
-
-.skill-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-cursor:pointer;
-}
-
-.skill-content{
-max-height:0;
-opacity:0;
-overflow:hidden;
-transition:max-height 0.8s ease, opacity 0.5s ease;
-}
-
-.skill-card.active .skill-content{
-max-height:2000px;
-opacity:1;
-margin-top:10px;
-}
-
-.skill-arrow{
-color:#ffa600;
-font-size:20px;
-transition:transform 0.3s ease;
-}
-
-.skill-card.active .skill-arrow{
-transform:rotate(90deg);
-}
-
-/* ===== Smooth Fade In Animation ===== */
-.fade-in {
-opacity: 0;
-transform: translateY(30px);
-transition: opacity 0.5s ease, transform 0.5s ease;
-}
-.fade-in.visible {
-opacity: 1;
-transform: translateY(0);
-}
-
-/* ===== Hero Gradient Glow ===== */
+/* ─── HERO ─── */
 header {
-background: radial-gradient(circle at center, rgba(100,255,218,0.1), transparent 70%);
-animation: pulseGlow 6s infinite alternate;
-}
-@keyframes pulseGlow {
-from { background-size: 100% 100%; }
-to { background-size: 120% 120%; }
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 40px 60px;
+  z-index: 1;
+  overflow: hidden;
 }
 
-/* ===== Profile Image ===== */
-.profile-img { 
-width: 180px; 
-height: 180px; 
-border-radius: 50%; 
-margin-bottom: 20px; 
-border: 3px solid #ffa600; 
-box-shadow: 0 0 20px rgba(100,255,218,0.4); 
-animation: float 4s ease-in-out infinite; 
-object-fit: cover; }
+.hero-grid-lines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(232,160,32,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,160,32,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  pointer-events: none;
+}
 
+.hero-glow {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,160,32,0.07) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: glowPulse 6s ease-in-out infinite alternate;
+}
+@keyframes glowPulse {
+  from { transform: translate(-50%,-50%) scale(1); opacity: 0.7; }
+  to   { transform: translate(-50%,-50%) scale(1.2); opacity: 1; }
+}
+
+.profile-img {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 6px rgba(232,160,32,0.08), 0 0 40px rgba(232,160,32,0.2);
+  margin-bottom: 32px;
+  animation: float 5s ease-in-out infinite;
+  position: relative; z-index: 1;
+}
 @keyframes float {
-0% { transform: translateY(0px); }
-50% { transform: translateY(-10px); }
-100% { transform: translateY(0px); }
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-/* ===== Card Hover Effect ===== */
-.card:hover, .skill-card:hover {
-transform: translateY(-5px);
-transition: 0.3s ease;
-box-shadow: 0 10px 20px rgba(100,255,218,0.2);
+.hero-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s forwards;
+  position: relative; z-index: 1;
 }
 
-/* ===== Section Divider Glow ===== */
+.hero-name {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(38px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.4s forwards;
+  position: relative; z-index: 1;
+}
+.hero-name span { color: var(--accent); }
+
+.hero-sub {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 520px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.6s forwards;
+  position: relative; z-index: 1;
+}
+
+.hero-tags {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.8s forwards;
+  position: relative; z-index: 1;
+}
+.tag {
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 12px;
+  color: var(--muted);
+  background: rgba(232,160,32,0.04);
+  letter-spacing: 0.04em;
+  transition: border-color 0.3s, color 0.3s;
+}
+.tag:hover { border-color: var(--accent); color: var(--accent); }
+
+.scroll-hint {
+  position: absolute; bottom: 36px;
+  left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: var(--muted); font-size: 11px; letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0; animation: fadeUp 1s 1.2s forwards;
+  z-index: 1;
+}
+.scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── SECTIONS ─── */
 section {
-position: relative;
+  position: relative;
+  z-index: 1;
+  padding: 80px 5vw;
+  max-width: 1100px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
-section::after {
-content: "";
-position: absolute;
-bottom: 0;
-left: 50%;
-width: 60%;
-height: 1px;
-background: linear-gradient(to right, transparent, #ffa600, transparent);
-transform: translateX(-50%);
-opacity: 0.3;
+section.visible { opacity:1; transform: translateY(0); }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.section-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
 }
 
-/* ===== Button Animation ===== */
-button {
-transition: 0.3s ease;
+/* ─── CARDS ─── */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-bottom: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
 }
-button:hover {
-transform: scale(1.05);
-box-shadow: 0 0 15px #ffa600;
-}
-
-/* ===== Background Image Overlay (Subtle Tech Pattern) ===== */
-body::before {
-content: "";
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: url('c.jpeg') no-repeat center center fixed;
-background-size: cover;
-animation: zoomBg 20s infinite alternate ease-in-out;
-z-index: -2;
-}
-     
-
-/* VIDEO MODAL */
-.video-modal{
-display:none;
-position:fixed;
-z-index:2000;
-left:0; top:0;
-width:100%; height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
+.card:hover {
+  border-color: rgba(232,160,32,0.35);
+  box-shadow: 0 8px 32px rgba(232,160,32,0.08);
+  transform: translateY(-2px);
 }
 
-.video-content{
-background:#020c1b;
-padding:10px;
-border-radius:10px;
-width:40%;
-max-width:450px;
-height:300px;   
-display:flex;
-justify-content:center;
-align-items:center;
-box-shadow:0 0 15px #ffa600;
-position:relative;
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
 }
 
-video{
-width:100%;
-height:100%;
-object-fit:contain;
-border-radius:8px;
+.card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+}
+.card-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.card-meta span {
+  color: var(--accent);
 }
 
-.close-btn{
-position:absolute;
-top:5px;
-right:10px;
-font-size:22px;
-color:#ffa600;
-cursor:pointer;
-z-index:10;   /* 👈 VERY IMPORTANT */
+.expand-btn {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: 300;
+  flex-shrink: 0;
+  transition: background 0.3s, transform 0.4s, border-color 0.3s;
+}
+.card.open .expand-btn {
+  transform: rotate(45deg);
+  background: rgba(232,160,32,0.1);
+  border-color: var(--accent);
 }
 
-video{
-width:100%;
-height:100%;
-object-fit:contain;
-border-radius:8px;
-z-index:1;
+.card-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.4s;
+  opacity: 0;
+}
+.card.open .card-body {
+  max-height: 2400px;
+  opacity: 1;
+  padding-top: 24px;
 }
 
-     
+.card-body p { color: var(--text); margin-bottom: 14px; }
+.card-body ul { padding-left: 20px; color: var(--muted); }
+.card-body ul li { margin-bottom: 6px; }
+.card-body b { color: var(--accent2); font-weight: 500; }
+.card-body u { text-decoration-color: var(--accent); }
+
+.card-body h5 {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--teal);
+  margin: 20px 0 10px;
+}
+
+/* ─── EDU GRID ─── */
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 700px) { .edu-grid { grid-template-columns: 1fr; } }
+
+.edu-card {
+  background: rgba(61,214,200,0.04);
+  border: 1px solid rgba(61,214,200,0.15);
+  border-radius: 10px;
+  padding: 24px;
+}
+.edu-card .degree {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.edu-card .school {
+  font-size: 13px;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+.edu-card p { font-size: 13px; color: var(--muted); }
+
+/* ─── SKILLS ─── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.skill-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+.skill-card:hover {
+  border-color: rgba(232,160,32,0.3);
+  transform: translateY(-2px);
+}
+
+.skill-card-header {
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.skill-card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  display: flex; align-items: center; gap: 10px;
+}
+.skill-card-title .icon { font-size: 18px; }
+
+.skill-arrow {
+  color: var(--accent);
+  font-size: 14px;
+  transition: transform 0.3s;
+}
+.skill-card.open .skill-arrow { transform: rotate(90deg); }
+
+.skill-card-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.4s;
+  opacity: 0;
+  padding: 0 24px;
+}
+.skill-card.open .skill-card-body {
+  max-height: 800px;
+  opacity: 1;
+  padding: 0 24px 20px;
+}
+
+.skill-divider { height: 1px; background: var(--border); margin: 0 24px; }
+
+.skill-row { margin: 12px 0; }
+.skill-row-top {
+  display: flex; justify-content: space-between;
+  font-size: 13px; color: var(--text);
+  margin-bottom: 6px;
+}
+.skill-row-top span { color: var(--muted); font-size: 12px; }
+.skill-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.skill-fill {
+  height: 100%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+.skill-category {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--teal);
+  margin: 16px 0 8px;
+}
+
+/* ─── EXTRA CARDS ─── */
+.extra-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 800px) { .extra-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 500px) { .extra-grid { grid-template-columns: 1fr; } }
+
+.extra-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  cursor: pointer;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.extra-card:hover { border-color: rgba(232,160,32,0.3); transform: translateY(-2px); }
+.extra-card-icon { font-size: 24px; margin-bottom: 12px; }
+.extra-card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px; font-weight: 700;
+  color: #fff; margin-bottom: 8px;
+}
+.extra-card-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.6s ease, opacity 0.4s;
+  opacity: 0;
+}
+.extra-card.open .extra-card-body { max-height: 400px; opacity: 1; padding-top: 12px; }
+.extra-card-body ul { padding-left: 18px; }
+.extra-card-body ul li { font-size: 13px; color: var(--muted); margin-bottom: 5px; }
+.extra-card-toggle { color: var(--accent); font-size: 18px; float: right; margin-top: -36px; transition: transform 0.3s; }
+.extra-card.open .extra-card-toggle { transform: rotate(45deg); }
+
+/* ─── WATCH BTN ─── */
+.watch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+  margin-top: 16px;
+}
+.watch-btn:hover {
+  background: rgba(232,160,32,0.1);
+  box-shadow: 0 0 20px rgba(232,160,32,0.2);
+}
+
+/* ─── VIDEO MODAL ─── */
+.modal {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 5000;
+  justify-content: center;
+  align-items: center;
+}
+.modal.show { display: flex; }
+.modal-inner {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  width: min(90vw, 480px);
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.modal-close {
+  position: absolute; top: 10px; right: 14px;
+  font-size: 20px; color: var(--accent);
+  cursor: pointer; z-index: 10;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.modal-close:hover { background: rgba(232,160,32,0.1); }
+.modal-inner video {
+  width: 100%; border-radius: 8px;
+  max-height: 60vh; object-fit: contain;
+}
+
+/* ─── DOWNLOAD + FOOTER ─── */
+.download-section {
+  text-align: center;
+  padding: 60px 20px;
+  position: relative; z-index: 1;
+}
+.download-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.download-btn:hover {
+  box-shadow: 0 8px 32px rgba(232,160,32,0.4);
+  transform: translateY(-2px);
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+  position: relative; z-index: 1;
+}
+footer a { color: var(--accent); text-decoration: none; }
+
+/* ─── TIMELINE DOTS (experience) ─── */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+.timeline::before {
+  content: '';
+  position: absolute; left: 0; top: 8px; bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+.timeline .card {
+  position: relative;
+}
+.timeline .card::before {
+  content: '';
+  position: absolute;
+  left: -34px; top: 28px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(232,160,32,0.6);
+}
+
+/* ─── ABOUT PROSE ─── */
+.about-prose {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.85;
+  max-width: 720px;
+}
+.about-prose .highlight {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 600px) {
+  nav a { padding: 14px 14px; font-size: 10px; }
+  section { padding: 60px 20px; }
+  .card { padding: 20px; }
+}
+
+
+
+
 </style>
-
 </head>
-
 <body>
 
 <canvas id="circuit-bg"></canvas>
 
-
 <nav>
-<a href="#about">About</a>
-<a href="#experience">Experience</a>
-<a href="#education">Education</a>
-<a href="#projects">Projects</a>
-<a href="#skills">Skills</a>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
 </nav>
 
+<!-- ─── HERO ─── -->
 <header>
-<img src="picture.jpg" 
-     class="profile-img" >
-<h1 class="glow-name">Chittaranjan Govindaraju</h1>
-<div class="typing">M.Sc. Mechanical Engineering Student @ Karlsruhe Institute of Technology</div>
-<div class="typing">Vehicle Technology and Dynamics & Control</div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-glow"></div>
+  <img src="picture.jpg" class="profile-img" alt="Chittaranjan Govindaraju">
+  <div class="hero-label">Mechanical Engineer</div>
+  <h1 class="hero-name">Chittaranjan<br><span>Govindaraju</span></h1>
+  <p class="hero-sub">M.Sc. Student at Karlsruhe Institute of Technology · Vehicle Technology · Dynamics & Control</p>
+  <div class="hero-tags">
+    <span class="tag">Vehicle Dynamics</span>
+    <span class="tag">Control Systems</span>
+    <span class="tag">FEA / CAE</span>
+    <span class="tag">Autonomous Vehicles</span>
+    <span class="tag">Embedded Systems</span>
+    <span class="tag">Python · C/C++</span>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
 </header>
 
-<!-- ABOUT -->
+<!-- ─── ABOUT ─── -->
 <section id="about">
-<h2>About Me</h2>
-<div class="card expandable" onclick="toggleProject(this)">
-<div class="expandable-header">
-<h4>Master’s student</h4>
-<span class="expand-icon">+</span>
-</div>
+  <div class="section-header">
+    <div>
+      <div class="section-label">01 — Profile</div>
+      <div class="section-title">About Me</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+  <p class="about-prose">
+    I'm a postgraduate student pursuing my <span class="highlight">M.Sc. in Mechanical Engineering</span> at the Karlsruhe Institute of Technology (KIT), specializing in <span class="highlight">Vehicle Technology</span> and <span class="highlight">Dynamics & Control</span>.
+    <br><br>
+    My work sits at the intersection of mechanical design, system dynamics, and intelligent vehicle technology. I'm driven by the challenges of developing efficient, high-performance automotive systems — from control algorithm design and simulation to hands-on prototype validation.
+    <br><br>
+    Through academic coursework and industry internships at companies like <span class="highlight">BEML Limited</span> and <span class="highlight">Mercedes-Benz</span>, I've built strong foundations in simulation-driven engineering, FEA, and embedded programming — all applied toward the future of <span class="highlight">autonomous and sustainable mobility</span>.
+  </p>
+</section>
 
-<div class="edu-cards">
-<div class="edu-card">
-<p class="full-text">
-I am a postgraduate student currently studying for my Master's degree in Mechanical Engineering at the Karlsruhe Institute of Technology (KIT), with specializations in Vehicle Technology, Dynamics, and Control.
-<br><br>
-From my academic background, I have gained substantial knowledge in the field of mechanical design, system dynamics, and engineering analysis. I have an innate interest in the field of vehicle dynamics, control systems, and advanced vehicle technology. I am particularly driven by the challenges involved in the development of efficient, intelligent, and high-performance vehicle technology.
-<br><br>
-From my academic curriculum and practical project experience, I have gained substantial knowledge in the field of simulation, modeling, and optimization techniques. I have the ability to analyze complex engineering problems and design appropriate solutions.
-<br><br>
-I am particularly interested in the field of the automotive industry, particularly in the field of vehicle dynamics, control systems, autonomous vehicles, and sustainable vehicle technology. I aim to apply my knowledge, analytical skills, and creativity to develop innovative engineering solutions for the future.     
-</p>
-</div>
-</div>
-</div>
-
-
- <!-- EDUCATION -->
+<!-- ─── EDUCATION ─── -->
 <section id="education">
-<h2>Education</h2>
-<div class="card expandable" onclick="toggleEducation(this)">
-<div class="expandable-header">
-<h4>Education</h4>
-<span class="expand-icon">+</span>
-</div>
-<p class="short-text">
-M.Sc. Mechanical Engineering - Karlsruhe Institute of Technology<br>
-B.E. Mechanical Engineer – St Joseph’s College of Engineering
-</p>
-<div class="edu-cards">
-<div class="edu-card">
-<p><b>M.Sc. Mechanical Engineering </b><br> 
-Karlsruhe Institute of Technology (2025 – 2027)  <br><br>
-Specialization in Vehicle Technology and Dynamics & Control, where the focus is on advanced vehicle dynamics, control, and intelligent mobility. Some of the relevant courses include Automotive Engineering and Deep Learning and Probabilistic Methods for Perception and Planning, where the focus is on the integration of data-driven techniques and modern vehicle technologies and autonomous vehicles.  
-</p>
-</div>
-<div class="edu-card">
-<p><b>B.E. Mechanical Engineering</b><br>
-St. Joseph’s College of Engineering (2019 – 2023)<br>
-Final Grade: 2.0 ECTS
-<br><br>
-Gained a solid grounding in the fundamental principles of mechanical engineering, including engineering mechanics, thermodynamics, fluid mechanics, manufacturing, and machine design. Some of the relevant academic courses include Design of Machine Elements, Design of Transmission Systems, Finite Element Analysis, Mechatronics, Kinematics of Machinery, Simulation and Analysis, and Thermal Engineering.  
-<br><br>
-My final year research project, titled “Tribological Behaviour of WC-Co Reinforced Al6061 Metal Matrix Composite,” was on the development and mechanical properties of advanced metal matrix composites, including the analysis of improvements in wear and structural properties.
-</p>
-</div>
-</div>
-</div>
-</section>    
+  <div class="section-header">
+    <div>
+      <div class="section-label">02 — Academic</div>
+      <div class="section-title">Education</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="degree">M.Sc. Mechanical Engineering</div>
+      <div class="school">Karlsruhe Institute of Technology</div>
+      <p>2025 – 2027 · Specialization in Vehicle Technology and Dynamics & Control. Courses include Automotive Engineering, Deep Learning, and Probabilistic Methods for Perception and Planning.</p>
+    </div>
+    <div class="edu-card">
+      <div class="degree">B.E. Mechanical Engineering</div>
+      <div class="school">St. Joseph's College of Engineering</div>
+      <p>2019 – 2023 · Final Grade: 2.0 ECTS · Coursework in FEA, Mechatronics, Kinematics, and Thermal Engineering. Final project on tribological behavior of WC-Co reinforced Al6061 MMC.</p>
+    </div>
+  </div>
+</section>
 
-<!-- EXPERIENCE -->
+<!-- ─── EXPERIENCE ─── -->
 <section id="experience">
-<h2>Engineering Experience</h2>
-     
-<!-- Aurelian Racing – Transmission Engineer -->
-     
-<div class="card expandable" onclick="toggleExperience(this)">
-<div class="expandable-header">
-<h4>
-<b>Transmission Engineer – Student Racing Team</b><br>
-Aurelian Racing (College Team)<br>
-Duration: December 2019 – April 2023<br>
-Location: Chennai, India
-</h4>
-<span class="expand-icon">+</span>
-</div>
-<div class="edu-cards">
-<div class="edu-card">
-<p>
-Worked as a Transmission Lead Engineer for the student racing team Aurelian Racing, contributing to the design and development of an off-road racing buggy and optimizing drivetrain performance.
-</p>
-<br>
-<b>Key Responsibilities & Contributions</b>
-<ul>
-<li>Led the design and optimization of the vehicle transmission system to improve drivetrain efficiency.</li>
-<li>Analyzed drivetrain parameters such as gear ratios, torque transmission, and mechanical efficiency.</li>
-<li>Optimized the transmission configuration based on vehicle testing results.</li>
-<li>Collaborated with chassis, suspension, and powertrain teams to enhance overall vehicle performance.</li>
-<li>Participated in vehicle assembly, testing, and troubleshooting during development stages.</li>
-<li>Evaluated motorsport engineering strategies to improve vehicle competitiveness.</li>
-</ul>
-<br>
-<b>Skills & Engineering Areas</b>
-<ul>
-<li>Transmission System Design</li>
-<li>Vehicle Performance Analysis</li>
-<li>Vehicle System Integration</li>
-<li>Mechanical Design and Testing</li>
-<li>Motorsport Engineering Concepts</li>
-</ul>
-<br>
-<b>Outcome</b>
-<p>
-Gained hands-on experience in vehicle powertrain systems and drivetrain performance optimization while working in a multidisciplinary motorsport engineering environment.
-</p>
-</div>
-</div>
-</div>
+  <div class="section-header">
+    <div>
+      <div class="section-label">03 — Career</div>
+      <div class="section-title">Engineering Experience</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
 
-<!-- Design & Development Intern -->
-     
-<div class="card expandable" onclick="toggleExperience(this)">
-<div class="expandable-header">
-<h4>
-<b>Design & Development Intern</b><br>Design Centre – Industry Internship<br>Duration: August 24, 2021 – September 10, 2021
-</h4>
-<span class="expand-icon">+</span>
-</div>
-<div class="edu-cards">
-<div class="edu-card">
-<p>
-During my internship at Design Centre, I have gained practical knowledge in the design and development process of engineering products associated with international companies like Vetus (Netherlands) and Philips (India).
-</p>
-<br>
-<b>Key Responsibilities & Learning Outcomes:</b>
-<ul>
-<li>I have assisted in design and development activities in the engineering design team.</li>
-<li>I have gained knowledge in the process of industrial design and design evaluation.</li>
-<li>I have gained knowledge in engineering components and structures used in commercial products.</li>
-<li>I have gained knowledge in working with team members in reviewing design specifications and in supporting design and development activities.</li>
-<li>I have gained knowledge in the importance of design accuracy in product development.</li>
-</ul>
-<br>
-<b>Skills Developed:</b>
-<ul>
-<li>Engineering design fundamentals</li>
-<li>Product development process</li>
-<li>Technical documentation</li>
-<li>Design analysis and problem-solving</li>
-<li>Team collaboration in an engineering environment</li>
-</ul>
-<br>
-<b>Performance:</b>
-<p>
-I have shown dedication, sincerity, and a proactively learning attitude during my internship at Design Centre and have received positive feedback for my performance.
-</p>
-</div>
-</div>
-</div>
+  <div class="timeline">
 
-<!-- HANON SYSTEMS – Production Engineering Intern-->
+    <!-- BEML -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Research & Development Engineering Intern</div>
+          <div class="card-meta"><span>BEML Limited</span> · R&D Division · Jul 2024 – Jan 2025 (7 Months)</div>
+        </div>
+        <div class="expand-btn">+</div>
+      </div>
+      <div class="card-body">
+        <p>Contributed to the design and development of the BH20SE Electric Drive Pump Truck across a 7-month R&D internship at one of India's major public sector engineering companies.</p>
+        <h5>Key Contributions</h5>
+        <ul>
+          <li>Designed electric powertrain concepts using CATIA</li>
+          <li>Performed FEA for design validation using ANSYS and Altair HyperWorks</li>
+          <li>Developed parameterized engineering models using Python scripts</li>
+          <li>Collaborated with ECU engineering team to analyze and optimize system performance</li>
+          <li>Worked across Fluid Power, Powertrain, Structural, and Materials Engineering teams</li>
+        </ul>
+        <h5>Tools & Tech</h5>
+        <ul>
+          <li>CAD: CATIA · Simulation: ANSYS, Altair HyperWorks · Programming: Python</li>
+        </ul>
+      </div>
+    </div>
 
-<div class="card expandable" onclick="toggleExperience(this)">
-<div class="expandable-header">
-<h4>
-<b>Production Engineering Intern</b><br>
-Company Name: Hanon Systems – Hanon Automotive Systems India Pvt. Ltd.<br>
-Duration: October 26, 2021 – November 1, 2021
-</h4>
-<span class="expand-icon">+</span>
-</div>
-<div class="edu-cards">
-<div class="edu-card">
-<p>
-The internship was completed in an industrial environment in an organization named Hanon Automotive Systems, a global Tier 1 supplier of thermal management systems and HVAC systems for automobile manufacturers like Hyundai and Kia.
-</p>
-<br>
-<b>Key Learning & Responsibilities</b>
-<ul>
-<li>Observed and studied various manufacturing processes associated with the production of an automotive HVAC system.</li>
-<li>Gained experience in production technology associated with cutting, processing, and assembly of automotive components.</li>
-<li>Learned about various injection moulding techniques associated with the production of HVAC plastic parts.</li>
-<li>Gained an understanding of engineering principles associated with vibration control and noise reduction in automotive components.</li>
-<li>Gained an understanding of various concepts associated with topology optimization and design considerations for automotive components.</li>
-</ul>
-<br>
-<b>Skills & Knowledge Gained</b>
-<ul>
-<li>Automotive HVAC System</li>
-<li>Manufacturing and Production Engineering</li>
-<li>Injection Moulding</li>
-<li>Vibration Mitigation in Mechanical Components</li>
-<li>Assembly of Automotive Components</li>
-</ul>
-<br>
-<b>Outcome</b>
-<p>
-The internship experience was valuable in gaining an understanding of various production engineering concepts in an industrial environment.
-</p>
-</div>
-</div>
-</div>
+    <!-- KIT RA -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Student Research Assistant – Measurement & Testing Systems</div>
+          <div class="card-meta"><span>Karlsruhe Institute of Technology</span> · Institute of Thermal Turbomachinery · Oct – Nov 2025</div>
+        </div>
+        <div class="expand-btn">+</div>
+      </div>
+      <div class="card-body">
+        <p>Completed laboratory coursework focused on measurement engineering and experimental data acquisition systems using NI LabVIEW technology.</p>
+        <h5>Key Work</h5>
+        <ul>
+          <li>Designed measurement systems using NI myDAQ hardware and NI LabVIEW software</li>
+          <li>Integrated and calibrated sensors: thermocouples, strain gauges, pressure transducers, microphones, IR cameras</li>
+          <li>Implemented FFT-based frequency analysis for signal processing</li>
+          <li>Designed automated testing procedures and error-handling mechanisms</li>
+        </ul>
+      </div>
+    </div>
 
-<!-- MERCEDES BENZ INTERNSHIP -->
+    <!-- Transmission -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Transmission Engineer – Student Racing Team</div>
+          <div class="card-meta"><span>Aurelian Racing</span> · Dec 2019 – Apr 2023 · Chennai, India</div>
+        </div>
+        <div class="expand-btn">+</div>
+      </div>
+      <div class="card-body">
+        <p>Led transmission system design for an off-road racing buggy, working across chassis, suspension, and powertrain teams to optimize drivetrain performance.</p>
+        <h5>Key Work</h5>
+        <ul>
+          <li>Led design and optimization of the vehicle transmission system</li>
+          <li>Analyzed gear ratios, torque transmission, and mechanical efficiency</li>
+          <li>Optimized transmission configuration from vehicle testing results</li>
+          <li>Participated in vehicle assembly, testing, and troubleshooting</li>
+        </ul>
+      </div>
+    </div>
 
-<div class="card expandable" onclick="toggleExperience(this)">
-<div class="expandable-header">
-<h4>
-<b>Automotive Service & Maintenance Intern</b><br>
-Company: Mercedes-Benz – Periodic Maintenance Department<br>
-Duration: August 2022 – 1 Month
-</h4>
-<span class="expand-icon">+</span>
-</div>
-<div class="edu-cards">
-<div class="edu-card">
-<p>
-Completed an internship in the Periodic Maintenance Department of Mercedes-Benz, gaining exposure to the latest technologies and systems in high-end luxury vehicles. The internship gave exposure to in-depth knowledge of how advanced technologies in high-end luxury cars operate and how they can be maintained in Mercedes-Benz models.
-</p>
-<br>
-<b>Key Learning and Technical Exposure</b>
-<ul>
-<li>Learned about the working of the automatic torque converter transmission system and its servicing.</li>
-<li>Got exposure to the Pneumatic Air Suspension System, which is utilized in high-end Mercedes-Benz models.</li>
-<li>Learned about the Electronic Control Unit and its usage in high-end models like the Mercedes-AMG GT 63 S.</li>
-<li>Learned about the advanced braking systems and safety features of high-end models.</li>
-<li>Learned about the overall vehicle systems and their integration, including powertrain, suspension, and chassis systems.</li>
-</ul>
-<br>
-<b>Skills and Knowledge Gained</b>
-<ul>
-<li>Automotive System Diagnostics</li>
-<li>Automotive Vehicle Powertrain and Transmission System</li>
-<li>Automotive Vehicle Suspension System and Brake System Analysis</li>
-<li>Automotive Vehicle Electronics and Electronic Control Unit System</li>
-<li>Automotive Vehicle System Understanding</li>
-</ul>
-<br>
-<b>Outcome</b>
-<p>
-Demonstrated enthusiasm for the design and engineering of automotive systems, gaining valuable knowledge of vehicle maintenance and diagnostics in high-end luxury models.
-</p>
-</div>
-</div>
-</div>
+    <!-- Mercedes -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Automotive Service & Maintenance Intern</div>
+          <div class="card-meta"><span>Mercedes-Benz</span> · Periodic Maintenance Department · Aug 2022 (1 Month)</div>
+        </div>
+        <div class="expand-btn">+</div>
+      </div>
+      <div class="card-body">
+        <p>Gained exposure to advanced luxury vehicle systems at Mercedes-Benz, studying high-end technologies including the Mercedes-AMG GT 63 S.</p>
+        <h5>Technical Exposure</h5>
+        <ul>
+          <li>Automatic torque converter transmission system and servicing</li>
+          <li>Pneumatic Air Suspension System in high-end models</li>
+          <li>Electronic Control Unit (ECU) diagnostics</li>
+          <li>Advanced braking systems and safety features</li>
+          <li>Powertrain, suspension, and chassis integration</li>
+        </ul>
+      </div>
+    </div>
 
-<!-- BEML – R&D Engineering Intern-->
-     
-<div class="card expandable" onclick="toggleExperience(this)">
-<div class="expandable-header">
-<h4>
-<b>Research & Development Engineering Intern</b><br>
-BEML Limited – R&D Division<br>
-Duration: July 27, 2024 – January 31, 2025 (7 Months)
-</h4>
-<span class="expand-icon">+</span>
-</div>
-<div class="edu-cards">
-<div class="edu-card">
-<p>
-Completed a seven-month internship in the Research & Development Division of BEML Limited contributing to the design and development of the BH20SE Electric Drive Pump Truck.
-</p>
-<br>
-<b>Key Responsibilities & Contributions</b>
-<ul>
-<li>Contributed to the design and development of electric powertrain concepts using CATIA.</li>
-<li>Assessed functional requirements and engineering specifications for the Electric Drive Pump Truck.</li>
-<li>Performed Finite Element Analysis for design validation using ANSYS and Altair HyperWorks.</li>
-<li>Validated design concepts using simulation results and experimental test data.</li>
-<li>Developed parameterized engineering models using Python scripts.</li>
-<li>Collaborated with the ECU engineering team to analyze and optimize system performance.</li>
-<li>Worked with multidisciplinary teams including Fluid Power, Powertrain, Structural, and Materials Engineering.</li>
-<li>Presented engineering findings and design concepts to the R&D engineering team.</li>
-</ul>
-<br>
-<b>Tools & Technologies</b>
-<ul>
-<li>CAD: CATIA</li>
-<li>Simulation: ANSYS, Altair HyperWorks</li>
-<li>Programming: Python</li>
-<li>Engineering Domains: Electric Powertrain Systems, Structural Validation, System Optimization</li>
-</ul>
-<br>
-<b>Outcome</b>
-<p>
-Demonstrated strong analytical ability, adaptability, and initiative while working in a large-scale industrial R&D environment and contributed to simulation-driven engineering design and validation.
-</p>
-</div>
-</div>
-</div>   
+    <!-- Hanon -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Production Engineering Intern</div>
+          <div class="card-meta"><span>Hanon Automotive Systems India</span> · Oct – Nov 2021</div>
+        </div>
+        <div class="expand-btn">+</div>
+      </div>
+      <div class="card-body">
+        <p>Interned at a global Tier 1 thermal and HVAC system supplier serving Hyundai and Kia. Studied HVAC manufacturing processes and automotive component assembly.</p>
+        <h5>Skills Gained</h5>
+        <ul>
+          <li>Automotive HVAC system manufacturing processes</li>
+          <li>Injection moulding for automotive plastic parts</li>
+          <li>Vibration mitigation in mechanical components</li>
+          <li>Topology optimization for automotive design</li>
+        </ul>
+      </div>
+    </div>
 
+    <!-- Design Centre -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Design & Development Intern</div>
+          <div class="card-meta"><span>Design Centre</span> · Aug – Sep 2021</div>
+        </div>
+        <div class="expand-btn">+</div>
+      </div>
+      <div class="card-body">
+        <p>Supported engineering design teams working on products for international clients including Vetus (Netherlands) and Philips (India), gaining experience in design processes, specifications review, and product development.</p>
+      </div>
+    </div>
 
-<!-- KIT – Student Research Assistant -->
-     
-<div class="card expandable" onclick="toggleExperience(this)">
-<div class="expandable-header">
-<h4>
-<b>Student Research Assistant – Measurement & Testing Systems</b><br>
-Karlsruhe Institute of Technology – Institute of Thermal Turbomachinery<br>
-Duration: October 2025 – November 2025
-</h4>
-<span class="expand-icon">+</span>
-</div>
-<div class="edu-cards">
-<div class="edu-card">
-<p>
-Completed laboratory coursework focused on measurement engineering and experimental data acquisition systems using NI LabVIEW technology.
-</p>
-<br>
-<b>Key Responsibilities & Contributions</b>
-<ul>
-<li>Designed measurement systems using NI myDAQ hardware and NI LabVIEW software.</li>
-<li>Integrated and calibrated engineering sensors such as thermocouples, strain gauges, pressure transducers, microphones, and infrared cameras.</li>
-<li>Developed LabVIEW Virtual Instruments (VIs) for data acquisition and automation.</li>
-<li>Implemented FFT-based frequency analysis for signal processing.</li>
-<li>Designed automated testing procedures and error-handling mechanisms.</li>
-<li>Conducted data evaluation and compared measured results with analytical predictions.</li>
-<li>Analyzed measurement uncertainty and system accuracy.</li>
-<li>Documented experimental results and system performance.</li>
-</ul>
-<br>
-<b>Tools & Technologies</b>
-<ul>
-<li>Software: LabVIEW</li>
-<li>Hardware: NI myDAQ</li>
-<li>Measurement Techniques: Sensor Calibration, Signal Processing, FFT Analysis</li>
-<li>Engineering Domains: Experimental Testing and Data Acquisition Systems</li>
-</ul>
-<br>
-<b>Outcome</b>
-<p>
-Developed strong practical knowledge in measurement systems, data acquisition technology, and signal processing techniques used in engineering research environments.
-</p>
-</div>
-</div>
-</div>
+  </div>
+</section>
 
-
-<!-- PROJECTS -->
+<!-- ─── PROJECTS ─── -->
 <section id="projects">
-<h2>Projects</h2>
+  <div class="section-header">
+    <div>
+      <div class="section-label">04 — Work</div>
+      <div class="section-title">Projects</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
 
-<!-- ARDUINO ROBOT -->
-<div class="card expandable" onclick="toggleProject(this)">
-<div class="expandable-header">
-<h4>Self-Balancing Robot - Nonlinear Control and Real-Time Implementation<br>
-<b>Institution:</b> Karlsruhe Institute of Technology<br>
-<b>Industrial Partner:</b> Bosch Rexroth
-</h4>
-<span class="expand-icon">+</span>
-</div>
-<div class="edu-cards">
-<div class="edu-card">
-<p>
-</p>
-<p>
-Control strategies were developed and analyzed for the self-balancing robot, which is a classical benchmark for the study of nonlinear and unstable systems. The emphasis of the project has been to design closed-loop feedback control systems to stabilize the inherently unstable system, which is subject to various forms of disturbances and uncertainties.
-</p>
-<br>
-<b>Objectives</b>
-<ul>
-<li>Analyze the nonlinear behavior of the unstable robotic system.</li>
-<li>Design and analyze feedback control strategies for system stabilization.</li>
-<li>Design and implement real-time control algorithms.</li>
-</ul>
-<br>
-<b>Key Work and Contributions</b>
-<ul>
-<li>Modeled the nonlinear dynamics of the self-balancing robot.</li>
-<li>Analyzed system behavior using simulation tools for dynamic system modeling.</li>
-<li>Designed feedback control strategies to stabilize the system.</li>
-<li>Implemented real-time control algorithms using embedded programming in C/C++.</li>
-<li>Evaluated system performance under disturbances and uncertainties.</li>
-<li>Investigated nonlinear model-based and learning-based control strategies.</li>
-</ul>
-<br>
-<b>Skills and Technologies Used</b>
-<ul>
-<li>Control Systems Engineering</li>
-<li>Nonlinear Dynamic System Modeling</li>
-<li>MIMO System Analysis</li>
-<li>Embedded Programming (C/C++)</li>
-<li>Real-Time Control Implementation</li>
-<li>Simulation and Control Validation</li>
-</ul>
-<br>
-<b>Industrial Relevance</b>
-<p>
-The project provided exposure to industrial control applications in mobile robotics, hydraulic systems, and autonomous systems through collaboration with Bosch Rexroth, a global leader in industrial automation and motion control technologies.
-</p>    
-<br>
-<button onclick="event.stopPropagation(); openVideo();">▶ Watch Robot Demo</button>
-</div>
-</div>
-</div>
+  <!-- Robot -->
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Self-Balancing Robot — Nonlinear Control & Real-Time Implementation</div>
+        <div class="card-meta"><span>Karlsruhe Institute of Technology</span> · Industrial Partner: Bosch Rexroth</div>
+      </div>
+      <div class="expand-btn">+</div>
+    </div>
+    <div class="card-body">
+      <p>Developed and analyzed control strategies for a self-balancing robot — a classical benchmark for nonlinear and unstable systems — focusing on closed-loop feedback control under disturbances and uncertainties.</p>
+      <h5>Key Work</h5>
+      <ul>
+        <li>Modeled nonlinear dynamics of the self-balancing robot</li>
+        <li>Designed feedback control strategies (PID, state-space, model-based)</li>
+        <li>Implemented real-time control algorithms in embedded C/C++</li>
+        <li>Evaluated performance under disturbances and investigated learning-based control strategies</li>
+      </ul>
+      <h5>Skills</h5>
+      <ul>
+        <li>Control Systems · Nonlinear Dynamics · MIMO Analysis · Embedded C/C++ · Real-Time Implementation</li>
+      </ul>
+      <button class="watch-btn" onclick="event.stopPropagation(); openVideo();">
+        ▶ Watch Robot Demo
+      </button>
+    </div>
+  </div>
 
+  <!-- Auto Lab -->
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Automotive Laboratory Experiments — Vehicle Dynamics & Energy Systems</div>
+        <div class="card-meta"><span>Institut für Fahrzeugsystemtechnik</span> · KIT</div>
+      </div>
+      <div class="expand-btn">+</div>
+    </div>
+    <div class="card-body">
+      <p>Six practical lab exercises covering vehicle dynamics, drivetrain behavior, suspension systems, and energy efficiency through experimental measurement and analytical evaluation.</p>
+      <h5>Topics Covered</h5>
+      <ul>
+        <li><b>Driving Resistance Analysis</b> — rolling resistance, aerodynamic drag, gradient & acceleration forces</li>
+        <li><b>Energy Consumption & WLTP</b> — urban, suburban, and highway driving cycle efficiency</li>
+        <li><b>Tire Dynamics & Traction</b> — slip ratio analysis, optimal traction (10–20% slip)</li>
+        <li><b>Shock Absorber Characteristics</b> — force-velocity curves, mono/twin-tube dampers</li>
+        <li><b>Viscous Coupling & AWD</b> — torque distribution via fluid shear forces</li>
+        <li><b>Vehicle Testing</b> — coast-down tests, dynamometer measurements, data evaluation</li>
+      </ul>
+    </div>
+  </div>
 
-<!-- Automotive Laboratory Experiments -->    
-<div class="card expandable" onclick="toggleProject(this)">
-<div class="expandable-header">
-<h4>
-Automotive Laboratory Experiments – Vehicle Dynamics and Energy Systems<br>
-Institut für Fahrzeugsystem­technik
-</h4>
-<span class="expand-icon">+</span>
-</div>
-<div class="edu-cards">
-<div class="edu-card">
-<p>
-Through six automotive laboratory exercises, I gained practical experience in vehicle dynamics, drivetrain systems, suspension behavior, and vehicle energy efficiency through experimental measurement and analytical evaluation.
-</p>
-<br>
-<b>Key Concepts and Skills Developed</b><br>
-<ul>
-<li><b><u>Vehicle Driving Resistance Analysis</b></u><br>
-<ul>
-<li>Analyzed forces acting on a moving vehicle including rolling resistance, aerodynamic drag, gradient resistance, and acceleration resistance.</li>
-<li>Evaluated the influence of vehicle speed on power consumption.</li>
-</ul>
-</li><br>
-<li><u><b>Vehicle Energy Consumption & Driving Cycles</b></u><br>
-<ul>
-<li>Studied vehicle energy consumption using the WLTP driving cycle.</li>
-<li>Analyzed the influence of urban, suburban, and highway driving conditions on vehicle efficiency.</li>
-</ul>
-</li><br>
-<li><u><b>Tire Dynamics & Traction Behavior</b></u><br>
-<ul>
-<li>Studied tire slip ratio and its relationship with tire friction forces.</li>
-<li>Analyzed optimal traction conditions where slip ratio ranges between 10–20%.</li>
-</ul>
-</li><br>
-<li><u><b>Suspension & Shock Absorber Characteristics</b></u><br>
-<ul>
-<li>Analyzed force-velocity characteristics of shock absorbers during compression and extension strokes.</li>
-<li>Studied different damper designs including monotube and twin-tube dampers.</li>
-</ul>
-</li><br>
-<li><u><b>Drivetrain Torque Transfer Systems</b></u><br>
-<ul>
-<li>Studied the working principle of viscous couplings used in all-wheel-drive vehicles.</li>
-<li>Analyzed torque distribution mechanisms using fluid shear forces during wheel slip.</li>
-<li>Evaluated torque transfer effects on traction control and drivetrain protection.</li>
-</ul>
-</li><br>
-<li><u><b>Automotive Testing and Experimental Analysis</b></u><br>
-<ul>
-<li>Conducted vehicle performance testing using coast-down tests and dynamometer measurements.</li>
-<li>Interpreted experimental data to evaluate vehicle performance.</li>
-<li>Performed analytical evaluation of automotive systems based on measured data.</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-
-<!-- Engineering Research Project -->
-<div class="card expandable" onclick="toggleProject(this)">
-<div class="expandable-header">
-<h4>
-Engineering Research Project – Tribological Behavior of WC-Co Reinforced Al6061 Metal Matrix Composite
-</h4>
-<span class="expand-icon">+</span>
-</div>
-<div class="edu-cards">
-<div class="edu-card">
-<p>
-<b>Institution:</b> St. Joseph’s College of Engineering (Anna University), Chennai<br>
-<b>Duration:</b> Aug 2022 – Mar 2023
-</p>
-<p>
-Carried out a research project to develop a metal matrix composite material using WC-Co reinforced Al6061 to improve the tribological behavior of the material.
-</p>
-<br>
-<u><b>Objective</b></u>
-<ul>
-<li>To study the tribological behavior of WC-Co reinforced Al6061 composite material.</li>
-</ul>
-<br>
-<u><b>Methodology</b></u>
-<ul>
-<li>Developed the composite material using the stir casting method.</li>
-<li>Optimized process parameters to ensure uniform reinforcement distribution.</li>
-<li>Performed detailed material characterization and experimental analysis.</li>
-</ul>
-<u><b>Stir Casting Parameters</b></u>
-<ul>
-<li>Furnace Temperature: 750°C</li>
-<li>Stirring Speed: 350 rpm</li>
-<li>Casting Time: 15 minutes</li>
-<li>WC-Co Reinforcement Percentage: 80%</li>
-<li>Average Particle Size: ~37 µm</li>
-</ul>
-<br>
-<u><b>Experimental Analysis</b></u>
-<ul>
-<li>Tensile Strength Testing</li>
-<li>Compression Testing</li>
-<li>Impact Testing</li>
-<li>Flexural Testing</li>
-<li>Hardness Testing</li>
-<li>Wear Testing</li>
-</ul>
-<br>
-<u><b>Material Characterization Techniques</b></u>
-<ul>
-<li>Scanning Electron Microscopy (SEM)</li>
-<li>Raman Spectroscopy</li>
-<li>Laser Particle Size Distribution Analysis</li>
-<li>Thermogravimetric Analysis (TGA)</li>
-<li>Electrochemical Corrosion Testing</li>
-</ul>
-<br>
-<u><b>Key Findings</b></u>
-<ul>
-<li>WC-Co reinforcement improved the mechanical strength of the composite.</li>
-<li>Optimized stirring parameters minimized porosity formation.</li>
-<li>Microstructure analysis showed uniform distribution of reinforcement particles.</li>
-<li>The developed composite demonstrates potential for structural applications in automotive and aerospace industries.</li>
-</ul>
-<br>
-<u><b>Skills & Engineering Areas</b></u>
-<ul>
-<li>Metal Matrix Composite (MMC) Fabrication</li>
-<li>Tribology and Wear Analysis</li>
-<li>Materials Characterization Techniques</li>
-<li>Mechanical Testing using ASTM Standards</li>
-<li>Experimental Data Analysis</li>
-</ul>
-</div>
-</div>
-</div>
+  <!-- MMC -->
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Tribological Behavior of WC-Co Reinforced Al6061 Metal Matrix Composite</div>
+        <div class="card-meta"><span>St. Joseph's College of Engineering</span> · Final Year Research · Aug 2022 – Mar 2023</div>
+      </div>
+      <div class="expand-btn">+</div>
+    </div>
+    <div class="card-body">
+      <p>Developed and characterized a WC-Co reinforced Al6061 metal matrix composite to study tribological and mechanical behavior improvements over base aluminum alloy.</p>
+      <h5>Methodology</h5>
+      <ul>
+        <li>Stir casting at 750°C, 350 rpm, 15 min · WC-Co reinforcement: 80% · ~37 µm particle size</li>
+        <li>Testing: Tensile, Compression, Impact, Flexural, Hardness, Wear (ASTM standards)</li>
+        <li>Characterization: SEM, Raman Spectroscopy, TGA, Laser Particle Size Analysis, Electrochemical Corrosion</li>
+      </ul>
+      <h5>Key Findings</h5>
+      <ul>
+        <li>WC-Co reinforcement improved mechanical strength and wear resistance</li>
+        <li>Optimized stirring minimized porosity; uniform particle distribution confirmed by SEM</li>
+        <li>Composite shows potential for automotive and aerospace structural applications</li>
+      </ul>
+    </div>
+  </div>
 
 </section>
 
-<!-- SKILLS -->
-
+<!-- ─── SKILLS ─── -->
 <section id="skills">
-<h2>Technical Skills</h2>
+  <div class="section-header">
+    <div>
+      <div class="section-label">05 — Toolbox</div>
+      <div class="section-title">Technical Skills</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
 
-<div class="skill-card" onclick="toggleSkill(this)">
-<div class="skill-header">
-<h3>💻 Networking</h3>
-<span class="skill-arrow">▶</span>
-</div>
-<div class="skill-content">
+  <div class="skills-grid">
 
-<div class="skill">
-<div class="skill-name">Infrastructure Management <span>90%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-</div>
+    <div class="skill-card" onclick="toggleSkill(this)">
+      <div class="skill-card-header">
+        <div class="skill-card-title"><span class="icon">💻</span> Engineering Software</div>
+        <span class="skill-arrow">▶</span>
+      </div>
+      <div class="skill-divider"></div>
+      <div class="skill-card-body">
+        <div class="skill-category">CAD / Simulation</div>
+        <div class="skill-row"><div class="skill-row-top">CATIA<span>Advanced</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">ANSYS<span>Intermediate</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">Altair HyperWorks<span>Intermediate</span></div><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
+        <div class="skill-category">Data Acquisition</div>
+        <div class="skill-row"><div class="skill-row-top">NI LabVIEW<span>Intermediate</span></div><div class="skill-bar"><div class="skill-fill" data-w="72"></div></div></div>
+      </div>
+    </div>
 
-<div class="skill">
-<div class="skill-name">Troubleshooting <span>75%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-</div>
+    <div class="skill-card" onclick="toggleSkill(this)">
+      <div class="skill-card-header">
+        <div class="skill-card-title"><span class="icon">👨‍💻</span> Programming</div>
+        <span class="skill-arrow">▶</span>
+      </div>
+      <div class="skill-divider"></div>
+      <div class="skill-card-body">
+        <div class="skill-category">Languages</div>
+        <div class="skill-row"><div class="skill-row-top">Python<span>70%</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">C / C++ (Embedded)<span>75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">Java<span>50%</span></div><div class="skill-bar"><div class="skill-fill" data-w="50"></div></div></div>
+        <div class="skill-category">Web</div>
+        <div class="skill-row"><div class="skill-row-top">HTML / CSS<span>75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
+      </div>
+    </div>
 
-<div class="skill">
-<div class="skill-name">Routing & Switching <span>80%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-</div>
+    <div class="skill-card" onclick="toggleSkill(this)">
+      <div class="skill-card-header">
+        <div class="skill-card-title"><span class="icon">⚙️</span> Embedded Systems</div>
+        <span class="skill-arrow">▶</span>
+      </div>
+      <div class="skill-divider"></div>
+      <div class="skill-card-body">
+        <div class="skill-row"><div class="skill-row-top">Arduino Programming<span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">Sensor Integration<span>75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">Real-Time Control<span>70%</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">Autonomous Navigation Logic<span>65%</span></div><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
+      </div>
+    </div>
 
-<div class="skill">
-<div class="skill-name">Cisco / Juniper <span>75%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-</div>
+    <div class="skill-card" onclick="toggleSkill(this)">
+      <div class="skill-card-header">
+        <div class="skill-card-title"><span class="icon">🧠</span> AI / ML & Analytics</div>
+        <span class="skill-arrow">▶</span>
+      </div>
+      <div class="skill-divider"></div>
+      <div class="skill-card-body">
+        <div class="skill-row"><div class="skill-row-top">Supervised Learning<span>70%</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">Anomaly Detection<span>75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">Predictive Modeling<span>70%</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
+        <div class="skill-category">Office Suite</div>
+        <div class="skill-row"><div class="skill-row-top">MS Excel / Word<span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">PowerPoint<span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+      </div>
+    </div>
 
-</div>
-</div>
-
-<div class="skill-card" onclick="toggleSkill(this)">
-<div class="skill-header">
-<h3>👨‍💻 Programming</h3>
-<span class="skill-arrow">▶</span>
-</div>
-<div class="skill-content">
-
-<b>Languages</b>
-
-<div class="skill">
-<div class="skill-name">Python <span>70%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
-</div>
-
-<div class="skill">
-<div class="skill-name">C Programming <span>75%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-</div>
-
-<div class="skill">
-<div class="skill-name">Java <span>50%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:50%"></div></div>
-</div>
-
-<br>
-<b>Web Technologies</b>
-
-<div class="skill">
-<div class="skill-name">HTML <span>80%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-</div>
-
-<div class="skill">
-<div class="skill-name">CSS<span>65%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
-</div>
-
-</div>
-</div>
-
-<div class="skill-card" onclick="toggleSkill(this)">
-<div class="skill-header">
-<h3>🧠 Software Skills</h3>
-<span class="skill-arrow">▶</span>
-</div>
-<div class="skill-content">
-
-<b>AI / ML</b>
-
-<div class="skill">
-<div class="skill-name">Supervised Learning <span>70%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
-</div>
-
-<div class="skill">
-<div class="skill-name">Anomaly Detection <span>75%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-</div>
-
-<div class="skill">
-<div class="skill-name">Predictive Modeling <span>70%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
-</div>
-
-<br>
-<b>Microsoft Office</b>
-
-<div class="skill">
-<div class="skill-name">MS Excel <span>90%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-</div>
-
-<div class="skill">
-<div class="skill-name">MS Word <span>90%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-</div>
-
-<div class="skill">
-<div class="skill-name">PowerPoint <span>85%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-</div>
-
-</div>
-</div>
-
-<div class="skill-card" onclick="toggleSkill(this)">
-<div class="skill-header">
-<h3>⚙️ Embedded</h3>
-<span class="skill-arrow">▶</span>
-</div>
-<div class="skill-content">
-
-<div class="skill">
-<div class="skill-name">Arduino Programming <span>80%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-</div>
-
-<div class="skill">
-<div class="skill-name">Sensor Integration <span>75%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-</div>
-
-<div class="skill">
-<div class="skill-name">Autonomous Navigation Logic <span>70%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
-</div>
-
-</div>
-</div>
-
-<div class="skill-card" onclick="toggleSkill(this)">
-<div class="skill-header">
-<h3>🗄️ Databases</h3>
-<span class="skill-arrow">▶</span>
-</div>
-<div class="skill-content">
-<div class="skill">
-<div class="skill-name">MySQL <span>60%</span></div>
-<div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
-</div>
-</div>
-</div>
+  </div>
 </section>
 
-<!-- Additional SKILLS -->
+<!-- ─── EXTRA ─── -->
+<section id="additional" style="max-width:1100px;">
+  <div class="section-header">
+    <div>
+      <div class="section-label">06 — Beyond</div>
+      <div class="section-title">Skills Beyond Academics</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
 
-<section id="additional">
-<h2>Skills Beyond Academics</h2>
+  <div class="extra-grid">
 
-<!-- CERTIFICATIONS -->
-<div class="skill-card" onclick="toggleSkill(this)">
-<div class="skill-header">
-<h3>📜 Certifications</h3>
-<span class="skill-arrow">▶</span>
-</div>
+    <div class="extra-card" onclick="toggleExtra(this)">
+      <div class="extra-card-icon">📜</div>
+      <div class="extra-card-title">Certifications</div>
+      <span class="extra-card-toggle">+</span>
+      <div class="extra-card-body">
+        <ul><li>JNCIA Professional Certificate — 90%</li></ul>
+      </div>
+    </div>
 
-<div class="skill-content">
-<ul>
-<li>JNCIA Proffessional Certificate with 90%</li>
-</ul>
-</div>
-</div>
+    <div class="extra-card" onclick="toggleExtra(this)">
+      <div class="extra-card-icon">📄</div>
+      <div class="extra-card-title">Publications</div>
+      <span class="extra-card-toggle">+</span>
+      <div class="extra-card-body">
+        <ul><li>Co-authored: <em>Basics and Advanced C Programming</em> — Amazon Kindle</li></ul>
+      </div>
+    </div>
 
-<!-- PUBLICATIONS -->
-<div class="skill-card" onclick="toggleSkill(this)">
-<div class="skill-header">
-<h3>📄 Publications & Presentation</h3>
-<span class="skill-arrow">▶</span>
-</div>
+    <div class="extra-card" onclick="toggleExtra(this)">
+      <div class="extra-card-icon">🌐</div>
+      <div class="extra-card-title">Languages</div>
+      <span class="extra-card-toggle">+</span>
+      <div class="extra-card-body">
+        <ul>
+          <li>English — C1</li>
+          <li>Tamil — C1</li>
+          <li>Hindi — B2</li>
+          <li>German — A1</li>
+          <li>French — A1</li>
+        </ul>
+      </div>
+    </div>
 
-<div class="skill-content">
-<ul>
-<li>Co-authored a Book titled - Basics and Advanced C programming in Amazon Kindle</li>
-</ul>
-</div>
-</div>
+    <div class="extra-card" onclick="toggleExtra(this)">
+      <div class="extra-card-icon">🏸</div>
+      <div class="extra-card-title">Personal Interests</div>
+      <span class="extra-card-toggle">+</span>
+      <div class="extra-card-body">
+        <ul>
+          <li>Badminton</li>
+          <li>Dancing</li>
+          <li>Cooking</li>
+        </ul>
+      </div>
+    </div>
 
-<!-- KNOWLEDGE & INTEREST -->
-<div class="skill-card" onclick="toggleSkill(this)">
-<div class="skill-header">
-<h3>🧠 Knowledge & Interests</h3>
-<span class="skill-arrow">▶</span>
-</div>
-
-<div class="skill-content">
-<b>Languages</b>
-<ul>
-<li>English — C1</li>
-<li>German — A1</li>
-<li>French — A1</li>
-<li>Hindi — B2</li>
-<li>Tamil — C1</li>
-</ul>
-
-<br>
-
-<b>Personal Interests</b>
-<ul>
-<li>Badminton</li>
-<li>Dancing</li>
-<li>Cooking</li>
-</ul>
-
-</div>
-</div>
-
+  </div>
 </section>
 
-</section>
-<section>
-<h2>Download Resume</h2>
-<a href="resume.pdf" download>
-<button>Download CV</button></a>
-</section>
+<!-- ─── DOWNLOAD ─── -->
+<div class="download-section">
+  <a href="resume.pdf" download class="download-btn">↓ Download Resume</a>
+</div>
 
 <footer>
-<p>Email: tarunikaofficial19@gmail.com</p>
+  <p>✉ <a href="mailto:tarunikaofficial19@gmail.com">tarunikaofficial19@gmail.com</a> &nbsp;·&nbsp; Karlsruhe, Germany</p>
 </footer>
 
-<script>
-function toggleAbout(card){card.classList.toggle("active");}
-function toggleExperience(card){card.classList.toggle("active");}
-function toggleEducation(card){card.classList.toggle("active");}
-function toggleProject(card){card.classList.toggle("active");}
-function toggleSkill(card){card.classList.toggle("active");}
-
-const canvas=document.getElementById("circuit-bg");
-const ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-let tracks=[];
-for(let i=0;i<70;i++){
-tracks.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,len:Math.random()*120+40,dir:Math.random()>0.5?"h":"v",speed:Math.random()*0.3+0.2,pulse:0});
-}
-
-function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.strokeStyle="rgba(100,255,218,0.15)";
-ctx.lineWidth=1;
-tracks.forEach(t=>{
-ctx.beginPath();
-if(t.dir==="h"){ctx.moveTo(t.x,t.y);ctx.lineTo(t.x+t.len,t.y);}
-else{ctx.moveTo(t.x,t.y);ctx.lineTo(t.x,t.y+t.len);}
-ctx.stroke();
-ctx.beginPath();
-let px=t.dir==="h"?t.x+t.pulse:t.x;
-let py=t.dir==="v"?t.y+t.pulse:t.y;
-ctx.arc(px,py,2,0,Math.PI*2);
-ctx.fillStyle="rgba(100,255,218,0.5)";
-ctx.fill();
-t.pulse+=t.speed;
-if(t.pulse>t.len){t.pulse=0;t.x=Math.random()*canvas.width;t.y=Math.random()*canvas.height;}
-});
-requestAnimationFrame(draw);
-}
-draw();
-
-const observer = new IntersectionObserver(entries => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add("visible");
-}
-});
-}, { threshold: 0.1 });
-
-document.querySelectorAll("section").forEach(section => {
-section.classList.add("fade-in");
-observer.observe(section);
-});
-
-
-function openVideo(){
-document.getElementById("videoModal").style.display="flex";
-}
-
-function closeVideo(){
-let modal=document.getElementById("videoModal");
-let video=document.getElementById("robotVideo");
-modal.style.display="none";
-video.pause();
-video.currentTime=0;
-}
-     
-</script>
-
-
-<!-- Robot Video Modal -->
-<div id="videoModal" class="video-modal">
-  <div class="video-content">
-    <span class="close-btn" onclick="closeVideo()">✖</span>
-    <video id="robotVideo" width="100%" controls>
+<!-- ─── VIDEO MODAL ─── -->
+<div id="videoModal" class="modal">
+  <div class="modal-inner">
+    <div class="modal-close" onclick="closeVideo()">✕</div>
+    <video id="robotVideo" controls>
       <source src="robot.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
   </div>
 </div>
-     
+
+<!-- ─── CANVAS ANIMATION ─── -->
+<script>
+const canvas = document.getElementById('circuit-bg');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const tracks = Array.from({length: 55}, () => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  len: Math.random() * 100 + 50,
+  dir: Math.random() > 0.5 ? 'h' : 'v',
+  speed: Math.random() * 0.4 + 0.15,
+  pulse: Math.random() * 100
+}));
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  tracks.forEach(t => {
+    ctx.strokeStyle = 'rgba(232,160,32,0.07)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (t.dir === 'h') { ctx.moveTo(t.x, t.y); ctx.lineTo(t.x + t.len, t.y); }
+    else               { ctx.moveTo(t.x, t.y); ctx.lineTo(t.x, t.y + t.len); }
+    ctx.stroke();
+
+    const px = t.dir === 'h' ? t.x + t.pulse : t.x;
+    const py = t.dir === 'v' ? t.y + t.pulse : t.y;
+    ctx.beginPath();
+    ctx.arc(px, py, 2, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(232,160,32,0.5)';
+    ctx.fill();
+
+    t.pulse += t.speed;
+    if (t.pulse > t.len) {
+      t.pulse = 0;
+      t.x = Math.random() * canvas.width;
+      t.y = Math.random() * canvas.height;
+    }
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+// ─── SCROLL FADE ───
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('section').forEach(s => io.observe(s));
+
+// ─── SKILL BAR ANIMATION ───
+const barIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.skill-fill').forEach(f => {
+        f.style.width = f.dataset.w + '%';
+      });
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.skill-card').forEach(c => barIO.observe(c));
+
+// ─── TOGGLES ───
+function toggleCard(el) {
+  el.classList.toggle('open');
+}
+function toggleSkill(el) {
+  el.classList.toggle('open');
+  el.querySelectorAll('.skill-fill').forEach(f => {
+    if (el.classList.contains('open')) f.style.width = f.dataset.w + '%';
+  });
+}
+function toggleExtra(el) {
+  el.classList.toggle('open');
+}
+
+// ─── VIDEO ───
+function openVideo() {
+  document.getElementById('videoModal').classList.add('show');
+}
+function closeVideo() {
+  const modal = document.getElementById('videoModal');
+  const vid = document.getElementById('robotVideo');
+  modal.classList.remove('show');
+  vid.pause(); vid.currentTime = 0;
+}
+document.getElementById('videoModal').addEventListener('click', function(e) {
+  if (e.target === this) closeVideo();
+});
+</script>
 </body>
 </html>
-
