@@ -1180,13 +1180,6 @@ function toggleSkill(el) {
   });
 }
 function toggleExtra(el) {
-
-  document.querySelectorAll('.extra-card').forEach(card => {
-    if (card !== el) {
-      card.classList.remove('open');
-    }
-  });
-
   el.classList.toggle('open');
 }
 // ─── VIDEO ───
