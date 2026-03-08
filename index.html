@@ -639,29 +639,6 @@ footer a { color: var(--accent); text-decoration: none; }
 }
 
 
-.floating-card-img{
-position:absolute;
-right:30px;
-top:120px;
-
-width:220px;
-height:auto;
-
-opacity:0.9;
-z-index:5;
-
-pointer-events:none;
-
-animation:floatImage 4s ease-in-out infinite;
-}
-
-@keyframes floatImage{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0px);}
-}
-
-
 .card-image{
 display:flex;
 justify-content:flex-end;
@@ -669,7 +646,7 @@ align-items:center;
 }
 
 .card-image img{
-width:130px;      /* smaller size */
+width:150px;      /* smaller size */
 max-width:180px;
 height:auto;
 border-radius:8px;
