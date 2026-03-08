@@ -1089,9 +1089,12 @@ footer a { color: var(--accent); text-decoration: none; }
 <div id="videoModal" class="modal">
   <div class="modal-inner">
     <div class="modal-close" onclick="closeVideo()">✕</div>
-    <video id="robotVideo" controls>
-      <source src="robot.mp4" type="video/mp4">
+
+    <video id="robotVideo" controls preload="metadata">
+      <source src="./robot.mp4" type="video/mp4">
+      Your browser does not support the video tag.
     </video>
+
   </div>
 </div>
 
