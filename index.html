@@ -1207,6 +1207,32 @@ function toggleCard(el) {
 
   el.classList.toggle('open');
 }
+
+function openVideo() {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("robotVideo");
+
+  modal.classList.add("show");
+  video.play();
+}
+
+function closeVideo() {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("robotVideo");
+
+  modal.classList.remove("show");
+  video.pause();
+  video.currentTime = 0;
+}
+
+// close video if user clicks outside
+document.getElementById("videoModal").addEventListener("click", function(e){
+  if(e.target === this){
+    closeVideo();
+  }
+});
+
+  
 </script>
 </body>
 </html>
