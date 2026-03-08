@@ -1163,38 +1163,47 @@ const barIO = new IntersectionObserver(entries => {
 document.querySelectorAll('.skill-card').forEach(c => barIO.observe(c));
 
 // ─── TOGGLES ───
+
 function toggleSkill(el) {
 
   document.querySelectorAll('.skill-card').forEach(card => {
-    if(card !== el){
+    if (card !== el) {
+      card.classList.remove('open');
+    }
+  });
+
+  el.classList.toggle('open');
+
+  el.querySelectorAll('.skill-fill').forEach(f => {
+    if (el.classList.contains('open')) {
+      f.style.width = f.dataset.w + '%';
+    }
+  });
+}
+
+// ─── TOGGLES ───
+function toggleExtra(el) {
+
+  document.querySelectorAll('.extra-card').forEach(card => {
+    if (card !== el) {
       card.classList.remove('open');
     }
   });
 
   el.classList.toggle('open');
 }
-function toggleSkill(el) {
-  el.classList.toggle('open');
-  el.querySelectorAll('.skill-fill').forEach(f => {
-    if (el.classList.contains('open')) f.style.width = f.dataset.w + '%';
+
+
+function toggleCard(el) {
+
+  document.querySelectorAll('.card').forEach(card => {
+    if (card !== el) {
+      card.classList.remove('open');
+    }
   });
-}
-function toggleExtra(el) {
+
   el.classList.toggle('open');
 }
-// ─── VIDEO ───
-function openVideo() {
-  document.getElementById('videoModal').classList.add('show');
-}
-function closeVideo() {
-  const modal = document.getElementById('videoModal');
-  const vid = document.getElementById('robotVideo');
-  modal.classList.remove('show');
-  vid.pause(); vid.currentTime = 0;
-}
-document.getElementById('videoModal').addEventListener('click', function(e) {
-  if (e.target === this) closeVideo();
-});
 </script>
 </body>
 </html>
