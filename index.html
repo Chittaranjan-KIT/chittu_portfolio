@@ -662,6 +662,27 @@ animation:floatImage 4s ease-in-out infinite;
 }
 
 
+.card-layout{
+display:grid;
+grid-template-columns: 1.4fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.card-image img{
+width:100%;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card-text{
+padding-right:10px;
+}
+
+
+@media (max-width:900px){.card-layout{grid-template-columns:1fr;}
+                         .card-image{margin-top:20px;}}
+  
 </style>
 </head>
 <body>
@@ -901,8 +922,8 @@ animation:floatImage 4s ease-in-out infinite;
         <li>Implemented real-time control algorithms in embedded C/C++</li>
         <li>Evaluated performance under disturbances and investigated learning-based control strategies</li>
       </ul>
-      <img src="rob.png" class="floating-card-img">
-      <img src="robot.png" class="floating-card-img">
+      <img src="rob.png" >
+      <img src="robot.png">
       <h5>Skills</h5>
       <ul>
         <li>Control Systems · Nonlinear Dynamics · MIMO Analysis · Embedded C/C++ · Real-Time Implementation</li>
@@ -987,9 +1008,9 @@ animation:floatImage 4s ease-in-out infinite;
         <div class="skill-row"><div class="skill-row-top">Soliworks Modelling<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
         <div class="skill-row"><div class="skill-row-top">CATIA<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
         <div class="skill-row"><div class="skill-row-top">ANSYS<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
-        <div class="skill-row"><div class="skill-row-top">Altair HyperWorks<span>>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">Altair HyperWorks<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
         <div class="skill-category">Data Acquisition</div>
-        <div class="skill-row"><div class="skill-row-top">NI LabVIEW<span>>Good Knowledg</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">NI LabVIEW<span>Good Knowledg</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
       </div>
     </div>
 
