@@ -684,7 +684,22 @@ padding-right:10px;
 
 @media (max-width:900px){.card-layout{grid-template-columns:1fr;}
                          .card-image{margin-top:20px;}}
+
+
+.project-images{
+display:flex;
+gap:12px;
+margin-top:16px;
+flex-wrap:wrap;
+}
+
+.project-images img{
+width:140px;
+border-radius:8px;
+box-shadow:0 6px 16px rgba(0,0,0,0.35);
+}
   
+
 </style>
 </head>
 <body>
@@ -924,8 +939,8 @@ padding-right:10px;
         <li>Implemented real-time control algorithms in embedded C/C++</li>
         <li>Evaluated performance under disturbances and investigated learning-based control strategies</li>
       </ul>
-      <img src="rob.png" >
-      <img src="robot.png">
+     <img src="rob.png" class="project-img">
+     <img src="robot.png" class="project-img">
       <h5>Skills</h5>
       <ul>
         <li>Control Systems · Nonlinear Dynamics · MIMO Analysis · Embedded C/C++ · Real-Time Implementation</li>
