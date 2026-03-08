@@ -642,21 +642,24 @@ footer a { color: var(--accent); text-decoration: none; }
 .floating-card-img{
 position:absolute;
 right:30px;
-top:50%;
-transform:translateY(-50%);
-width:180px;
-opacity:0.85;
+top:120px;
+
+width:220px;
+height:auto;
+
+opacity:0.9;
+z-index:5;
+
 pointer-events:none;
+
 animation:floatImage 4s ease-in-out infinite;
 }
 
 @keyframes floatImage{
-0%{transform:translateY(-50%)}
-50%{transform:translateY(-60%)}
-100%{transform:translateY(-50%)}
+0%{transform:translateY(0px);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0px);}
 }
-
-  
 
 
 </style>
