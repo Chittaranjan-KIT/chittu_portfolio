@@ -1163,7 +1163,14 @@ const barIO = new IntersectionObserver(entries => {
 document.querySelectorAll('.skill-card').forEach(c => barIO.observe(c));
 
 // ─── TOGGLES ───
-function toggleCard(el) {
+function toggleSkill(el) {
+
+  document.querySelectorAll('.skill-card').forEach(card => {
+    if(card !== el){
+      card.classList.remove('open');
+    }
+  });
+
   el.classList.toggle('open');
 }
 function toggleSkill(el) {
