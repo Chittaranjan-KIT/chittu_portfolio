@@ -695,12 +695,12 @@ footer a { color: var(--accent); text-decoration: none; }
   <div class="edu-grid">
     <div class="edu-card">
       <div class="degree">M.Sc. Mechanical Engineering</div>
-      <div class="school">Karlsruhe Institute of Technology</div>
+      <div class="school">Karlsruhe Institute of Technology, Germany</div>
       <p>2025 – 2027 · Specialization in Vehicle Technology and Dynamics & Control. Courses include Automotive Engineering, Deep Learning, and Probabilistic Methods for Perception and Planning.</p>
     </div>
     <div class="edu-card">
       <div class="degree">B.E. Mechanical Engineering</div>
-      <div class="school">St. Joseph's College of Engineering</div>
+      <div class="school">St. Joseph's College of Engineering, India</div>
       <p>2019 – 2023 · Final Grade: 2.0 ECTS · Coursework in FEA, Mechatronics, Kinematics, and Thermal Engineering. Final project on tribological behavior of WC-Co reinforced Al6061 MMC.</p>
     </div>
   </div>
@@ -1173,9 +1173,15 @@ function toggleSkill(el) {
   });
 }
 function toggleExtra(el) {
+
+  document.querySelectorAll('.extra-card').forEach(card => {
+    if (card !== el) {
+      card.classList.remove('open');
+    }
+  });
+
   el.classList.toggle('open');
 }
-
 // ─── VIDEO ───
 function openVideo() {
   document.getElementById('videoModal').classList.add('show');
