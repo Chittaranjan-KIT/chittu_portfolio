@@ -809,6 +809,25 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
 }
 
 
+
+
+.mini-project-extra {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.35s ease, margin-top 0.35s ease;
+}
+
+.mini-project-card.open .mini-project-extra {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
+.mini-project-card.open {
+  border-color: rgba(232,160,32,0.4);
+  background: rgba(255,255,255,0.06);
+}
 </style>
 </head>
 <body>
@@ -901,20 +920,102 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
       </div>
 
       <div class="project-category-body">
-        <div class="mini-project-card">
-          <h4>Ahmed Body Wake CFD Simulation</h4>
-          <p>OpenFOAM + ParaView aerodynamic wake study.</p>
-        </div>
+        <div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
+  <h4>Ahmed Body Wake CFD Simulation</h4>
+  <p>OpenFOAM + ParaView aerodynamic wake study.</p>
 
-        <div class="mini-project-card">
-          <h4>Airfoil Flow Analysis</h4>
-          <p>Pressure distribution and lift analysis using CFD.</p>
-        </div>
+  <div class="mini-project-extra">
+    <p><strong>Tools:</strong> OpenFOAM, ParaView, CAD Cleanup</p>
+    <p><strong>Focus:</strong> Wake visualization, drag coefficient, turbulence behavior</p>
+    <p><strong>Outcome:</strong> Improved understanding of external aerodynamics and flow separation.</p>
+  </div>
+</div>
 
-        <div class="mini-project-card">
-          <h4>Cooling Duct Simulation</h4>
-          <p>Thermal airflow study for automotive cooling ducts.</p>
-        </div>
+<div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
+  <h4>Airfoil Flow Analysis</h4>
+  <p>Pressure distribution and lift analysis using CFD.</p>
+
+  <div class="mini-project-extra">
+    <p><strong>Tools:</strong> ANSYS Fluent, XFOIL</p>
+    <p><strong>Focus:</strong> Lift coefficient, drag coefficient, flow separation</p>
+    <p><strong>Outcome:</strong> Compared aerodynamic behavior for different airfoil profiles.</p>
+  </div>
+</div>
+
+<div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
+  <h4>Cooling Duct Simulation</h4>
+  <p>Thermal airflow study for automotive cooling ducts.</p>
+
+  <div class="mini-project-extra">
+    <p><strong>Tools:</strong> CFD Solver, CAD Modeling</p>
+    <p><strong>Focus:</strong> Heat dissipation and airflow optimization</p>
+    <p><strong>Outcome:</strong> Improved duct geometry for better cooling efficiency.</p>
+  </div>
+</div>
+        <div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
+  <h4>Driving Resistance Analysis</h4>
+  <p>Rolling resistance, aerodynamic drag, and acceleration forces.</p>
+
+  <div class="mini-project-extra">
+    <p><strong>Focus:</strong> Vehicle resistance forces during motion</p>
+    <p><strong>Methods:</strong> Coast-down testing and analytical calculations</p>
+    <p><strong>Outcome:</strong> Understood dominant resistance sources at different speeds.</p>
+  </div>
+</div>
+
+<div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
+  <h4>Shock Absorber Testing</h4>
+  <p>Force-velocity characterization of dampers.</p>
+
+  <div class="mini-project-extra">
+    <p><strong>Focus:</strong> Damping behavior and suspension response</p>
+    <p><strong>Methods:</strong> Force vs velocity testing</p>
+    <p><strong>Outcome:</strong> Compared mono-tube and twin-tube shock absorbers.</p>
+  </div>
+</div>
+
+<div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
+  <h4>Tire Slip and Traction</h4>
+  <p>Slip ratio analysis and traction optimization.</p>
+
+  <div class="mini-project-extra">
+    <p><strong>Focus:</strong> Tire-road interaction and slip ratio</p>
+    <p><strong>Methods:</strong> Traction testing and graph analysis</p>
+    <p><strong>Outcome:</strong> Found optimal slip ratio range for maximum traction.</p>
+  </div>
+</div>
+        <div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
+  <h4>Self-Balancing Robot</h4>
+  <p>PID and state-space control implementation.</p>
+
+  <div class="mini-project-extra">
+    <p><strong>Tools:</strong> Arduino, IMU Sensors, Embedded C++</p>
+    <p><strong>Focus:</strong> Closed-loop control and stability</p>
+    <p><strong>Outcome:</strong> Built a robot capable of maintaining balance in real time.</p>
+  </div>
+</div>
+
+<div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
+  <h4>Sensor Fusion Logic</h4>
+  <p>Combining IMU and encoder data for navigation.</p>
+
+  <div class="mini-project-extra">
+    <p><strong>Focus:</strong> Accurate orientation and position estimation</p>
+    <p><strong>Methods:</strong> Sensor fusion algorithms</p>
+    <p><strong>Outcome:</strong> Improved navigation reliability and reduced noise.</p>
+  </div>
+</div>
+
+<div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
+  <h4>Obstacle Detection</h4>
+  <p>Ultrasonic sensor based path monitoring system.</p>
+
+  <div class="mini-project-extra">
+    <p><strong>Tools:</strong> Ultrasonic Sensors, Arduino</p>
+    <p><strong>Focus:</strong> Real-time object detection</p>
+    <p><strong>Outcome:</strong> Enabled safe navigation and path monitoring.</p>
+  </div>
+</div>
       </div>
     </div>
 
