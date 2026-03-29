@@ -855,7 +855,26 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   cursor: pointer;
 }
 
+.project-modal-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
 
+.project-modal-images img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 1px solid rgba(232,160,32,0.15);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-modal-images img:hover {
+  transform: scale(1.03);
+  border-color: rgba(232,160,32,0.35);
+}
 
 </style>
 </head>
@@ -956,8 +975,10 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   <p><strong>Focus:</strong> Wake visualization, drag coefficient, turbulence behavior</p>
   <p><strong>Outcome:</strong> Improved understanding of external aerodynamics and flow separation.</p>
 `)">
+  <div class='project-modal-images'>
+     <img src='ahmed3.jpg' alt='Velocity Streamlines'>
+  </div>
   <h4>Ahmed Body Wake CFD Simulation</h4>
-  <p>OpenFOAM + ParaView aerodynamic wake study.</p>
 </div>
 
 <div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
