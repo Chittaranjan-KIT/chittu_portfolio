@@ -808,26 +808,55 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   }
 }
 
-
-
-
-.mini-project-extra {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.35s ease, opacity 0.35s ease, margin-top 0.35s ease;
+.project-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 6000;
 }
 
-.mini-project-card.open .mini-project-extra {
-  max-height: 300px;
-  opacity: 1;
-  margin-top: 12px;
+.project-modal.show {
+  display: flex;
 }
 
-.mini-project-card.open {
-  border-color: rgba(232,160,32,0.4);
-  background: rgba(255,255,255,0.06);
+.project-modal-content {
+  width: min(90vw, 700px);
+  max-height: 85vh;
+  overflow-y: auto;
+  background: rgba(5,12,25,0.96);
+  border: 1px solid rgba(232,160,32,0.2);
+  border-radius: 28px;
+  padding: 36px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
+
+.project-modal-content h3 {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+.project-modal-content p {
+  color: var(--text);
+  margin-bottom: 14px;
+  line-height: 1.8;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 22px;
+  right: 28px;
+  font-size: 30px;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+
+
 </style>
 </head>
 <body>
@@ -920,15 +949,15 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
       </div>
 
       <div class="project-category-body">
-        <div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
+  <div class="mini-project-card" onclick="event.stopPropagation(); openProjectModal(`
+  <h3>Ahmed Body Wake CFD Simulation</h3>
+  <p><strong>Overview:</strong> OpenFOAM + ParaView aerodynamic wake study.</p>
+  <p><strong>Tools:</strong> OpenFOAM, ParaView, CAD Cleanup</p>
+  <p><strong>Focus:</strong> Wake visualization, drag coefficient, turbulence behavior</p>
+  <p><strong>Outcome:</strong> Improved understanding of external aerodynamics and flow separation.</p>
+`)">
   <h4>Ahmed Body Wake CFD Simulation</h4>
   <p>OpenFOAM + ParaView aerodynamic wake study.</p>
-
-  <div class="mini-project-extra">
-    <p><strong>Tools:</strong> OpenFOAM, ParaView, CAD Cleanup</p>
-    <p><strong>Focus:</strong> Wake visualization, drag coefficient, turbulence behavior</p>
-    <p><strong>Outcome:</strong> Improved understanding of external aerodynamics and flow separation.</p>
-  </div>
 </div>
 
 <div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
@@ -1598,7 +1627,33 @@ function toggleProjectBox(el) {
 
   el.classList.toggle('open');
 }
+
+
+function openProjectModal(content) {
+  document.getElementById('projectModalBody').innerHTML = content;
+  document.getElementById('projectModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+  document.getElementById('projectModal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('projectModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeProjectModal();
+  }
+});
   
 </script>
+
+<div class="project-modal" id="projectModal">
+  <div class="project-modal-content">
+    <div class="project-modal-close" onclick="closeProjectModal()">×</div>
+    <div id="projectModalBody"></div>
+  </div>
+</div>
+  
 </body>
 </html>
