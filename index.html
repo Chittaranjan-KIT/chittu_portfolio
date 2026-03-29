@@ -762,44 +762,13 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
 }
 
 .project-category-box.open {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(92vw, 1100px);
-  height: 85vh;
-  z-index: 5000;
-  margin: 0;
-  overflow-y: auto;
-  background: rgba(5, 12, 25, 0.97);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-}
-
-.project-category-box.open:hover {
-  transform: translate(-50%, -50%);
+  min-height: 520px;
 }
 
 .project-category-box.open .project-category-body {
-  max-height: none;
+  max-height: 500px;
   opacity: 1;
   margin-top: 24px;
-  overflow-y: auto;
-}
-
-.project-category-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(6px);
-  z-index: 4000;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.project-category-overlay.show {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .project-category-box.open .project-category-plus {
@@ -1520,40 +1489,15 @@ document.getElementById("videoModal").addEventListener("click", function(e){
 
 
 function toggleProjectBox(el) {
-  const overlay = document.getElementById('projectOverlay');
-
   document.querySelectorAll('.project-category-box').forEach(box => {
     if (box !== el) {
       box.classList.remove('open');
     }
   });
 
-  const isOpening = !el.classList.contains('open');
-
-  document.querySelectorAll('.project-category-box').forEach(box => {
-    box.classList.remove('open');
-  });
-
-  if (isOpening) {
-    el.classList.add('open');
-    overlay.classList.add('show');
-    document.body.style.overflow = 'hidden';
-  } else {
-    overlay.classList.remove('show');
-    document.body.style.overflow = '';
-  }
+  el.classList.toggle('open');
 }
-
-document.getElementById('projectOverlay').addEventListener('click', () => {
-  document.querySelectorAll('.project-category-box').forEach(box => {
-    box.classList.remove('open');
-  });
-
-  document.getElementById('projectOverlay').classList.remove('show');
-  document.body.style.overflow = '';
-});
   
 </script>
-<div class="project-category-overlay" id="projectOverlay"></div>
 </body>
 </html>
