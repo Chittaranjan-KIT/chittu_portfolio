@@ -1191,7 +1191,7 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
           <div class="pp-project-card-head">
             <div>
               <h4>Ahmed Body – External Aerodynamics</h4>
-              <p>CFD simulation of wake formation, pressure distribution and aerodynamic drag behind a simplified vehicle model.</p>
+              <p>End-to-end steady-state RANS simulation of external flow over a standard Ahmed body at 40 m/s using OpenFOAM.</p>
             </div>
             <div class="pp-project-toggle">+</div>
           </div>
@@ -1200,36 +1200,51 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
 
               <div class="pp-detail-section">
                 <h5>Project Description</h5>
-                <p>This project focuses on analysing the aerodynamic behaviour of the Ahmed body using CFD. The objective was to understand how flow separation occurs behind a vehicle and how the wake region contributes to drag. The Ahmed body is a widely used simplified vehicle geometry for validating CFD turbulence models and studying external aerodynamics.</p>
+                <p>Executed an end-to-end steady-state RANS simulation of external flow over a standard Ahmed body at 40 m/s using OpenFOAM. Generated a 3.35M-cell hex-dominant mesh via blockMesh and snappyHexMesh with multi-level surface refinement. Solved using simpleFoam with k-omega SST turbulence model and second-order upwind discretization. Post-processed in ParaView to extract pressure fields, velocity contours, streamlines, and turbulent wake structures.</p>
               </div>
 
               <div class="pp-detail-section">
-                <h5>Key Parameters Studied</h5>
+                <h5>Key Parameters</h5>
                 <ul>
-                  <li>Velocity distribution around the body</li>
-                  <li>Pressure coefficient along the surface</li>
-                  <li>Wake region and flow separation</li>
-                  <li>Drag coefficient (Cd)</li>
-                  <li>Turbulence behaviour in the rear wake</li>
+                  <li>Freestream velocity: 40 m/s &nbsp;|&nbsp; Re ≈ 2.75 × 10⁶</li>
+                  <li>Turbulence model: k-omega SST</li>
+                  <li>Mesh: 3.35M cells, hex-dominant, multi-level refinement</li>
+                  <li>Solver: simpleFoam, SIMPLE scheme, 500 iterations</li>
                 </ul>
               </div>
 
               <div class="pp-detail-section">
-                <h5>Results / Output</h5>
+                <h5>Results</h5>
                 <ul>
-                  <li>Clear wake formation observed behind the Ahmed body</li>
-                  <li>Strong pressure drop at the rear surface confirmed the drag source</li>
-                  <li>Flow separation point identified at the rear edge</li>
-                  <li>Better understanding of external aerodynamics for road vehicles</li>
+                  <li>Front stagnation zone with high Cp identified</li>
+                  <li>Flow acceleration over roof, separation at rear slant</li>
+                  <li>Wake recirculation and velocity deficit downstream</li>
+                  <li>TKE concentration at stagnation and separation regions</li>
                 </ul>
               </div>
 
               <div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">ANSYS Fluent</span>
-                  <span class="pp-tool-tag">CFD Post</span>
-                  <span class="pp-tool-tag">Meshing</span>
+                  <span class="pp-tool-tag">OpenFOAM</span>
+                  <span class="pp-tool-tag">ParaView</span>
+                  <span class="pp-tool-tag">FreeCAD</span>
+                  <span class="pp-tool-tag">snappyHexMesh</span>
+                  <span class="pp-tool-tag">blockMesh</span>
+                  <span class="pp-tool-tag">simpleFoam</span>
+                </div>
+              </div>
+
+              <div class="pp-detail-section">
+                <h5>Skills</h5>
+                <div class="pp-detail-tools">
+                  <span class="pp-tool-tag">RANS CFD</span>
+                  <span class="pp-tool-tag">Turbulence Modeling</span>
+                  <span class="pp-tool-tag">Mesh Generation</span>
+                  <span class="pp-tool-tag">Boundary Layer Analysis</span>
+                  <span class="pp-tool-tag">Wake Dynamics</span>
+                  <span class="pp-tool-tag">External Aerodynamics</span>
+                  <span class="pp-tool-tag">Post-processing & Visualization</span>
                 </div>
               </div>
 
