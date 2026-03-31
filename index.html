@@ -21,21 +21,15 @@
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-
 html { scroll-behavior: smooth; }
 
-
-
 body {
-
  background:
   linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
   url("c.jpeg") center/cover no-repeat fixed;
-
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
   font-size: 15px;
@@ -43,7 +37,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ─── NOISE TEXTURE OVERLAY ─── */
 body::after {
   content: '';
   position: fixed; inset: 0;
@@ -51,13 +44,11 @@ body::after {
   pointer-events: none; z-index: 9999; opacity: 0.35;
 }
 
-/* ─── CANVAS ─── */
 #circuit-bg {
   position: fixed; inset: 0;
   z-index: 0; pointer-events: none;
 }
 
-/* ─── NAV ─── */
 nav {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 1000;
@@ -84,7 +75,6 @@ nav a {
 nav a:first-child { border-left: 1px solid var(--border); }
 nav a:hover { color: var(--accent); background: rgba(232,160,32,0.05); }
 
-/* ─── HERO ─── */
 header {
   position: relative;
   min-height: 100vh;
@@ -222,7 +212,6 @@ header {
   to   { opacity:1; transform: translateY(0); }
 }
 
-/* ─── SECTIONS ─── */
 section {
   position: relative;
   z-index: 1;
@@ -262,7 +251,6 @@ section.visible { opacity:1; transform: translateY(0); }
   background: linear-gradient(to right, var(--border), transparent);
 }
 
-/* ─── CARDS ─── */
 .card {
   background: var(--card-bg);
   border: 1px solid var(--border);
@@ -298,9 +286,7 @@ section.visible { opacity:1; transform: translateY(0); }
   color: var(--muted);
   margin-top: 4px;
 }
-.card-meta span {
-  color: var(--accent);
-}
+.card-meta span { color: var(--accent); }
 
 .expand-btn {
   width: 32px; height: 32px;
@@ -348,7 +334,6 @@ section.visible { opacity:1; transform: translateY(0); }
   margin: 20px 0 10px;
 }
 
-/* ─── EDU GRID ─── */
 .edu-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -376,7 +361,6 @@ section.visible { opacity:1; transform: translateY(0); }
 }
 .edu-card p { font-size: 13px; color: var(--muted); }
 
-/* ─── SKILLS ─── */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -464,7 +448,6 @@ section.visible { opacity:1; transform: translateY(0); }
   margin: 16px 0 8px;
 }
 
-/* ─── EXTRA CARDS ─── */
 .extra-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -499,7 +482,6 @@ section.visible { opacity:1; transform: translateY(0); }
 .extra-card-toggle { color: var(--accent); font-size: 18px; float: right; margin-top: -36px; transition: transform 0.3s; }
 .extra-card.open .extra-card-toggle { transform: rotate(45deg); }
 
-/* ─── WATCH BTN ─── */
 .watch-btn {
   display: inline-flex;
   align-items: center;
@@ -523,26 +505,30 @@ section.visible { opacity:1; transform: translateY(0); }
   box-shadow: 0 0 20px rgba(232,160,32,0.2);
 }
 
-/* ─── VIDEO MODAL ─── */
+/* ─── GENERIC VIDEO MODAL (robot + racing) ─── */
 .modal {
   display: none;
   position: fixed; inset: 0;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(12px);
   z-index: 5000;
   justify-content: center;
   align-items: center;
 }
 .modal.show { display: flex; }
+
 .modal-inner {
+  position: relative;
+  width: min(92vw, 960px);
   background: var(--bg2);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 12px;
-  width: min(90vw, 480px);
-  position: relative;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
 }
+
 .modal-close {
   position: absolute; top: 10px; right: 14px;
   font-size: 20px; color: var(--accent);
@@ -553,12 +539,18 @@ section.visible { opacity:1; transform: translateY(0); }
   transition: background 0.2s;
 }
 .modal-close:hover { background: rgba(232,160,32,0.1); }
+
+/* video fills the modal, maintains aspect ratio, never overflows */
 .modal-inner video {
-  width: 100%; border-radius: 8px;
-  max-height: 60vh; object-fit: contain;
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  border-radius: 8px;
+  object-fit: contain;
+  display: block;
+  background: #000;
 }
 
-/* ─── DOWNLOAD + FOOTER ─── */
 .download-section {
   text-align: center;
   padding: 60px 20px;
@@ -595,7 +587,6 @@ footer {
 }
 footer a { color: var(--accent); text-decoration: none; }
 
-/* ─── TIMELINE DOTS (experience) ─── */
 .timeline {
   position: relative;
   padding-left: 28px;
@@ -606,9 +597,7 @@ footer a { color: var(--accent); text-decoration: none; }
   width: 1px;
   background: linear-gradient(to bottom, var(--accent), transparent);
 }
-.timeline .card {
-  position: relative;
-}
+.timeline .card { position: relative; }
 .timeline .card::before {
   content: '';
   position: absolute;
@@ -619,79 +608,63 @@ footer a { color: var(--accent); text-decoration: none; }
   box-shadow: 0 0 8px rgba(232,160,32,0.6);
 }
 
-/* ─── ABOUT PROSE ─── */
 .about-prose {
   font-size: 15px;
   color: var(--text);
   line-height: 1.85;
   max-width: 720px;
 }
-.about-prose .highlight {
-  color: var(--accent);
-  font-weight: 500;
-}
+.about-prose .highlight { color: var(--accent); font-weight: 500; }
 
-/* ─── RESPONSIVE ─── */
 @media (max-width: 600px) {
   nav a { padding: 14px 14px; font-size: 10px; }
   section { padding: 60px 20px; }
   .card { padding: 20px; }
 }
 
+.card-image {
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+}
+.card-image img {
+  width:150px;
+  max-width:180px;
+  height:auto;
+  border-radius:8px;
+  object-fit:cover;
+  box-shadow:0 6px 18px rgba(0,0,0,0.4);
+}
+.card-text { padding-right:10px; }
 
-.card-image{
-display:flex;
-justify-content:flex-end;
-align-items:center;
+@media (max-width:900px){
+  .card-layout{grid-template-columns:1fr;}
+  .card-image{margin-top:20px;}
 }
 
-.card-image img{
-width:150px;
-max-width:180px;
-height:auto;
-border-radius:8px;
-object-fit:cover;
-box-shadow:0 6px 18px rgba(0,0,0,0.4);
+.project-images {
+  display:flex;
+  gap:12px;
+  margin-top:16px;
+  flex-wrap:wrap;
 }
-
-.card-text{
-padding-right:10px;
+.project-images img {
+  width:140px;
+  border-radius:8px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.35);
 }
-
-
-@media (max-width:900px){.card-layout{grid-template-columns:1fr;}
-                         .card-image{margin-top:20px;}}
-
-
-.project-images{
-display:flex;
-gap:12px;
-margin-top:16px;
-flex-wrap:wrap;
-}
-
-.project-images img{
-width:140px;
-border-radius:8px;
-box-shadow:0 6px 16px rgba(0,0,0,0.35);
-}
-
 
 /* ═══════════════════════════════════════════════
-   PERSONAL PROJECT ENGINEERING — REDESIGNED
+   PERSONAL PROJECT ENGINEERING
    ═══════════════════════════════════════════════ */
 
-/* ─── CATEGORY TILES (the 3 big boxes) ─── */
 .pp-category-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 0;
 }
-
-@media (max-width: 900px) {
-  .pp-category-grid { grid-template-columns: 1fr; }
-}
+@media (max-width: 900px) { .pp-category-grid { grid-template-columns: 1fr; } }
 
 .pp-category-tile {
   position: relative;
@@ -701,20 +674,13 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   cursor: pointer;
   border: 1px solid var(--border);
   transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s;
-
-  background:
-    linear-gradient(160deg,
-      rgba(13,21,32,0.95) 0%,
-      rgba(8,13,20,0.98) 100%
-    );
+  background: linear-gradient(160deg, rgba(13,21,32,0.95) 0%, rgba(8,13,20,0.98) 100%);
   backdrop-filter: blur(12px);
-
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 32px;
 }
-
 .pp-category-tile::before {
   content: '';
   position: absolute; inset: 0;
@@ -724,59 +690,35 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   pointer-events: none;
   transition: opacity 0.35s;
 }
-
 .pp-category-tile:hover {
   border-color: rgba(232,160,32,0.45);
   transform: translateY(-6px);
   box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 40px rgba(232,160,32,0.08);
 }
-.pp-category-tile:hover::before {
-  opacity: 1.5;
-}
-
 .pp-category-tile.active {
   border-color: var(--accent);
   box-shadow: 0 0 30px rgba(232,160,32,0.12);
 }
 
-.pp-cat-icon {
-  font-size: 36px;
-  margin-bottom: 16px;
-  opacity: 0.8;
-  filter: grayscale(0.2);
-}
-
+.pp-cat-icon { font-size: 36px; margin-bottom: 16px; opacity: 0.8; }
 .pp-cat-title {
   font-family: 'Inter', sans-serif;
-  font-size: 22px;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.01em;
-  margin-bottom: 8px;
-  position: relative;
-  z-index: 1;
+  font-size: 22px; font-weight: 800;
+  color: #fff; letter-spacing: -0.01em;
+  margin-bottom: 8px; position: relative; z-index: 1;
 }
-
 .pp-cat-count {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--accent);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  position: relative;
-  z-index: 1;
+  font-size: 12px; font-weight: 500;
+  color: var(--accent); letter-spacing: 0.08em;
+  text-transform: uppercase; position: relative; z-index: 1;
 }
-
 .pp-cat-arrow {
-  position: absolute;
-  top: 28px; right: 28px;
-  width: 40px; height: 40px;
-  border-radius: 50%;
+  position: absolute; top: 28px; right: 28px;
+  width: 40px; height: 40px; border-radius: 50%;
   border: 1px solid rgba(232,160,32,0.25);
   display: flex; align-items: center; justify-content: center;
-  color: var(--accent);
-  font-size: 18px;
+  color: var(--accent); font-size: 18px;
   transition: transform 0.4s, background 0.3s, border-color 0.3s;
 }
 .pp-category-tile.active .pp-cat-arrow {
@@ -785,63 +727,37 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   border-color: var(--accent);
 }
 
-/* ─── EXPANDED PANEL (appears below grid) ─── */
 .pp-expand-panel {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.7s cubic-bezier(0.4,0,0.2,1),
-              opacity 0.5s ease,
-              margin 0.5s ease;
+  max-height: 0; overflow: hidden; opacity: 0;
+  transition: max-height 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.5s ease, margin 0.5s ease;
   margin-top: 0;
 }
-
-.pp-expand-panel.open {
-  max-height: 4000px;
-  opacity: 1;
-  margin-top: 28px;
-}
+.pp-expand-panel.open { max-height: 4000px; opacity: 1; margin-top: 28px; }
 
 .pp-expand-inner {
   background: rgba(5,12,25,0.92);
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 36px;
+  border-radius: 20px; padding: 36px;
   backdrop-filter: blur(10px);
 }
-
 .pp-expand-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 28px;
-  padding-bottom: 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 28px; padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
 }
-
 .pp-expand-title {
   font-family: 'Inter', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: #fff;
+  font-size: 20px; font-weight: 700; color: #fff;
 }
-
 .pp-expand-close {
-  width: 36px; height: 36px;
-  border-radius: 50%;
+  width: 36px; height: 36px; border-radius: 50%;
   border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  color: var(--accent);
-  font-size: 20px;
-  cursor: pointer;
+  color: var(--accent); font-size: 20px; cursor: pointer;
   transition: background 0.3s, border-color 0.3s;
 }
-.pp-expand-close:hover {
-  background: rgba(232,160,32,0.1);
-  border-color: var(--accent);
-}
+.pp-expand-close:hover { background: rgba(232,160,32,0.1); border-color: var(--accent); }
 
-/* ─── PROJECT CARDS inside expanded panel ─── */
 .pp-project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -851,9 +767,7 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
 .pp-project-card {
   background: rgba(13,21,32,0.7);
   border: 1px solid rgba(232,160,32,0.12);
-  border-radius: 16px;
-  overflow: hidden;
-  cursor: pointer;
+  border-radius: 16px; overflow: hidden; cursor: pointer;
   transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 .pp-project-card:hover {
@@ -861,413 +775,190 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.3);
 }
-
 .pp-project-card-head {
   padding: 22px 24px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 12px;
 }
-
 .pp-project-card-head h4 {
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.4;
+  font-size: 15px; font-weight: 700;
+  color: #fff; line-height: 1.4;
 }
-
 .pp-project-card-head p {
-  font-size: 13px;
-  color: rgba(212,220,232,0.7);
-  margin-top: 6px;
-  line-height: 1.6;
+  font-size: 13px; color: rgba(212,220,232,0.7);
+  margin-top: 6px; line-height: 1.6;
 }
-
 .pp-project-toggle {
-  width: 28px; height: 28px;
-  border-radius: 50%;
+  width: 28px; height: 28px; border-radius: 50%;
   border: 1px solid rgba(232,160,32,0.2);
   display: flex; align-items: center; justify-content: center;
-  color: var(--accent);
-  font-size: 16px;
-  flex-shrink: 0;
+  color: var(--accent); font-size: 16px; flex-shrink: 0;
   transition: transform 0.4s, background 0.3s;
 }
-
 .pp-project-card.open .pp-project-toggle {
-  transform: rotate(45deg);
-  background: rgba(232,160,32,0.1);
+  transform: rotate(45deg); background: rgba(232,160,32,0.1);
 }
 
-/* expanded detail inside project card */
 .pp-project-detail {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
+  max-height: 0; overflow: hidden; opacity: 0;
   transition: max-height 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.4s;
 }
-
-.pp-project-card.open .pp-project-detail {
-  max-height: 3000px;
-  opacity: 1;
-}
+.pp-project-card.open .pp-project-detail { max-height: 3000px; opacity: 1; }
 
 .pp-project-detail-inner {
   padding: 0 24px 24px;
   border-top: 1px solid rgba(232,160,32,0.08);
 }
-
-.pp-detail-section {
-  margin-top: 18px;
-}
-
+.pp-detail-section { margin-top: 18px; }
 .pp-detail-section h5 {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--teal);
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--teal); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
 }
-
 .pp-detail-section h5::before {
-  content: '';
-  width: 3px;
-  height: 14px;
-  border-radius: 2px;
-  background: var(--teal);
-  display: inline-block;
+  content: ''; width: 3px; height: 14px;
+  border-radius: 2px; background: var(--teal); display: inline-block;
 }
+.pp-detail-section p { font-size: 13px; color: var(--text); line-height: 1.75; margin-bottom: 8px; }
+.pp-detail-section ul { padding-left: 18px; margin: 0; }
+.pp-detail-section ul li { font-size: 13px; color: var(--text); line-height: 1.7; margin-bottom: 5px; }
+.pp-detail-section ul li::marker { color: var(--accent); }
 
-.pp-detail-section p {
-  font-size: 13px;
-  color: var(--text);
-  line-height: 1.75;
-  margin-bottom: 8px;
-}
-
-.pp-detail-section ul {
-  padding-left: 18px;
-  margin: 0;
-}
-
-.pp-detail-section ul li {
-  font-size: 13px;
-  color: var(--text);
-  line-height: 1.7;
-  margin-bottom: 5px;
-}
-
-.pp-detail-section ul li::marker {
-  color: var(--accent);
-}
-
-.pp-detail-tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-}
-
+.pp-detail-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .pp-tool-tag {
   padding: 5px 14px;
   border: 1px solid rgba(61,214,200,0.2);
-  border-radius: 100px;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--teal);
-  letter-spacing: 0.04em;
+  border-radius: 100px; font-size: 11px; font-weight: 600;
+  color: var(--teal); letter-spacing: 0.04em;
   background: rgba(61,214,200,0.04);
 }
 
 /* ═══════════════════════════════════════════
    CFD RESULTS GALLERY
    ═══════════════════════════════════════════ */
-
 .cfd-results-gallery {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  margin-top: 8px;
+  gap: 10px; margin-top: 8px;
 }
-
-@media (max-width: 700px) {
-  .cfd-results-gallery { grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 420px) {
-  .cfd-results-gallery { grid-template-columns: repeat(2, 1fr); }
-}
+@media (max-width: 700px) { .cfd-results-gallery { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 420px) { .cfd-results-gallery { grid-template-columns: repeat(2, 1fr); } }
 
 .cfd-thumb {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-  border: 1px solid rgba(232,160,32,0.15);
-  aspect-ratio: 4/3;
-  background: rgba(0,0,0,0.3);
+  position: relative; border-radius: 8px; overflow: hidden;
+  cursor: pointer; border: 1px solid rgba(232,160,32,0.15);
+  aspect-ratio: 4/3; background: rgba(0,0,0,0.3);
   transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
-
 .cfd-thumb:hover {
   border-color: var(--accent);
   transform: translateY(-3px) scale(1.03);
   box-shadow: 0 8px 24px rgba(0,0,0,0.5);
 }
-
-.cfd-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s;
-}
-
-.cfd-thumb:hover img {
-  transform: scale(1.06);
-}
-
+.cfd-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.3s; }
+.cfd-thumb:hover img { transform: scale(1.06); }
 .cfd-thumb-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.25s;
+  position:absolute; inset:0; background:rgba(0,0,0,0);
+  display:flex; align-items:center; justify-content:center;
+  transition:background 0.25s;
 }
-
-.cfd-thumb:hover .cfd-thumb-overlay {
-  background: rgba(0,0,0,0.35);
-}
-
+.cfd-thumb:hover .cfd-thumb-overlay { background:rgba(0,0,0,0.35); }
 .cfd-zoom-icon {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  border: 1.5px solid #fff;
-  display: flex; align-items: center; justify-content: center;
-  color: #fff;
-  font-size: 14px;
-  opacity: 0;
-  transform: scale(0.7);
-  transition: opacity 0.2s, transform 0.2s;
+  width:32px;height:32px;border-radius:50%;
+  border:1.5px solid #fff;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:14px;opacity:0;transform:scale(0.7);
+  transition:opacity 0.2s,transform 0.2s;
 }
-
-.cfd-thumb:hover .cfd-zoom-icon {
-  opacity: 1;
-  transform: scale(1);
-}
-
+.cfd-thumb:hover .cfd-zoom-icon { opacity:1; transform:scale(1); }
 .cfd-thumb-label {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.75));
-  padding: 16px 8px 6px;
-  font-size: 10px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.8);
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.25s;
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(0,0,0,0.75));
+  padding:16px 8px 6px;font-size:10px;font-family:'Inter',sans-serif;
+  font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  color:rgba(255,255,255,0.8);text-align:center;opacity:0;transition:opacity 0.25s;
 }
-
-.cfd-thumb:hover .cfd-thumb-label {
-  opacity: 1;
-}
+.cfd-thumb:hover .cfd-thumb-label { opacity:1; }
 
 /* ═══════════════════════════════════════════
    LIGHTBOX
    ═══════════════════════════════════════════ */
-
 #lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.92);
-  backdrop-filter: blur(10px);
-  z-index: 8000;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,0.92);backdrop-filter:blur(10px);
+  z-index:8000;justify-content:center;align-items:center;flex-direction:column;
 }
-
-#lightbox.show {
-  display: flex;
-}
-
+#lightbox.show { display:flex; }
 .lightbox-close {
-  position: fixed;
-  top: 20px; right: 24px;
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(232,160,32,0.4);
-  background: rgba(8,13,20,0.8);
-  color: var(--accent);
-  font-size: 22px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  z-index: 8100;
-  transition: background 0.2s, border-color 0.2s;
+  position:fixed;top:20px;right:24px;width:44px;height:44px;
+  border-radius:50%;border:1px solid rgba(232,160,32,0.4);
+  background:rgba(8,13,20,0.8);color:var(--accent);font-size:22px;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  z-index:8100;transition:background 0.2s,border-color 0.2s;
 }
-.lightbox-close:hover {
-  background: rgba(232,160,32,0.15);
-  border-color: var(--accent);
-}
-
+.lightbox-close:hover { background:rgba(232,160,32,0.15);border-color:var(--accent); }
 .lightbox-img-wrap {
-  position: relative;
-  max-width: 88vw;
-  max-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position:relative;max-width:88vw;max-height:80vh;
+  display:flex;align-items:center;justify-content:center;
 }
-
 #lightbox-img {
-  max-width: 88vw;
-  max-height: 78vh;
-  border-radius: 12px;
-  border: 1px solid rgba(232,160,32,0.2);
-  box-shadow: 0 24px 80px rgba(0,0,0,0.7);
-  object-fit: contain;
-  display: block;
-  transition: opacity 0.2s;
+  max-width:88vw;max-height:78vh;border-radius:12px;
+  border:1px solid rgba(232,160,32,0.2);
+  box-shadow:0 24px 80px rgba(0,0,0,0.7);object-fit:contain;
+  display:block;transition:opacity 0.2s;
 }
-
 .lightbox-nav {
-  position: fixed;
-  top: 50%; transform: translateY(-50%);
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  border: 1px solid rgba(232,160,32,0.35);
-  background: rgba(8,13,20,0.75);
-  color: var(--accent);
-  font-size: 22px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  z-index: 8100;
-  transition: background 0.2s, border-color 0.2s;
-  user-select: none;
+  position:fixed;top:50%;transform:translateY(-50%);
+  width:48px;height:48px;border-radius:50%;
+  border:1px solid rgba(232,160,32,0.35);background:rgba(8,13,20,0.75);
+  color:var(--accent);font-size:22px;display:flex;align-items:center;
+  justify-content:center;cursor:pointer;z-index:8100;
+  transition:background 0.2s,border-color 0.2s;user-select:none;
 }
-.lightbox-nav:hover {
-  background: rgba(232,160,32,0.15);
-  border-color: var(--accent);
-}
-
-#lightbox-prev { left: 20px; }
-#lightbox-next { right: 20px; }
-
+.lightbox-nav:hover { background:rgba(232,160,32,0.15);border-color:var(--accent); }
+#lightbox-prev { left:20px; }
+#lightbox-next { right:20px; }
 .lightbox-counter {
-  position: fixed;
-  bottom: 28px;
-  left: 50%; transform: translateX(-50%);
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.5);
-  z-index: 8100;
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%);
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+  letter-spacing:0.12em;color:rgba(255,255,255,0.5);z-index:8100;
 }
-
 .lightbox-dots {
-  position: fixed;
-  bottom: 52px;
-  left: 50%; transform: translateX(-50%);
-  display: flex; gap: 6px;
-  z-index: 8100;
+  position:fixed;bottom:52px;left:50%;transform:translateX(-50%);
+  display:flex;gap:6px;z-index:8100;
 }
-
 .lightbox-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.25);
+  cursor:pointer;transition:background 0.2s,transform 0.2s;
 }
+.lightbox-dot.active { background:var(--accent);transform:scale(1.4); }
 
-.lightbox-dot.active {
-  background: var(--accent);
-  transform: scale(1.4);
-}
-
-/* ─── PROJECT MODAL ─── */
 .project-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(6px);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 6000;
+  position:fixed;inset:0;background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(6px);display:none;
+  justify-content:center;align-items:center;z-index:6000;
 }
-
-.project-modal.show {
-  display: flex;
-}
-
+.project-modal.show { display:flex; }
 .project-modal-content {
-  width: min(90vw, 700px);
-  max-height: 85vh;
-  overflow-y: auto;
-  background: rgba(5,12,25,0.96);
-  border: 1px solid rgba(232,160,32,0.2);
-  border-radius: 28px;
-  padding: 36px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  width:min(90vw,700px);max-height:85vh;overflow-y:auto;
+  background:rgba(5,12,25,0.96);border:1px solid rgba(232,160,32,0.2);
+  border-radius:28px;padding:36px;box-shadow:0 20px 60px rgba(0,0,0,0.5);
 }
-
-.project-modal-content h3 {
-  font-size: 28px;
-  color: #fff;
-  margin-bottom: 18px;
-}
-
-.project-modal-content p {
-  color: var(--text);
-  margin-bottom: 14px;
-  line-height: 1.8;
-}
-
-.project-modal-close {
-  position: absolute;
-  top: 22px;
-  right: 28px;
-  font-size: 30px;
-  color: var(--accent);
-  cursor: pointer;
-}
-
+.project-modal-content h3 { font-size:28px;color:#fff;margin-bottom:18px; }
+.project-modal-content p { color:var(--text);margin-bottom:14px;line-height:1.8; }
+.project-modal-close { position:absolute;top:22px;right:28px;font-size:30px;color:var(--accent);cursor:pointer; }
 .project-modal-images {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px;
-  margin-bottom: 24px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px;margin-bottom:24px;
 }
-
 .project-modal-images img {
-  width: 100%;
-  border-radius: 16px;
-  object-fit: cover;
-  border: 1px solid rgba(232,160,32,0.15);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  width:100%;border-radius:16px;object-fit:cover;
+  border:1px solid rgba(232,160,32,0.15);box-shadow:0 8px 20px rgba(0,0,0,0.35);
+  transition:transform 0.3s ease,border-color 0.3s ease;
 }
-
-.project-modal-images img:hover {
-  transform: scale(1.03);
-  border-color: rgba(232,160,32,0.35);
-}
-
+.project-modal-images img:hover { transform:scale(1.03);border-color:rgba(232,160,32,0.35); }
 </style>
 </head>
 <body>
@@ -1291,8 +982,7 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   <div class="hero-label">Mechanical Engineer</div>
   <h1 class="hero-name"><span>Chittaranjan Govindaraju</span></h1>
   <p class="hero-sub">M.Sc. Student at Karlsruhe Institute of Technology <br> Vehicle Technology · Dynamics & Control</p>
-  <div class="scroll-hint">
-
+  <div class="scroll-hint"></div>
 </header>
 
 <!-- ─── ABOUT ─── -->
@@ -1312,9 +1002,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
     Through academic coursework and industry internships at companies like <span class="highlight">BEML Limited</span> and <span class="highlight">Mercedes-Benz</span>, I've built strong foundations in simulation-driven engineering, FEA, and embedded programming — all applied toward the future of <span class="highlight">autonomous and sustainable mobility</span>.
   </p>
 </section>
-
-
-
 
 <!-- ─── EDUCATION ─── -->
 <section id="education">
@@ -1339,11 +1026,7 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   </div>
 </section>
 
-
-
-<!-- ═══════════════════════════════════════════════════════
-     PERSONAL PROJECT ENGINEERING — REDESIGNED
-     ═══════════════════════════════════════════════════════ -->
+<!-- ─── PERSONAL PROJECT ENGINEERING ─── -->
 <section id="personalprojects">
   <div class="section-header">
     <div>
@@ -1353,38 +1036,26 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
     <div class="section-line"></div>
   </div>
 
-  <!-- ── 3 Category Tiles ── -->
   <div class="pp-category-grid">
-
-    <!-- CFD -->
     <div class="pp-category-tile" onclick="toggleCategoryPanel('cfd', this)">
       <div class="pp-cat-arrow">+</div>
       <div class="pp-cat-icon">🌊</div>
       <div class="pp-cat-title">CFD</div>
       <div class="pp-cat-count">6 Projects</div>
     </div>
-
-    <!-- Vehicle Dynamics -->
     <div class="pp-category-tile" onclick="toggleCategoryPanel('vd', this)">
       <div class="pp-cat-arrow">+</div>
       <div class="pp-cat-icon">🏎️</div>
       <div class="pp-cat-title">Vehicle Dynamics</div>
       <div class="pp-cat-count">3 Projects</div>
     </div>
-
-    <!-- Autonomous Systems -->
     <div class="pp-category-tile" onclick="toggleCategoryPanel('auto', this)">
       <div class="pp-cat-arrow">+</div>
       <div class="pp-cat-icon">🤖</div>
       <div class="pp-cat-title">Autonomous Systems</div>
       <div class="pp-cat-count">3 Projects</div>
     </div>
-
   </div>
-
-  <!-- ════════════════════════════════════════
-       EXPAND PANELS (one per category)
-       ════════════════════════════════════════ -->
 
   <!-- CFD Panel -->
   <div class="pp-expand-panel" id="panel-cfd">
@@ -1393,10 +1064,8 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
         <div class="pp-expand-title">CFD Projects</div>
         <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
       </div>
-
       <div class="pp-project-grid">
 
-        <!-- ── Ahmed Body ── -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -1407,12 +1076,10 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
           </div>
           <div class="pp-project-detail">
             <div class="pp-project-detail-inner">
-
               <div class="pp-detail-section">
                 <h5>Project Description</h5>
                 <p>Executed an end-to-end steady-state RANS simulation of external flow over a standard Ahmed body at 40 m/s using OpenFOAM. Generated a 3.35M-cell hex-dominant mesh via blockMesh and snappyHexMesh with multi-level surface refinement. Solved using simpleFoam with k-omega SST turbulence model and second-order upwind discretization. Post-processed in ParaView to extract pressure fields, velocity contours, streamlines, and turbulent wake structures.</p>
               </div>
-
               <div class="pp-detail-section">
                 <h5>Key Parameters</h5>
                 <ul>
@@ -1422,7 +1089,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
                   <li>Solver: simpleFoam, SIMPLE scheme, 500 iterations</li>
                 </ul>
               </div>
-
               <div class="pp-detail-section">
                 <h5>Results</h5>
                 <ul>
@@ -1432,15 +1098,10 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
                   <li>TKE concentration at stagnation and separation regions</li>
                 </ul>
               </div>
-
-              <!-- ── SIMULATION RESULTS GALLERY ── -->
               <div class="pp-detail-section">
                 <h5>Simulation Results</h5>
-                <div class="cfd-results-gallery" id="ahmed-gallery">
-                  <!-- thumbnails injected by JS -->
-                </div>
+                <div class="cfd-results-gallery" id="ahmed-gallery"></div>
               </div>
-
               <div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
@@ -1452,7 +1113,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
                   <span class="pp-tool-tag">simpleFoam</span>
                 </div>
               </div>
-
               <div class="pp-detail-section">
                 <h5>Skills</h5>
                 <div class="pp-detail-tools">
@@ -1465,12 +1125,10 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
                   <span class="pp-tool-tag">Post-processing & Visualization</span>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
 
-        <!-- ── Airfoil Flow Analysis ── -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -1481,14 +1139,8 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
           </div>
           <div class="pp-project-detail">
             <div class="pp-project-detail-inner">
-              <div class="pp-detail-section">
-                <h5>Focus</h5>
-                <p>Lift coefficient, drag coefficient, flow separation</p>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Outcome</h5>
-                <p>Compared aerodynamic behavior for different airfoil profiles.</p>
-              </div>
+              <div class="pp-detail-section"><h5>Focus</h5><p>Lift coefficient, drag coefficient, flow separation</p></div>
+              <div class="pp-detail-section"><h5>Outcome</h5><p>Compared aerodynamic behavior for different airfoil profiles.</p></div>
               <div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
@@ -1500,7 +1152,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
           </div>
         </div>
 
-        <!-- ── Cooling Duct Simulation ── -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -1511,14 +1162,8 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
           </div>
           <div class="pp-project-detail">
             <div class="pp-project-detail-inner">
-              <div class="pp-detail-section">
-                <h5>Focus</h5>
-                <p>Heat dissipation and airflow optimization</p>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Outcome</h5>
-                <p>Improved duct geometry for better cooling efficiency.</p>
-              </div>
+              <div class="pp-detail-section"><h5>Focus</h5><p>Heat dissipation and airflow optimization</p></div>
+              <div class="pp-detail-section"><h5>Outcome</h5><p>Improved duct geometry for better cooling efficiency.</p></div>
               <div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
@@ -1530,10 +1175,9 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
           </div>
         </div>
 
-      </div><!-- /pp-project-grid -->
+      </div>
     </div>
   </div>
-
 
   <!-- Vehicle Dynamics Panel -->
   <div class="pp-expand-panel" id="panel-vd">
@@ -1542,7 +1186,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
         <div class="pp-expand-title">Vehicle Dynamics Projects</div>
         <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
       </div>
-
       <div class="pp-project-grid">
 
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
@@ -1555,14 +1198,8 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
           </div>
           <div class="pp-project-detail">
             <div class="pp-project-detail-inner">
-              <div class="pp-detail-section">
-                <h5>Focus</h5>
-                <p>Vehicle resistance forces during motion</p>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Outcome</h5>
-                <p>Understood dominant resistance sources at different speeds.</p>
-              </div>
+              <div class="pp-detail-section"><h5>Focus</h5><p>Vehicle resistance forces during motion</p></div>
+              <div class="pp-detail-section"><h5>Outcome</h5><p>Understood dominant resistance sources at different speeds.</p></div>
             </div>
           </div>
         </div>
@@ -1577,14 +1214,8 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
           </div>
           <div class="pp-project-detail">
             <div class="pp-project-detail-inner">
-              <div class="pp-detail-section">
-                <h5>Focus</h5>
-                <p>Damping behavior and suspension response</p>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Outcome</h5>
-                <p>Compared mono-tube and twin-tube shock absorbers.</p>
-              </div>
+              <div class="pp-detail-section"><h5>Focus</h5><p>Damping behavior and suspension response</p></div>
+              <div class="pp-detail-section"><h5>Outcome</h5><p>Compared mono-tube and twin-tube shock absorbers.</p></div>
             </div>
           </div>
         </div>
@@ -1599,14 +1230,8 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
           </div>
           <div class="pp-project-detail">
             <div class="pp-project-detail-inner">
-              <div class="pp-detail-section">
-                <h5>Focus</h5>
-                <p>Tire-road interaction and slip ratio</p>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Outcome</h5>
-                <p>Found optimal slip ratio range for maximum traction.</p>
-              </div>
+              <div class="pp-detail-section"><h5>Focus</h5><p>Tire-road interaction and slip ratio</p></div>
+              <div class="pp-detail-section"><h5>Outcome</h5><p>Found optimal slip ratio range for maximum traction.</p></div>
             </div>
           </div>
         </div>
@@ -1615,7 +1240,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
     </div>
   </div>
 
-
   <!-- Autonomous Systems Panel -->
   <div class="pp-expand-panel" id="panel-auto">
     <div class="pp-expand-inner">
@@ -1623,39 +1247,67 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
         <div class="pp-expand-title">Autonomous Systems Projects</div>
         <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
       </div>
-
       <div class="pp-project-grid">
 
+        <!-- ── PATH PLANNING & RACING LINE — SUZUKA ── -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
-              <h4>Self-Balancing Robot</h4>
-              <p>PID and state-space control implementation.</p>
+              <h4>Path Planning & Optimised Racing Line — Suzuka F1 Circuit</h4>
+              <p>Two-phase autonomous racing simulation using real F1 track boundary data from TU Munich.</p>
             </div>
             <div class="pp-project-toggle">+</div>
           </div>
           <div class="pp-project-detail">
             <div class="pp-project-detail-inner">
+
               <div class="pp-detail-section">
-                <h5>Focus</h5>
-                <p>Closed-loop control and stability</p>
+                <h5>Project Description</h5>
+                <p>The Suzuka Circuit is one of the most challenging Formula 1 circuits in the world — famous for its extremely quick corners, figure-eight layout, and absolute lack of margin for error. This makes it an ideal testbed for autonomous path planning. This project simulates a full two-lap autonomous racing pipeline: the car blindly maps the track during Lap 1 using only local sensor data, then races an optimised minimum-curvature line during Lap 2. The result is a fully autonomous system that finds the smoothest and fastest path through every corner with no human input — the same approach used in Formula Student Driverless competitions.</p>
               </div>
+
               <div class="pp-detail-section">
-                <h5>Outcome</h5>
-                <p>Built a robot capable of maintaining balance in real time.</p>
+                <h5>Key Parameters</h5>
+                <ul>
+                  <li>34 m sensor radius for real-time boundary cone detection</li>
+                  <li>500-point track resampling for optimiser precision</li>
+                  <li>300 gradient descent iterations with early stopping at Δκ &lt; 1×10⁻⁷</li>
+                  <li>1.5 m safety inset from track walls</li>
+                  <li>Learning rate 0.01 with Gaussian gradient smoothing</li>
+                </ul>
               </div>
+
+              <div class="pp-detail-section">
+                <h5>Skills Learned</h5>
+                <ul>
+                  <li>Real-time path planning via Delaunay triangulation</li>
+                  <li>Numerical optimisation via gradient descent</li>
+                  <li>Sensor simulation and curvature analysis</li>
+                  <li>Autonomous mapping and trajectory planning</li>
+                </ul>
+              </div>
+
               <div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">Arduino</span>
-                  <span class="pp-tool-tag">IMU Sensors</span>
-                  <span class="pp-tool-tag">Embedded C++</span>
+                  <span class="pp-tool-tag">MATLAB</span>
+                  <span class="pp-tool-tag">Delaunay Triangulation</span>
+                  <span class="pp-tool-tag">Gradient Descent</span>
+                  <span class="pp-tool-tag">TU Munich Dataset</span>
+                  <span class="pp-tool-tag">VideoWriter</span>
                 </div>
               </div>
+
+              <!-- Watch Simulation Button -->
+              <button class="watch-btn" onclick="event.stopPropagation(); openRacingVideo();">
+                ▶ Watch Simulation
+              </button>
+
             </div>
           </div>
         </div>
 
+        <!-- ── Sensor Fusion Logic ── -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -1666,18 +1318,13 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
           </div>
           <div class="pp-project-detail">
             <div class="pp-project-detail-inner">
-              <div class="pp-detail-section">
-                <h5>Focus</h5>
-                <p>Accurate orientation and position estimation</p>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Outcome</h5>
-                <p>Improved navigation reliability and reduced noise.</p>
-              </div>
+              <div class="pp-detail-section"><h5>Focus</h5><p>Accurate orientation and position estimation</p></div>
+              <div class="pp-detail-section"><h5>Outcome</h5><p>Improved navigation reliability and reduced noise.</p></div>
             </div>
           </div>
         </div>
 
+        <!-- ── Obstacle Detection ── -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -1688,14 +1335,8 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
           </div>
           <div class="pp-project-detail">
             <div class="pp-project-detail-inner">
-              <div class="pp-detail-section">
-                <h5>Focus</h5>
-                <p>Real-time object detection</p>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Outcome</h5>
-                <p>Enabled safe navigation and path monitoring.</p>
-              </div>
+              <div class="pp-detail-section"><h5>Focus</h5><p>Real-time object detection</p></div>
+              <div class="pp-detail-section"><h5>Outcome</h5><p>Enabled safe navigation and path monitoring.</p></div>
               <div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
@@ -1713,7 +1354,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
 
 </section>
 
-
 <!-- ─── EXPERIENCE ─── -->
 <section id="experience">
   <div class="section-header">
@@ -1723,11 +1363,8 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
     </div>
     <div class="section-line"></div>
   </div>
-
   <div class="timeline">
 
-
-        <!-- KIT RA -->
     <div class="card" onclick="toggleCard(this)">
       <div class="card-header">
         <div>
@@ -1748,7 +1385,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
       </div>
     </div>
 
-       <!-- BEML -->
     <div class="card" onclick="toggleCard(this)">
       <div class="card-header">
         <div>
@@ -1774,7 +1410,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
       </div>
     </div>
 
-         <!-- Mercedes -->
     <div class="card" onclick="toggleCard(this)">
       <div class="card-header">
         <div>
@@ -1797,8 +1432,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
       </div>
     </div>
 
-
-         <!-- Hanon -->
     <div class="card" onclick="toggleCard(this)">
       <div class="card-header">
         <div>
@@ -1819,7 +1452,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
       </div>
     </div>
 
-     <!-- Design Centre -->
     <div class="card" onclick="toggleCard(this)">
       <div class="card-header">
         <div>
@@ -1833,8 +1465,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
       </div>
     </div>
 
-
-    <!-- Transmission -->
     <div class="card" onclick="toggleCard(this)">
       <div class="card-header">
         <div>
@@ -1855,10 +1485,10 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
       </div>
     </div>
 
- </div>
+  </div>
 </section>
 
-<!-- ─── Test Laboratory and Project experience─── -->
+<!-- ─── PROJECTS ─── -->
 <section id="projects">
   <div class="section-header">
     <div>
@@ -1868,7 +1498,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
     <div class="section-line"></div>
   </div>
 
-  <!-- Robot -->
   <div class="card" onclick="toggleCard(this)">
     <div class="card-header">
       <div>
@@ -1886,10 +1515,10 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
         <li>Implemented real-time control algorithms in embedded C/C++</li>
         <li>Evaluated performance under disturbances and investigated learning-based control strategies</li>
       </ul>
-     <div class="project-images">
-     <img src="rob.png">
-     <img src="robot.png">
-</div>
+      <div class="project-images">
+        <img src="rob.png">
+        <img src="robot.png">
+      </div>
       <h5>Skills</h5>
       <ul>
         <li>Control Systems · Nonlinear Dynamics · MIMO Analysis · Embedded C/C++ · Real-Time Implementation</li>
@@ -1900,7 +1529,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
     </div>
   </div>
 
-  <!-- Auto Lab -->
   <div class="card" onclick="toggleCard(this)">
     <div class="card-header">
       <div>
@@ -1923,7 +1551,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
     </div>
   </div>
 
-  <!-- MMC -->
   <div class="card" onclick="toggleCard(this)">
     <div class="card-header">
       <div>
@@ -1960,7 +1587,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
     </div>
     <div class="section-line"></div>
   </div>
-
   <div class="skills-grid">
 
     <div class="skill-card" onclick="toggleSkill(this)">
@@ -2012,7 +1638,7 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
 
     <div class="skill-card" onclick="toggleSkill(this)">
       <div class="skill-card-header">
-        <div class="skill-card-title"><span class="icon">🧠</span>Analytics</div>
+        <div class="skill-card-title"><span class="icon">🧠</span> Analytics</div>
         <span class="skill-arrow">▶</span>
       </div>
       <div class="skill-divider"></div>
@@ -2035,9 +1661,7 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
     </div>
     <div class="section-line"></div>
   </div>
-
   <div class="extra-grid">
-
     <div class="extra-card" onclick="toggleExtra(this)">
       <div class="extra-card-icon">📜</div>
       <div class="extra-card-title">Certifications</div>
@@ -2046,7 +1670,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
         <ul><li>JNCIA Professional Certificate — 90%</li></ul>
       </div>
     </div>
-
     <div class="extra-card" onclick="toggleExtra(this)">
       <div class="extra-card-icon">🌐</div>
       <div class="extra-card-title">Languages</div>
@@ -2059,7 +1682,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
         </ul>
       </div>
     </div>
-
     <div class="extra-card" onclick="toggleExtra(this)">
       <div class="extra-card-icon">🏸</div>
       <div class="extra-card-title">Personal Interests</div>
@@ -2072,7 +1694,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
         </ul>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -2085,7 +1706,7 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   <p>✉ <a href="mailto:chittaranjanofficial95@gmail.com">chittaranjanofficial95@gmail.com</a> &nbsp;·&nbsp; Karlsruhe, Germany</p>
 </footer>
 
-<!-- ─── VIDEO MODAL ─── -->
+<!-- ─── ROBOT VIDEO MODAL ─── -->
 <div id="videoModal" class="modal">
   <div class="modal-inner">
     <div class="modal-close" onclick="closeVideo()">✕</div>
@@ -2096,9 +1717,18 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-     LIGHTBOX
-     ═══════════════════════════════════════ -->
+<!-- ─── RACING SIMULATION VIDEO MODAL ─── -->
+<div id="racingModal" class="modal">
+  <div class="modal-inner">
+    <div class="modal-close" onclick="closeRacingVideo()">✕</div>
+    <video id="racingVideo" controls preload="metadata">
+      <source src="./racing_simulation.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<!-- ─── LIGHTBOX ─── -->
 <div id="lightbox">
   <div class="lightbox-close" onclick="closeLightbox()">✕</div>
   <div class="lightbox-img-wrap">
@@ -2110,169 +1740,138 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   <div class="lightbox-nav" id="lightbox-next" onclick="lightboxStep(1)">&#8594;</div>
 </div>
 
-<!-- ─── CANVAS ANIMATION ─── -->
 <script>
+/* ─── CANVAS ANIMATION ─── */
 const canvas = document.getElementById('circuit-bg');
 const ctx = canvas.getContext('2d');
-
-function resize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 resize();
 window.addEventListener('resize', resize);
-
 const tracks = Array.from({length: 55}, () => ({
-  x: Math.random() * canvas.width,
-  y: Math.random() * canvas.height,
-  len: Math.random() * 100 + 50,
-  dir: Math.random() > 0.5 ? 'h' : 'v',
-  speed: Math.random() * 0.4 + 0.15,
-  pulse: Math.random() * 100
+  x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+  len: Math.random() * 100 + 50, dir: Math.random() > 0.5 ? 'h' : 'v',
+  speed: Math.random() * 0.4 + 0.15, pulse: Math.random() * 100
 }));
-
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   tracks.forEach(t => {
-    ctx.strokeStyle = 'rgba(232,160,32,0.07)';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(232,160,32,0.07)'; ctx.lineWidth = 1; ctx.beginPath();
     if (t.dir === 'h') { ctx.moveTo(t.x, t.y); ctx.lineTo(t.x + t.len, t.y); }
     else               { ctx.moveTo(t.x, t.y); ctx.lineTo(t.x, t.y + t.len); }
     ctx.stroke();
-
     const px = t.dir === 'h' ? t.x + t.pulse : t.x;
     const py = t.dir === 'v' ? t.y + t.pulse : t.y;
-    ctx.beginPath();
-    ctx.arc(px, py, 2, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(232,160,32,0.5)';
-    ctx.fill();
-
+    ctx.beginPath(); ctx.arc(px, py, 2, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(232,160,32,0.5)'; ctx.fill();
     t.pulse += t.speed;
-    if (t.pulse > t.len) {
-      t.pulse = 0;
-      t.x = Math.random() * canvas.width;
-      t.y = Math.random() * canvas.height;
-    }
+    if (t.pulse > t.len) { t.pulse = 0; t.x = Math.random() * canvas.width; t.y = Math.random() * canvas.height; }
   });
   requestAnimationFrame(draw);
 }
 draw();
 
-// ─── SCROLL FADE ───
+/* ─── SCROLL FADE ─── */
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08 });
 document.querySelectorAll('section').forEach(s => io.observe(s));
 
-// ─── SKILL BAR ANIMATION ───
+/* ─── SKILL BARS ─── */
 const barIO = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      e.target.querySelectorAll('.skill-fill').forEach(f => {
-        f.style.width = f.dataset.w + '%';
-      });
+      e.target.querySelectorAll('.skill-fill').forEach(f => { f.style.width = f.dataset.w + '%'; });
     }
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.skill-card').forEach(c => barIO.observe(c));
 
-// ─── TOGGLES ───
-
+/* ─── TOGGLES ─── */
 function toggleSkill(el) {
-  document.querySelectorAll('.skill-card').forEach(card => {
-    if (card !== el) card.classList.remove('open');
-  });
+  document.querySelectorAll('.skill-card').forEach(c => { if (c !== el) c.classList.remove('open'); });
   el.classList.toggle('open');
-  el.querySelectorAll('.skill-fill').forEach(f => {
-    if (el.classList.contains('open')) f.style.width = f.dataset.w + '%';
-  });
+  el.querySelectorAll('.skill-fill').forEach(f => { if (el.classList.contains('open')) f.style.width = f.dataset.w + '%'; });
 }
-
 function toggleExtra(el) {
-  document.querySelectorAll('.extra-card').forEach(card => {
-    if (card !== el) card.classList.remove('open');
-  });
+  document.querySelectorAll('.extra-card').forEach(c => { if (c !== el) c.classList.remove('open'); });
   el.classList.toggle('open');
 }
-
 function toggleCard(el) {
-  document.querySelectorAll('.card').forEach(card => {
-    if (card !== el) card.classList.remove('open');
-  });
+  document.querySelectorAll('.card').forEach(c => { if (c !== el) c.classList.remove('open'); });
   el.classList.toggle('open');
 }
 
+/* ─── ROBOT VIDEO ─── */
 function openVideo() {
-  const modal = document.getElementById("videoModal");
-  const video = document.getElementById("robotVideo");
-  modal.classList.add("show");
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('robotVideo');
+  modal.classList.add('show');
   video.play();
 }
-
 function closeVideo() {
-  const modal = document.getElementById("videoModal");
-  const video = document.getElementById("robotVideo");
-  modal.classList.remove("show");
-  video.pause();
-  video.currentTime = 0;
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('robotVideo');
+  modal.classList.remove('show');
+  video.pause(); video.currentTime = 0;
 }
-
-document.getElementById("videoModal").addEventListener("click", function(e){
-  if(e.target === this) closeVideo();
+document.getElementById('videoModal').addEventListener('click', function(e) {
+  if (e.target === this) closeVideo();
 });
 
+/* ─── RACING SIMULATION VIDEO ─── */
+function openRacingVideo() {
+  const modal = document.getElementById('racingModal');
+  const video = document.getElementById('racingVideo');
+  modal.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  video.play();
+}
+function closeRacingVideo() {
+  const modal = document.getElementById('racingModal');
+  const video = document.getElementById('racingVideo');
+  modal.classList.remove('show');
+  document.body.style.overflow = '';
+  video.pause(); video.currentTime = 0;
+}
+document.getElementById('racingModal').addEventListener('click', function(e) {
+  if (e.target === this) closeRacingVideo();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeRacingVideo();
+    closeVideo();
+    closeLightbox();
+  }
+});
 
-/* ═══════════════════════════════════════════
-   PERSONAL PROJECT ENGINEERING — JS
-   ═══════════════════════════════════════════ */
-
+/* ─── PERSONAL PROJECTS ─── */
 let activeCategoryPanel = null;
-
 function toggleCategoryPanel(id, tileEl) {
   const panel = document.getElementById('panel-' + id);
   const allTiles = document.querySelectorAll('.pp-category-tile');
   const allPanels = document.querySelectorAll('.pp-expand-panel');
-
   if (activeCategoryPanel === id) {
-    panel.classList.remove('open');
-    tileEl.classList.remove('active');
-    activeCategoryPanel = null;
-    return;
+    panel.classList.remove('open'); tileEl.classList.remove('active');
+    activeCategoryPanel = null; return;
   }
-
   allPanels.forEach(p => p.classList.remove('open'));
   allTiles.forEach(t => t.classList.remove('active'));
-
-  panel.classList.add('open');
-  tileEl.classList.add('active');
+  panel.classList.add('open'); tileEl.classList.add('active');
   activeCategoryPanel = id;
-
-  setTimeout(() => {
-    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }, 100);
+  setTimeout(() => { panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 100);
 }
-
 function closeCategoryPanel() {
   document.querySelectorAll('.pp-expand-panel').forEach(p => p.classList.remove('open'));
   document.querySelectorAll('.pp-category-tile').forEach(t => t.classList.remove('active'));
   activeCategoryPanel = null;
 }
-
 function toggleProjectCard(el) {
   const grid = el.closest('.pp-project-grid');
-  grid.querySelectorAll('.pp-project-card').forEach(card => {
-    if (card !== el) card.classList.remove('open');
-  });
+  grid.querySelectorAll('.pp-project-card').forEach(c => { if (c !== el) c.classList.remove('open'); });
   el.classList.toggle('open');
 }
 
-
-/* ═══════════════════════════════════════════
-   CFD RESULTS GALLERY — BUILD THUMBNAILS
-   ═══════════════════════════════════════════ */
-
-// Label each image with a short description of what it shows
+/* ─── CFD GALLERY ─── */
 const ahmedImages = [
   { file: '1.jpeg',  label: 'Mesh Overview' },
   { file: '2.jpeg',  label: 'Surface Refinement' },
@@ -2285,33 +1884,21 @@ const ahmedImages = [
   { file: '9.jpeg',  label: 'Rear Separation' },
   { file: '10.jpeg', label: 'Residuals Plot' },
 ];
-
 const gallery = document.getElementById('ahmed-gallery');
 ahmedImages.forEach((img, i) => {
   const thumb = document.createElement('div');
   thumb.className = 'cfd-thumb';
   thumb.innerHTML = `
     <img src="${img.file}" alt="${img.label}" loading="lazy">
-    <div class="cfd-thumb-overlay">
-      <div class="cfd-zoom-icon">&#x26F6;</div>
-    </div>
-    <div class="cfd-thumb-label">${img.label}</div>
-  `;
-  thumb.addEventListener('click', (e) => {
-    e.stopPropagation();
-    openLightbox(i);
-  });
+    <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
+    <div class="cfd-thumb-label">${img.label}</div>`;
+  thumb.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(i); });
   gallery.appendChild(thumb);
 });
 
-
-/* ═══════════════════════════════════════════
-   LIGHTBOX JS
-   ═══════════════════════════════════════════ */
-
+/* ─── LIGHTBOX ─── */
 let lbIndex = 0;
 const lbImages = ahmedImages;
-
 function buildDots() {
   const dotsEl = document.getElementById('lightbox-dots');
   dotsEl.innerHTML = '';
@@ -2322,56 +1909,30 @@ function buildDots() {
     dotsEl.appendChild(d);
   });
 }
-
 function updateLightbox() {
   const img = document.getElementById('lightbox-img');
   img.style.opacity = '0';
-  setTimeout(() => {
-    img.src = lbImages[lbIndex].file;
-    img.alt = lbImages[lbIndex].label;
-    img.style.opacity = '1';
-  }, 150);
-
-  document.getElementById('lightbox-counter').textContent =
-    (lbIndex + 1) + ' / ' + lbImages.length + '  ·  ' + lbImages[lbIndex].label;
-
-  document.querySelectorAll('.lightbox-dot').forEach((d, i) => {
-    d.classList.toggle('active', i === lbIndex);
-  });
+  setTimeout(() => { img.src = lbImages[lbIndex].file; img.alt = lbImages[lbIndex].label; img.style.opacity = '1'; }, 150);
+  document.getElementById('lightbox-counter').textContent = (lbIndex + 1) + ' / ' + lbImages.length + '  ·  ' + lbImages[lbIndex].label;
+  document.querySelectorAll('.lightbox-dot').forEach((d, i) => { d.classList.toggle('active', i === lbIndex); });
 }
-
 function openLightbox(index) {
   lbIndex = index;
   document.getElementById('lightbox').classList.add('show');
-  buildDots();
-  updateLightbox();
+  buildDots(); updateLightbox();
   document.body.style.overflow = 'hidden';
 }
-
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('show');
   document.body.style.overflow = '';
 }
-
 function lightboxStep(dir) {
   lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
   updateLightbox();
 }
-
-// Close on backdrop click
 document.getElementById('lightbox').addEventListener('click', function(e) {
   if (e.target === this) closeLightbox();
 });
-
-// Keyboard navigation
-document.addEventListener('keydown', function(e) {
-  const lb = document.getElementById('lightbox');
-  if (!lb.classList.contains('show')) return;
-  if (e.key === 'ArrowRight') lightboxStep(1);
-  if (e.key === 'ArrowLeft')  lightboxStep(-1);
-  if (e.key === 'Escape')     closeLightbox();
-});
-
 </script>
 
 <div class="project-modal" id="projectModal">
