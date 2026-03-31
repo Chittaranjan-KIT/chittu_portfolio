@@ -702,7 +702,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   border: 1px solid var(--border);
   transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s;
 
-  /* dark gradient background */
   background:
     linear-gradient(160deg,
       rgba(13,21,32,0.95) 0%,
@@ -740,7 +739,6 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   box-shadow: 0 0 30px rgba(232,160,32,0.12);
 }
 
-/* decorative icon/number */
 .pp-cat-icon {
   font-size: 36px;
   margin-bottom: 16px;
@@ -912,7 +910,7 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
 }
 
 .pp-project-card.open .pp-project-detail {
-  max-height: 2000px;
+  max-height: 3000px;
   opacity: 1;
 }
 
@@ -988,6 +986,218 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
   background: rgba(61,214,200,0.04);
 }
 
+/* ═══════════════════════════════════════════
+   CFD RESULTS GALLERY
+   ═══════════════════════════════════════════ */
+
+.cfd-results-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 8px;
+}
+
+@media (max-width: 700px) {
+  .cfd-results-gallery { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 420px) {
+  .cfd-results-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+.cfd-thumb {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(232,160,32,0.15);
+  aspect-ratio: 4/3;
+  background: rgba(0,0,0,0.3);
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.cfd-thumb:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.cfd-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.cfd-thumb:hover img {
+  transform: scale(1.06);
+}
+
+.cfd-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s;
+}
+
+.cfd-thumb:hover .cfd-thumb-overlay {
+  background: rgba(0,0,0,0.35);
+}
+
+.cfd-zoom-icon {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid #fff;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.cfd-thumb:hover .cfd-zoom-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cfd-thumb-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  padding: 16px 8px 6px;
+  font-size: 10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.cfd-thumb:hover .cfd-thumb-label {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════
+   LIGHTBOX
+   ═══════════════════════════════════════════ */
+
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(10px);
+  z-index: 8000;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#lightbox.show {
+  display: flex;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 20px; right: 24px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(232,160,32,0.4);
+  background: rgba(8,13,20,0.8);
+  color: var(--accent);
+  font-size: 22px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 8100;
+  transition: background 0.2s, border-color 0.2s;
+}
+.lightbox-close:hover {
+  background: rgba(232,160,32,0.15);
+  border-color: var(--accent);
+}
+
+.lightbox-img-wrap {
+  position: relative;
+  max-width: 88vw;
+  max-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#lightbox-img {
+  max-width: 88vw;
+  max-height: 78vh;
+  border-radius: 12px;
+  border: 1px solid rgba(232,160,32,0.2);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.lightbox-nav {
+  position: fixed;
+  top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(232,160,32,0.35);
+  background: rgba(8,13,20,0.75);
+  color: var(--accent);
+  font-size: 22px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 8100;
+  transition: background 0.2s, border-color 0.2s;
+  user-select: none;
+}
+.lightbox-nav:hover {
+  background: rgba(232,160,32,0.15);
+  border-color: var(--accent);
+}
+
+#lightbox-prev { left: 20px; }
+#lightbox-next { right: 20px; }
+
+.lightbox-counter {
+  position: fixed;
+  bottom: 28px;
+  left: 50%; transform: translateX(-50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.5);
+  z-index: 8100;
+}
+
+.lightbox-dots {
+  position: fixed;
+  bottom: 52px;
+  left: 50%; transform: translateX(-50%);
+  display: flex; gap: 6px;
+  z-index: 8100;
+}
+
+.lightbox-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.lightbox-dot.active {
+  background: var(--accent);
+  transform: scale(1.4);
+}
 
 /* ─── PROJECT MODAL ─── */
 .project-modal {
@@ -1221,6 +1431,14 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
                   <li>Wake recirculation and velocity deficit downstream</li>
                   <li>TKE concentration at stagnation and separation regions</li>
                 </ul>
+              </div>
+
+              <!-- ── SIMULATION RESULTS GALLERY ── -->
+              <div class="pp-detail-section">
+                <h5>Simulation Results</h5>
+                <div class="cfd-results-gallery" id="ahmed-gallery">
+                  <!-- thumbnails injected by JS -->
+                </div>
               </div>
 
               <div class="pp-detail-section">
@@ -1871,13 +2089,25 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
 <div id="videoModal" class="modal">
   <div class="modal-inner">
     <div class="modal-close" onclick="closeVideo()">✕</div>
-
     <video id="robotVideo" controls preload="metadata">
       <source src="./robot.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-
   </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     LIGHTBOX
+     ═══════════════════════════════════════ -->
+<div id="lightbox">
+  <div class="lightbox-close" onclick="closeLightbox()">✕</div>
+  <div class="lightbox-img-wrap">
+    <img id="lightbox-img" src="" alt="CFD Result">
+  </div>
+  <div class="lightbox-dots" id="lightbox-dots"></div>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
+  <div class="lightbox-nav" id="lightbox-prev" onclick="lightboxStep(-1)">&#8592;</div>
+  <div class="lightbox-nav" id="lightbox-next" onclick="lightboxStep(1)">&#8594;</div>
 </div>
 
 <!-- ─── CANVAS ANIMATION ─── -->
@@ -2004,7 +2234,6 @@ function toggleCategoryPanel(id, tileEl) {
   const allTiles = document.querySelectorAll('.pp-category-tile');
   const allPanels = document.querySelectorAll('.pp-expand-panel');
 
-  // If clicking the already-active tile → close it
   if (activeCategoryPanel === id) {
     panel.classList.remove('open');
     tileEl.classList.remove('active');
@@ -2012,16 +2241,13 @@ function toggleCategoryPanel(id, tileEl) {
     return;
   }
 
-  // Close any currently open panel
   allPanels.forEach(p => p.classList.remove('open'));
   allTiles.forEach(t => t.classList.remove('active'));
 
-  // Open the new one
   panel.classList.add('open');
   tileEl.classList.add('active');
   activeCategoryPanel = id;
 
-  // Smooth scroll to panel
   setTimeout(() => {
     panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }, 100);
@@ -2034,13 +2260,117 @@ function closeCategoryPanel() {
 }
 
 function toggleProjectCard(el) {
-  // Close other project cards in the same grid
   const grid = el.closest('.pp-project-grid');
   grid.querySelectorAll('.pp-project-card').forEach(card => {
     if (card !== el) card.classList.remove('open');
   });
   el.classList.toggle('open');
 }
+
+
+/* ═══════════════════════════════════════════
+   CFD RESULTS GALLERY — BUILD THUMBNAILS
+   ═══════════════════════════════════════════ */
+
+// Label each image with a short description of what it shows
+const ahmedImages = [
+  { file: '1.jpeg',  label: 'Mesh Overview' },
+  { file: '2.jpeg',  label: 'Surface Refinement' },
+  { file: '3.jpeg',  label: 'Pressure Field' },
+  { file: '4.jpeg',  label: 'Cp Distribution' },
+  { file: '5.jpeg',  label: 'Velocity Contour' },
+  { file: '6.jpeg',  label: 'Flow Streamlines' },
+  { file: '7.jpeg',  label: 'Wake Structure' },
+  { file: '8.jpeg',  label: 'TKE Field' },
+  { file: '9.jpeg',  label: 'Rear Separation' },
+  { file: '10.jpeg', label: 'Residuals Plot' },
+];
+
+const gallery = document.getElementById('ahmed-gallery');
+ahmedImages.forEach((img, i) => {
+  const thumb = document.createElement('div');
+  thumb.className = 'cfd-thumb';
+  thumb.innerHTML = `
+    <img src="${img.file}" alt="${img.label}" loading="lazy">
+    <div class="cfd-thumb-overlay">
+      <div class="cfd-zoom-icon">&#x26F6;</div>
+    </div>
+    <div class="cfd-thumb-label">${img.label}</div>
+  `;
+  thumb.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openLightbox(i);
+  });
+  gallery.appendChild(thumb);
+});
+
+
+/* ═══════════════════════════════════════════
+   LIGHTBOX JS
+   ═══════════════════════════════════════════ */
+
+let lbIndex = 0;
+const lbImages = ahmedImages;
+
+function buildDots() {
+  const dotsEl = document.getElementById('lightbox-dots');
+  dotsEl.innerHTML = '';
+  lbImages.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'lightbox-dot' + (i === lbIndex ? ' active' : '');
+    d.addEventListener('click', () => { lbIndex = i; updateLightbox(); });
+    dotsEl.appendChild(d);
+  });
+}
+
+function updateLightbox() {
+  const img = document.getElementById('lightbox-img');
+  img.style.opacity = '0';
+  setTimeout(() => {
+    img.src = lbImages[lbIndex].file;
+    img.alt = lbImages[lbIndex].label;
+    img.style.opacity = '1';
+  }, 150);
+
+  document.getElementById('lightbox-counter').textContent =
+    (lbIndex + 1) + ' / ' + lbImages.length + '  ·  ' + lbImages[lbIndex].label;
+
+  document.querySelectorAll('.lightbox-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === lbIndex);
+  });
+}
+
+function openLightbox(index) {
+  lbIndex = index;
+  document.getElementById('lightbox').classList.add('show');
+  buildDots();
+  updateLightbox();
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function lightboxStep(dir) {
+  lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+  updateLightbox();
+}
+
+// Close on backdrop click
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('show')) return;
+  if (e.key === 'ArrowRight') lightboxStep(1);
+  if (e.key === 'ArrowLeft')  lightboxStep(-1);
+  if (e.key === 'Escape')     closeLightbox();
+});
 
 </script>
 
