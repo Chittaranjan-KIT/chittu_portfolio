@@ -968,17 +968,36 @@ box-shadow:0 6px 16px rgba(0,0,0,0.35);
       </div>
 
       <div class="project-category-body">
-  <div class="mini-project-card" onclick="event.stopPropagation(); openProjectModal(`
-  <h3>Ahmed Body Wake CFD Simulation</h3>
-  <p><strong>Overview:</strong> OpenFOAM + ParaView aerodynamic wake study.</p>
-  <p><strong>Tools:</strong> OpenFOAM, ParaView, CAD Cleanup</p>
-  <p><strong>Focus:</strong> Wake visualization, drag coefficient, turbulence behavior</p>
-  <p><strong>Outcome:</strong> Improved understanding of external aerodynamics and flow separation.</p>
-`)">
-  <div class='project-modal-images'>
-     <img src='ahmed3.jpg' alt='Velocity Streamlines'>
+  <div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
+
+  <h4>Ahmed Body – External Aerodynamics Simulation</h4>
+  <p>CFD simulation to analyse wake formation, pressure distribution and aerodynamic drag behind a simplified vehicle model.</p>
+
+  <div class="mini-project-extra">
+
+    <p><strong>Project Description</strong><br>
+    This project focuses on analysing the aerodynamic behaviour of the Ahmed body using CFD. 
+    The objective was to understand how flow separation occurs behind a vehicle and how the wake region contributes to drag.</p>
+
+    <p><strong>Key Parameters Studied</strong></p>
+    <ul>
+      <li>Velocity distribution around the body</li>
+      <li>Pressure coefficient along the surface</li>
+      <li>Wake region and flow separation</li>
+      <li>Drag coefficient (Cd)</li>
+      <li>Turbulence behaviour in the rear wake</li>
+    </ul>
+
+    <p><strong>Results / Output</strong></p>
+    <ul>
+      <li>Clear wake formation observed behind the Ahmed body</li>
+      <li>Strong pressure drop at the rear surface confirmed the drag source</li>
+      <li>Flow separation point identified at the rear edge</li>
+      <li>Better understanding of external aerodynamics for road vehicles</li>
+    </ul>
+
   </div>
-  <h4>Ahmed Body Wake CFD Simulation</h4>
+</div>
 </div>
 
 <div class="mini-project-card" onclick="event.stopPropagation(); this.classList.toggle('open')">
