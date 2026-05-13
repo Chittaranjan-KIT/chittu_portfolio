@@ -420,6 +420,10 @@ footer a { color: var(--accent); text-decoration: none; }
 .cfd-thumb:hover .cfd-zoom-icon { opacity:1; transform:scale(1); }
 .cfd-thumb-label { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,0.75)); padding:16px 8px 6px; font-size:10px; font-family:'Inter',sans-serif; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.8); text-align:center; opacity:0; transition:opacity 0.25s; }
 .cfd-thumb:hover .cfd-thumb-label { opacity:1; }
+  /* BICYCLE MODEL GALLERY */
+.bike-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 8px; }
+@media (max-width: 700px) { .bike-gallery { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 420px) { .bike-gallery { grid-template-columns: repeat(2, 1fr); } }
 
 /* LIGHTBOX */
 #lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); backdrop-filter:blur(10px); z-index:8000; justify-content:center; align-items:center; flex-direction:column; }
@@ -528,7 +532,7 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="pp-cat-arrow">+</div>
       <div class="pp-cat-icon">🏎️</div>
       <div class="pp-cat-title">Vehicle Dynamics</div>
-      <div class="pp-cat-count">2 Projects</div>
+      <div class="pp-cat-count">3 Projects</div>
     </div>
     <div class="pp-category-tile" onclick="toggleCategoryPanel('auto', this)">
       <div class="pp-cat-arrow">+</div>
@@ -757,6 +761,48 @@ footer a { color: var(--accent); text-decoration: none; }
       </div>
     </div>
   </div>
+
+  <!-- BICYCLE MODEL PROJECT CARD -->
+<div class="pp-project-card" onclick="toggleProjectCard(this)">
+  <div class="pp-project-card-head">
+    <div>
+      <h4>Vehicle Lateral Dynamics Modeling &amp; Analysis</h4>
+      <p>2-DOF linear bicycle model in MATLAB using state-space formulation to analyze handling characteristics, stability, and tire behavior across operating conditions.</p>
+    </div>
+    <div class="pp-project-toggle">+</div>
+  </div>
+  <div class="pp-project-detail">
+    <div class="pp-project-detail-inner">
+      <div class="pp-detail-section">
+        <h5>Description</h5>
+        <p>Developed a 2-DOF linear bicycle model for vehicle lateral dynamics, implementing state-space formulation to analyze handling characteristics across operating conditions. Captures lateral velocity and yaw rate dynamics through derived and validated A, B, C, D matrices.</p>
+      </div>
+      <div class="pp-detail-section">
+        <h5>Key Work</h5>
+        <ul>
+          <li>Derived and validated bicycle model state-space matrices capturing lateral velocity and yaw rate dynamics</li>
+          <li>Characterized understeer/oversteer behavior via understeer gradient (K_us) across front/rear cornering stiffness configurations</li>
+          <li>Conducted frequency response, step steer, and sinusoidal sweep analyses to evaluate stability margins, damping ratio, and natural frequency vs. speed</li>
+          <li>Implemented Pacejka Magic Formula tire model to capture nonlinear slip angle–force relationships and load sensitivity effects</li>
+          <li>Simulated ISO-inspired lane change maneuver, integrating vehicle path from yaw rate and lateral velocity states</li>
+        </ul>
+      </div>
+      <div class="pp-detail-section">
+        <h5>Simulation Results</h5>
+        <div class="bike-gallery" id="bike-gallery"></div>
+      </div>
+      <div class="pp-detail-section">
+        <h5>Tools Used</h5>
+        <div class="pp-detail-tools">
+          <span class="pp-tool-tag">MATLAB</span>
+          <span class="pp-tool-tag">State-Space Formulation</span>
+          <span class="pp-tool-tag">Pacejka Magic Formula</span>
+          <span class="pp-tool-tag">Frequency Response Analysis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Autonomous Systems Panel -->
   <div class="pp-expand-panel" id="panel-auto">
@@ -1413,7 +1459,27 @@ ahmedImages.forEach((img, i) => {
   thumb.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(i); });
   gallery.appendChild(thumb);
 });
-
+/* BICYCLE MODEL GALLERY */
+const bikeImages = [
+  { file: 'frequency_response.png',           label: 'Frequency Response' },
+  { file: 'lane_change.png',                  label: 'Lane Change' },
+  { file: 'lane_change_speed_comparison.png', label: 'Speed Comparison' },
+  { file: 'sinusoidal_steer.png',             label: 'Sinusoidal Steer' },
+  { file: 'speed_sweep_analysis.png',         label: 'Speed Sweep' },
+  { file: 'step_steer_response.png',          label: 'Step Steer' },
+  { file: 'understeer_oversteer.png',         label: 'Understeer / Oversteer' },
+];
+const bikeGallery = document.getElementById('bike-gallery');
+bikeImages.forEach((img, i) => {
+  const thumb = document.createElement('div');
+  thumb.className = 'cfd-thumb';
+  thumb.innerHTML = `
+    <img src="${img.file}" alt="${img.label}" loading="lazy">
+    <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
+    <div class="cfd-thumb-label">${img.label}</div>`;
+  thumb.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(i, bikeImages); });
+  bikeGallery.appendChild(thumb);
+});
 /* LIGHTBOX */
 let lbIndex = 0;
 const lbImages = ahmedImages;
@@ -1427,18 +1493,22 @@ function buildDots() {
     dotsEl.appendChild(d);
   });
 }
-function updateLightbox() {
-  const img = document.getElementById('lightbox-img');
-  img.style.opacity = '0';
-  setTimeout(() => { img.src = lbImages[lbIndex].file; img.alt = lbImages[lbIndex].label; img.style.opacity = '1'; }, 150);
-  document.getElementById('lightbox-counter').textContent = (lbIndex + 1) + ' / ' + lbImages.length + '  ·  ' + lbImages[lbIndex].label;
-  document.querySelectorAll('.lightbox-dot').forEach((d, i) => { d.classList.toggle('active', i === lbIndex); });
+function lightboxStep(dir) {
+  const images = window._lbImages || ahmedImages;
+  lbIndex = (lbIndex + dir + images.length) % images.length;
+  updateLightbox();
+  buildDots();
 }
-function openLightbox(index) {
-  lbIndex = index;
-  document.getElementById('lightbox').classList.add('show');
-  buildDots(); updateLightbox();
-  document.body.style.overflow = 'hidden';
+function buildDots() {
+  const images = window._lbImages || ahmedImages;
+  const dotsEl = document.getElementById('lightbox-dots');
+  dotsEl.innerHTML = '';
+  images.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'lightbox-dot' + (i === lbIndex ? ' active' : '');
+    d.addEventListener('click', () => { lbIndex = i; updateLightbox(); });
+    dotsEl.appendChild(d);
+  });
 }
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('show');
