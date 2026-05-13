@@ -44,30 +44,20 @@ body::after {
   pointer-events: none; z-index: 9999; opacity: 0.35;
 }
 
-#circuit-bg {
-  position: fixed; inset: 0;
-  z-index: 0; pointer-events: none;
-}
+#circuit-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 
 nav {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 1000;
-  display: flex;
-  justify-content: center;
-  gap: 0;
-  padding: 0;
+  display: flex; justify-content: center; gap: 0; padding: 0;
   background: rgba(8,13,20,0.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
 nav a {
-  color: var(--muted);
-  text-decoration: none;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
   padding: 18px 28px;
   transition: color 0.25s, background 0.25s;
   border-right: 1px solid var(--border);
@@ -76,16 +66,10 @@ nav a:first-child { border-left: 1px solid var(--border); }
 nav a:hover { color: var(--accent); background: rgba(232,160,32,0.05); }
 
 header {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 100px 40px 60px;
-  z-index: 1;
-  overflow: hidden;
+  position: relative; min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  padding: 100px 40px 60px; z-index: 1; overflow: hidden;
 }
 
 .hero-grid-lines {
@@ -99,14 +83,10 @@ header {
 }
 
 .hero-glow {
-  position: absolute;
-  width: 600px; height: 600px;
-  border-radius: 50%;
+  position: absolute; width: 600px; height: 600px; border-radius: 50%;
   background: radial-gradient(circle, rgba(232,160,32,0.07) 0%, transparent 70%);
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  animation: glowPulse 6s ease-in-out infinite alternate;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  pointer-events: none; animation: glowPulse 6s ease-in-out infinite alternate;
 }
 @keyframes glowPulse {
   from { transform: translate(-50%,-50%) scale(1); opacity: 0.7; }
@@ -114,14 +94,11 @@ header {
 }
 
 .profile-img {
-  width: 200px; height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position:center 40%;
+  width: 200px; height: 200px; border-radius: 50%;
+  object-fit: cover; object-position: center 40%;
   border: 2px solid var(--accent);
   box-shadow: 0 0 0 6px rgba(232,160,32,0.08), 0 0 40px rgba(232,160,32,0.2);
-  margin-bottom: 32px;
-  animation: float 5s ease-in-out infinite;
+  margin-bottom: 32px; animation: float 5s ease-in-out infinite;
   position: relative; z-index: 1;
 }
 @keyframes float {
@@ -130,81 +107,32 @@ header {
 }
 
 .hero-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 16px;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.2s forwards;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 16px; opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
   position: relative; z-index: 1;
 }
 
 .hero-name {
-  font-family: 'Playfair Display', serif;
-  font-style: Italic;
-  font-size: clamp(38px, 6vw, 72px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: #fff;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.4s forwards;
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: clamp(38px, 6vw, 72px); font-weight: 800;
+  line-height: 1.05; letter-spacing: -0.02em; color: #fff;
+  margin-bottom: 20px; opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
   position: relative; z-index: 1;
 }
 .hero-name span { color: var(--accent); }
 
 .hero-sub {
-  font-size: 16px;
-  color: var(--muted);
-  max-width: 520px;
-  margin-bottom: 40px;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.6s forwards;
+  font-size: 16px; color: var(--muted); max-width: 520px;
+  margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
   position: relative; z-index: 1;
 }
-
-.hero-tags {
-  display: flex; flex-wrap: wrap; gap: 10px;
-  justify-content: center;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.8s forwards;
-  position: relative; z-index: 1;
-}
-.tag {
-  padding: 7px 16px;
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  font-size: 12px;
-  color: var(--muted);
-  background: rgba(232,160,32,0.04);
-  letter-spacing: 0.04em;
-  transition: border-color 0.3s, color 0.3s;
-}
-.tag:hover { border-color: var(--accent); color: var(--accent); }
 
 .scroll-hint {
-  position: absolute; bottom: 36px;
-  left: 50%; transform: translateX(-50%);
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 8px;
-  color: var(--muted); font-size: 11px; letter-spacing: 0.15em;
-  text-transform: uppercase;
-  opacity: 0; animation: fadeUp 1s 1.2s forwards;
-  z-index: 1;
-}
-.scroll-line {
-  width: 1px; height: 40px;
-  background: linear-gradient(to bottom, var(--accent), transparent);
-  animation: scrollLine 2s ease-in-out infinite;
-}
-@keyframes scrollLine {
-  0% { transform: scaleY(0); transform-origin: top; }
-  50% { transform: scaleY(1); transform-origin: top; }
-  51% { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
+  color: var(--muted); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  opacity: 0; animation: fadeUp 1s 1.2s forwards; z-index: 1;
 }
 
 @keyframes fadeUp {
@@ -213,53 +141,29 @@ header {
 }
 
 section {
-  position: relative;
-  z-index: 1;
-  padding: 80px 5vw;
-  max-width: 1100px;
-  margin: 0 auto;
-  opacity: 0;
-  transform: translateY(24px);
+  position: relative; z-index: 1; padding: 80px 5vw;
+  max-width: 1100px; margin: 0 auto;
+  opacity: 0; transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 section.visible { opacity:1; transform: translateY(0); }
 
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 48px;
-}
+.section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 48px; }
 .section-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
 }
 .section-title {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(24px, 4vw, 36px);
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.01em;
+  font-family: 'Inter', sans-serif; font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800; color: #fff; letter-spacing: -0.01em;
 }
-.section-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(to right, var(--border), transparent);
-}
+.section-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
 
 .card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 28px 32px;
-  margin-bottom: 16px;
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 28px 32px; margin-bottom: 16px;
   transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-  cursor: pointer;
-  backdrop-filter: blur(8px);
+  cursor: pointer; backdrop-filter: blur(8px);
 }
 .card:hover {
   border-color: rgba(232,160,32,0.35);
@@ -267,215 +171,82 @@ section.visible { opacity:1; transform: translateY(0); }
   transform: translateY(-2px);
 }
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.card-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.4;
-}
-.card-meta {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 4px;
-}
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.card-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; color: #fff; line-height: 1.4; }
+.card-meta { font-size: 13px; color: var(--muted); margin-top: 4px; }
 .card-meta span { color: var(--accent); }
 
 .expand-btn {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
+  width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  color: var(--accent);
-  font-size: 18px;
-  font-weight: 300;
-  flex-shrink: 0;
+  color: var(--accent); font-size: 18px; font-weight: 300; flex-shrink: 0;
   transition: background 0.3s, transform 0.4s, border-color 0.3s;
 }
 .card.open .expand-btn {
-  transform: rotate(45deg);
-  background: rgba(232,160,32,0.1);
-  border-color: var(--accent);
+  transform: rotate(45deg); background: rgba(232,160,32,0.1); border-color: var(--accent);
 }
 
 .card-body {
-  position:relative;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.4s;
-  opacity: 0;
+  position: relative; max-height: 0; overflow: hidden;
+  transition: max-height 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.4s; opacity: 0;
 }
-.card.open .card-body {
-  max-height: 2400px;
-  opacity: 1;
-  padding-top: 24px;
-}
-
+.card.open .card-body { max-height: 2400px; opacity: 1; padding-top: 24px; }
 .card-body p { color: var(--text); margin-bottom: 14px; }
 .card-body ul { padding-left: 20px; color: var(--muted); }
 .card-body ul li { margin-bottom: 6px; }
 .card-body b { color: var(--accent2); font-weight: 500; }
-.card-body u { text-decoration-color: var(--accent); }
-
 .card-body h5 {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--teal);
-  margin: 20px 0 10px;
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); margin: 20px 0 10px;
 }
 
-.edu-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 @media (max-width: 700px) { .edu-grid { grid-template-columns: 1fr; } }
 
 .edu-card {
-  background: rgba(61,214,200,0.04);
-  border: 1px solid rgba(61,214,200,0.15);
-  border-radius: 10px;
-  padding: 24px;
+  background: rgba(61,214,200,0.04); border: 1px solid rgba(61,214,200,0.15);
+  border-radius: 10px; padding: 24px;
 }
-.edu-card .degree {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 4px;
-}
-.edu-card .school {
-  font-size: 13px;
-  color: var(--teal);
-  margin-bottom: 12px;
-}
+.edu-card .degree { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.edu-card .school { font-size: 13px; color: var(--teal); margin-bottom: 12px; }
 .edu-card p { font-size: 13px; color: var(--muted); }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
-}
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
 
 .skill-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  backdrop-filter: blur(8px);
-  transition: border-color 0.3s, transform 0.3s;
-  cursor: pointer;
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; backdrop-filter: blur(8px);
+  transition: border-color 0.3s, transform 0.3s; cursor: pointer;
 }
-.skill-card:hover {
-  border-color: rgba(232,160,32,0.3);
-  transform: translateY(-2px);
-}
-
-.skill-card-header {
-  padding: 20px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.skill-card-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #fff;
-  display: flex; align-items: center; gap: 10px;
-}
+.skill-card:hover { border-color: rgba(232,160,32,0.3); transform: translateY(-2px); }
+.skill-card-header { padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+.skill-card-title { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; }
 .skill-card-title .icon { font-size: 18px; }
-
-.skill-arrow {
-  color: var(--accent);
-  font-size: 14px;
-  transition: transform 0.3s;
-}
+.skill-arrow { color: var(--accent); font-size: 14px; transition: transform 0.3s; }
 .skill-card.open .skill-arrow { transform: rotate(90deg); }
-
-.skill-card-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.4s;
-  opacity: 0;
-  padding: 0 24px;
-}
-.skill-card.open .skill-card-body {
-  max-height: 800px;
-  opacity: 1;
-  padding: 0 24px 20px;
-}
-
+.skill-card-body { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.4s; opacity: 0; padding: 0 24px; }
+.skill-card.open .skill-card-body { max-height: 800px; opacity: 1; padding: 0 24px 20px; }
 .skill-divider { height: 1px; background: var(--border); margin: 0 24px; }
-
 .skill-row { margin: 12px 0; }
-.skill-row-top {
-  display: flex; justify-content: space-between;
-  font-size: 13px; color: var(--text);
-  margin-bottom: 6px;
-}
+.skill-row-top { display: flex; justify-content: space-between; font-size: 13px; color: var(--text); margin-bottom: 6px; }
 .skill-row-top span { color: var(--muted); font-size: 12px; }
-.skill-bar {
-  height: 4px;
-  background: rgba(255,255,255,0.07);
-  border-radius: 100px;
-  overflow: hidden;
-}
-.skill-fill {
-  height: 100%;
-  border-radius: 100px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  width: 0;
-  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
-}
+.skill-bar { height: 4px; background: rgba(255,255,255,0.07); border-radius: 100px; overflow: hidden; }
+.skill-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--accent), var(--accent2)); width: 0; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+.skill-category { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); margin: 16px 0 8px; }
 
-.skill-category {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--teal);
-  margin: 16px 0 8px;
-}
-
-.extra-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
+.extra-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 @media (max-width: 800px) { .extra-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 500px) { .extra-grid { grid-template-columns: 1fr; } }
 
 .extra-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 28px 24px;
-  cursor: pointer;
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 28px 24px; cursor: pointer;
   transition: border-color 0.3s, transform 0.3s;
 }
 .extra-card:hover { border-color: rgba(232,160,32,0.3); transform: translateY(-2px); }
 .extra-card-icon { font-size: 24px; margin-bottom: 12px; }
-.extra-card-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px; font-weight: 700;
-  color: #fff; margin-bottom: 8px;
-}
-.extra-card-body {
-  max-height: 0; overflow: hidden;
-  transition: max-height 0.6s ease, opacity 0.4s;
-  opacity: 0;
-}
+.extra-card-title { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.extra-card-body { max-height: 0; overflow: hidden; transition: max-height 0.6s ease, opacity 0.4s; opacity: 0; }
 .extra-card.open .extra-card-body { max-height: 400px; opacity: 1; padding-top: 12px; }
 .extra-card-body ul { padding-left: 18px; }
 .extra-card-body ul li { font-size: 13px; color: var(--muted); margin-bottom: 5px; }
@@ -483,611 +254,192 @@ section.visible { opacity:1; transform: translateY(0); }
 .extra-card.open .extra-card-toggle { transform: rotate(45deg); }
 
 .watch-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s, box-shadow 0.3s;
-  margin-top: 16px;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; border: 1px solid var(--accent); color: var(--accent);
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 20px;
+  border-radius: 6px; cursor: pointer; transition: background 0.3s, box-shadow 0.3s; margin-top: 16px;
 }
-.watch-btn:hover {
-  background: rgba(232,160,32,0.1);
-  box-shadow: 0 0 20px rgba(232,160,32,0.2);
-}
+.watch-btn:hover { background: rgba(232,160,32,0.1); box-shadow: 0 0 20px rgba(232,160,32,0.2); }
 
 .modal {
-  display: none;
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.92);
-  backdrop-filter: blur(12px);
-  z-index: 5000;
-  justify-content: center;
-  align-items: center;
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.92); backdrop-filter: blur(12px);
+  z-index: 5000; justify-content: center; align-items: center;
 }
 .modal.show { display: flex; }
-
 .modal-inner {
-  position: relative;
-  width: min(92vw, 960px);
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 14px;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.7);
-  display: flex;
-  flex-direction: column;
+  position: relative; width: min(92vw, 960px);
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 16px; padding: 14px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.7); display: flex; flex-direction: column;
 }
-
 .modal-close {
   position: absolute; top: 10px; right: 14px;
-  font-size: 20px; color: var(--accent);
-  cursor: pointer; z-index: 10;
-  width: 32px; height: 32px;
-  display: flex; align-items: center; justify-content: center;
-  border-radius: 50%;
-  transition: background 0.2s;
+  font-size: 20px; color: var(--accent); cursor: pointer; z-index: 10;
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; transition: background 0.2s;
 }
 .modal-close:hover { background: rgba(232,160,32,0.1); }
+.modal-inner video { width: 100%; height: auto; max-height: 80vh; border-radius: 8px; object-fit: contain; display: block; background: #000; }
 
-.modal-inner video {
-  width: 100%;
-  height: auto;
-  max-height: 80vh;
-  border-radius: 8px;
-  object-fit: contain;
-  display: block;
-  background: #000;
-}
-
-.download-section {
-  text-align: center;
-  padding: 60px 20px;
-  position: relative; z-index: 1;
-}
+.download-section { text-align: center; padding: 60px 20px; position: relative; z-index: 1; }
 .download-btn {
   display: inline-flex; align-items: center; gap: 10px;
-  background: var(--accent);
-  color: var(--bg);
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 14px 32px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
+  background: var(--accent); color: var(--bg);
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 32px;
+  border-radius: 8px; border: none; cursor: pointer; text-decoration: none;
   transition: box-shadow 0.3s, transform 0.3s;
 }
-.download-btn:hover {
-  box-shadow: 0 8px 32px rgba(232,160,32,0.4);
-  transform: translateY(-2px);
-}
+.download-btn:hover { box-shadow: 0 8px 32px rgba(232,160,32,0.4); transform: translateY(-2px); }
 
-footer {
-  text-align: center;
-  padding: 24px;
-  border-top: 1px solid var(--border);
-  font-size: 13px;
-  color: var(--muted);
-  position: relative; z-index: 1;
-}
+footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); position: relative; z-index: 1; }
 footer a { color: var(--accent); text-decoration: none; }
 
-.timeline {
-  position: relative;
-  padding-left: 28px;
-}
-.timeline::before {
-  content: '';
-  position: absolute; left: 0; top: 8px; bottom: 8px;
-  width: 1px;
-  background: linear-gradient(to bottom, var(--accent), transparent);
-}
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(to bottom, var(--accent), transparent); }
 .timeline .card { position: relative; }
-.timeline .card::before {
-  content: '';
-  position: absolute;
-  left: -34px; top: 28px;
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px rgba(232,160,32,0.6);
-}
+.timeline .card::before { content: ''; position: absolute; left: -34px; top: 28px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px rgba(232,160,32,0.6); }
 
-.about-prose {
-  font-size: 15px;
-  color: var(--text);
-  line-height: 1.85;
-  max-width: 720px;
-}
+.about-prose { font-size: 15px; color: var(--text); line-height: 1.85; max-width: 720px; }
 .about-prose .highlight { color: var(--accent); font-weight: 500; }
 
-@media (max-width: 600px) {
-  nav a { padding: 14px 14px; font-size: 10px; }
-  section { padding: 60px 20px; }
-  .card { padding: 20px; }
-}
+@media (max-width: 600px) { nav a { padding: 14px 14px; font-size: 10px; } section { padding: 60px 20px; } .card { padding: 20px; } }
 
-.card-image {
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-}
-.card-image img {
-  width:150px;
-  max-width:180px;
-  height:auto;
-  border-radius:8px;
-  object-fit:cover;
-  box-shadow:0 6px 18px rgba(0,0,0,0.4);
-}
-.card-text { padding-right:10px; }
+.project-images { display:flex; gap:12px; margin-top:16px; flex-wrap:wrap; }
+.project-images img { width:140px; border-radius:8px; box-shadow:0 6px 16px rgba(0,0,0,0.35); }
 
-@media (max-width:900px){
-  .card-layout{grid-template-columns:1fr;}
-  .card-image{margin-top:20px;}
-}
-
-.project-images {
-  display:flex;
-  gap:12px;
-  margin-top:16px;
-  flex-wrap:wrap;
-}
-.project-images img {
-  width:140px;
-  border-radius:8px;
-  box-shadow:0 6px 16px rgba(0,0,0,0.35);
-}
-
-/* ===============================================
-   PERSONAL PROJECT ENGINEERING
-   =============================================== */
-
-.pp-category-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 0;
-}
+/* PERSONAL PROJECTS */
+.pp-category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 0; }
 @media (max-width: 900px) { .pp-category-grid { grid-template-columns: 1fr; } }
 
 .pp-category-tile {
-  position: relative;
-  min-height: 260px;
-  border-radius: 18px;
-  overflow: hidden;
-  cursor: pointer;
-  border: 1px solid var(--border);
+  position: relative; min-height: 260px; border-radius: 18px; overflow: hidden;
+  cursor: pointer; border: 1px solid var(--border);
   transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s;
   background: linear-gradient(160deg, rgba(13,21,32,0.95) 0%, rgba(8,13,20,0.98) 100%);
-  backdrop-filter: blur(12px);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 32px;
+  backdrop-filter: blur(12px); display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 32px;
 }
 .pp-category-tile::before {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(232,160,32,0.06), transparent 70%),
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(232,160,32,0.06), transparent 70%),
     linear-gradient(135deg, rgba(255,255,255,0.02), transparent 50%);
-  pointer-events: none;
-  transition: opacity 0.35s;
+  pointer-events: none; transition: opacity 0.35s;
 }
-.pp-category-tile:hover {
-  border-color: rgba(232,160,32,0.45);
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 40px rgba(232,160,32,0.08);
-}
-.pp-category-tile.active {
-  border-color: var(--accent);
-  box-shadow: 0 0 30px rgba(232,160,32,0.12);
-}
+.pp-category-tile:hover { border-color: rgba(232,160,32,0.45); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 40px rgba(232,160,32,0.08); }
+.pp-category-tile.active { border-color: var(--accent); box-shadow: 0 0 30px rgba(232,160,32,0.12); }
 
 .pp-cat-icon { font-size: 36px; margin-bottom: 16px; opacity: 0.8; }
-.pp-cat-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 22px; font-weight: 800;
-  color: #fff; letter-spacing: -0.01em;
-  margin-bottom: 8px; position: relative; z-index: 1;
-}
-.pp-cat-count {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px; font-weight: 500;
-  color: var(--accent); letter-spacing: 0.08em;
-  text-transform: uppercase; position: relative; z-index: 1;
-}
-.pp-cat-arrow {
-  position: absolute; top: 28px; right: 28px;
-  width: 40px; height: 40px; border-radius: 50%;
-  border: 1px solid rgba(232,160,32,0.25);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--accent); font-size: 18px;
-  transition: transform 0.4s, background 0.3s, border-color 0.3s;
-}
-.pp-category-tile.active .pp-cat-arrow {
-  transform: rotate(45deg);
-  background: rgba(232,160,32,0.12);
-  border-color: var(--accent);
-}
+.pp-cat-title { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.01em; margin-bottom: 8px; position: relative; z-index: 1; }
+.pp-cat-count { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; position: relative; z-index: 1; }
+.pp-cat-arrow { position: absolute; top: 28px; right: 28px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(232,160,32,0.25); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 18px; transition: transform 0.4s, background 0.3s, border-color 0.3s; }
+.pp-category-tile.active .pp-cat-arrow { transform: rotate(45deg); background: rgba(232,160,32,0.12); border-color: var(--accent); }
 
-.pp-expand-panel {
-  max-height: 0; overflow: hidden; opacity: 0;
-  transition: max-height 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.5s ease, margin 0.5s ease;
-  margin-top: 0;
-}
+.pp-expand-panel { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.5s ease, margin 0.5s ease; margin-top: 0; }
 .pp-expand-panel.open { max-height: 6000px; opacity: 1; margin-top: 28px; }
 
-.pp-expand-inner {
-  background: rgba(5,12,25,0.92);
-  border: 1px solid var(--border);
-  border-radius: 20px; padding: 36px;
-  backdrop-filter: blur(10px);
-}
-.pp-expand-header {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 28px; padding-bottom: 20px;
-  border-bottom: 1px solid var(--border);
-}
-.pp-expand-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 20px; font-weight: 700; color: #fff;
-}
-.pp-expand-close {
-  width: 36px; height: 36px; border-radius: 50%;
-  border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--accent); font-size: 20px; cursor: pointer;
-  transition: background 0.3s, border-color 0.3s;
-}
+.pp-expand-inner { background: rgba(5,12,25,0.92); border: 1px solid var(--border); border-radius: 20px; padding: 36px; backdrop-filter: blur(10px); }
+.pp-expand-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.pp-expand-title { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 700; color: #fff; }
+.pp-expand-close { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 20px; cursor: pointer; transition: background 0.3s, border-color 0.3s; }
 .pp-expand-close:hover { background: rgba(232,160,32,0.1); border-color: var(--accent); }
 
-.pp-project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 18px;
-}
+.pp-project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
 
-.pp-project-card {
-  background: rgba(13,21,32,0.7);
-  border: 1px solid rgba(232,160,32,0.12);
-  border-radius: 16px; overflow: hidden; cursor: pointer;
-  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-.pp-project-card:hover {
-  border-color: rgba(232,160,32,0.35);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-}
-.pp-project-card-head {
-  padding: 22px 24px 16px;
-  display: flex; justify-content: space-between;
-  align-items: flex-start; gap: 12px;
-}
-.pp-project-card-head h4 {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px; font-weight: 700;
-  color: #fff; line-height: 1.4;
-}
-.pp-project-card-head p {
-  font-size: 13px; color: rgba(212,220,232,0.7);
-  margin-top: 6px; line-height: 1.6;
-}
-.pp-project-toggle {
-  width: 28px; height: 28px; border-radius: 50%;
-  border: 1px solid rgba(232,160,32,0.2);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--accent); font-size: 16px; flex-shrink: 0;
-  transition: transform 0.4s, background 0.3s;
-}
-.pp-project-card.open .pp-project-toggle {
-  transform: rotate(45deg); background: rgba(232,160,32,0.1);
-}
+.pp-project-card { background: rgba(13,21,32,0.7); border: 1px solid rgba(232,160,32,0.12); border-radius: 16px; overflow: hidden; cursor: pointer; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; }
+.pp-project-card:hover { border-color: rgba(232,160,32,0.35); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
+.pp-project-card-head { padding: 22px 24px 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.pp-project-card-head h4 { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700; color: #fff; line-height: 1.4; }
+.pp-project-card-head p { font-size: 13px; color: rgba(212,220,232,0.7); margin-top: 6px; line-height: 1.6; }
+.pp-project-toggle { width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(232,160,32,0.2); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 16px; flex-shrink: 0; transition: transform 0.4s, background 0.3s; }
+.pp-project-card.open .pp-project-toggle { transform: rotate(45deg); background: rgba(232,160,32,0.1); }
 
-.pp-project-detail {
-  max-height: 0; overflow: hidden; opacity: 0;
-  transition: max-height 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.4s;
-}
+.pp-project-detail { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.4s; }
 .pp-project-card.open .pp-project-detail { max-height: 5000px; opacity: 1; }
 
-.pp-project-detail-inner {
-  padding: 0 24px 24px;
-  border-top: 1px solid rgba(232,160,32,0.08);
-}
+.pp-project-detail-inner { padding: 0 24px 24px; border-top: 1px solid rgba(232,160,32,0.08); }
 .pp-detail-section { margin-top: 18px; }
-.pp-detail-section h5 {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--teal); margin-bottom: 10px;
-  display: flex; align-items: center; gap: 8px;
-}
-.pp-detail-section h5::before {
-  content: ''; width: 3px; height: 14px;
-  border-radius: 2px; background: var(--teal); display: inline-block;
-}
+.pp-detail-section h5 { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--teal); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.pp-detail-section h5::before { content: ''; width: 3px; height: 14px; border-radius: 2px; background: var(--teal); display: inline-block; }
 .pp-detail-section p { font-size: 13px; color: var(--text); line-height: 1.75; margin-bottom: 8px; }
 .pp-detail-section ul { padding-left: 18px; margin: 0; }
 .pp-detail-section ul li { font-size: 13px; color: var(--text); line-height: 1.7; margin-bottom: 5px; }
 .pp-detail-section ul li::marker { color: var(--accent); }
 
 .pp-detail-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.pp-tool-tag {
-  padding: 5px 14px;
-  border: 1px solid rgba(61,214,200,0.2);
-  border-radius: 100px; font-size: 11px; font-weight: 600;
-  color: var(--teal); letter-spacing: 0.04em;
-  background: rgba(61,214,200,0.04);
-}
+.pp-tool-tag { padding: 5px 14px; border: 1px solid rgba(61,214,200,0.2); border-radius: 100px; font-size: 11px; font-weight: 600; color: var(--teal); letter-spacing: 0.04em; background: rgba(61,214,200,0.04); }
 
-/* ===============================================
-   ECB RESULTS TABLE
-   =============================================== */
-.ecb-results-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-  font-size: 12px;
-}
-.ecb-results-table th {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  color: var(--accent);
-  padding: 8px 12px;
-  text-align: left;
-  border-bottom: 1px solid rgba(232,160,32,0.2);
-}
-.ecb-results-table td {
-  padding: 8px 12px;
-  color: var(--text);
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  vertical-align: top;
-}
+/* ECB TABLES */
+.ecb-results-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
+.ecb-results-table th { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); padding: 8px 12px; text-align: left; border-bottom: 1px solid rgba(232,160,32,0.2); }
+.ecb-results-table td { padding: 8px 12px; color: var(--text); border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: top; }
 .ecb-results-table tr:last-child td { border-bottom: none; }
 .ecb-results-table .highlight-row td { color: #fff; font-weight: 600; }
 .ecb-results-table .val { color: var(--accent2); font-family: 'Inter', sans-serif; font-weight: 500; }
 
-.ecb-comparison-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 10px;
-}
+.ecb-comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
 @media (max-width: 600px) { .ecb-comparison-grid { grid-template-columns: 1fr; } }
 
-.ecb-compare-card {
-  background: rgba(8,13,20,0.6);
-  border-radius: 10px;
-  padding: 14px 16px;
-  border: 1px solid rgba(232,160,32,0.1);
-}
-.ecb-compare-card.winner {
-  border-color: rgba(61,214,200,0.3);
-  background: rgba(61,214,200,0.04);
-}
-.ecb-compare-label {
-  font-size: 10px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  color: var(--muted); margin-bottom: 10px;
-}
+.ecb-compare-card { background: rgba(8,13,20,0.6); border-radius: 10px; padding: 14px 16px; border: 1px solid rgba(232,160,32,0.1); }
+.ecb-compare-card.winner { border-color: rgba(61,214,200,0.3); background: rgba(61,214,200,0.04); }
+.ecb-compare-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 10px; }
 .ecb-compare-card.winner .ecb-compare-label { color: var(--teal); }
 .ecb-stat { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
 .ecb-stat-name { font-size: 12px; color: rgba(212,220,232,0.7); }
 .ecb-stat-val { font-size: 12px; font-weight: 600; color: var(--accent2); font-family: 'Inter', sans-serif; }
 .ecb-compare-card.winner .ecb-stat-val { color: var(--teal); }
+.ecb-finding-badge { display: inline-block; background: rgba(232,160,32,0.1); border: 1px solid rgba(232,160,32,0.25); border-radius: 6px; padding: 10px 14px; margin-top: 10px; font-size: 12px; color: var(--accent2); line-height: 1.6; width: 100%; }
 
-.ecb-finding-badge {
-  display: inline-block;
-  background: rgba(232,160,32,0.1);
-  border: 1px solid rgba(232,160,32,0.25);
-  border-radius: 6px;
-  padding: 10px 14px;
-  margin-top: 10px;
-  font-size: 12px;
-  color: var(--accent2);
-  line-height: 1.6;
-  width: 100%;
-}
-
-/* ===============================================
-   ECB VIDEO GALLERY
-   =============================================== */
-.ecb-video-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 10px;
-}
+/* ECB VIDEO */
+.ecb-video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
 @media (max-width: 600px) { .ecb-video-grid { grid-template-columns: repeat(2, 1fr); } }
 
-.ecb-video-thumb {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-  border: 1px solid rgba(232,160,32,0.15);
-  background: rgba(8,13,20,0.8);
-  aspect-ratio: 16/9;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-  gap: 6px;
-  padding: 8px;
-}
-.ecb-video-thumb:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-}
-.ecb-video-play {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: rgba(232,160,32,0.15);
-  border: 1px solid rgba(232,160,32,0.4);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--accent); font-size: 12px;
-  transition: background 0.2s;
-}
+.ecb-video-thumb { position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; border: 1px solid rgba(232,160,32,0.15); background: rgba(8,13,20,0.8); aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; gap: 6px; padding: 8px; }
+.ecb-video-thumb:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+.ecb-video-play { width: 32px; height: 32px; border-radius: 50%; background: rgba(232,160,32,0.15); border: 1px solid rgba(232,160,32,0.4); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 12px; transition: background 0.2s; }
 .ecb-video-thumb:hover .ecb-video-play { background: rgba(232,160,32,0.3); }
-.ecb-video-label {
-  font-size: 10px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.06em;
-  color: rgba(255,255,255,0.7); text-align: center;
-  line-height: 1.3;
-}
+.ecb-video-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.7); text-align: center; line-height: 1.3; }
 
-/* ===============================================
-   ECB VIDEO MODAL
-   =============================================== */
-#ecbModal .modal-inner {
-  max-width: min(92vw, 900px);
-}
-.ecb-modal-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px; font-weight: 600;
-  color: var(--accent);
-  letter-spacing: 0.08em; text-transform: uppercase;
-  text-align: center;
-  padding: 8px 40px 12px;
-}
+#ecbModal .modal-inner { max-width: min(92vw, 900px); }
+.ecb-modal-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; text-align: center; padding: 8px 40px 12px; }
 
-/* ===============================================
-   CFD RESULTS GALLERY
-   =============================================== */
-.cfd-results-gallery {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px; margin-top: 8px;
-}
+/* CFD GALLERY */
+.cfd-results-gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 8px; }
 @media (max-width: 700px) { .cfd-results-gallery { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 420px) { .cfd-results-gallery { grid-template-columns: repeat(2, 1fr); } }
 
-.cfd-thumb {
-  position: relative; border-radius: 8px; overflow: hidden;
-  cursor: pointer; border: 1px solid rgba(232,160,32,0.15);
-  aspect-ratio: 4/3; background: rgba(0,0,0,0.3);
-  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-}
-.cfd-thumb:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-}
+.cfd-thumb { position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; border: 1px solid rgba(232,160,32,0.15); aspect-ratio: 4/3; background: rgba(0,0,0,0.3); transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; }
+.cfd-thumb:hover { border-color: var(--accent); transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
 .cfd-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.3s; }
 .cfd-thumb:hover img { transform: scale(1.06); }
-.cfd-thumb-overlay {
-  position:absolute; inset:0; background:rgba(0,0,0,0);
-  display:flex; align-items:center; justify-content:center;
-  transition:background 0.25s;
-}
+.cfd-thumb-overlay { position:absolute; inset:0; background:rgba(0,0,0,0); display:flex; align-items:center; justify-content:center; transition:background 0.25s; }
 .cfd-thumb:hover .cfd-thumb-overlay { background:rgba(0,0,0,0.35); }
-.cfd-zoom-icon {
-  width:32px;height:32px;border-radius:50%;
-  border:1.5px solid #fff;display:flex;align-items:center;justify-content:center;
-  color:#fff;font-size:14px;opacity:0;transform:scale(0.7);
-  transition:opacity 0.2s,transform 0.2s;
-}
+.cfd-zoom-icon { width:32px; height:32px; border-radius:50%; border:1.5px solid #fff; display:flex; align-items:center; justify-content:center; color:#fff; font-size:14px; opacity:0; transform:scale(0.7); transition:opacity 0.2s,transform 0.2s; }
 .cfd-thumb:hover .cfd-zoom-icon { opacity:1; transform:scale(1); }
-.cfd-thumb-label {
-  position:absolute;bottom:0;left:0;right:0;
-  background:linear-gradient(transparent,rgba(0,0,0,0.75));
-  padding:16px 8px 6px;font-size:10px;font-family:'Inter',sans-serif;
-  font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
-  color:rgba(255,255,255,0.8);text-align:center;opacity:0;transition:opacity 0.25s;
-}
+.cfd-thumb-label { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,0.75)); padding:16px 8px 6px; font-size:10px; font-family:'Inter',sans-serif; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.8); text-align:center; opacity:0; transition:opacity 0.25s; }
 .cfd-thumb:hover .cfd-thumb-label { opacity:1; }
 
-/* ===============================================
-   LIGHTBOX
-   =============================================== */
-#lightbox {
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,0.92);backdrop-filter:blur(10px);
-  z-index:8000;justify-content:center;align-items:center;flex-direction:column;
-}
+/* LIGHTBOX */
+#lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); backdrop-filter:blur(10px); z-index:8000; justify-content:center; align-items:center; flex-direction:column; }
 #lightbox.show { display:flex; }
-.lightbox-close {
-  position:fixed;top:20px;right:24px;width:44px;height:44px;
-  border-radius:50%;border:1px solid rgba(232,160,32,0.4);
-  background:rgba(8,13,20,0.8);color:var(--accent);font-size:22px;
-  display:flex;align-items:center;justify-content:center;cursor:pointer;
-  z-index:8100;transition:background 0.2s,border-color 0.2s;
-}
-.lightbox-close:hover { background:rgba(232,160,32,0.15);border-color:var(--accent); }
-.lightbox-img-wrap {
-  position:relative;max-width:88vw;max-height:80vh;
-  display:flex;align-items:center;justify-content:center;
-}
-#lightbox-img {
-  max-width:88vw;max-height:78vh;border-radius:12px;
-  border:1px solid rgba(232,160,32,0.2);
-  box-shadow:0 24px 80px rgba(0,0,0,0.7);object-fit:contain;
-  display:block;transition:opacity 0.2s;
-}
-.lightbox-nav {
-  position:fixed;top:50%;transform:translateY(-50%);
-  width:48px;height:48px;border-radius:50%;
-  border:1px solid rgba(232,160,32,0.35);background:rgba(8,13,20,0.75);
-  color:var(--accent);font-size:22px;display:flex;align-items:center;
-  justify-content:center;cursor:pointer;z-index:8100;
-  transition:background 0.2s,border-color 0.2s;user-select:none;
-}
-.lightbox-nav:hover { background:rgba(232,160,32,0.15);border-color:var(--accent); }
+.lightbox-close { position:fixed; top:20px; right:24px; width:44px; height:44px; border-radius:50%; border:1px solid rgba(232,160,32,0.4); background:rgba(8,13,20,0.8); color:var(--accent); font-size:22px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:8100; transition:background 0.2s,border-color 0.2s; }
+.lightbox-close:hover { background:rgba(232,160,32,0.15); border-color:var(--accent); }
+.lightbox-img-wrap { position:relative; max-width:88vw; max-height:80vh; display:flex; align-items:center; justify-content:center; }
+#lightbox-img { max-width:88vw; max-height:78vh; border-radius:12px; border:1px solid rgba(232,160,32,0.2); box-shadow:0 24px 80px rgba(0,0,0,0.7); object-fit:contain; display:block; transition:opacity 0.2s; }
+.lightbox-nav { position:fixed; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; border:1px solid rgba(232,160,32,0.35); background:rgba(8,13,20,0.75); color:var(--accent); font-size:22px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:8100; transition:background 0.2s,border-color 0.2s; user-select:none; }
+.lightbox-nav:hover { background:rgba(232,160,32,0.15); border-color:var(--accent); }
 #lightbox-prev { left:20px; }
 #lightbox-next { right:20px; }
-.lightbox-counter {
-  position:fixed;bottom:28px;left:50%;transform:translateX(-50%);
-  font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
-  letter-spacing:0.12em;color:rgba(255,255,255,0.5);z-index:8100;
-}
-.lightbox-dots {
-  position:fixed;bottom:52px;left:50%;transform:translateX(-50%);
-  display:flex;gap:6px;z-index:8100;
-}
-.lightbox-dot {
-  width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.25);
-  cursor:pointer;transition:background 0.2s,transform 0.2s;
-}
-.lightbox-dot.active { background:var(--accent);transform:scale(1.4); }
+.lightbox-counter { position:fixed; bottom:28px; left:50%; transform:translateX(-50%); font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:0.12em; color:rgba(255,255,255,0.5); z-index:8100; }
+.lightbox-dots { position:fixed; bottom:52px; left:50%; transform:translateX(-50%); display:flex; gap:6px; z-index:8100; }
+.lightbox-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.25); cursor:pointer; transition:background 0.2s,transform 0.2s; }
+.lightbox-dot.active { background:var(--accent); transform:scale(1.4); }
 
-.project-modal {
-  position:fixed;inset:0;background:rgba(0,0,0,0.75);
-  backdrop-filter:blur(6px);display:none;
-  justify-content:center;align-items:center;z-index:6000;
-}
+.project-modal { position:fixed; inset:0; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); display:none; justify-content:center; align-items:center; z-index:6000; }
 .project-modal.show { display:flex; }
-.project-modal-content {
-  width:min(90vw,700px);max-height:85vh;overflow-y:auto;
-  background:rgba(5,12,25,0.96);border:1px solid rgba(232,160,32,0.2);
-  border-radius:28px;padding:36px;box-shadow:0 20px 60px rgba(0,0,0,0.5);
-}
-.project-modal-content h3 { font-size:28px;color:#fff;margin-bottom:18px; }
-.project-modal-content p { color:var(--text);margin-bottom:14px;line-height:1.8; }
-.project-modal-close { position:absolute;top:22px;right:28px;font-size:30px;color:var(--accent);cursor:pointer; }
-.project-modal-images {
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:14px;margin-bottom:24px;
-}
-.project-modal-images img {
-  width:100%;border-radius:16px;object-fit:cover;
-  border:1px solid rgba(232,160,32,0.15);box-shadow:0 8px 20px rgba(0,0,0,0.35);
-  transition:transform 0.3s ease,border-color 0.3s ease;
-}
-.project-modal-images img:hover { transform:scale(1.03);border-color:rgba(232,160,32,0.35); }
+.project-modal-content { width:min(90vw,700px); max-height:85vh; overflow-y:auto; background:rgba(5,12,25,0.96); border:1px solid rgba(232,160,32,0.2); border-radius:28px; padding:36px; box-shadow:0 20px 60px rgba(0,0,0,0.5); }
 </style>
 </head>
 <body>
@@ -1170,19 +522,19 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="pp-cat-arrow">+</div>
       <div class="pp-cat-icon">🌊</div>
       <div class="pp-cat-title">CFD</div>
-      <div class="pp-cat-count">6 Projects</div>
+      <div class="pp-cat-count">1 Project</div>
     </div>
     <div class="pp-category-tile" onclick="toggleCategoryPanel('vd', this)">
       <div class="pp-cat-arrow">+</div>
       <div class="pp-cat-icon">🏎️</div>
       <div class="pp-cat-title">Vehicle Dynamics</div>
-      <div class="pp-cat-count">5 Projects</div>
+      <div class="pp-cat-count">2 Projects</div>
     </div>
     <div class="pp-category-tile" onclick="toggleCategoryPanel('auto', this)">
       <div class="pp-cat-arrow">+</div>
       <div class="pp-cat-icon">🤖</div>
       <div class="pp-cat-title">Autonomous Systems</div>
-      <div class="pp-cat-count">3 Projects</div>
+      <div class="pp-cat-count">1 Project</div>
     </div>
   </div>
 
@@ -1199,32 +551,23 @@ footer a { color: var(--accent); text-decoration: none; }
           <div class="pp-project-card-head">
             <div>
               <h4>Ahmed Body - External Aerodynamics</h4>
-              <p>End-to-end steady-state RANS simulation of external flow over a standard Ahmed body at 40 m/s using OpenFOAM.</p>
+              <p>Steady-state RANS simulation of external flow over a standard Ahmed body at 40 m/s using OpenFOAM.</p>
             </div>
             <div class="pp-project-toggle">+</div>
           </div>
           <div class="pp-project-detail">
             <div class="pp-project-detail-inner">
               <div class="pp-detail-section">
-                <h5>Project Description</h5>
-                <p>Executed an end-to-end steady-state RANS simulation of external flow over a standard Ahmed body at 40 m/s using OpenFOAM. Generated a 3.35M-cell hex-dominant mesh via blockMesh and snappyHexMesh with multi-level surface refinement. Solved using simpleFoam with k-omega SST turbulence model and second-order upwind discretization. Post-processed in ParaView to extract pressure fields, velocity contours, streamlines, and turbulent wake structures.</p>
+                <h5>Description</h5>
+                <p>End-to-end CFD simulation of external flow over an Ahmed body at 40 m/s. Mesh generated via blockMesh and snappyHexMesh (3.35M cells). Solved with simpleFoam and k-omega SST turbulence model. Post-processed in ParaView for pressure, velocity, streamlines, and wake structures.</p>
               </div>
               <div class="pp-detail-section">
                 <h5>Key Parameters</h5>
                 <ul>
-                  <li>Freestream velocity: 40 m/s &nbsp;|&nbsp; Re ≈ 2.75 × 10⁶</li>
+                  <li>Freestream velocity: 40 m/s | Re = 2.75 x 10^6</li>
                   <li>Turbulence model: k-omega SST</li>
-                  <li>Mesh: 3.35M cells, hex-dominant, multi-level refinement</li>
-                  <li>Solver: simpleFoam, SIMPLE scheme, 500 iterations</li>
-                </ul>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Results</h5>
-                <ul>
-                  <li>Front stagnation zone with high Cp identified</li>
-                  <li>Flow acceleration over roof, separation at rear slant</li>
-                  <li>Wake recirculation and velocity deficit downstream</li>
-                  <li>TKE concentration at stagnation and separation regions</li>
+                  <li>Mesh: 3.35M cells, hex-dominant</li>
+                  <li>Solver: simpleFoam, 500 iterations</li>
                 </ul>
               </div>
               <div class="pp-detail-section">
@@ -1238,66 +581,7 @@ footer a { color: var(--accent); text-decoration: none; }
                   <span class="pp-tool-tag">ParaView</span>
                   <span class="pp-tool-tag">FreeCAD</span>
                   <span class="pp-tool-tag">snappyHexMesh</span>
-                  <span class="pp-tool-tag">blockMesh</span>
                   <span class="pp-tool-tag">simpleFoam</span>
-                </div>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Skills</h5>
-                <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">RANS CFD</span>
-                  <span class="pp-tool-tag">Turbulence Modeling</span>
-                  <span class="pp-tool-tag">Mesh Generation</span>
-                  <span class="pp-tool-tag">Boundary Layer Analysis</span>
-                  <span class="pp-tool-tag">Wake Dynamics</span>
-                  <span class="pp-tool-tag">External Aerodynamics</span>
-                  <span class="pp-tool-tag">Post-processing &amp; Visualization</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pp-project-card" onclick="toggleProjectCard(this)">
-          <div class="pp-project-card-head">
-            <div>
-              <h4>Airfoil Flow Analysis</h4>
-              <p>Pressure distribution and lift analysis using CFD.</p>
-            </div>
-            <div class="pp-project-toggle">+</div>
-          </div>
-          <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
-              <div class="pp-detail-section"><h5>Focus</h5><p>Lift coefficient, drag coefficient, flow separation</p></div>
-              <div class="pp-detail-section"><h5>Outcome</h5><p>Compared aerodynamic behavior for different airfoil profiles.</p></div>
-              <div class="pp-detail-section">
-                <h5>Tools Used</h5>
-                <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">ANSYS Fluent</span>
-                  <span class="pp-tool-tag">XFOIL</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pp-project-card" onclick="toggleProjectCard(this)">
-          <div class="pp-project-card-head">
-            <div>
-              <h4>Cooling Duct Simulation</h4>
-              <p>Thermal airflow study for automotive cooling ducts.</p>
-            </div>
-            <div class="pp-project-toggle">+</div>
-          </div>
-          <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
-              <div class="pp-detail-section"><h5>Focus</h5><p>Heat dissipation and airflow optimization</p></div>
-              <div class="pp-detail-section"><h5>Outcome</h5><p>Improved duct geometry for better cooling efficiency.</p></div>
-              <div class="pp-detail-section">
-                <h5>Tools Used</h5>
-                <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">CFD Solver</span>
-                  <span class="pp-tool-tag">CAD Modeling</span>
                 </div>
               </div>
             </div>
@@ -1317,204 +601,123 @@ footer a { color: var(--accent); text-decoration: none; }
       </div>
       <div class="pp-project-grid">
 
-        <!-- ============================================================
-             ECB PROJECT CARD — NEW
-             ============================================================ -->
+        <!-- ECB PROJECT CARD -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
-              <h4>Rotary Eddy Current Brake — Feasibility &amp; Performance Analysis</h4>
-              <p>Multi-physics simulation: electromagnetic torque modelling (Python) · structural FEM · thermal CFD comparison. Aligned with DLR Stuttgart active research on particulate-free braking.</p>
+              <h4>Rotary Eddy Current Brake - Feasibility &amp; Performance Analysis</h4>
+              <p>Multi-physics simulation: electromagnetic torque modelling (Python), structural FEM, and thermal CFD. Aligned with DLR Stuttgart research on particulate-free braking.</p>
             </div>
             <div class="pp-project-toggle">+</div>
           </div>
           <div class="pp-project-detail">
             <div class="pp-project-detail-inner">
 
-              <!-- OVERVIEW -->
               <div class="pp-detail-section">
-                <h5>Project Overview</h5>
-                <p>Eddy current brakes (ECB) are contactless, wear-free, and particulate-free — directly addressing EU non-exhaust emission regulations. This study investigates ECB feasibility across three simulation pillars: electromagnetic analytical modelling, structural FEM, and thermal CFD with a geometry comparison study.</p>
+                <h5>Overview</h5>
+                <p>Feasibility study of eddy current brakes (ECB) - contactless, wear-free, and particulate-free braking technology addressing EU non-exhaust emission regulations. Three simulation pillars: electromagnetic modelling, structural FEM, and thermal CFD.</p>
               </div>
 
-              <!-- PART 1: PYTHON -->
               <div class="pp-detail-section">
-                <h5>Part 1 — Electromagnetic Torque Model · Python / Wouterse 1991</h5>
-                <p>Implemented the Wouterse (1991) lumped-parameter model to characterise torque-speed behaviour across disc materials and magnetic flux densities (0.4–1.2 T).</p>
+                <h5>Part 1 - Electromagnetic Model (Python / Wouterse 1991)</h5>
                 <table class="ecb-results-table">
-                  <tr><th>Plot</th><th>Finding</th></tr>
-                  <tr><td>Torque vs Speed — Materials</td><td><span class="val">Aluminium optimal</span> — peak at ~800 RPM, within automotive range (500–2000 RPM)</td></tr>
-                  <tr><td>Effect of B-field (0.4–1.2 T)</td><td>Doubling B <span class="val">quadruples peak torque</span> — B² scaling law validated</td></tr>
-                  <tr><td>Braking Power vs Speed</td><td>Power curve directly <span class="val">quantifies thermal load</span> input for CFD study</td></tr>
-                  <tr class="highlight-row"><td>Peak Torque vs B</td><td>B² linear fit confirmed — <span class="val">model validated</span> for parametric design studies</td></tr>
+                  <tr><th>Study</th><th>Finding</th></tr>
+                  <tr><td>Torque vs Speed - Materials</td><td><span class="val">Aluminium optimal</span> - peak at ~800 RPM</td></tr>
+                  <tr><td>Effect of B-field (0.4-1.2 T)</td><td>Doubling B <span class="val">quadruples peak torque</span> - B² scaling validated</td></tr>
+                  <tr class="highlight-row"><td>Peak Torque vs B</td><td>B² linear fit confirmed - <span class="val">model validated</span></td></tr>
                 </table>
               </div>
 
-              <!-- PART 2: FEM -->
               <div class="pp-detail-section">
-                <h5>Part 2 — Structural FEM · ANSYS Mechanical</h5>
-                <p>Annular disc: 150 mm OD · 20 mm ID · 12 mm thick · Aluminium 6061 · 3000 RPM (314.16 rad/s) · Fixed support at inner bore.</p>
+                <h5>Part 2 - Structural FEM (ANSYS Mechanical)</h5>
+                <p>Aluminium 6061 annular disc · 150 mm OD · 3000 RPM · Fixed inner bore.</p>
                 <table class="ecb-results-table">
-                  <tr><th>Result</th><th>Max Value</th><th>Interpretation</th></tr>
-                  <tr><td>Von Mises Stress</td><td><span class="val">4.11 MPa</span></td><td>Peak at inner bore — correct stress concentration zone</td></tr>
-                  <tr><td>Total Deformation</td><td><span class="val">0.0021 mm</span></td><td>Negligible radial expansion — disc structurally rigid</td></tr>
-                  <tr><td>Max Principal Stress</td><td><span class="val">5.89 MPa</span></td><td>Tensile stress at shaft hole — critical fatigue zone</td></tr>
-                  <tr class="highlight-row"><td>Safety Factor</td><td><span class="val">45.8</span></td><td>270 MPa yield ÷ 5.89 MPa — well below failure at 3000 RPM</td></tr>
+                  <tr><th>Result</th><th>Value</th><th>Note</th></tr>
+                  <tr><td>Von Mises Stress</td><td><span class="val">4.11 MPa</span></td><td>Peak at inner bore</td></tr>
+                  <tr><td>Total Deformation</td><td><span class="val">0.0021 mm</span></td><td>Negligible radial expansion</td></tr>
+                  <tr class="highlight-row"><td>Safety Factor</td><td><span class="val">45.8</span></td><td>Well below failure at 3000 RPM</td></tr>
                 </table>
               </div>
 
-              <!-- PART 3: THERMAL -->
               <div class="pp-detail-section">
-                <h5>Part 3 — Thermal CFD Comparison · ANSYS Steady-State Thermal</h5>
-                <p>Heat flux: 10,000 W/m² on braking face · Convection: 25 W/m²·°C · Ambient: 22°C. Plain disc vs ventilated disc geometry under identical boundary conditions.</p>
+                <h5>Part 3 - Thermal CFD (ANSYS Steady-State Thermal)</h5>
+                <p>Plain vs ventilated disc under identical boundary conditions (heat flux: 10,000 W/m²).</p>
                 <div class="ecb-comparison-grid">
                   <div class="ecb-compare-card">
                     <div class="ecb-compare-label">Plain Disc</div>
                     <div class="ecb-stat"><span class="ecb-stat-name">Max Temperature</span><span class="ecb-stat-val">205.8°C</span></div>
-                    <div class="ecb-stat"><span class="ecb-stat-name">Min Temperature</span><span class="ecb-stat-val">204.2°C</span></div>
                     <div class="ecb-stat"><span class="ecb-stat-name">Temp Gradient</span><span class="ecb-stat-val">1.6°C</span></div>
-                    <div class="ecb-stat"><span class="ecb-stat-name">Peak Heat Flux</span><span class="ecb-stat-val">7.1×10⁻³ W/mm²</span></div>
                   </div>
                   <div class="ecb-compare-card winner">
                     <div class="ecb-compare-label">✓ Ventilated Disc</div>
                     <div class="ecb-stat"><span class="ecb-stat-name">Max Temperature</span><span class="ecb-stat-val">85.1°C</span></div>
-                    <div class="ecb-stat"><span class="ecb-stat-name">Min Temperature</span><span class="ecb-stat-val">74.3°C</span></div>
                     <div class="ecb-stat"><span class="ecb-stat-name">Temp Gradient</span><span class="ecb-stat-val">10.8°C</span></div>
-                    <div class="ecb-stat"><span class="ecb-stat-name">Peak Heat Flux</span><span class="ecb-stat-val">5.6×10⁻² W/mm²</span></div>
                   </div>
                 </div>
                 <div class="ecb-finding-badge">
-                  🔑 Key Finding: Ventilated geometry reduces peak rotor temperature by <strong>120°C</strong> under identical braking conditions — validating ventilation channels as essential for ECB thermal management.
+                  Key Finding: Ventilated geometry reduces peak rotor temperature by <strong>120°C</strong> - validating ventilation channels as essential for ECB thermal management.
                 </div>
               </div>
 
-              <!-- SIMULATION ANIMATIONS -->
               <div class="pp-detail-section">
                 <h5>Simulation Animations</h5>
-               <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Deformation_animation.mp4', 'Total Deformation — 3000 RPM')">
-               <div class="ecb-video-play">▶</div>
-               <div class="ecb-video-label">Total<br>Deformation</div>
-               </div>
-               <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Equivalent_animation.mp4', 'Von Mises Stress')">
-                 <div class="ecb-video-play">▶</div>
-                <div class="ecb-video-label">Von Mises<br>Stress</div>
-               </div>
-            <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Max%20Principal_animation.mp4', 'Maximum Principal Stress')">
-                 <div class="ecb-video-play">▶</div>
-               <div class="ecb-video-label">Max Principal<br>Stress</div>
-               </div>
-              <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('HeatFlux_animation.mp4', 'Plain Disc — Heat Flux')">
-              <div class="ecb-video-play">▶</div>
-                <div class="ecb-video-label">Plain Disc<br>Heat Flux</div>
-                 </div>
-             <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Temp1_animation.mp4', 'Plain Disc — Temperature')">
-              <div class="ecb-video-play">▶</div>
-               <div class="ecb-video-label">Plain Disc<br>Temperature</div>
+                <div class="ecb-video-grid">
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Deformation_animation.mp4', 'Total Deformation - 3000 RPM')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Total<br>Deformation</div>
                   </div>
-            <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Ventilated_Heatflux_animation.mp4', 'Ventilated Disc — Heat Flux')">
-              <div class="ecb-video-play">▶</div>
-              <div class="ecb-video-label">Ventilated<br>Heat Flux</div>
-                </div>
-               <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Ventilated_temp_animation.mp4', 'Ventilated Disc — Temperature')">
-               <div class="ecb-video-play">▶</div>
-               <div class="ecb-video-label">Ventilated<br>Temperature</div>
-               </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Equivalent_animation.mp4', 'Von Mises Stress')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Von Mises<br>Stress</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Max%20Principal_animation.mp4', 'Maximum Principal Stress')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Max Principal<br>Stress</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('HeatFlux_animation.mp4', 'Plain Disc - Heat Flux')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Plain Disc<br>Heat Flux</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Temp1_animation.mp4', 'Plain Disc - Temperature')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Plain Disc<br>Temperature</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Ventilated_Heatflux_animation.mp4', 'Ventilated Disc - Heat Flux')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Ventilated<br>Heat Flux</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Ventilated_temp_animation.mp4', 'Ventilated Disc - Temperature')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Ventilated<br>Temperature</div>
+                  </div>
                 </div>
               </div>
 
-              <!-- TOOLS -->
               <div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">Python · NumPy · Matplotlib</span>
+                  <span class="pp-tool-tag">Python / NumPy / Matplotlib</span>
                   <span class="pp-tool-tag">ANSYS Mechanical 2025 R2</span>
                   <span class="pp-tool-tag">ANSYS Steady-State Thermal</span>
                   <span class="pp-tool-tag">DesignModeler</span>
-                  <span class="pp-tool-tag">GrabCAD Geometry</span>
                 </div>
               </div>
 
-              <!-- SKILLS -->
-              <div class="pp-detail-section">
-                <h5>Skills Demonstrated</h5>
-                <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">Structural FEM</span>
-                  <span class="pp-tool-tag">Thermal CFD</span>
-                  <span class="pp-tool-tag">Electromagnetic Modelling</span>
-                  <span class="pp-tool-tag">Engineering Trade-off Analysis</span>
-                  <span class="pp-tool-tag">Python Scripting</span>
-                  <span class="pp-tool-tag">CAD Geometry Setup</span>
-                  <span class="pp-tool-tag">Mesh Generation</span>
-                  <span class="pp-tool-tag">Results Post-processing</span>
-                </div>
-              </div>
-
-              <!-- REFERENCE -->
               <div class="pp-detail-section">
                 <p style="font-size:11px; color: rgba(212,220,232,0.45); margin-top:8px;">
-                  Reference: DLR Institute of Vehicle Concepts, Stuttgart — Particulate-Free Braking Research (Ref. 5070)
+                  Reference: DLR Institute of Vehicle Concepts, Stuttgart - Particulate-Free Braking Research (Ref. 5070)
                 </p>
               </div>
 
             </div>
           </div>
         </div>
-        <!-- ============================================================
-             END ECB PROJECT CARD
-             ============================================================ -->
 
+        <!-- FRONTAL IMPACT -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
-              <h4>Driving Resistance Analysis</h4>
-              <p>Rolling resistance, aerodynamic drag, and acceleration forces.</p>
-            </div>
-            <div class="pp-project-toggle">+</div>
-          </div>
-          <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
-              <div class="pp-detail-section"><h5>Focus</h5><p>Vehicle resistance forces during motion</p></div>
-              <div class="pp-detail-section"><h5>Outcome</h5><p>Understood dominant resistance sources at different speeds.</p></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pp-project-card" onclick="toggleProjectCard(this)">
-          <div class="pp-project-card-head">
-            <div>
-              <h4>Shock Absorber Testing</h4>
-              <p>Force-velocity characterization of dampers.</p>
-            </div>
-            <div class="pp-project-toggle">+</div>
-          </div>
-          <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
-              <div class="pp-detail-section"><h5>Focus</h5><p>Damping behavior and suspension response</p></div>
-              <div class="pp-detail-section"><h5>Outcome</h5><p>Compared mono-tube and twin-tube shock absorbers.</p></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pp-project-card" onclick="toggleProjectCard(this)">
-          <div class="pp-project-card-head">
-            <div>
-              <h4>Tire Slip and Traction</h4>
-              <p>Slip ratio analysis and traction optimization.</p>
-            </div>
-            <div class="pp-project-toggle">+</div>
-          </div>
-          <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
-              <div class="pp-detail-section"><h5>Focus</h5><p>Tire-road interaction and slip ratio</p></div>
-              <div class="pp-detail-section"><h5>Outcome</h5><p>Found optimal slip ratio range for maximum traction.</p></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pp-project-card" onclick="toggleProjectCard(this)">
-          <div class="pp-project-card-head">
-            <div>
-              <h4>Frontal Impact Test Simulation — 2012 Toyota Camry</h4>
+              <h4>Frontal Impact Test Simulation - 2012 Toyota Camry</h4>
               <p>US NCAP 56 km/h frontal rigid wall crash test using the validated CCSA/FHWA FE model (2.25M elements) in Ansys LS-Dyna.</p>
             </div>
             <div class="pp-project-toggle">+</div>
@@ -1522,27 +725,18 @@ footer a { color: var(--accent); text-decoration: none; }
           <div class="pp-project-detail">
             <div class="pp-project-detail-inner">
               <div class="pp-detail-section">
-                <h5>Project Description</h5>
-                <p>NCAP full-car frontal rigid wall crash test simulation based on the US NCAP 56 km/h impact test using the validated CCSA/FHWA 2012 Toyota Camry FE model (2.25M elements). Prepared the LS-Dyna keyword file covering contact definitions, rigid wall setup, initial velocity conditions, and termination control. Executed explicit dynamics solver at steady state with tstep = 7×10⁻⁷ s and 0.33% mass reduction. Post-processing performed in LS-PrePost v4.12.6.</p>
+                <h5>Description</h5>
+                <p>Full-car frontal crash simulation based on US NCAP 56 km/h rigid wall impact using the validated CCSA/FHWA 2012 Toyota Camry FE model. Post-processing performed in LS-PrePost v4.12.6 with CFC60 filter per SAE J211.</p>
               </div>
               <div class="pp-detail-section">
                 <h5>Key Parameters</h5>
                 <ul>
                   <li>Impact velocity: 56 km/h (US NCAP standard)</li>
-                  <li>FE model: 2.25M elements, CCSA/FHWA 2012 Toyota Camry</li>
-                  <li>Time step: 7×10⁻⁷ s | Mass scaling: 0.33%</li>
-                  <li>Post-processing: LS-PrePost v4.12.6 | Filter: CFC60 per SAE J211</li>
-                </ul>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Key Results</h5>
-                <ul>
-                  <li>Von Mises Stress Maximum: 261.8 MPa</li>
-                  <li>Max Force on Wall: 1,150 kN @ 30 ms</li>
-                  <li>Dual-peaked force curve captured: bumper crush + engine collision</li>
-                  <li>Full kinetic energy absorbed internally within 80 ms</li>
-                  <li>Hourglass energy: &lt;1% - Energy check passed</li>
-                  <li>Deceleration data (CFC60) collected per SAE J211</li>
+                  <li>FE model: 2.25M elements, CCSA/FHWA Toyota Camry</li>
+                  <li>Time step: 7x10^-7 s | Mass scaling: 0.33%</li>
+                  <li>Von Mises Stress Max: 261.8 MPa</li>
+                  <li>Max Wall Force: 1,150 kN at 30 ms</li>
+                  <li>Hourglass energy: less than 1% - energy check passed</li>
                 </ul>
               </div>
               <div class="pp-detail-section">
@@ -1551,18 +745,6 @@ footer a { color: var(--accent); text-decoration: none; }
                   <span class="pp-tool-tag">Ansys LS-Dyna R16.1</span>
                   <span class="pp-tool-tag">LS-PrePost v4.12.6</span>
                   <span class="pp-tool-tag">Explicit Dynamics</span>
-                  <span class="pp-tool-tag">CCSA/FHWA FE Model</span>
-                </div>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Skills</h5>
-                <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">Crash Simulation</span>
-                  <span class="pp-tool-tag">Explicit FEA</span>
-                  <span class="pp-tool-tag">Contact Mechanics</span>
-                  <span class="pp-tool-tag">Energy Balance</span>
-                  <span class="pp-tool-tag">Post-processing</span>
-                  <span class="pp-tool-tag">SAE J211</span>
                 </div>
               </div>
               <button class="watch-btn" onclick="event.stopPropagation(); openCrashVideo();">
@@ -1588,7 +770,7 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
-              <h4>Path Planning &amp; Optimised Racing Line — Suzuka F1 Circuit</h4>
+              <h4>Path Planning &amp; Optimised Racing Line - Suzuka F1 Circuit</h4>
               <p>Two-phase autonomous racing simulation using real F1 track boundary data from TU Munich.</p>
             </div>
             <div class="pp-project-toggle">+</div>
@@ -1596,17 +778,16 @@ footer a { color: var(--accent); text-decoration: none; }
           <div class="pp-project-detail">
             <div class="pp-project-detail-inner">
               <div class="pp-detail-section">
-                <h5>Project Description</h5>
-                <p>The Suzuka Circuit is one of the most challenging Formula 1 circuits in the world - famous for its extremely quick corners, figure-eight layout, and absolute lack of margin for error. This makes it an ideal testbed for autonomous path planning. This project simulates a full two-lap autonomous racing pipeline: the car blindly maps the track during Lap 1 using only local sensor data, then races an optimised minimum-curvature line during Lap 2. The result is a fully autonomous system that finds the smoothest and fastest path through every corner with no human input.</p>
+                <h5>Description</h5>
+                <p>Two-lap autonomous racing pipeline on the Suzuka Circuit. Lap 1 maps the track blindly using local sensor data. Lap 2 races an optimised minimum-curvature line computed via gradient descent.</p>
               </div>
               <div class="pp-detail-section">
                 <h5>Key Parameters</h5>
                 <ul>
-                  <li>34 m sensor radius for real-time boundary cone detection</li>
-                  <li>500-point track resampling for optimiser precision</li>
-                  <li>300 gradient descent iterations with early stopping at Δκ &lt; 1×10⁻⁷</li>
-                  <li>1.5 m safety inset from track walls</li>
-                  <li>Learning rate 0.01 with Gaussian gradient smoothing</li>
+                  <li>Sensor radius: 34 m for boundary cone detection</li>
+                  <li>Track resampling: 500 points</li>
+                  <li>Optimiser: 300 gradient descent iterations, early stop at dk less than 1x10^-7</li>
+                  <li>Safety inset: 1.5 m from track walls</li>
                 </ul>
               </div>
               <div class="pp-detail-section">
@@ -1616,51 +797,11 @@ footer a { color: var(--accent); text-decoration: none; }
                   <span class="pp-tool-tag">Delaunay Triangulation</span>
                   <span class="pp-tool-tag">Gradient Descent</span>
                   <span class="pp-tool-tag">TU Munich Dataset</span>
-                  <span class="pp-tool-tag">VideoWriter</span>
                 </div>
               </div>
               <button class="watch-btn" onclick="event.stopPropagation(); openRacingVideo();">
                 ▶ Watch Simulation
               </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="pp-project-card" onclick="toggleProjectCard(this)">
-          <div class="pp-project-card-head">
-            <div>
-              <h4>Sensor Fusion Logic</h4>
-              <p>Combining IMU and encoder data for navigation.</p>
-            </div>
-            <div class="pp-project-toggle">+</div>
-          </div>
-          <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
-              <div class="pp-detail-section"><h5>Focus</h5><p>Accurate orientation and position estimation</p></div>
-              <div class="pp-detail-section"><h5>Outcome</h5><p>Improved navigation reliability and reduced noise.</p></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pp-project-card" onclick="toggleProjectCard(this)">
-          <div class="pp-project-card-head">
-            <div>
-              <h4>Obstacle Detection</h4>
-              <p>Ultrasonic sensor based path monitoring system.</p>
-            </div>
-            <div class="pp-project-toggle">+</div>
-          </div>
-          <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
-              <div class="pp-detail-section"><h5>Focus</h5><p>Real-time object detection</p></div>
-              <div class="pp-detail-section"><h5>Outcome</h5><p>Enabled safe navigation and path monitoring.</p></div>
-              <div class="pp-detail-section">
-                <h5>Tools Used</h5>
-                <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">Ultrasonic Sensors</span>
-                  <span class="pp-tool-tag">Arduino</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -1691,11 +832,11 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="expand-btn">+</div>
       </div>
       <div class="card-body">
-        <p>Completed laboratory coursework focused on measurement engineering and experimental data acquisition systems using NI LabVIEW technology.</p>
+        <p>Laboratory coursework focused on measurement engineering and experimental data acquisition using NI LabVIEW.</p>
         <h5>Key Work</h5>
         <ul>
-          <li>Designed measurement systems using NI myDAQ hardware and NI LabVIEW software</li>
-          <li>Integrated and calibrated sensors: thermocouples, strain gauges, pressure transducers, microphones, IR cameras</li>
+          <li>Designed measurement systems using NI myDAQ hardware and NI LabVIEW</li>
+          <li>Integrated and calibrated sensors: thermocouples, strain gauges, pressure transducers, IR cameras</li>
           <li>Implemented FFT-based frequency analysis for signal processing</li>
           <li>Designed automated testing procedures and error-handling mechanisms</li>
         </ul>
@@ -1711,18 +852,13 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="expand-btn">+</div>
       </div>
       <div class="card-body">
-        <p>Contributed to the design and development of the BH20SE Electric Drive Pump Truck across a 7-month R&amp;D internship at one of India's major public sector engineering companies.</p>
+        <p>Contributed to design and development of the BH20SE Electric Drive Pump Truck at one of India's major public sector engineering companies.</p>
         <h5>Key Contributions</h5>
         <ul>
           <li>Designed electric powertrain concepts using CATIA</li>
           <li>Performed FEA for design validation using ANSYS and Altair HyperWorks</li>
           <li>Developed parameterized engineering models using Python scripts</li>
-          <li>Collaborated with ECU engineering team to analyze and optimize system performance</li>
-          <li>Worked across Fluid Power, Powertrain, Structural, and Materials Engineering teams</li>
-        </ul>
-        <h5>Tools &amp; Tech</h5>
-        <ul>
-          <li>CAD: CATIA · Simulation: ANSYS, Altair HyperWorks · Programming: Python</li>
+          <li>Collaborated with ECU engineering team to optimize system performance</li>
         </ul>
       </div>
     </div>
@@ -1736,13 +872,12 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="expand-btn">+</div>
       </div>
       <div class="card-body">
-        <p>Gained exposure to advanced luxury vehicle systems at Mercedes-Benz, studying high-end technologies including the Mercedes-AMG GT 63 S.</p>
+        <p>Exposure to advanced luxury vehicle systems at Mercedes-Benz, including the Mercedes-AMG GT 63 S.</p>
         <h5>Technical Exposure</h5>
         <ul>
           <li>Automatic torque converter transmission system and servicing</li>
           <li>Pneumatic Air Suspension System in high-end models</li>
-          <li>Electronic Control Unit (ECU) diagnostics</li>
-          <li>Advanced braking systems and safety features</li>
+          <li>ECU diagnostics and advanced braking systems</li>
           <li>Powertrain, suspension, and chassis integration</li>
         </ul>
         <img src="mercedes.jpeg" class="project-images" style="width: 220px; border-radius: 10px;">
@@ -1758,13 +893,12 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="expand-btn">+</div>
       </div>
       <div class="card-body">
-        <p>Interned at a global Tier 1 thermal and HVAC system supplier serving Hyundai and Kia. Studied HVAC manufacturing processes and automotive component assembly.</p>
+        <p>Interned at a global Tier 1 thermal and HVAC system supplier serving Hyundai and Kia.</p>
         <h5>Skills Gained</h5>
         <ul>
           <li>Automotive HVAC system manufacturing processes</li>
           <li>Injection moulding for automotive plastic parts</li>
-          <li>Vibration mitigation in mechanical components</li>
-          <li>Topology optimization for automotive design</li>
+          <li>Vibration mitigation and topology optimization</li>
         </ul>
       </div>
     </div>
@@ -1778,25 +912,24 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="expand-btn">+</div>
       </div>
       <div class="card-body">
-        <p>Supported engineering design teams working on products for international clients including Vetus (Netherlands) and Philips (India), gaining experience in design processes, specifications review, and product development.</p>
+        <p>Supported engineering design teams working on products for international clients including Vetus (Netherlands) and Philips (India).</p>
       </div>
     </div>
 
     <div class="card" onclick="toggleCard(this)">
       <div class="card-header">
         <div>
-          <div class="card-title">Transmission Engineer — Student Racing Team</div>
+          <div class="card-title">Transmission Engineer - Student Racing Team</div>
           <div class="card-meta"><span>Aurelian Racing</span> · Dec 2019 - Apr 2023 · Chennai, India</div>
         </div>
         <div class="expand-btn">+</div>
       </div>
       <div class="card-body">
-        <p>Led transmission system design for an off-road racing buggy, working across chassis, suspension, and powertrain teams to optimize drivetrain performance.</p>
+        <p>Led transmission system design for an off-road racing buggy across chassis, suspension, and powertrain teams.</p>
         <h5>Key Work</h5>
         <ul>
           <li>Led design and optimization of the vehicle transmission system</li>
           <li>Analyzed gear ratios, torque transmission, and mechanical efficiency</li>
-          <li>Optimized transmission configuration from vehicle testing results</li>
           <li>Participated in vehicle assembly, testing, and troubleshooting</li>
         </ul>
       </div>
@@ -1818,13 +951,13 @@ footer a { color: var(--accent); text-decoration: none; }
   <div class="card" onclick="toggleCard(this)">
     <div class="card-header">
       <div>
-        <div class="card-title">Self-Balancing Robot — Nonlinear Control &amp; Real-Time Implementation</div>
+        <div class="card-title">Self-Balancing Robot - Nonlinear Control &amp; Real-Time Implementation</div>
         <div class="card-meta"><span>Karlsruhe Institute of Technology</span> · Industrial Partner: Bosch Rexroth</div>
       </div>
       <div class="expand-btn">+</div>
     </div>
     <div class="card-body">
-      <p>Developed and analyzed control strategies for a self-balancing robot - a classical benchmark for nonlinear and unstable systems - focusing on closed-loop feedback control under disturbances and uncertainties.</p>
+      <p>Developed and analyzed control strategies for a self-balancing robot - a classical benchmark for nonlinear and unstable systems.</p>
       <h5>Key Work</h5>
       <ul>
         <li>Modeled nonlinear dynamics of the self-balancing robot</li>
@@ -1836,10 +969,6 @@ footer a { color: var(--accent); text-decoration: none; }
         <img src="rob.png">
         <img src="robot.png">
       </div>
-      <h5>Skills</h5>
-      <ul>
-        <li>Control Systems · Nonlinear Dynamics · MIMO Analysis · Embedded C/C++ · Real-Time Implementation</li>
-      </ul>
       <button class="watch-btn" onclick="event.stopPropagation(); openVideo();">
         ▶ Watch Robot Demo
       </button>
@@ -1849,13 +978,13 @@ footer a { color: var(--accent); text-decoration: none; }
   <div class="card" onclick="toggleCard(this)">
     <div class="card-header">
       <div>
-        <div class="card-title">Automotive Laboratory Experiments — Vehicle Dynamics &amp; Energy Systems</div>
-        <div class="card-meta"><span>Institut für Fahrzeugsystemtechnik</span> · KIT</div>
+        <div class="card-title">Automotive Laboratory Experiments - Vehicle Dynamics &amp; Energy Systems</div>
+        <div class="card-meta"><span>Institut fur Fahrzeugsystemtechnik</span> · KIT</div>
       </div>
       <div class="expand-btn">+</div>
     </div>
     <div class="card-body">
-      <p>Six practical lab exercises covering vehicle dynamics, drivetrain behavior, suspension systems, and energy efficiency through experimental measurement and analytical evaluation.</p>
+      <p>Six practical lab exercises covering vehicle dynamics, drivetrain behavior, suspension systems, and energy efficiency.</p>
       <h5>Topics Covered</h5>
       <ul>
         <li><b>Driving Resistance Analysis</b> - rolling resistance, aerodynamic drag, gradient &amp; acceleration forces</li>
@@ -1863,7 +992,7 @@ footer a { color: var(--accent); text-decoration: none; }
         <li><b>Tire Dynamics &amp; Traction</b> - slip ratio analysis, optimal traction (10-20% slip)</li>
         <li><b>Shock Absorber Characteristics</b> - force-velocity curves, mono/twin-tube dampers</li>
         <li><b>Viscous Coupling &amp; AWD</b> - torque distribution via fluid shear forces</li>
-        <li><b>Vehicle Testing</b> - coast-down tests, dynamometer measurements, data evaluation</li>
+        <li><b>Vehicle Testing</b> - coast-down tests, dynamometer measurements</li>
       </ul>
     </div>
   </div>
@@ -1880,14 +1009,14 @@ footer a { color: var(--accent); text-decoration: none; }
       <p>Developed and characterized a WC-Co reinforced Al6061 metal matrix composite to study tribological and mechanical behavior improvements over base aluminum alloy.</p>
       <h5>Methodology</h5>
       <ul>
-        <li>Stir casting at 750°C, 350 rpm, 15 min · WC-Co reinforcement: 80% · ~37 µm particle size</li>
-        <li>Testing: Tensile, Compression, Impact, Flexural, Hardness, Wear (ASTM standards)</li>
-        <li>Characterization: SEM, Raman Spectroscopy, TGA, Laser Particle Size Analysis, Electrochemical Corrosion</li>
+        <li>Stir casting at 750°C, 350 rpm · WC-Co reinforcement: 80% · ~37 µm particle size</li>
+        <li>Testing: Tensile, Compression, Impact, Hardness, Wear (ASTM standards)</li>
+        <li>Characterization: SEM, Raman Spectroscopy, TGA, Electrochemical Corrosion</li>
       </ul>
       <h5>Key Findings</h5>
       <ul>
         <li>WC-Co reinforcement improved mechanical strength and wear resistance</li>
-        <li>Optimized stirring minimized porosity; uniform particle distribution confirmed by SEM</li>
+        <li>Uniform particle distribution confirmed by SEM</li>
         <li>Composite shows potential for automotive and aerospace structural applications</li>
       </ul>
     </div>
@@ -1914,7 +1043,7 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="skill-divider"></div>
       <div class="skill-card-body">
         <div class="skill-category">CAD / Simulation</div>
-        <div class="skill-row"><div class="skill-row-top">Solidworks Modelling<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">Solidworks<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
         <div class="skill-row"><div class="skill-row-top">CATIA<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
         <div class="skill-row"><div class="skill-row-top">ANSYS<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
         <div class="skill-row"><div class="skill-row-top">Altair HyperWorks<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
@@ -1949,7 +1078,7 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="skill-row"><div class="skill-row-top">Arduino Programming<span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
         <div class="skill-row"><div class="skill-row-top">Sensor Integration<span>75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
         <div class="skill-row"><div class="skill-row-top">Real-Time Control<span>70%</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
-        <div class="skill-row"><div class="skill-row-top">Autonomous Navigation Logic<span>65%</span></div><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
+        <div class="skill-row"><div class="skill-row-top">Autonomous Navigation<span>65%</span></div><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
       </div>
     </div>
 
@@ -2076,6 +1205,12 @@ footer a { color: var(--accent); text-decoration: none; }
   <div class="lightbox-nav" id="lightbox-next" onclick="lightboxStep(1)">&#8594;</div>
 </div>
 
+<div class="project-modal" id="projectModal">
+  <div class="project-modal-content">
+    <div id="projectModalBody"></div>
+  </div>
+</div>
+
 <script>
 /* CANVAS ANIMATION */
 const canvas = document.getElementById('circuit-bg');
@@ -2199,11 +1334,7 @@ document.getElementById('ecbModal').addEventListener('click', function(e) { if (
 /* ESCAPE KEY */
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
-    closeRacingVideo();
-    closeVideo();
-    closeCrashVideo();
-    closeECBVideo();
-    closeLightbox();
+    closeRacingVideo(); closeVideo(); closeCrashVideo(); closeECBVideo(); closeLightbox();
   }
 });
 
@@ -2295,13 +1426,6 @@ function lightboxStep(dir) {
 }
 document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target === this) closeLightbox(); });
 </script>
-
-<div class="project-modal" id="projectModal">
-  <div class="project-modal-content">
-    <div class="project-modal-close" onclick="closeProjectModal()">×</div>
-    <div id="projectModalBody"></div>
-  </div>
-</div>
 
 </body>
 </html>
