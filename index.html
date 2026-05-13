@@ -753,7 +753,49 @@ footer a { color: var(--accent); text-decoration: none; }
               </div>
               <button class="watch-btn" onclick="event.stopPropagation(); openCrashVideo();">
                 ▶ Watch Crash Simulation
-              </button>
+             </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- BICYCLE MODEL PROJECT CARD -->
+        <div class="pp-project-card" onclick="toggleProjectCard(this)">
+          <div class="pp-project-card-head">
+            <div>
+              <h4>Vehicle Lateral Dynamics Modeling &amp; Analysis</h4>
+              <p>2-DOF linear bicycle model in MATLAB using state-space formulation to analyze handling characteristics, stability, and tire behavior across operating conditions.</p>
+            </div>
+            <div class="pp-project-toggle">+</div>
+          </div>
+          <div class="pp-project-detail">
+            <div class="pp-project-detail-inner">
+              <div class="pp-detail-section">
+                <h5>Description</h5>
+                <p>Developed a 2-DOF linear bicycle model for vehicle lateral dynamics, implementing state-space formulation to analyze handling characteristics across operating conditions. Captures lateral velocity and yaw rate dynamics through derived and validated A, B, C, D matrices.</p>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Key Work</h5>
+                <ul>
+                  <li>Derived and validated bicycle model state-space matrices capturing lateral velocity and yaw rate dynamics</li>
+                  <li>Characterized understeer/oversteer behavior via understeer gradient (K_us) across front/rear cornering stiffness configurations</li>
+                  <li>Conducted frequency response, step steer, and sinusoidal sweep analyses to evaluate stability margins, damping ratio, and natural frequency vs. speed</li>
+                  <li>Implemented Pacejka Magic Formula tire model to capture nonlinear slip angle–force relationships and load sensitivity effects</li>
+                  <li>Simulated ISO-inspired lane change maneuver, integrating vehicle path from yaw rate and lateral velocity states</li>
+                </ul>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Simulation Results</h5>
+                <div class="bike-gallery" id="bike-gallery"></div>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Tools Used</h5>
+                <div class="pp-detail-tools">
+                  <span class="pp-tool-tag">MATLAB</span>
+                  <span class="pp-tool-tag">State-Space Formulation</span>
+                  <span class="pp-tool-tag">Pacejka Magic Formula</span>
+                  <span class="pp-tool-tag">Frequency Response Analysis</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -761,49 +803,6 @@ footer a { color: var(--accent); text-decoration: none; }
       </div>
     </div>
   </div>
-
-  <!-- BICYCLE MODEL PROJECT CARD -->
-<div class="pp-project-card" onclick="toggleProjectCard(this)">
-  <div class="pp-project-card-head">
-    <div>
-      <h4>Vehicle Lateral Dynamics Modeling &amp; Analysis</h4>
-      <p>2-DOF linear bicycle model in MATLAB using state-space formulation to analyze handling characteristics, stability, and tire behavior across operating conditions.</p>
-    </div>
-    <div class="pp-project-toggle">+</div>
-  </div>
-  <div class="pp-project-detail">
-    <div class="pp-project-detail-inner">
-      <div class="pp-detail-section">
-        <h5>Description</h5>
-        <p>Developed a 2-DOF linear bicycle model for vehicle lateral dynamics, implementing state-space formulation to analyze handling characteristics across operating conditions. Captures lateral velocity and yaw rate dynamics through derived and validated A, B, C, D matrices.</p>
-      </div>
-      <div class="pp-detail-section">
-        <h5>Key Work</h5>
-        <ul>
-          <li>Derived and validated bicycle model state-space matrices capturing lateral velocity and yaw rate dynamics</li>
-          <li>Characterized understeer/oversteer behavior via understeer gradient (K_us) across front/rear cornering stiffness configurations</li>
-          <li>Conducted frequency response, step steer, and sinusoidal sweep analyses to evaluate stability margins, damping ratio, and natural frequency vs. speed</li>
-          <li>Implemented Pacejka Magic Formula tire model to capture nonlinear slip angle–force relationships and load sensitivity effects</li>
-          <li>Simulated ISO-inspired lane change maneuver, integrating vehicle path from yaw rate and lateral velocity states</li>
-        </ul>
-      </div>
-      <div class="pp-detail-section">
-        <h5>Simulation Results</h5>
-        <div class="bike-gallery" id="bike-gallery"></div>
-      </div>
-      <div class="pp-detail-section">
-        <h5>Tools Used</h5>
-        <div class="pp-detail-tools">
-          <span class="pp-tool-tag">MATLAB</span>
-          <span class="pp-tool-tag">State-Space Formulation</span>
-          <span class="pp-tool-tag">Pacejka Magic Formula</span>
-          <span class="pp-tool-tag">Frequency Response Analysis</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
   <!-- Autonomous Systems Panel -->
   <div class="pp-expand-panel" id="panel-auto">
     <div class="pp-expand-inner">
@@ -1482,23 +1481,31 @@ bikeImages.forEach((img, i) => {
 });
 /* LIGHTBOX */
 let lbIndex = 0;
-const lbImages = ahmedImages;
-function buildDots() {
-  const dotsEl = document.getElementById('lightbox-dots');
-  dotsEl.innerHTML = '';
-  lbImages.forEach((_, i) => {
-    const d = document.createElement('div');
-    d.className = 'lightbox-dot' + (i === lbIndex ? ' active' : '');
-    d.addEventListener('click', () => { lbIndex = i; updateLightbox(); });
-    dotsEl.appendChild(d);
-  });
-}
-function lightboxStep(dir) {
-  const images = window._lbImages || ahmedImages;
-  lbIndex = (lbIndex + dir + images.length) % images.length;
+window._lbImages = ahmedImages;
+
+function openLightbox(index, images) {
+  images = images || ahmedImages;
+  window._lbImages = images;
+  lbIndex = index;
+  document.getElementById('lightbox').classList.add('show');
+  document.body.style.overflow = 'hidden';
   updateLightbox();
   buildDots();
 }
+
+function updateLightbox() {
+  const images = window._lbImages || ahmedImages;
+  const img = document.getElementById('lightbox-img');
+  img.style.opacity = '0';
+  setTimeout(() => {
+    img.src = images[lbIndex].file;
+    img.alt = images[lbIndex].label;
+    img.style.opacity = '1';
+  }, 150);
+  document.getElementById('lightbox-counter').textContent = (lbIndex + 1) + ' / ' + images.length;
+  buildDots();
+}
+
 function buildDots() {
   const images = window._lbImages || ahmedImages;
   const dotsEl = document.getElementById('lightbox-dots');
@@ -1510,15 +1517,21 @@ function buildDots() {
     dotsEl.appendChild(d);
   });
 }
+
+function lightboxStep(dir) {
+  const images = window._lbImages || ahmedImages;
+  lbIndex = (lbIndex + dir + images.length) % images.length;
+  updateLightbox();
+}
+
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('show');
   document.body.style.overflow = '';
 }
-function lightboxStep(dir) {
-  lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
-  updateLightbox();
-}
-document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target === this) closeLightbox(); });
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
 </script>
 
 </body>
