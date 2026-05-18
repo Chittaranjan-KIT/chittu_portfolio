@@ -532,7 +532,7 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="pp-cat-arrow">+</div>
       <div class="pp-cat-icon">🏎️</div>
       <div class="pp-cat-title">Vehicle Dynamics</div>
-      <div class="pp-cat-count">3 Projects</div>
+      <div class="pp-cat-count">4 Projects</div>
     </div>
     <div class="pp-category-tile" onclick="toggleCategoryPanel('auto', this)">
       <div class="pp-cat-arrow">+</div>
@@ -819,6 +819,130 @@ footer a { color: var(--accent); text-decoration: none; }
       </div>
     </div>
   </div>
+  <!-- NVH PROJECT CARD -->
+<div class="pp-project-card" onclick="toggleProjectCard(this)">
+  <div class="pp-project-card-head">
+    <div>
+      <h4>NVH Structural Analysis — GT-R Inspired Car Body</h4>
+      <p>Full 3-phase NVH simulation: Modal Analysis, Harmonic Response & FRF extraction using ANSYS Mechanical 2025 R2.</p>
+    </div>
+    <div class="pp-project-toggle">+</div>
+  </div>
+  <div class="pp-project-detail">
+    <div class="pp-project-detail-inner">
+
+      <div class="pp-detail-section">
+        <h5>Overview</h5>
+        <p>The car body I get inspired by comes from the famous Nissan GT-R model. Apart from its impressive performance, what amazes me about it is its precision in structural design that prevents vibration. This project replicates the exact NVH simulation workflow used by OEM engineers at Nissan, Mercedes-Benz, and Bosch.</p>
+      </div>
+
+      <div class="pp-detail-section">
+        <h5>What I Built</h5>
+        <p><b>Modal Analysis</b> — Calculated 12 natural frequencies (0–58 Hz) based on free-free boundary conditions. First body bending mode at 12.37 Hz, torsion at 29.90 Hz — within the critical 10–50 Hz human perception range.</p>
+        <p><b>Harmonic Response</b> — 500N engine excitation force swept 20–100 Hz. Extracted FRF at the roof panel. Resonance peaks at 29 Hz and 38 Hz coincide with torsional and bending modes from modal analysis.</p>
+      </div>
+
+      <div class="pp-detail-section">
+        <h5>Mode Shape Animations</h5>
+        <div class="ecb-video-grid" style="grid-template-columns: repeat(4,1fr);">
+
+          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode1_Rigid_Body.mp4','Mode 1 — Rigid Body (~0 Hz)')">
+            <div class="ecb-video-play">▶</div>
+            <div class="ecb-video-label">Mode 1<br>Rigid Body</div>
+          </div>
+          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode2_Rigid_Body.mp4','Mode 2 — Rigid Body (~0 Hz)')">
+            <div class="ecb-video-play">▶</div>
+            <div class="ecb-video-label">Mode 2<br>Rigid Body</div>
+          </div>
+          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode3_Rigid_Body.mp4','Mode 3 — Rigid Body (~0 Hz)')">
+            <div class="ecb-video-play">▶</div>
+            <div class="ecb-video-label">Mode 3<br>Rigid Body</div>
+          </div>
+          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode4_Rigid_Body.mp4','Mode 4 — Rigid Body (~0 Hz)')">
+            <div class="ecb-video-play">▶</div>
+            <div class="ecb-video-label">Mode 4<br>Rigid Body</div>
+          </div>
+          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode5_Rigid_Body.mp4','Mode 5 — Rigid Body (~0 Hz)')">
+            <div class="ecb-video-play">▶</div>
+            <div class="ecb-video-label">Mode 5<br>Rigid Body</div>
+          </div>
+          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode6_Rigid_Body.mp4','Mode 6 — Rigid Body (~0 Hz)')">
+            <div class="ecb-video-play">▶</div>
+            <div class="ecb-video-label">Mode 6<br>Rigid Body</div>
+          </div>
+          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode7_Rigid_Body.mp4','Mode 7 — Body Lateral Bending (12.37 Hz)')">
+            <div class="ecb-video-play">▶</div>
+            <div class="ecb-video-label">Mode 7<br>12 Hz Bending</div>
+          </div>
+          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode8_Rigid_Body.mp4','Mode 8 — Longitudinal Bending (21.35 Hz)')">
+            <div class="ecb-video-play">▶</div>
+            <div class="ecb-video-label">Mode 8<br>21 Hz Bending</div>
+          </div>
+          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode9_Rigid_Body.mp4','Mode 9 — First Torsion (29.90 Hz)')">
+            <div class="ecb-video-play">▶</div>
+            <div class="ecb-video-label">Mode 9<br>29 Hz Torsion</div>
+          </div>
+          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode10_Rigid_Body.mp4','Mode 10 — Bending-Torsion (36.36 Hz)')">
+            <div class="ecb-video-play">▶</div>
+            <div class="ecb-video-label">Mode 10<br>36 Hz Combined</div>
+          </div>
+          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode11_Rigid_Body.mp4','Mode 11 — Panel Breathing (45.99 Hz)')">
+            <div class="ecb-video-play">▶</div>
+            <div class="ecb-video-label">Mode 11<br>46 Hz Panel</div>
+          </div>
+          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode12_Rigid_Body.mp4','Mode 12 — High Order Panel (58.14 Hz)')">
+            <div class="ecb-video-play">▶</div>
+            <div class="ecb-video-label">Mode 12<br>58 Hz Panel</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pp-detail-section">
+        <h5>Mode Descriptions</h5>
+        <table class="ecb-results-table">
+          <tr><th>Mode</th><th>Frequency</th><th>Description</th></tr>
+          <tr><td>1–6</td><td class="val">~0 Hz</td><td>Rigid body modes — validates free-free boundary condition setup</td></tr>
+          <tr><td>7</td><td class="val">12.37 Hz</td><td>Body lateral bending — most critical NVH mode, felt at steering wheel</td></tr>
+          <tr><td>8</td><td class="val">21.35 Hz</td><td>Longitudinal bending — excited by road bumps and powertrain pulses</td></tr>
+          <tr class="highlight-row"><td>9</td><td class="val">29.90 Hz</td><td>First torsion mode — primary structural stiffness indicator</td></tr>
+          <tr><td>10</td><td class="val">36.36 Hz</td><td>Combined bending-torsion — asymmetric road input response</td></tr>
+          <tr><td>11</td><td class="val">45.99 Hz</td><td>Panel breathing — source of structure-borne cabin noise</td></tr>
+          <tr><td>12</td><td class="val">58.14 Hz</td><td>Higher order panel vibration — road harshness contribution</td></tr>
+        </table>
+      </div>
+
+      <div class="pp-detail-section">
+        <h5>FRF Plot — Harmonic Response Results</h5>
+        <div class="cfd-thumb" style="width:100%; aspect-ratio:16/7; max-width:100%;" onclick="event.stopPropagation(); openLightbox(0, nvhImages);">
+          <img src="Screenshot 2026-05-18 154344.png" alt="FRF Plot" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+          <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
+          <div class="cfd-thumb-label">Frequency Response Function — 20 to 100 Hz</div>
+        </div>
+        <ul style="margin-top:14px;">
+          <li><b>Peak at 29 Hz</b> — body torsion resonance at ~1740 RPM engine speed</li>
+          <li><b>Secondary peak at 38 Hz</b> — bending-torsion resonance at ~2280 RPM</li>
+          <li><b>180° phase shift at resonance</b> — classic NVH signature used in simulation and physical proving ground testing</li>
+          <li><b>Log-scale Bode plot</b> — industry standard format directly comparable to accelerometer test data</li>
+        </ul>
+      </div>
+
+      <div class="pp-detail-section">
+        <h5>Tools Used</h5>
+        <div class="pp-detail-tools">
+          <span class="pp-tool-tag">ANSYS Mechanical 2025 R2</span>
+          <span class="pp-tool-tag">DesignModeler</span>
+          <span class="pp-tool-tag">SHELL181 Meshing</span>
+          <span class="pp-tool-tag">Modal Analysis</span>
+          <span class="pp-tool-tag">Harmonic Response</span>
+          <span class="pp-tool-tag">FRF Analysis</span>
+          <span class="pp-tool-tag">Automotive NVH Engineering</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
   <!-- Autonomous Systems Panel -->
   <div class="pp-expand-panel" id="panel-auto">
     <div class="pp-expand-inner">
@@ -1381,7 +1505,16 @@ footer a { color: var(--accent); text-decoration: none; }
     </video>
   </div>
 </div>
-
+  <!-- NVH VIDEO MODAL -->
+<div id="nvhModal" class="modal">
+  <div class="modal-inner">
+    <div class="modal-close" onclick="closeNVHVideo()">✕</div>
+    <div class="ecb-modal-title" id="nvhModalTitle"></div>
+    <video id="nvhVideo" controls preload="metadata" style="width:100%;max-height:75vh;border-radius:8px;background:#000;">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
 <!-- LIGHTBOX -->
 <div id="lightbox">
   <div class="lightbox-close" onclick="closeLightbox()">✕</div>
@@ -1533,11 +1666,38 @@ function closeECBVideo() {
   v.pause(); v.currentTime = 0; v.src = '';
 }
 document.getElementById('ecbModal').addEventListener('click', function(e) { if (e.target === this) closeECBVideo(); });
+  
+/* NVH VIDEO */
+function openNVHVideo(filename, title) {
+  const modal = document.getElementById('nvhModal');
+  const video = document.getElementById('nvhVideo');
+  document.getElementById('nvhModalTitle').textContent = title;
+  video.src = './' + filename;
+  modal.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  video.load();
+  video.play().catch(() => {});
+}
+function closeNVHVideo() {
+  document.getElementById('nvhModal').classList.remove('show');
+  document.body.style.overflow = '';
+  const v = document.getElementById('nvhVideo');
+  v.pause(); v.currentTime = 0; v.src = '';
+}
+document.getElementById('nvhModal').addEventListener('click', function(e) {
+  if (e.target === this) closeNVHVideo();
+});
+
+/* NVH LIGHTBOX IMAGES */
+const nvhImages = [
+  { file: 'Screenshot 2026-05-18 154344.png', label: 'FRF — Frequency Response Function' }
+];
+  
 
 /* ESCAPE KEY */
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
-  closeRacingVideo(); closeVideo(); closeCrashVideo(); closeECBVideo(); closeAIVideo(); closeLightbox();
+  closeRacingVideo(); closeVideo(); closeCrashVideo(); closeECBVideo(); closeAIVideo(); closeNVHVideo(); closeLightbox();
 }
 });
 
