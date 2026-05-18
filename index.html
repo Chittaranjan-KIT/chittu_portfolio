@@ -805,7 +805,7 @@ footer a { color: var(--accent); text-decoration: none; }
       </div>
     </div>
   </div>
-  <!-- Vehicle Dynamics Panel -->
+ <!-- Vehicle Dynamics Panel -->
   <div class="pp-expand-panel" id="panel-vd">
     <div class="pp-expand-inner">
       <div class="pp-expand-header">
@@ -813,144 +813,123 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
       </div>
       <div class="pp-project-grid">
-  <!-- NVH PROJECT CARD -->
-<div class="pp-project-card" onclick="toggleProjectCard(this)">
-  <div class="pp-project-card-head">
-    <div>
-      <h4>NVH Structural Analysis — GT-R Inspired Car Body</h4>
-      <p>Full 3-phase NVH simulation: Modal Analysis, Harmonic Response & FRF extraction using ANSYS Mechanical 2025 R2.</p>
-    </div>
-    <div class="pp-project-toggle">+</div>
-  </div>
-  <div class="pp-project-detail">
-    <div class="pp-project-detail-inner">
 
-      <div class="pp-detail-section">
-        <h5>Overview</h5>
-        <p>The car body I get inspired by comes from the famous Nissan GT-R model. Apart from its impressive performance, what amazes me about it is its precision in structural design that prevents vibration. This project replicates the exact NVH simulation workflow used by OEM engineers at Nissan, Mercedes-Benz, and Bosch.</p>
-      </div>
-
-      <div class="pp-detail-section">
-        <h5>What I Built</h5>
-        <p><b>Modal Analysis</b> — Calculated 12 natural frequencies (0–58 Hz) based on free-free boundary conditions. First body bending mode at 12.37 Hz, torsion at 29.90 Hz — within the critical 10–50 Hz human perception range.</p>
-        <p><b>Harmonic Response</b> — 500N engine excitation force swept 20–100 Hz. Extracted FRF at the roof panel. Resonance peaks at 29 Hz and 38 Hz coincide with torsional and bending modes from modal analysis.</p>
-      </div>
-
-      <div class="pp-detail-section">
-        <h5>Mode Shape Animations</h5>
-        <div class="ecb-video-grid" style="grid-template-columns: repeat(4,1fr);">
-
-          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode1_Rigid_Body.mp4','Mode 1 — Rigid Body (~0 Hz)')">
-            <div class="ecb-video-play">▶</div>
-            <div class="ecb-video-label">Mode 1<br>Rigid Body</div>
-          </div>
-          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode2_Rigid_Body.mp4','Mode 2 — Rigid Body (~0 Hz)')">
-            <div class="ecb-video-play">▶</div>
-            <div class="ecb-video-label">Mode 2<br>Rigid Body</div>
-          </div>
-          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode3_Rigid_Body.mp4','Mode 3 — Rigid Body (~0 Hz)')">
-            <div class="ecb-video-play">▶</div>
-            <div class="ecb-video-label">Mode 3<br>Rigid Body</div>
-          </div>
-          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode4_Rigid_Body.mp4','Mode 4 — Rigid Body (~0 Hz)')">
-            <div class="ecb-video-play">▶</div>
-            <div class="ecb-video-label">Mode 4<br>Rigid Body</div>
-          </div>
-          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode5_Rigid_Body.mp4','Mode 5 — Rigid Body (~0 Hz)')">
-            <div class="ecb-video-play">▶</div>
-            <div class="ecb-video-label">Mode 5<br>Rigid Body</div>
-          </div>
-          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode6_Rigid_Body.mp4','Mode 6 — Rigid Body (~0 Hz)')">
-            <div class="ecb-video-play">▶</div>
-            <div class="ecb-video-label">Mode 6<br>Rigid Body</div>
-          </div>
-          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode7_Rigid_Body.mp4','Mode 7 — Body Lateral Bending (12.37 Hz)')">
-            <div class="ecb-video-play">▶</div>
-            <div class="ecb-video-label">Mode 7<br>12 Hz Bending</div>
-          </div>
-          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode8_Rigid_Body.mp4','Mode 8 — Longitudinal Bending (21.35 Hz)')">
-            <div class="ecb-video-play">▶</div>
-            <div class="ecb-video-label">Mode 8<br>21 Hz Bending</div>
-          </div>
-          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode9_Rigid_Body.mp4','Mode 9 — First Torsion (29.90 Hz)')">
-            <div class="ecb-video-play">▶</div>
-            <div class="ecb-video-label">Mode 9<br>29 Hz Torsion</div>
-          </div>
-          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode10_Rigid_Body.mp4','Mode 10 — Bending-Torsion (36.36 Hz)')">
-            <div class="ecb-video-play">▶</div>
-            <div class="ecb-video-label">Mode 10<br>36 Hz Combined</div>
-          </div>
-          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode11_Rigid_Body.mp4','Mode 11 — Panel Breathing (45.99 Hz)')">
-            <div class="ecb-video-play">▶</div>
-            <div class="ecb-video-label">Mode 11<br>46 Hz Panel</div>
-          </div>
-          <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode12_Rigid_Body.mp4','Mode 12 — High Order Panel (58.14 Hz)')">
-            <div class="ecb-video-play">▶</div>
-            <div class="ecb-video-label">Mode 12<br>58 Hz Panel</div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="pp-detail-section">
-        <h5>Mode Descriptions</h5>
-        <table class="ecb-results-table">
-          <tr><th>Mode</th><th>Frequency</th><th>Description</th></tr>
-          <tr><td>1–6</td><td class="val">~0 Hz</td><td>Rigid body modes — validates free-free boundary condition setup</td></tr>
-          <tr><td>7</td><td class="val">12.37 Hz</td><td>Body lateral bending — most critical NVH mode, felt at steering wheel</td></tr>
-          <tr><td>8</td><td class="val">21.35 Hz</td><td>Longitudinal bending — excited by road bumps and powertrain pulses</td></tr>
-          <tr class="highlight-row"><td>9</td><td class="val">29.90 Hz</td><td>First torsion mode — primary structural stiffness indicator</td></tr>
-          <tr><td>10</td><td class="val">36.36 Hz</td><td>Combined bending-torsion — asymmetric road input response</td></tr>
-          <tr><td>11</td><td class="val">45.99 Hz</td><td>Panel breathing — source of structure-borne cabin noise</td></tr>
-          <tr><td>12</td><td class="val">58.14 Hz</td><td>Higher order panel vibration — road harshness contribution</td></tr>
-        </table>
-      </div>
-
-      <div class="pp-detail-section">
-        <h5>FRF Plot — Harmonic Response Results</h5>
-        <div class="cfd-thumb" style="width:100%; aspect-ratio:16/7; max-width:100%;" onclick="event.stopPropagation(); openLightbox(0, nvhImages);">
-          <img src="Screenshot 2026-05-18 154344.png" alt="FRF Plot" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
-          <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
-          <div class="cfd-thumb-label">Frequency Response Function — 20 to 100 Hz</div>
-        </div>
-        <ul style="margin-top:14px;">
-          <li><b>Peak at 29 Hz</b> — body torsion resonance at ~1740 RPM engine speed</li>
-          <li><b>Secondary peak at 38 Hz</b> — bending-torsion resonance at ~2280 RPM</li>
-          <li><b>180° phase shift at resonance</b> — classic NVH signature used in simulation and physical proving ground testing</li>
-          <li><b>Log-scale Bode plot</b> — industry standard format directly comparable to accelerometer test data</li>
-        </ul>
-      </div>
-
-      <div class="pp-detail-section">
-        <h5>Tools Used</h5>
-        <div class="pp-detail-tools">
-          <span class="pp-tool-tag">ANSYS Mechanical 2025 R2</span>
-          <span class="pp-tool-tag">DesignModeler</span>
-          <span class="pp-tool-tag">SHELL181 Meshing</span>
-          <span class="pp-tool-tag">Modal Analysis</span>
-          <span class="pp-tool-tag">Harmonic Response</span>
-          <span class="pp-tool-tag">FRF Analysis</span>
-          <span class="pp-tool-tag">Automotive NVH Engineering</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-  <!-- Autonomous Systems Panel -->
-  <div class="pp-expand-panel" id="panel-auto">
-    <div class="pp-expand-inner">
-      <div class="pp-expand-header">
-        <div class="pp-expand-title">Autonomous Systems Projects</div>
-        <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
-      </div>
-      <div class="pp-project-grid">
-
+        <!-- ECB PROJECT CARD -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
-              <h4>Path Planning &amp; Optimised Racing Line - Suzuka F1 Circuit</h4>
-              <p>Two-phase autonomous racing simulation using real F1 track boundary data from TU Munich.</p>
+              <h4>Rotary Eddy Current Brake - Feasibility &amp; Performance Analysis</h4>
+              <p>Multi-physics simulation: electromagnetic torque modelling (Python), structural FEM, and thermal CFD.</p>
+            </div>
+            <div class="pp-project-toggle">+</div>
+          </div>
+          <div class="pp-project-detail">
+            <div class="pp-project-detail-inner">
+              <div class="pp-detail-section">
+                <h5>Overview</h5>
+                <p>Feasibility study of eddy current brakes (ECB) - contactless, wear-free, and particulate-free braking technology addressing EU non-exhaust emission regulations. Three simulation pillars: electromagnetic modelling, structural FEM, and thermal CFD.</p>
+                <h5>Electromagnetic FEM using COMSOL</h5>
+                <p>Validation of the Wouterse analytical model through a 2D axisymmetric electromagnetic FEM analysis in COMSOL Multiphysics 6.4. Maximum calculated braking torque = 410 N·m at 641 RPM for a disc made of Al 6061 with B₀ = 0.8 T.</p>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Part 1 - Electromagnetic Model (Python / Wouterse 1991)</h5>
+                <table class="ecb-results-table">
+                  <tr><th>Study</th><th>Finding</th></tr>
+                  <tr><td>Torque vs Speed - Materials</td><td><span class="val">Aluminium optimal</span> - peak at ~800 RPM</td></tr>
+                  <tr><td>Effect of B-field (0.4-1.2 T)</td><td>Doubling B <span class="val">quadruples peak torque</span> - B² scaling validated</td></tr>
+                  <tr class="highlight-row"><td>Peak Torque vs B</td><td>B² linear fit confirmed - <span class="val">model validated</span></td></tr>
+                </table>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Part 2 - Structural FEM (ANSYS Mechanical)</h5>
+                <p>Aluminium 6061 annular disc · 150 mm OD · 3000 RPM · Fixed inner bore.</p>
+                <table class="ecb-results-table">
+                  <tr><th>Result</th><th>Value</th><th>Note</th></tr>
+                  <tr><td>Von Mises Stress</td><td><span class="val">4.11 MPa</span></td><td>Peak at inner bore</td></tr>
+                  <tr><td>Total Deformation</td><td><span class="val">0.0021 mm</span></td><td>Negligible radial expansion</td></tr>
+                  <tr class="highlight-row"><td>Safety Factor</td><td><span class="val">45.8</span></td><td>Well below failure at 3000 RPM</td></tr>
+                </table>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Part 3 - Thermal CFD (ANSYS Steady-State Thermal)</h5>
+                <p>Plain vs ventilated disc under identical boundary conditions (heat flux: 10,000 W/m²).</p>
+                <div class="ecb-comparison-grid">
+                  <div class="ecb-compare-card">
+                    <div class="ecb-compare-label">Plain Disc</div>
+                    <div class="ecb-stat"><span class="ecb-stat-name">Max Temperature</span><span class="ecb-stat-val">205.8°C</span></div>
+                    <div class="ecb-stat"><span class="ecb-stat-name">Temp Gradient</span><span class="ecb-stat-val">1.6°C</span></div>
+                  </div>
+                  <div class="ecb-compare-card winner">
+                    <div class="ecb-compare-label">✓ Ventilated Disc</div>
+                    <div class="ecb-stat"><span class="ecb-stat-name">Max Temperature</span><span class="ecb-stat-val">85.1°C</span></div>
+                    <div class="ecb-stat"><span class="ecb-stat-name">Temp Gradient</span><span class="ecb-stat-val">10.8°C</span></div>
+                  </div>
+                </div>
+                <div class="ecb-finding-badge">
+                  Key Finding: Ventilated geometry reduces peak rotor temperature by <strong>120°C</strong> - validating ventilation channels as essential for ECB thermal management.
+                </div>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Simulation Animations</h5>
+                <div class="ecb-video-grid">
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Deformation_animation.mp4', 'Total Deformation - 3000 RPM')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Total<br>Deformation</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Equivalent_animation.mp4', 'Von Mises Stress')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Von Mises<br>Stress</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Max%20Principal_animation.mp4', 'Maximum Principal Stress')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Max Principal<br>Stress</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('HeatFlux_animation.mp4', 'Plain Disc - Heat Flux')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Plain Disc<br>Heat Flux</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Temp1_animation.mp4', 'Plain Disc - Temperature')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Plain Disc<br>Temperature</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Ventilated_Heatflux_animation.mp4', 'Ventilated Disc - Heat Flux')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Ventilated<br>Heat Flux</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Ventilated_temp_animation.mp4', 'Ventilated Disc - Temperature')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Ventilated<br>Temperature</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('ECB_MagneticField.mp4', 'COMSOL - 2D Magnetic Flux Density')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">COMSOL<br>2D Magnetic Field</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Magnetic Flux Density, Revolved Geometry (mf).mp4', 'COMSOL - 3D Revolved Magnetic Field')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">COMSOL<br>3D Revolved Geometry</div>
+                  </div>
+                </div>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Tools Used</h5>
+                <div class="pp-detail-tools">
+                  <span class="pp-tool-tag">Python / NumPy / Matplotlib</span>
+                  <span class="pp-tool-tag">ANSYS Mechanical 2025 R2</span>
+                  <span class="pp-tool-tag">ANSYS Steady-State Thermal</span>
+                  <span class="pp-tool-tag">DesignModeler</span>
+                  <span class="pp-tool-tag">COMSOL Multiphysics 6.4</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FRONTAL IMPACT -->
+        <div class="pp-project-card" onclick="toggleProjectCard(this)">
+          <div class="pp-project-card-head">
+            <div>
+              <h4>Frontal Impact Test Simulation - 2012 Toyota Camry</h4>
+              <p>US NCAP 56 km/h frontal rigid wall crash test using the validated CCSA/FHWA FE model (2.25M elements) in Ansys LS-Dyna.</p>
             </div>
             <div class="pp-project-toggle">+</div>
           </div>
@@ -958,128 +937,195 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-detail-inner">
               <div class="pp-detail-section">
                 <h5>Description</h5>
-                <p>Two-lap autonomous racing pipeline on the Suzuka Circuit. Lap 1 maps the track blindly using local sensor data. Lap 2 races an optimised minimum-curvature line computed via gradient descent.</p>
+                <p>Full-car frontal crash simulation based on US NCAP 56 km/h rigid wall impact using the validated CCSA/FHWA 2012 Toyota Camry FE model. Post-processing performed in LS-PrePost v4.12.6 with CFC60 filter per SAE J211.</p>
               </div>
               <div class="pp-detail-section">
                 <h5>Key Parameters</h5>
                 <ul>
-                  <li>Sensor radius: 34 m for boundary cone detection</li>
-                  <li>Track resampling: 500 points</li>
-                  <li>Optimiser: 300 gradient descent iterations, early stop at dk less than 1x10^-7</li>
-                  <li>Safety inset: 1.5 m from track walls</li>
+                  <li>Impact velocity: 56 km/h (US NCAP standard)</li>
+                  <li>FE model: 2.25M elements, CCSA/FHWA Toyota Camry</li>
+                  <li>Time step: 7x10^-7 s | Mass scaling: 0.33%</li>
+                  <li>Von Mises Stress Max: 261.8 MPa</li>
+                  <li>Max Wall Force: 1,150 kN at 30 ms</li>
+                  <li>Hourglass energy: less than 1% - energy check passed</li>
                 </ul>
               </div>
               <div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">MATLAB</span>
-                  <span class="pp-tool-tag">Delaunay Triangulation</span>
-                  <span class="pp-tool-tag">Gradient Descent</span>
-                  <span class="pp-tool-tag">TU Munich Dataset</span>
+                  <span class="pp-tool-tag">Ansys LS-Dyna R16.1</span>
+                  <span class="pp-tool-tag">LS-PrePost v4.12.6</span>
+                  <span class="pp-tool-tag">Explicit Dynamics</span>
                 </div>
               </div>
-              <button class="watch-btn" onclick="event.stopPropagation(); openRacingVideo();">
-                ▶ Watch Simulation
+              <button class="watch-btn" onclick="event.stopPropagation(); openCrashVideo();">
+                ▶ Watch Crash Simulation
               </button>
             </div>
           </div>
         </div>
-        
-      </div>
-    </div>
-  </div>
 
-<!-- AI Panel -->
-<div class="pp-expand-panel" id="panel-ai">
-  <div class="pp-expand-inner">
-    <div class="pp-expand-header">
-      <div class="pp-expand-title">Artificial Intelligence in Automotive</div>
-      <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
-    </div>
-    <div class="pp-project-grid">
-
-      <div class="pp-project-card" onclick="toggleProjectCard(this)">
-        <div class="pp-project-card-head">
-          <div>
-            <h4>Automotive Engineering AI Brain - Local RAG System</h4>
-            <p>End-to-end local, private, and completely free RAG system for Automotive Engineering, following the viral idea suggested by Andrej Karpathy (co-founder of OpenAI).</p>
+        <!-- BICYCLE MODEL -->
+        <div class="pp-project-card" onclick="toggleProjectCard(this)">
+          <div class="pp-project-card-head">
+            <div>
+              <h4>Vehicle Lateral Dynamics Modeling &amp; Analysis</h4>
+              <p>2-DOF linear bicycle model in MATLAB using state-space formulation to analyze handling characteristics, stability, and tire behavior across operating conditions.</p>
+            </div>
+            <div class="pp-project-toggle">+</div>
           </div>
-          <div class="pp-project-toggle">+</div>
-        </div>
-        <div class="pp-project-detail">
-          <div class="pp-project-detail-inner">
-
-            <div class="pp-detail-section">
-              <h5>Overview</h5>
-              <p>Created an end-to-end local, private, and completely free RAG system for Automotive Engineering, following the viral idea suggested by Andrej Karpathy (co-founder of OpenAI). The difference from regular AI chatbots that provide generic answers is in the fact that my system provides responses exclusively based on curated automotive engineering knowledge - accurate and domain-specific.</p>
-            </div>
-
-            <div class="pp-detail-section">
-              <h5>Why This Project Is Unique</h5>
-              <p>Standard language models such as ChatGPT or Claude are trained on internet datasets. They do not provide domain-specific answers to engineering questions regarding specific choices in chassis design, methods for solving NVH issues, and ways to regulate battery temperature in EVs. My project addresses exactly this issue by creating a personal knowledge base searched by AI prior to providing any response - just like enterprise RAG systems do.</p>
-            </div>
-
-            <div class="pp-detail-section">
-              <h5>What Was Done</h5>
-              <p>Creation of an end-to-end knowledge base covering 16 areas of automotive engineering including chassis engineering, vehicle dynamics, CFD, CAE/FEA, EV fundamentals, NVH, ADAS, thermal management, suspension engineering, lightweighting, simulation methods, aerodynamics, interior design, powertrain engineering, and manufacturing engineering – all working locally on a laptop and without paying for any subscriptions.</p>
-            </div>
-
-            <div class="pp-detail-section">
-              <h5>Pipeline</h5>
-              <ul>
-                <li>Engineering documents (.md) → Embedding in the vector knowledge base</li>
-                <li>User poses an engineering question</li>
-                <li>Knowledge base retrieval of relevant chunks</li>
-                <li>AI gives a response based only on domain knowledge</li>
-                <li>Contextualized answer, with citations from documents</li>
-              </ul>
-            </div>
-
-            <div class="pp-detail-section">
-              <h5>Importance of RAG in the Automotive Sector</h5>
-              <p>In the automotive sector, millions of pages worth of engineering documents can be created in areas such as CAE, CFD, crash tests, NVH, and supplier specs. RAG allows an engineer to access this information on-the-go without needing to search through thousands of engineering documents. This very same setup is used by companies building enterprise-level automotive AI.</p>
-            </div>
-
-            <div class="pp-detail-section">
-              <h5>Results Achieved</h5>
-              <ul>
-                <li>Full embedding of 16 knowledge domains</li>
-                <li>Successful testing of RAG knowledge retrieval - the system cited engineering documents</li>
-                <li>Beautiful visualization of knowledge graph with all connections between engineering domains</li>
-                <li>100% privacy - no data was transmitted to any cloud server</li>
-                <li>Free of charge - everything happens locally</li>
-              </ul>
-            </div>
-
-            <div class="pp-detail-section">
-              <h5>Significance for Advanced RAG Roles</h5>
-              <p>The project gives practical experience about the knowledge needed for advanced RAG roles, such as gaining knowledge about the architecture of RAG, knowledge base design in a particular domain, implementation of local language models, and prompt writing for grounding AI-based responses. I am currently working on adding more relevant books/research papers to the tool.</p>
-            </div>
-
-            <div class="pp-detail-section">
-              <h5>Tools Used</h5>
-              <div class="pp-detail-tools">
-                <span class="pp-tool-tag">Ollama</span>
-                <span class="pp-tool-tag">Qwen3 Vision 4B</span>
-                <span class="pp-tool-tag">AnythingLLM</span>
-                <span class="pp-tool-tag">Obsidian</span>
-                <span class="pp-tool-tag">Markdown / RAG</span>
-                <span class="pp-tool-tag">Vector Embeddings</span>
+          <div class="pp-project-detail">
+            <div class="pp-project-detail-inner">
+              <div class="pp-detail-section">
+                <h5>Description</h5>
+                <p>Developed a 2-DOF linear bicycle model for vehicle lateral dynamics, implementing state-space formulation to analyze handling characteristics across operating conditions.</p>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Key Work</h5>
+                <ul>
+                  <li>Derived and validated bicycle model state-space matrices capturing lateral velocity and yaw rate dynamics</li>
+                  <li>Characterized understeer/oversteer behavior via understeer gradient (K_us) across front/rear cornering stiffness configurations</li>
+                  <li>Conducted frequency response, step steer, and sinusoidal sweep analyses</li>
+                  <li>Implemented Pacejka Magic Formula tire model</li>
+                  <li>Simulated ISO-inspired lane change maneuver</li>
+                </ul>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Simulation Results</h5>
+                <div class="bike-gallery" id="bike-gallery"></div>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Tools Used</h5>
+                <div class="pp-detail-tools">
+                  <span class="pp-tool-tag">MATLAB</span>
+                  <span class="pp-tool-tag">State-Space Formulation</span>
+                  <span class="pp-tool-tag">Pacejka Magic Formula</span>
+                  <span class="pp-tool-tag">Frequency Response Analysis</span>
+                </div>
               </div>
             </div>
-
-            <button class="watch-btn" onclick="event.stopPropagation(); openAIVideo();">
-              ▶ Watch Demo Animation
-            </button>
-
           </div>
         </div>
-      </div>
 
+        <!-- NVH PROJECT CARD -->
+        <div class="pp-project-card" onclick="toggleProjectCard(this)">
+          <div class="pp-project-card-head">
+            <div>
+              <h4>NVH Structural Analysis — GT-R Inspired Car Body</h4>
+              <p>Full 3-phase NVH simulation: Modal Analysis, Harmonic Response & FRF extraction using ANSYS Mechanical 2025 R2.</p>
+            </div>
+            <div class="pp-project-toggle">+</div>
+          </div>
+          <div class="pp-project-detail">
+            <div class="pp-project-detail-inner">
+              <div class="pp-detail-section">
+                <h5>Overview</h5>
+                <p>The car body I get inspired by comes from the famous Nissan GT-R model. This project replicates the exact NVH simulation workflow used by OEM engineers at Nissan, Mercedes-Benz, and Bosch.</p>
+              </div>
+              <div class="pp-detail-section">
+                <h5>What I Built</h5>
+                <p><b>Modal Analysis</b> — Calculated 12 natural frequencies (0–58 Hz). First body bending mode at 12.37 Hz, torsion at 29.90 Hz.</p>
+                <p><b>Harmonic Response</b> — 500N engine excitation force swept 20–100 Hz. Resonance peaks at 29 Hz and 38 Hz.</p>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Mode Shape Animations</h5>
+                <div class="ecb-video-grid" style="grid-template-columns: repeat(4,1fr);">
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode1_Rigid_Body.mp4.avi','Mode 1 — Rigid Body (~0 Hz)')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Mode 1<br>Rigid Body</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode2_Rigid_Body.mp4.avi','Mode 2 — Rigid Body (~0 Hz)')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Mode 2<br>Rigid Body</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode3_Rigid_Body.mp4.avi','Mode 3 — Rigid Body (~0 Hz)')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Mode 3<br>Rigid Body</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode4_Rigid_Body.mp4.avi','Mode 4 — Rigid Body (~0 Hz)')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Mode 4<br>Rigid Body</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode5_Rigid_Body.mp4.avi','Mode 5 — Rigid Body (~0 Hz)')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Mode 5<br>Rigid Body</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode6_Rigid_Body.mp4.avi','Mode 6 — Rigid Body (~0 Hz)')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Mode 6<br>Rigid Body</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode7_Rigid_Body.mp4.avi','Mode 7 — Body Lateral Bending (12.37 Hz)')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Mode 7<br>12 Hz Bending</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode8_Rigid_Body.mp4.avi','Mode 8 — Longitudinal Bending (21.35 Hz)')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Mode 8<br>21 Hz Bending</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode9_Rigid_Body.mp4.avi','Mode 9 — First Torsion (29.90 Hz)')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Mode 9<br>29 Hz Torsion</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode10_Rigid_Body.mp4.avi','Mode 10 — Bending-Torsion (36.36 Hz)')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Mode 10<br>36 Hz Combined</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode11_Rigid_Body.mp4.avi','Mode 11 — Panel Breathing (45.99 Hz)')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Mode 11<br>46 Hz Panel</div>
+                  </div>
+                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openNVHVideo('NVH_Mode12_Rigid_Body.mp4.avi','Mode 12 — High Order Panel (58.14 Hz)')">
+                    <div class="ecb-video-play">▶</div>
+                    <div class="ecb-video-label">Mode 12<br>58 Hz Panel</div>
+                  </div>
+                </div>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Mode Descriptions</h5>
+                <table class="ecb-results-table">
+                  <tr><th>Mode</th><th>Frequency</th><th>Description</th></tr>
+                  <tr><td>1–6</td><td class="val">~0 Hz</td><td>Rigid body modes — validates free-free boundary condition setup</td></tr>
+                  <tr><td>7</td><td class="val">12.37 Hz</td><td>Body lateral bending — most critical NVH mode</td></tr>
+                  <tr><td>8</td><td class="val">21.35 Hz</td><td>Longitudinal bending — excited by road bumps</td></tr>
+                  <tr class="highlight-row"><td>9</td><td class="val">29.90 Hz</td><td>First torsion mode — primary structural stiffness indicator</td></tr>
+                  <tr><td>10</td><td class="val">36.36 Hz</td><td>Combined bending-torsion</td></tr>
+                  <tr><td>11</td><td class="val">45.99 Hz</td><td>Panel breathing — source of structure-borne cabin noise</td></tr>
+                  <tr><td>12</td><td class="val">58.14 Hz</td><td>Higher order panel vibration</td></tr>
+                </table>
+              </div>
+              <div class="pp-detail-section">
+                <h5>FRF Plot — Harmonic Response Results</h5>
+                <div class="cfd-thumb" style="width:100%; aspect-ratio:16/7; max-width:100%;" onclick="event.stopPropagation(); openLightbox(0, nvhImages);">
+                  <img src="Screenshot 2026-05-18 154344.png" alt="FRF Plot" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                  <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
+                  <div class="cfd-thumb-label">Frequency Response Function — 20 to 100 Hz</div>
+                </div>
+                <ul style="margin-top:14px;">
+                  <li><b>Peak at 29 Hz</b> — body torsion resonance at ~1740 RPM engine speed</li>
+                  <li><b>Secondary peak at 38 Hz</b> — bending-torsion resonance at ~2280 RPM</li>
+                  <li><b>180° phase shift at resonance</b> — classic NVH signature</li>
+                  <li><b>Log-scale Bode plot</b> — industry standard format</li>
+                </ul>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Tools Used</h5>
+                <div class="pp-detail-tools">
+                  <span class="pp-tool-tag">ANSYS Mechanical 2025 R2</span>
+                  <span class="pp-tool-tag">DesignModeler</span>
+                  <span class="pp-tool-tag">SHELL181 Meshing</span>
+                  <span class="pp-tool-tag">Modal Analysis</span>
+                  <span class="pp-tool-tag">Harmonic Response</span>
+                  <span class="pp-tool-tag">FRF Analysis</span>
+                  <span class="pp-tool-tag">Automotive NVH Engineering</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
-      
 </section>
 
 <!-- EXPERIENCE -->
