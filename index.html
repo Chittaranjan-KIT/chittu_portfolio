@@ -540,6 +540,12 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="pp-cat-title">Autonomous Systems</div>
       <div class="pp-cat-count">1 Project</div>
     </div>
+    <div class="pp-category-grid">
+    <div class="pp-category-tile" onclick="toggleCategoryPanel('cfd', this)">   ← CFD
+    <div class="pp-category-tile" onclick="toggleCategoryPanel('vd', this)">    ← Vehicle Dynamics
+    <div class="pp-category-tile" onclick="toggleCategoryPanel('auto', this)">  ← Autonomous Systems
+    <div class="pp-category-tile" onclick="toggleCategoryPanel('ai', this)">    ← NEW AI tile
+   </div>
   </div>
 
   <!-- CFD Panel -->
@@ -860,11 +866,102 @@ footer a { color: var(--accent); text-decoration: none; }
             </div>
           </div>
         </div>
-
+        
       </div>
     </div>
   </div>
 
+<!-- AI Panel -->
+<div class="pp-expand-panel" id="panel-ai">
+  <div class="pp-expand-inner">
+    <div class="pp-expand-header">
+      <div class="pp-expand-title">Artificial Intelligence in Automotive</div>
+      <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
+    </div>
+    <div class="pp-project-grid">
+
+      <div class="pp-project-card" onclick="toggleProjectCard(this)">
+        <div class="pp-project-card-head">
+          <div>
+            <h4>Automotive Engineering AI Brain - Local RAG System</h4>
+            <p>End-to-end local, private, and completely free RAG system for Automotive Engineering, following the viral idea suggested by Andrej Karpathy (co-founder of OpenAI).</p>
+          </div>
+          <div class="pp-project-toggle">+</div>
+        </div>
+        <div class="pp-project-detail">
+          <div class="pp-project-detail-inner">
+
+            <div class="pp-detail-section">
+              <h5>Overview</h5>
+              <p>Created an end-to-end local, private, and completely free RAG system for Automotive Engineering, following the viral idea suggested by Andrej Karpathy (co-founder of OpenAI). The difference from regular AI chatbots that provide generic answers is in the fact that my system provides responses exclusively based on curated automotive engineering knowledge - accurate and domain-specific.</p>
+            </div>
+
+            <div class="pp-detail-section">
+              <h5>Why This Project Is Unique</h5>
+              <p>Standard language models such as ChatGPT or Claude are trained on internet datasets. They do not provide domain-specific answers to engineering questions regarding specific choices in chassis design, methods for solving NVH issues, and ways to regulate battery temperature in EVs. My project addresses exactly this issue by creating a personal knowledge base searched by AI prior to providing any response - just like enterprise RAG systems do.</p>
+            </div>
+
+            <div class="pp-detail-section">
+              <h5>What Was Done</h5>
+              <p>Creation of an end-to-end knowledge base covering 16 areas of automotive engineering including chassis engineering, vehicle dynamics, CFD, CAE/FEA, EV fundamentals, NVH, ADAS, thermal management, suspension engineering, lightweighting, simulation methods, aerodynamics, interior design, powertrain engineering, and manufacturing engineering – all working locally on a laptop and without paying for any subscriptions.</p>
+            </div>
+
+            <div class="pp-detail-section">
+              <h5>Pipeline</h5>
+              <ul>
+                <li>Engineering documents (.md) → Embedding in the vector knowledge base</li>
+                <li>User poses an engineering question</li>
+                <li>Knowledge base retrieval of relevant chunks</li>
+                <li>AI gives a response based only on domain knowledge</li>
+                <li>Contextualized answer, with citations from documents</li>
+              </ul>
+            </div>
+
+            <div class="pp-detail-section">
+              <h5>Importance of RAG in the Automotive Sector</h5>
+              <p>In the automotive sector, millions of pages worth of engineering documents can be created in areas such as CAE, CFD, crash tests, NVH, and supplier specs. RAG allows an engineer to access this information on-the-go without needing to search through thousands of engineering documents. This very same setup is used by companies building enterprise-level automotive AI.</p>
+            </div>
+
+            <div class="pp-detail-section">
+              <h5>Results Achieved</h5>
+              <ul>
+                <li>Full embedding of 16 knowledge domains</li>
+                <li>Successful testing of RAG knowledge retrieval - the system cited engineering documents</li>
+                <li>Beautiful visualization of knowledge graph with all connections between engineering domains</li>
+                <li>100% privacy - no data was transmitted to any cloud server</li>
+                <li>Free of charge - everything happens locally</li>
+              </ul>
+            </div>
+
+            <div class="pp-detail-section">
+              <h5>Significance for Advanced RAG Roles</h5>
+              <p>The project gives practical experience about the knowledge needed for advanced RAG roles, such as gaining knowledge about the architecture of RAG, knowledge base design in a particular domain, implementation of local language models, and prompt writing for grounding AI-based responses. I am currently working on adding more relevant books/research papers to the tool.</p>
+            </div>
+
+            <div class="pp-detail-section">
+              <h5>Tools Used</h5>
+              <div class="pp-detail-tools">
+                <span class="pp-tool-tag">Ollama</span>
+                <span class="pp-tool-tag">Qwen3 Vision 4B</span>
+                <span class="pp-tool-tag">AnythingLLM</span>
+                <span class="pp-tool-tag">Obsidian</span>
+                <span class="pp-tool-tag">Markdown / RAG</span>
+                <span class="pp-tool-tag">Vector Embeddings</span>
+              </div>
+            </div>
+
+            <button class="watch-btn" onclick="event.stopPropagation(); openAIVideo();">
+              ▶ Watch Demo Animation
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+      
 </section>
 
 <!-- EXPERIENCE -->
@@ -1263,6 +1360,16 @@ footer a { color: var(--accent); text-decoration: none; }
     </video>
   </div>
 </div>
+      
+    <!-- AI RAG VIDEO MODAL -->
+<div id="aiModal" class="modal">
+  <div class="modal-inner">
+    <div class="modal-close" onclick="closeAIVideo()">✕</div>
+    <video id="aiVideo" controls preload="metadata">
+      <source src="./Animation_Video.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
 
 <!-- ECB VIDEO MODAL -->
 <div id="ecbModal" class="modal">
@@ -1394,6 +1501,20 @@ function closeCrashVideo() {
 }
 document.getElementById('crashModal').addEventListener('click', function(e) { if (e.target === this) closeCrashVideo(); });
 
+  /* AI RAG VIDEO */
+function openAIVideo() {
+  document.getElementById('aiModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('aiVideo').play();
+}
+function closeAIVideo() {
+  document.getElementById('aiModal').classList.remove('show');
+  document.body.style.overflow = '';
+  const v = document.getElementById('aiVideo');
+  v.pause(); v.currentTime = 0;
+}
+document.getElementById('aiModal').addEventListener('click', function(e) { if (e.target === this) closeAIVideo(); });
+
 /* ECB VIDEO */
 function openECBVideo(filename, title) {
   const modal = document.getElementById('ecbModal');
@@ -1416,8 +1537,8 @@ document.getElementById('ecbModal').addEventListener('click', function(e) { if (
 /* ESCAPE KEY */
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
-    closeRacingVideo(); closeVideo(); closeCrashVideo(); closeECBVideo(); closeLightbox();
-  }
+  closeRacingVideo(); closeVideo(); closeCrashVideo(); closeECBVideo(); closeAIVideo(); closeLightbox();
+}
 });
 
 /* PERSONAL PROJECTS */
