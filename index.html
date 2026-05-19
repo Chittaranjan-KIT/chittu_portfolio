@@ -1681,9 +1681,22 @@ function closeCategoryPanel() {
   activeCategoryPanel = null;
 }
 function toggleProjectCard(el) {
+
+  // find only the current project grid
+  const currentGrid = el.closest('.pp-project-grid');
+
+  // check if clicked card is already open
   const isOpen = el.classList.contains('open');
-  document.querySelectorAll('.pp-project-card').forEach(c => c.classList.remove('open'));
-  if (!isOpen) el.classList.add('open');
+
+  // close only cards inside this section
+  currentGrid.querySelectorAll('.pp-project-card').forEach(card => {
+    card.classList.remove('open');
+  });
+
+  // open only clicked card
+  if (!isOpen) {
+    el.classList.add('open');
+  }
 }
 
 /* CFD GALLERY */
