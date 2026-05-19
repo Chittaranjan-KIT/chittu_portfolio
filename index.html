@@ -346,8 +346,15 @@ footer a { color: var(--accent); text-decoration: none; }
 .pp-expand-close { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 20px; cursor: pointer; transition: background 0.3s, border-color 0.3s; }
 .pp-expand-close:hover { background: rgba(232,160,32,0.1); border-color: var(--accent); }
 
-.pp-project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
-
+.pp-project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+.pp-project-card {
+  height: fit-content;
+}
 .pp-project-card { background: rgba(13,21,32,0.7); border: 1px solid rgba(232,160,32,0.12); border-radius: 16px; overflow: hidden; cursor: pointer; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; }
 .pp-project-card:hover { border-color: rgba(232,160,32,0.35); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
 .pp-project-card-head { padding: 22px 24px 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
