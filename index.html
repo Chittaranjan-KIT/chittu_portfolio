@@ -597,215 +597,12 @@ footer a { color: var(--accent); text-decoration: none; }
             </div>
           </div>
         </div>
-<!-- ECB PROJECT CARD -->
-        <div class="pp-project-card" onclick="toggleProjectCard(this)">
-          <div class="pp-project-card-head">
-            <div>
-              <h4>Rotary Eddy Current Brake - Feasibility &amp; Performance Analysis</h4>
-              <p>Multi-physics simulation: electromagnetic torque modelling (Python), structural FEM, and thermal CFD.</p>
-            </div>
-            <div class="pp-project-toggle">+</div>
-          </div>
-          <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
-
-                <div class="pp-detail-section">
-                <h5>Overview</h5>
-                <p>Feasibility study of eddy current brakes (ECB) - contactless, wear-free, and particulate-free braking technology addressing EU non-exhaust emission regulations. Three simulation pillars: electromagnetic modelling, structural FEM, and thermal CFD.</p>
-                <h5>Electromagnetic FEM using COMSOL</h5>
-                <p>Validation of the Wouterse analytical model through a 2D axisymmetric electromagnetic FEM analysis in COMSOL Multiphysics 6.4 (Magnetic Fields &amp; Heat Transfer module in Frequency Domain). The eddy current density reaches its maximum value at the outer radius of the disc (J ∝ r). Maximum calculated braking torque = 410 N·m at 641 RPM for a disc made of Al 6061 with B₀ = 0.8 T. The peak value of magnetic flux density = 1.24 T inside the aluminium disc.</p>
-              </div>
-
-              <div class="pp-detail-section">
-                <h5>Part 1 - Electromagnetic Model (Python / Wouterse 1991)</h5>
-                <table class="ecb-results-table">
-                  <tr><th>Study</th><th>Finding</th></tr>
-                  <tr><td>Torque vs Speed - Materials</td><td><span class="val">Aluminium optimal</span> - peak at ~800 RPM</td></tr>
-                  <tr><td>Effect of B-field (0.4-1.2 T)</td><td>Doubling B <span class="val">quadruples peak torque</span> - B² scaling validated</td></tr>
-                  <tr class="highlight-row"><td>Peak Torque vs B</td><td>B² linear fit confirmed - <span class="val">model validated</span></td></tr>
-                </table>
-              </div>
-
-              <div class="pp-detail-section">
-                <h5>Part 2 - Structural FEM (ANSYS Mechanical)</h5>
-                <p>Aluminium 6061 annular disc · 150 mm OD · 3000 RPM · Fixed inner bore.</p>
-                <table class="ecb-results-table">
-                  <tr><th>Result</th><th>Value</th><th>Note</th></tr>
-                  <tr><td>Von Mises Stress</td><td><span class="val">4.11 MPa</span></td><td>Peak at inner bore</td></tr>
-                  <tr><td>Total Deformation</td><td><span class="val">0.0021 mm</span></td><td>Negligible radial expansion</td></tr>
-                  <tr class="highlight-row"><td>Safety Factor</td><td><span class="val">45.8</span></td><td>Well below failure at 3000 RPM</td></tr>
-                </table>
-              </div>
-
-              <div class="pp-detail-section">
-                <h5>Part 3 - Thermal CFD (ANSYS Steady-State Thermal)</h5>
-                <p>Plain vs ventilated disc under identical boundary conditions (heat flux: 10,000 W/m²).</p>
-                <div class="ecb-comparison-grid">
-                  <div class="ecb-compare-card">
-                    <div class="ecb-compare-label">Plain Disc</div>
-                    <div class="ecb-stat"><span class="ecb-stat-name">Max Temperature</span><span class="ecb-stat-val">205.8°C</span></div>
-                    <div class="ecb-stat"><span class="ecb-stat-name">Temp Gradient</span><span class="ecb-stat-val">1.6°C</span></div>
-                  </div>
-                  <div class="ecb-compare-card winner">
-                    <div class="ecb-compare-label">✓ Ventilated Disc</div>
-                    <div class="ecb-stat"><span class="ecb-stat-name">Max Temperature</span><span class="ecb-stat-val">85.1°C</span></div>
-                    <div class="ecb-stat"><span class="ecb-stat-name">Temp Gradient</span><span class="ecb-stat-val">10.8°C</span></div>
-                  </div>
-                </div>
-                <div class="ecb-finding-badge">
-                  Key Finding: Ventilated geometry reduces peak rotor temperature by <strong>120°C</strong> - validating ventilation channels as essential for ECB thermal management.
-                </div>
-              </div>
-
-              <div class="pp-detail-section">
-                <h5>Simulation Animations</h5>
-                <div class="ecb-video-grid">
-                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Deformation_animation.mp4', 'Total Deformation - 3000 RPM')">
-                    <div class="ecb-video-play">▶</div>
-                    <div class="ecb-video-label">Total<br>Deformation</div>
-                  </div>
-                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Equivalent_animation.mp4', 'Von Mises Stress')">
-                    <div class="ecb-video-play">▶</div>
-                    <div class="ecb-video-label">Von Mises<br>Stress</div>
-                  </div>
-                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Max%20Principal_animation.mp4', 'Maximum Principal Stress')">
-                    <div class="ecb-video-play">▶</div>
-                    <div class="ecb-video-label">Max Principal<br>Stress</div>
-                  </div>
-                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('HeatFlux_animation.mp4', 'Plain Disc - Heat Flux')">
-                    <div class="ecb-video-play">▶</div>
-                    <div class="ecb-video-label">Plain Disc<br>Heat Flux</div>
-                  </div>
-                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Temp1_animation.mp4', 'Plain Disc - Temperature')">
-                    <div class="ecb-video-play">▶</div>
-                    <div class="ecb-video-label">Plain Disc<br>Temperature</div>
-                  </div>
-                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Ventilated_Heatflux_animation.mp4', 'Ventilated Disc - Heat Flux')">
-                    <div class="ecb-video-play">▶</div>
-                    <div class="ecb-video-label">Ventilated<br>Heat Flux</div>
-                  </div>
-                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Ventilated_temp_animation.mp4', 'Ventilated Disc - Temperature')">
-                    <div class="ecb-video-play">▶</div>
-                    <div class="ecb-video-label">Ventilated<br>Temperature</div>
-                  </div>
-                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('ECB_MagneticField.mp4', 'COMSOL - 2D Magnetic Flux Density')">
-                    <div class="ecb-video-play">▶</div>
-                    <div class="ecb-video-label">COMSOL<br>2D Magnetic Field</div>
-                  </div>
-                  <div class="ecb-video-thumb" onclick="event.stopPropagation(); openECBVideo('Magnetic Flux Density, Revolved Geometry (mf).mp4', 'COMSOL - 3D Revolved Magnetic Field')">
-                    <div class="ecb-video-play">▶</div>
-                    <div class="ecb-video-label">COMSOL<br>3D Revolved Geometry</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="pp-detail-section">
-                <h5>Tools Used</h5>
-                <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">Python / NumPy / Matplotlib</span>
-                  <span class="pp-tool-tag">ANSYS Mechanical 2025 R2</span>
-                  <span class="pp-tool-tag">ANSYS Steady-State Thermal</span>
-                  <span class="pp-tool-tag">DesignModeler</span>
-                  <span class="pp-tool-tag">COMSOL Multiphysics 6.4</span>
-                </div>
-              </div>
-
-              <div class="pp-detail-section">
-                <p style="font-size:11px; color: rgba(212,220,232,0.45); margin-top:8px;">
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- FRONTAL IMPACT -->
-        <div class="pp-project-card" onclick="toggleProjectCard(this)">
-          <div class="pp-project-card-head">
-            <div>
-              <h4>Frontal Impact Test Simulation - 2012 Toyota Camry</h4>
-              <p>US NCAP 56 km/h frontal rigid wall crash test using the validated CCSA/FHWA FE model (2.25M elements) in Ansys LS-Dyna.</p>
-            </div>
-            <div class="pp-project-toggle">+</div>
-          </div>
-          <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
-              <div class="pp-detail-section">
-                <h5>Description</h5>
-                <p>Full-car frontal crash simulation based on US NCAP 56 km/h rigid wall impact using the validated CCSA/FHWA 2012 Toyota Camry FE model. Post-processing performed in LS-PrePost v4.12.6 with CFC60 filter per SAE J211.</p>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Key Parameters</h5>
-                <ul>
-                  <li>Impact velocity: 56 km/h (US NCAP standard)</li>
-                  <li>FE model: 2.25M elements, CCSA/FHWA Toyota Camry</li>
-                  <li>Time step: 7x10^-7 s | Mass scaling: 0.33%</li>
-                  <li>Von Mises Stress Max: 261.8 MPa</li>
-                  <li>Max Wall Force: 1,150 kN at 30 ms</li>
-                  <li>Hourglass energy: less than 1% - energy check passed</li>
-                </ul>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Tools Used</h5>
-                <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">Ansys LS-Dyna R16.1</span>
-                  <span class="pp-tool-tag">LS-PrePost v4.12.6</span>
-                  <span class="pp-tool-tag">Explicit Dynamics</span>
-                </div>
-              </div>
-              <button class="watch-btn" onclick="event.stopPropagation(); openCrashVideo();">
-                ▶ Watch Crash Simulation
-             </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- BICYCLE MODEL PROJECT CARD -->
-        <div class="pp-project-card" onclick="toggleProjectCard(this)">
-          <div class="pp-project-card-head">
-            <div>
-              <h4>Vehicle Lateral Dynamics Modeling &amp; Analysis</h4>
-              <p>2-DOF linear bicycle model in MATLAB using state-space formulation to analyze handling characteristics, stability, and tire behavior across operating conditions.</p>
-            </div>
-            <div class="pp-project-toggle">+</div>
-          </div>
-          <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
-              <div class="pp-detail-section">
-                <h5>Description</h5>
-                <p>Developed a 2-DOF linear bicycle model for vehicle lateral dynamics, implementing state-space formulation to analyze handling characteristics across operating conditions. Captures lateral velocity and yaw rate dynamics through derived and validated A, B, C, D matrices.</p>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Key Work</h5>
-                <ul>
-                  <li>Derived and validated bicycle model state-space matrices capturing lateral velocity and yaw rate dynamics</li>
-                  <li>Characterized understeer/oversteer behavior via understeer gradient (K_us) across front/rear cornering stiffness configurations</li>
-                  <li>Conducted frequency response, step steer, and sinusoidal sweep analyses to evaluate stability margins, damping ratio, and natural frequency vs. speed</li>
-                  <li>Implemented Pacejka Magic Formula tire model to capture nonlinear slip angle–force relationships and load sensitivity effects</li>
-                  <li>Simulated ISO-inspired lane change maneuver, integrating vehicle path from yaw rate and lateral velocity states</li>
-                </ul>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Simulation Results</h5>
-                <div class="bike-gallery" id="bike-gallery"></div>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Tools Used</h5>
-                <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">MATLAB</span>
-                  <span class="pp-tool-tag">State-Space Formulation</span>
-                  <span class="pp-tool-tag">Pacejka Magic Formula</span>
-                  <span class="pp-tool-tag">Frequency Response Analysis</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </div>
     </div>
   </div>
- <!-- Vehicle Dynamics Panel -->
+
+  <!-- Vehicle Dynamics Panel -->
   <div class="pp-expand-panel" id="panel-vd">
     <div class="pp-expand-inner">
       <div class="pp-expand-header">
@@ -814,7 +611,6 @@ footer a { color: var(--accent); text-decoration: none; }
       </div>
       <div class="pp-project-grid">
 
-        <!-- ECB PROJECT CARD -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -924,7 +720,6 @@ footer a { color: var(--accent); text-decoration: none; }
           </div>
         </div>
 
-        <!-- FRONTAL IMPACT -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -965,7 +760,6 @@ footer a { color: var(--accent); text-decoration: none; }
           </div>
         </div>
 
-        <!-- BICYCLE MODEL -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -1007,7 +801,6 @@ footer a { color: var(--accent); text-decoration: none; }
           </div>
         </div>
 
-        <!-- NVH PROJECT CARD -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -1119,6 +912,131 @@ footer a { color: var(--accent); text-decoration: none; }
                   <span class="pp-tool-tag">Automotive NVH Engineering</span>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Autonomous Systems Panel -->
+  <div class="pp-expand-panel" id="panel-auto">
+    <div class="pp-expand-inner">
+      <div class="pp-expand-header">
+        <div class="pp-expand-title">Autonomous Systems Projects</div>
+        <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
+      </div>
+      <div class="pp-project-grid">
+
+        <div class="pp-project-card" onclick="toggleProjectCard(this)">
+          <div class="pp-project-card-head">
+            <div>
+              <h4>Path Planning &amp; Optimised Racing Line - Suzuka F1 Circuit</h4>
+              <p>Two-phase autonomous racing simulation using real F1 track boundary data from TU Munich.</p>
+            </div>
+            <div class="pp-project-toggle">+</div>
+          </div>
+          <div class="pp-project-detail">
+            <div class="pp-project-detail-inner">
+              <div class="pp-detail-section">
+                <h5>Description</h5>
+                <p>Two-lap autonomous racing pipeline on the Suzuka Circuit. Lap 1 maps the track blindly using local sensor data. Lap 2 races an optimised minimum-curvature line computed via gradient descent.</p>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Key Parameters</h5>
+                <ul>
+                  <li>Sensor radius: 34 m for boundary cone detection</li>
+                  <li>Track resampling: 500 points</li>
+                  <li>Optimiser: 300 gradient descent iterations, early stop at dk less than 1x10^-7</li>
+                  <li>Safety inset: 1.5 m from track walls</li>
+                </ul>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Tools Used</h5>
+                <div class="pp-detail-tools">
+                  <span class="pp-tool-tag">MATLAB</span>
+                  <span class="pp-tool-tag">Delaunay Triangulation</span>
+                  <span class="pp-tool-tag">Gradient Descent</span>
+                  <span class="pp-tool-tag">TU Munich Dataset</span>
+                </div>
+              </div>
+              <button class="watch-btn" onclick="event.stopPropagation(); openRacingVideo();">
+                ▶ Watch Simulation
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Panel -->
+  <div class="pp-expand-panel" id="panel-ai">
+    <div class="pp-expand-inner">
+      <div class="pp-expand-header">
+        <div class="pp-expand-title">Artificial Intelligence in Automotive</div>
+        <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
+      </div>
+      <div class="pp-project-grid">
+
+        <div class="pp-project-card" onclick="toggleProjectCard(this)">
+          <div class="pp-project-card-head">
+            <div>
+              <h4>Automotive Engineering AI Brain - Local RAG System</h4>
+              <p>End-to-end local, private, and completely free RAG system for Automotive Engineering, following the viral idea suggested by Andrej Karpathy (co-founder of OpenAI).</p>
+            </div>
+            <div class="pp-project-toggle">+</div>
+          </div>
+          <div class="pp-project-detail">
+            <div class="pp-project-detail-inner">
+              <div class="pp-detail-section">
+                <h5>Overview</h5>
+                <p>Created an end-to-end local, private, and completely free RAG system for Automotive Engineering, following the viral idea suggested by Andrej Karpathy (co-founder of OpenAI). The difference from regular AI chatbots is that my system provides responses exclusively based on curated automotive engineering knowledge.</p>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Why This Project Is Unique</h5>
+                <p>Standard language models such as ChatGPT or Claude are trained on internet datasets. My project addresses this by creating a personal knowledge base searched by AI prior to providing any response - just like enterprise RAG systems do.</p>
+              </div>
+              <div class="pp-detail-section">
+                <h5>What Was Done</h5>
+                <p>Creation of an end-to-end knowledge base covering 16 areas of automotive engineering including chassis engineering, vehicle dynamics, CFD, CAE/FEA, EV fundamentals, NVH, ADAS, thermal management, suspension engineering, lightweighting, simulation methods, aerodynamics, interior design, powertrain engineering, and manufacturing engineering.</p>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Pipeline</h5>
+                <ul>
+                  <li>Engineering documents (.md) → Embedding in the vector knowledge base</li>
+                  <li>User poses an engineering question</li>
+                  <li>Knowledge base retrieval of relevant chunks</li>
+                  <li>AI gives a response based only on domain knowledge</li>
+                  <li>Contextualized answer, with citations from documents</li>
+                </ul>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Results Achieved</h5>
+                <ul>
+                  <li>Full embedding of 16 knowledge domains</li>
+                  <li>Successful testing of RAG knowledge retrieval</li>
+                  <li>Beautiful visualization of knowledge graph</li>
+                  <li>100% privacy - no data transmitted to any cloud server</li>
+                  <li>Free of charge - everything happens locally</li>
+                </ul>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Tools Used</h5>
+                <div class="pp-detail-tools">
+                  <span class="pp-tool-tag">Ollama</span>
+                  <span class="pp-tool-tag">Qwen3 Vision 4B</span>
+                  <span class="pp-tool-tag">AnythingLLM</span>
+                  <span class="pp-tool-tag">Obsidian</span>
+                  <span class="pp-tool-tag">Markdown / RAG</span>
+                  <span class="pp-tool-tag">Vector Embeddings</span>
+                </div>
+              </div>
+              <button class="watch-btn" onclick="event.stopPropagation(); openAIVideo();">
+                ▶ Watch Demo Animation
+              </button>
             </div>
           </div>
         </div>
