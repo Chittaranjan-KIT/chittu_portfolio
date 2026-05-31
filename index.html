@@ -463,6 +463,13 @@ footer a { color: var(--accent); text-decoration: none; }
 @media (max-width: 700px) { .bike-gallery { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 420px) { .bike-gallery { grid-template-columns: repeat(2, 1fr); } }
 
+/* PRM GIF GRID */
+.prm-gif-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+@media (max-width: 500px) { .prm-gif-grid { grid-template-columns: 1fr; } }
+.prm-gif-item { border-radius: 10px; overflow: hidden; border: 1px solid rgba(232,160,32,0.15); background: rgba(0,0,0,0.3); }
+.prm-gif-item img { width: 100%; display: block; border-radius: 10px 10px 0 0; }
+.prm-gif-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.6); text-align: center; padding: 8px; font-family: 'Inter', sans-serif; }
+
 /* LIGHTBOX */
 #lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); backdrop-filter:blur(10px); z-index:8000; justify-content:center; align-items:center; flex-direction:column; }
 #lightbox.show { display:flex; }
@@ -576,7 +583,7 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="pp-cat-arrow">+</div>
       <div class="pp-cat-icon">🤖</div>
       <div class="pp-cat-title">Autonomous Systems</div>
-      <div class="pp-cat-count">1 Project</div>
+      <div class="pp-cat-count">2 Projects</div>
     </div>
     <div class="pp-category-tile" onclick="toggleCategoryPanel('ai', this)">
       <div class="pp-cat-arrow">+</div>
@@ -940,6 +947,8 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
       </div>
       <div class="pp-project-grid">
+
+        <!-- SUZUKA F1 -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -978,6 +987,57 @@ footer a { color: var(--accent); text-decoration: none; }
             </div>
           </div>
         </div>
+
+        <!-- PRM PATH PLANNING -->
+        <div class="pp-project-card" onclick="toggleProjectCard(this)">
+          <div class="pp-project-card-head">
+            <div>
+              <h4>PRM Path Planning &amp; Autonomous Vehicle Tracking</h4>
+              <p>End-to-end motion planning and car control pipeline designed from scratch in Python. The PRM algorithm creates a safe path based on the creation of a KD-Tree graph and a Dijkstra search. The path is then followed by a kinematic bicycle with a Pure Pursuit controller.</p>
+            </div>
+            <div class="pp-project-toggle">+</div>
+          </div>
+          <div class="pp-project-detail">
+            <div class="pp-project-detail-inner">
+              <div class="pp-detail-section">
+                <h5>Key Points</h5>
+                <ul>
+                  <li>800 collision-less nodes · Approximately 5900 roadmap edges · Shortest path algorithm by Dijkstra</li>
+                  <li>Bicycle kinematic model using x-yaw and y-yaw state update</li>
+                  <li>Pure Pursuit with indexing for lateral control and cornering speed adaptation</li>
+                  <li>Outputs as Animated GIFs for planning and vehicle movement</li>
+                </ul>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Results</h5>
+                <div class="prm-gif-grid">
+                  <div class="prm-gif-item">
+                    <img src="prm_animation.gif" alt="PRM Path Planning Animation" loading="lazy">
+                    <div class="prm-gif-label">PRM Planning</div>
+                  </div>
+                  <div class="prm-gif-item">
+                    <img src="prm_tracking.gif" alt="PRM Vehicle Tracking Animation" loading="lazy">
+                    <div class="prm-gif-label">Vehicle Tracking</div>
+                  </div>
+                </div>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Tools Used</h5>
+                <div class="pp-detail-tools">
+                  <span class="pp-tool-tag">Python 3.11</span>
+                  <span class="pp-tool-tag">NumPy</span>
+                  <span class="pp-tool-tag">SciPy (KDTree)</span>
+                  <span class="pp-tool-tag">NetworkX</span>
+                  <span class="pp-tool-tag">Matplotlib</span>
+                  <span class="pp-tool-tag">Pillow</span>
+                  <span class="pp-tool-tag">Spyder</span>
+                  <span class="pp-tool-tag">Anaconda</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
