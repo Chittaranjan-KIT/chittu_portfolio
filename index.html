@@ -612,7 +612,7 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-toggle">+</div>
           </div>
           <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
+            <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
               <div class="pp-detail-section">
                 <h5>Description</h5>
                 <p>End-to-end CFD simulation of external flow over an Ahmed body at 40 m/s. Mesh generated via blockMesh and snappyHexMesh (3.35M cells). Solved with simpleFoam and k-omega SST turbulence model. Post-processed in ParaView for pressure, velocity, streamlines, and wake structures.</p>
@@ -654,7 +654,7 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-toggle">+</div>
           </div>
           <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
+            <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
 
               <div class="pp-detail-section">
                 <h5>Phase 1 - Drive Cycle Analysis (Python)</h5>
@@ -772,7 +772,7 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-toggle">+</div>
           </div>
           <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
+            <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
               <div class="pp-detail-section">
                 <h5>Description</h5>
                 <p>Feasibility study of contactless, wear-free ECB braking technology addressing EU non-exhaust emission regulations. Three-pillar simulation: electromagnetic modelling (Python / Wouterse 1991), structural FEM (ANSYS Mechanical), and thermal CFD (ANSYS Steady-State Thermal).</p>
@@ -810,7 +810,7 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-toggle">+</div>
           </div>
           <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
+            <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
               <div class="pp-detail-section">
                 <h5>Description</h5>
                 <p>Full-car frontal crash simulation based on US NCAP 56 km/h rigid wall impact using the validated CCSA/FHWA 2012 Toyota Camry FE model. Post-processing performed in LS-PrePost v4.12.6 with CFC60 filter per SAE J211.</p>
@@ -850,7 +850,7 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-toggle">+</div>
           </div>
           <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
+            <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
               <div class="pp-detail-section">
                 <h5>Description</h5>
                 <p>Developed a 2-DOF linear bicycle model for vehicle lateral dynamics, implementing state-space formulation to analyze handling characteristics across operating conditions.</p>
@@ -891,7 +891,7 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-toggle">+</div>
           </div>
           <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
+            <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
               <div class="pp-detail-section">
                 <h5>Description</h5>
                 <p>Performed an Automotive Harmonic Response Analysis on a Nissan GT-R body model using ANSYS Mechanical to study structural vibration behavior under dynamic loading conditions. The project included modal analysis, harmonic excitation setup, and Frequency Response Function (FRF) evaluation to identify resonance frequencies and analyze vibration characteristics relevant to automotive NVH performance.</p>
@@ -958,7 +958,7 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-toggle">+</div>
           </div>
           <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
+            <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
               <div class="pp-detail-section">
                 <h5>Description</h5>
                 <p>Two-lap autonomous racing pipeline on the Suzuka Circuit. Lap 1 maps the track blindly using local sensor data. Lap 2 races an optimised minimum-curvature line computed via gradient descent.</p>
@@ -988,55 +988,55 @@ footer a { color: var(--accent); text-decoration: none; }
           </div>
         </div>
 
-     <!-- PRM PATH PLANNING -->
-<div class="pp-project-card" onclick="toggleProjectCard(this)">
-  <div class="pp-project-card-head">
-    <div>
-      <h4>PRM Path Planning &amp; Autonomous Vehicle Tracking</h4>
-      <p>End-to-end motion planning and car control pipeline designed from scratch in Python. The PRM algorithm creates a safe path based on the creation of a KD-Tree graph and a Dijkstra search. The path is then followed by a kinematic bicycle with a Pure Pursuit controller.</p>
-    </div>
-    <div class="pp-project-toggle">+</div>
-  </div>
-  <div class="pp-project-detail">
-    <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
-      <div class="pp-detail-section">
-        <h5>Key Points</h5>
-        <ul>
-          <li>800 collision-less nodes · Approximately 5900 roadmap edges · Shortest path algorithm by Dijkstra</li>
-          <li>Bicycle kinematic model using x, y, yaw state propagation</li>
-          <li>Index-based Pure Pursuit lateral controller with adaptive cornering speed</li>
-          <li>Animated GIF outputs — planning pipeline + vehicle tracking</li>
-        </ul>
-      </div>
-      <div class="pp-detail-section">
-        <h5>Results</h5>
-        <div class="prm-gif-grid">
-          <div class="prm-gif-item">
-            <img src="prm_animation.gif" alt="PRM Path Planning Animation" loading="lazy">
-            <div class="prm-gif-label">PRM Planning</div>
+        <!-- ✅ PRM PATH PLANNING — FIXED CARD -->
+        <div class="pp-project-card" onclick="toggleProjectCard(this)">
+          <div class="pp-project-card-head">
+            <div>
+              <h4>PRM Path Planning &amp; Autonomous Vehicle Tracking</h4>
+              <p>End-to-end motion planning and car control pipeline designed from scratch in Python. The PRM algorithm creates a safe path based on the creation of a KD-Tree graph and a Dijkstra search. The path is then followed by a kinematic bicycle with a Pure Pursuit controller.</p>
+            </div>
+            <div class="pp-project-toggle">+</div>
           </div>
-          <div class="prm-gif-item">
-            <img src="prm_tracking.gif" alt="PRM Vehicle Tracking Animation" loading="lazy">
-            <div class="prm-gif-label">Vehicle Tracking</div>
+          <div class="pp-project-detail">
+            <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+              <div class="pp-detail-section">
+                <h5>Key Points</h5>
+                <ul>
+                  <li>800 collision-free nodes · ~5900 roadmap edges · Dijkstra shortest path query</li>
+                  <li>Kinematic bicycle model — x, y, yaw state propagation at each timestep</li>
+                  <li>Index-based Pure Pursuit lateral controller with adaptive cornering speed</li>
+                  <li>Animated GIF outputs — planning pipeline + vehicle tracking</li>
+                </ul>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Results</h5>
+                <div class="prm-gif-grid">
+                  <div class="prm-gif-item">
+                    <img src="prm_animation.gif" alt="PRM Path Planning Animation">
+                    <div class="prm-gif-label">PRM Planning</div>
+                  </div>
+                  <div class="prm-gif-item">
+                    <img src="prm_tracking.gif" alt="PRM Vehicle Tracking Animation">
+                    <div class="prm-gif-label">Vehicle Tracking</div>
+                  </div>
+                </div>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Tools Used</h5>
+                <div class="pp-detail-tools">
+                  <span class="pp-tool-tag">Python 3.11</span>
+                  <span class="pp-tool-tag">NumPy</span>
+                  <span class="pp-tool-tag">SciPy (KDTree)</span>
+                  <span class="pp-tool-tag">NetworkX</span>
+                  <span class="pp-tool-tag">Matplotlib</span>
+                  <span class="pp-tool-tag">Pillow</span>
+                  <span class="pp-tool-tag">Spyder</span>
+                  <span class="pp-tool-tag">Anaconda</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="pp-detail-section">
-        <h5>Tools Used</h5>
-        <div class="pp-detail-tools">
-          <span class="pp-tool-tag">Python 3.11</span>
-          <span class="pp-tool-tag">NumPy</span>
-          <span class="pp-tool-tag">SciPy (KDTree)</span>
-          <span class="pp-tool-tag">NetworkX</span>
-          <span class="pp-tool-tag">Matplotlib</span>
-          <span class="pp-tool-tag">Pillow</span>
-          <span class="pp-tool-tag">Spyder</span>
-          <span class="pp-tool-tag">Anaconda</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
       </div>
     </div>
@@ -1059,7 +1059,7 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-toggle">+</div>
           </div>
           <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
+            <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
               <div class="pp-detail-section">
                 <h5>Description</h5>
                 <p>End-to-end local, private, zero-cost RAG system for Automotive Engineering - inspired by Andrej Karpathy (co-founder of OpenAI). Responses are grounded exclusively in a curated domain knowledge base, unlike general-purpose LLMs trained on internet data.</p>
@@ -1663,7 +1663,7 @@ const nvhModes = [
   });
 })();
 
-/* PHASE 3 IMAGE ARRAY — used by lightbox */
+/* PHASE 3 IMAGE ARRAY */
 const phase3Images = [
   { file: 'phase1_battery_thermal.png',      label: 'Phase 1 - VECTO Drive Cycle' },
   { file: 'parametric_ambient_study.png',    label: 'Phase 2 - Parametric Ambient Study' },
