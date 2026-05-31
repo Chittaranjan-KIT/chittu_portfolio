@@ -988,55 +988,55 @@ footer a { color: var(--accent); text-decoration: none; }
           </div>
         </div>
 
-        <!-- PRM PATH PLANNING -->
-        <div class="pp-project-card" onclick="toggleProjectCard(this)">
-          <div class="pp-project-card-head">
-            <div>
-              <h4>PRM Path Planning &amp; Autonomous Vehicle Tracking</h4>
-              <p>End-to-end motion planning and car control pipeline designed from scratch in Python. The PRM algorithm creates a safe path based on the creation of a KD-Tree graph and a Dijkstra search. The path is then followed by a kinematic bicycle with a Pure Pursuit controller.</p>
-            </div>
-            <div class="pp-project-toggle">+</div>
-          </div>
-        <div class="pp-project-detail">
-            <div class="pp-project-detail-inner">
-              <div class="pp-detail-section">
-                <h5>Key Points</h5>
-                <ul>
-                  <li>800 collision-less nodes · Approximately 5900 roadmap edges · Shortest path algorithm by Dijkstra</li>
-                  <li>Bicycle kinematic model using x-yaw and y-yaw state update</li>
-                  <li>Pure Pursuit with indexing for lateral control and cornering speed adaptation</li>
-                  <li>Outputs as Animated GIFs for planning and vehicle movement</li>
-                </ul>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Results</h5>
-               <div class="prm-gif-grid">
+     <!-- PRM PATH PLANNING -->
+<div class="pp-project-card" onclick="toggleProjectCard(this)">
+  <div class="pp-project-card-head">
+    <div>
+      <h4>PRM Path Planning &amp; Autonomous Vehicle Tracking</h4>
+      <p>End-to-end motion planning and car control pipeline designed from scratch in Python. The PRM algorithm creates a safe path based on the creation of a KD-Tree graph and a Dijkstra search. The path is then followed by a kinematic bicycle with a Pure Pursuit controller.</p>
+    </div>
+    <div class="pp-project-toggle">+</div>
+  </div>
+  <div class="pp-project-detail">
+    <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+      <div class="pp-detail-section">
+        <h5>Key Points</h5>
+        <ul>
+          <li>800 collision-less nodes · Approximately 5900 roadmap edges · Shortest path algorithm by Dijkstra</li>
+          <li>Bicycle kinematic model using x, y, yaw state propagation</li>
+          <li>Index-based Pure Pursuit lateral controller with adaptive cornering speed</li>
+          <li>Animated GIF outputs — planning pipeline + vehicle tracking</li>
+        </ul>
+      </div>
+      <div class="pp-detail-section">
+        <h5>Results</h5>
+        <div class="prm-gif-grid">
           <div class="prm-gif-item">
-             <img src="prm_animation.gif" alt="PRM Path Planning Animation" loading="lazy">
-           <div class="prm-gif-label">PRM Planning</div>
-           </div>
-           <div class="prm-gif-item">
-              <img src="prm_tracking.gif" alt="PRM Vehicle Tracking Animation" loading="lazy">
-           <div class="prm-gif-label">Vehicle Tracking</div>
+            <img src="prm_animation.gif" alt="PRM Path Planning Animation" loading="lazy">
+            <div class="prm-gif-label">PRM Planning</div>
           </div>
-           </div>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Tools Used</h5>
-                <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">Python 3.11</span>
-                  <span class="pp-tool-tag">NumPy</span>
-                  <span class="pp-tool-tag">SciPy (KDTree)</span>
-                  <span class="pp-tool-tag">NetworkX</span>
-                  <span class="pp-tool-tag">Matplotlib</span>
-                  <span class="pp-tool-tag">Pillow</span>
-                  <span class="pp-tool-tag">Spyder</span>
-                  <span class="pp-tool-tag">Anaconda</span>
-                </div>
-              </div>
-            </div>
+          <div class="prm-gif-item">
+            <img src="prm_tracking.gif" alt="PRM Vehicle Tracking Animation" loading="lazy">
+            <div class="prm-gif-label">Vehicle Tracking</div>
           </div>
         </div>
+      </div>
+      <div class="pp-detail-section">
+        <h5>Tools Used</h5>
+        <div class="pp-detail-tools">
+          <span class="pp-tool-tag">Python 3.11</span>
+          <span class="pp-tool-tag">NumPy</span>
+          <span class="pp-tool-tag">SciPy (KDTree)</span>
+          <span class="pp-tool-tag">NetworkX</span>
+          <span class="pp-tool-tag">Matplotlib</span>
+          <span class="pp-tool-tag">Pillow</span>
+          <span class="pp-tool-tag">Spyder</span>
+          <span class="pp-tool-tag">Anaconda</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
       </div>
     </div>
