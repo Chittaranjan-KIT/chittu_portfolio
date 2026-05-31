@@ -450,7 +450,15 @@ footer a { color: var(--accent); text-decoration: none; }
 .cfd-thumb:hover .cfd-zoom-icon { opacity:1; transform:scale(1); }
 .cfd-thumb-label { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,0.75)); padding:16px 8px 6px; font-size:10px; font-family:'Inter',sans-serif; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.8); text-align:center; opacity:0; transition:opacity 0.25s; }
 .cfd-thumb:hover .cfd-thumb-label { opacity:1; }
-  /* BICYCLE MODEL GALLERY */
+
+/* PHASE3 IMAGE GALLERY */
+.phase3-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px; }
+@media (max-width: 700px) { .phase3-gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px) { .phase3-gallery { grid-template-columns: 1fr; } }
+.phase3-hero { grid-column: 1 / -1; aspect-ratio: 16/7; }
+.phase3-gallery .cfd-thumb { aspect-ratio: 16/9; }
+
+/* BICYCLE MODEL GALLERY */
 .bike-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 8px; }
 @media (max-width: 700px) { .bike-gallery { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 420px) { .bike-gallery { grid-template-columns: repeat(2, 1fr); } }
@@ -556,7 +564,7 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="pp-cat-arrow">+</div>
       <div class="pp-cat-icon">🌊</div>
       <div class="pp-cat-title">CFD</div>
-      <div class="pp-cat-count">1 Project</div>
+      <div class="pp-cat-count">2 Projects</div>
     </div>
     <div class="pp-category-tile" onclick="toggleCategoryPanel('vd', this)">
       <div class="pp-cat-arrow">+</div>
@@ -587,6 +595,7 @@ footer a { color: var(--accent); text-decoration: none; }
       </div>
       <div class="pp-project-grid">
 
+        <!-- AHMED BODY -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -628,6 +637,112 @@ footer a { color: var(--accent); text-decoration: none; }
           </div>
         </div>
 
+        <!-- CFD-BASED THERMAL MANAGEMENT -->
+        <div class="pp-project-card" onclick="toggleProjectCard(this)">
+          <div class="pp-project-card-head">
+            <div>
+              <h4>CFD-Based Thermal Management of an Electric Truck Battery Cooling System</h4>
+              <p>3-phase end-to-end simulation: drive cycle analysis, 1D battery thermal model, and 2D CHT cold plate simulation for the Mercedes-Benz eActros 600.</p>
+            </div>
+            <div class="pp-project-toggle">+</div>
+          </div>
+          <div class="pp-project-detail">
+            <div class="pp-project-detail-inner">
+
+              <div class="pp-detail-section">
+                <h5>Phase 1 - Drive Cycle Analysis (Python)</h5>
+                <p>Extracted the VECTO Long Haul cycle (92,937 data points at 1 Hz) of a 40-ton truck of an electric variety. Calculated battery heat generation Q(t) dynamically during a 2-hour highway drive by using the vehicle dynamics formulae for drag, rolling resistance, grade resistance, and inertia. Physical clipping of the maximum power to 600 kW was carried out according to the specs of the eActros 600.</p>
+              </div>
+
+              <div class="pp-detail-section">
+                <h5>Phase 1 Result</h5>
+                <div class="phase3-gallery">
+                  <div class="cfd-thumb phase3-hero" onclick="event.stopPropagation(); openLightbox(0, phase3Images);">
+                    <img src="phase1_battery_thermal.png" alt="Phase 1 - VECTO Drive Cycle" loading="lazy">
+                    <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
+                    <div class="cfd-thumb-label">VECTO Long Haul Cycle - Battery Thermal Analysis</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pp-detail-section">
+                <h5>Phase 2 - 1D Battery Thermal Model (MATLAB)</h5>
+                <p>Developed a lumped capacitance-based battery thermal model with a closed-loop coolant system (UA=2000 W/K cold plate and ethylene glycol water coolant). Performed a parametric study on ambient temperature variations (0 °C winter/23 °C nominal/40 °C summer). Concluding result – passive cooling is ineffective above 40 °C ambient temperature; an active chiller becomes essential during summers, with battery temperature reaching up to 46 °C.</p>
+              </div>
+
+              <div class="pp-detail-section">
+                <h5>Phase 2 Result</h5>
+                <div class="phase3-gallery">
+                  <div class="cfd-thumb phase3-hero" onclick="event.stopPropagation(); openLightbox(1, phase3Images);">
+                    <img src="parametric_ambient_study.png" alt="Phase 2 - Parametric Ambient Study" loading="lazy">
+                    <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
+                    <div class="cfd-thumb-label">BEV Battery Thermal Management - Parametric Ambient Study</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pp-detail-section">
+                <h5>Phase 3 - 2D CHT Cold Plate Simulation (MATLAB)</h5>
+                <p>Designed a steady-state 2D Conjugate Heat Transfer simulation based on finite differences method and Dittus-Boelter Nu equation for k-omega SST turbulence proxy. The boundary conditions used were those from Phase 2 (worst case scenario) where season is summer at 40°C, heat flux = 2076 W/m², velocity = 0.5 m/s, and inlet temperature = 298 K. Results include: maximum wall temperature = 26.1°C (comfortably below 60°C design specification), pressure drop = 255 Pa (not a significant pump loss), convection HTC = 2037 W/m²K, Re = 2351 transitional regime.</p>
+              </div>
+
+              <div class="pp-detail-section">
+                <h5>Phase 3 Results</h5>
+                <div class="phase3-gallery">
+                  <div class="cfd-thumb phase3-hero" onclick="event.stopPropagation(); openLightbox(2, phase3Images);">
+                    <img src="Phase3_Dashboard_eActros600.png" alt="Phase 3 Engineering Dashboard" loading="lazy">
+                    <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
+                    <div class="cfd-thumb-label">Engineering Dashboard - All KPIs</div>
+                  </div>
+                  <div class="cfd-thumb" onclick="event.stopPropagation(); openLightbox(3, phase3Images);">
+                    <img src="Fig1_TempDistribution.png" alt="Temperature Distribution" loading="lazy">
+                    <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
+                    <div class="cfd-thumb-label">Temperature Distribution</div>
+                  </div>
+                  <div class="cfd-thumb" onclick="event.stopPropagation(); openLightbox(4, phase3Images);">
+                    <img src="Fig2_CoolantTemp.png" alt="Coolant Temperature" loading="lazy">
+                    <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
+                    <div class="cfd-thumb-label">Coolant & Wall Temp</div>
+                  </div>
+                  <div class="cfd-thumb" onclick="event.stopPropagation(); openLightbox(5, phase3Images);">
+                    <img src="Fig3_HTC.png" alt="HTC Distribution" loading="lazy">
+                    <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
+                    <div class="cfd-thumb-label">HTC Distribution</div>
+                  </div>
+                  <div class="cfd-thumb" onclick="event.stopPropagation(); openLightbox(6, phase3Images);">
+                    <img src="Fig4_PressureDrop.png" alt="Pressure Drop" loading="lazy">
+                    <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
+                    <div class="cfd-thumb-label">Pressure Drop</div>
+                  </div>
+                  <div class="cfd-thumb" onclick="event.stopPropagation(); openLightbox(7, phase3Images);">
+                    <img src="Fig5_ThermalResistance.png" alt="Thermal Resistance" loading="lazy">
+                    <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
+                    <div class="cfd-thumb-label">Thermal Resistance</div>
+                  </div>
+                  <div class="cfd-thumb" onclick="event.stopPropagation(); openLightbox(8, phase3Images);">
+                    <img src="Fig6_Seasonal.png" alt="Seasonal Comparison" loading="lazy">
+                    <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
+                    <div class="cfd-thumb-label">Seasonal Comparison</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pp-detail-section">
+                <h5>Tools Used</h5>
+                <div class="pp-detail-tools">
+                  <span class="pp-tool-tag">Python</span>
+                  <span class="pp-tool-tag">MATLAB</span>
+                  <span class="pp-tool-tag">Simulink</span>
+                  <span class="pp-tool-tag">2D Finite Difference Method</span>
+                  <span class="pp-tool-tag">Dittus-Boelter Correlation</span>
+                  <span class="pp-tool-tag">CHT Simulation</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -641,7 +756,6 @@ footer a { color: var(--accent); text-decoration: none; }
       </div>
       <div class="pp-project-grid">
 
-        <!-- ── ECB CARD (shortened) ── -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -761,7 +875,6 @@ footer a { color: var(--accent); text-decoration: none; }
           </div>
         </div>
 
-        <!-- ── NVH CARD (shortened) ── -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -827,7 +940,6 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
       </div>
       <div class="pp-project-grid">
-
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -866,7 +978,6 @@ footer a { color: var(--accent); text-decoration: none; }
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -879,8 +990,6 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
       </div>
       <div class="pp-project-grid">
-
-        <!-- ── AI RAG CARD (shortened) ── -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -921,7 +1030,6 @@ footer a { color: var(--accent); text-decoration: none; }
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -1294,7 +1402,7 @@ footer a { color: var(--accent); text-decoration: none; }
   <p>✉ <a href="mailto:chittaranjanofficial95@gmail.com">chittaranjanofficial95@gmail.com</a> &nbsp;·&nbsp; Karlsruhe, Germany</p>
 </footer>
 
-<!-- ROBOT VIDEO MODAL -->
+<!-- MODALS -->
 <div id="videoModal" class="modal">
   <div class="modal-inner">
     <div class="modal-close" onclick="closeVideo()">✕</div>
@@ -1304,7 +1412,6 @@ footer a { color: var(--accent); text-decoration: none; }
   </div>
 </div>
 
-<!-- RACING SIMULATION VIDEO MODAL -->
 <div id="racingModal" class="modal">
   <div class="modal-inner">
     <div class="modal-close" onclick="closeRacingVideo()">✕</div>
@@ -1314,7 +1421,6 @@ footer a { color: var(--accent); text-decoration: none; }
   </div>
 </div>
 
-<!-- CRASH SIMULATION VIDEO MODAL -->
 <div id="crashModal" class="modal">
   <div class="modal-inner">
     <div class="modal-close" onclick="closeCrashVideo()">✕</div>
@@ -1323,8 +1429,7 @@ footer a { color: var(--accent); text-decoration: none; }
     </video>
   </div>
 </div>
-      
-<!-- AI RAG VIDEO MODAL -->
+
 <div id="aiModal" class="modal">
   <div class="modal-inner">
     <div class="modal-close" onclick="closeAIVideo()">✕</div>
@@ -1334,7 +1439,6 @@ footer a { color: var(--accent); text-decoration: none; }
   </div>
 </div>
 
-<!-- ECB VIDEO MODAL -->
 <div id="ecbModal" class="modal">
   <div class="modal-inner" id="ecbModalInner">
     <div class="modal-close" onclick="closeECBVideo()">✕</div>
@@ -1345,7 +1449,6 @@ footer a { color: var(--accent); text-decoration: none; }
   </div>
 </div>
 
-<!-- NVH VIDEO MODAL -->
 <div id="nvhModal" class="modal">
   <div class="modal-inner">
     <div class="modal-close" onclick="closeNVHVideo()">✕</div>
@@ -1360,7 +1463,7 @@ footer a { color: var(--accent); text-decoration: none; }
 <div id="lightbox">
   <div class="lightbox-close" onclick="closeLightbox()">✕</div>
   <div class="lightbox-img-wrap">
-    <img id="lightbox-img" src="" alt="CFD Result">
+    <img id="lightbox-img" src="" alt="">
   </div>
   <div class="lightbox-dots" id="lightbox-dots"></div>
   <div class="lightbox-counter" id="lightbox-counter"></div>
@@ -1375,12 +1478,11 @@ footer a { color: var(--accent); text-decoration: none; }
 </div>
 
 <script>
-/* CANVAS ANIMATION */
+/* CANVAS */
 const canvas = document.getElementById('circuit-bg');
 const ctx = canvas.getContext('2d');
 function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-resize();
-window.addEventListener('resize', resize);
+resize(); window.addEventListener('resize', resize);
 const tracks = Array.from({length: 55}, () => ({
   x: Math.random() * canvas.width, y: Math.random() * canvas.height,
   len: Math.random() * 100 + 50, dir: Math.random() > 0.5 ? 'h' : 'v',
@@ -1413,9 +1515,8 @@ document.querySelectorAll('section').forEach(s => io.observe(s));
 /* SKILL BARS */
 const barIO = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
+    if (e.isIntersecting)
       e.target.querySelectorAll('.skill-fill').forEach(f => { f.style.width = f.dataset.w + '%'; });
-    }
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.skill-card').forEach(c => barIO.observe(c));
@@ -1435,119 +1536,60 @@ function toggleCard(el) {
   el.classList.toggle('open');
 }
 
-/* ROBOT VIDEO */
-function openVideo() {
-  document.getElementById('videoModal').classList.add('show');
-  document.getElementById('robotVideo').play();
-}
-function closeVideo() {
-  document.getElementById('videoModal').classList.remove('show');
-  const v = document.getElementById('robotVideo');
-  v.pause(); v.currentTime = 0;
-}
-document.getElementById('videoModal').addEventListener('click', function(e) { if (e.target === this) closeVideo(); });
+/* VIDEO MODALS */
+function openVideo() { document.getElementById('videoModal').classList.add('show'); document.getElementById('robotVideo').play(); }
+function closeVideo() { document.getElementById('videoModal').classList.remove('show'); const v=document.getElementById('robotVideo'); v.pause(); v.currentTime=0; }
+document.getElementById('videoModal').addEventListener('click', function(e){ if(e.target===this) closeVideo(); });
 
-/* RACING VIDEO */
-function openRacingVideo() {
-  document.getElementById('racingModal').classList.add('show');
-  document.body.style.overflow = 'hidden';
-  document.getElementById('racingVideo').play();
-}
-function closeRacingVideo() {
-  document.getElementById('racingModal').classList.remove('show');
-  document.body.style.overflow = '';
-  const v = document.getElementById('racingVideo');
-  v.pause(); v.currentTime = 0;
-}
-document.getElementById('racingModal').addEventListener('click', function(e) { if (e.target === this) closeRacingVideo(); });
+function openRacingVideo() { document.getElementById('racingModal').classList.add('show'); document.body.style.overflow='hidden'; document.getElementById('racingVideo').play(); }
+function closeRacingVideo() { document.getElementById('racingModal').classList.remove('show'); document.body.style.overflow=''; const v=document.getElementById('racingVideo'); v.pause(); v.currentTime=0; }
+document.getElementById('racingModal').addEventListener('click', function(e){ if(e.target===this) closeRacingVideo(); });
 
-/* CRASH VIDEO */
-function openCrashVideo() {
-  document.getElementById('crashModal').classList.add('show');
-  document.body.style.overflow = 'hidden';
-  document.getElementById('crashVideo').play();
-}
-function closeCrashVideo() {
-  document.getElementById('crashModal').classList.remove('show');
-  document.body.style.overflow = '';
-  const v = document.getElementById('crashVideo');
-  v.pause(); v.currentTime = 0;
-}
-document.getElementById('crashModal').addEventListener('click', function(e) { if (e.target === this) closeCrashVideo(); });
+function openCrashVideo() { document.getElementById('crashModal').classList.add('show'); document.body.style.overflow='hidden'; document.getElementById('crashVideo').play(); }
+function closeCrashVideo() { document.getElementById('crashModal').classList.remove('show'); document.body.style.overflow=''; const v=document.getElementById('crashVideo'); v.pause(); v.currentTime=0; }
+document.getElementById('crashModal').addEventListener('click', function(e){ if(e.target===this) closeCrashVideo(); });
 
-/* AI RAG VIDEO */
-function openAIVideo() {
-  document.getElementById('aiModal').classList.add('show');
-  document.body.style.overflow = 'hidden';
-  document.getElementById('aiVideo').play();
-}
-function closeAIVideo() {
-  document.getElementById('aiModal').classList.remove('show');
-  document.body.style.overflow = '';
-  const v = document.getElementById('aiVideo');
-  v.pause(); v.currentTime = 0;
-}
-document.getElementById('aiModal').addEventListener('click', function(e) { if (e.target === this) closeAIVideo(); });
+function openAIVideo() { document.getElementById('aiModal').classList.add('show'); document.body.style.overflow='hidden'; document.getElementById('aiVideo').play(); }
+function closeAIVideo() { document.getElementById('aiModal').classList.remove('show'); document.body.style.overflow=''; const v=document.getElementById('aiVideo'); v.pause(); v.currentTime=0; }
+document.getElementById('aiModal').addEventListener('click', function(e){ if(e.target===this) closeAIVideo(); });
 
-/* ECB VIDEO */
 function openECBVideo(filename, title) {
-  const modal = document.getElementById('ecbModal');
-  const video = document.getElementById('ecbVideo');
-  document.getElementById('ecbModalTitle').textContent = title;
-  video.src = './' + filename;
-  modal.classList.add('show');
-  document.body.style.overflow = 'hidden';
-  video.load();
-  video.play().catch(() => {});
+  const modal=document.getElementById('ecbModal'); const video=document.getElementById('ecbVideo');
+  document.getElementById('ecbModalTitle').textContent=title;
+  video.src='./'+filename; modal.classList.add('show'); document.body.style.overflow='hidden';
+  video.load(); video.play().catch(()=>{});
 }
-function closeECBVideo() {
-  document.getElementById('ecbModal').classList.remove('show');
-  document.body.style.overflow = '';
-  const v = document.getElementById('ecbVideo');
-  v.pause(); v.currentTime = 0; v.src = '';
-}
-document.getElementById('ecbModal').addEventListener('click', function(e) { if (e.target === this) closeECBVideo(); });
+function closeECBVideo() { document.getElementById('ecbModal').classList.remove('show'); document.body.style.overflow=''; const v=document.getElementById('ecbVideo'); v.pause(); v.currentTime=0; v.src=''; }
+document.getElementById('ecbModal').addEventListener('click', function(e){ if(e.target===this) closeECBVideo(); });
 
-/* NVH VIDEO */
 function openNVHVideo(filename, title) {
-  const modal = document.getElementById('nvhModal');
-  const video = document.getElementById('nvhVideo');
-  document.getElementById('nvhModalTitle').textContent = title;
-  video.src = './' + filename;
-  modal.classList.add('show');
-  document.body.style.overflow = 'hidden';
-  video.load();
-  video.play().catch(() => {});
+  const modal=document.getElementById('nvhModal'); const video=document.getElementById('nvhVideo');
+  document.getElementById('nvhModalTitle').textContent=title;
+  video.src='./'+filename; modal.classList.add('show'); document.body.style.overflow='hidden';
+  video.load(); video.play().catch(()=>{});
 }
-function closeNVHVideo() {
-  document.getElementById('nvhModal').classList.remove('show');
-  document.body.style.overflow = '';
-  const v = document.getElementById('nvhVideo');
-  v.pause(); v.currentTime = 0; v.src = '';
-}
-document.getElementById('nvhModal').addEventListener('click', function(e) {
-  if (e.target === this) closeNVHVideo();
-});
+function closeNVHVideo() { document.getElementById('nvhModal').classList.remove('show'); document.body.style.overflow=''; const v=document.getElementById('nvhVideo'); v.pause(); v.currentTime=0; v.src=''; }
+document.getElementById('nvhModal').addEventListener('click', function(e){ if(e.target===this) closeNVHVideo(); });
 
-/* NVH LIGHTBOX IMAGES */
+/* NVH IMAGES */
 const nvhImages = [
-  { file: 'Screenshot 2026-05-18 154344.png', label: 'FRF — Frequency Response Function' }
+  { file: 'Screenshot 2026-05-18 154344.png', label: 'FRF - Frequency Response Function' }
 ];
 
-/* NVH MODE GRID BUILD */
+/* NVH MODE GRID */
 const nvhModes = [
-  { num: 1,  label: 'Mode 1',  freq: 'Rigid Body', file: 'NVH_Mode1_Rigid_Body.mp4.mp4' },
-  { num: 2,  label: 'Mode 2',  freq: 'Rigid Body', file: 'NVH_Mode2_Rigid_Body.mp4.mp4' },
-  { num: 3,  label: 'Mode 3',  freq: 'Rigid Body', file: 'NVH_Mode3_Rigid_Body.mp4.mp4' },
-  { num: 4,  label: 'Mode 4',  freq: 'Rigid Body', file: 'NVH_Mode4_Rigid_Body.mp4.mp4' },
-  { num: 5,  label: 'Mode 5',  freq: 'Rigid Body', file: 'NVH_Mode5_Rigid_Body.mp4.mp4' },
-  { num: 6,  label: 'Mode 6',  freq: 'Rigid Body', file: 'NVH_Mode6_Rigid_Body.mp4.mp4' },
-  { num: 7,  label: 'Mode 7',  freq: '12.37 Hz',   file: 'NVH_Mode7_Rigid_Body.mp4.mp4' },
-  { num: 8,  label: 'Mode 8',  freq: 'Structural',  file: 'NVH_Mode8_Rigid_Body.mp4.mp4' },
-  { num: 9,  label: 'Mode 9',  freq: '29.90 Hz',   file: 'NVH_Mode9_Rigid_Body.mp4.mp4' },
-  { num: 10, label: 'Mode 10', freq: 'Structural',  file: 'NVH_Mode10_Rigid_Body.mp4.mp4' },
-  { num: 11, label: 'Mode 11', freq: 'Structural',  file: 'NVH_Mode11_Rigid_Body.mp4.mp4' },
-  { num: 12, label: 'Mode 12', freq: 'Structural',  file: 'NVH_Mode12_Rigid_Body.mp4.mp4' },
+  { num:1,  label:'Mode 1',  freq:'Rigid Body', file:'NVH_Mode1_Rigid_Body.mp4.mp4' },
+  { num:2,  label:'Mode 2',  freq:'Rigid Body', file:'NVH_Mode2_Rigid_Body.mp4.mp4' },
+  { num:3,  label:'Mode 3',  freq:'Rigid Body', file:'NVH_Mode3_Rigid_Body.mp4.mp4' },
+  { num:4,  label:'Mode 4',  freq:'Rigid Body', file:'NVH_Mode4_Rigid_Body.mp4.mp4' },
+  { num:5,  label:'Mode 5',  freq:'Rigid Body', file:'NVH_Mode5_Rigid_Body.mp4.mp4' },
+  { num:6,  label:'Mode 6',  freq:'Rigid Body', file:'NVH_Mode6_Rigid_Body.mp4.mp4' },
+  { num:7,  label:'Mode 7',  freq:'12.37 Hz',   file:'NVH_Mode7_Rigid_Body.mp4.mp4' },
+  { num:8,  label:'Mode 8',  freq:'Structural',  file:'NVH_Mode8_Rigid_Body.mp4.mp4' },
+  { num:9,  label:'Mode 9',  freq:'29.90 Hz',   file:'NVH_Mode9_Rigid_Body.mp4.mp4' },
+  { num:10, label:'Mode 10', freq:'Structural',  file:'NVH_Mode10_Rigid_Body.mp4.mp4' },
+  { num:11, label:'Mode 11', freq:'Structural',  file:'NVH_Mode11_Rigid_Body.mp4.mp4' },
+  { num:12, label:'Mode 12', freq:'Structural',  file:'NVH_Mode12_Rigid_Body.mp4.mp4' },
 ];
 (function buildNVHGrid() {
   const grid = document.getElementById('nvh-mode-grid');
@@ -1555,24 +1597,105 @@ const nvhModes = [
   nvhModes.forEach(function(mode) {
     const thumb = document.createElement('div');
     thumb.className = 'nvh-mode-thumb';
-    thumb.innerHTML =
-      '<div class="nvh-mode-play">&#9654;</div>' +
-      '<div class="nvh-mode-label">' + mode.label + '</div>' +
-      '<div class="nvh-mode-freq">' + mode.freq + '</div>';
-    thumb.addEventListener('click', function(e) {
-      e.stopPropagation();
-      openNVHVideo(mode.file, 'NVH \u2014 ' + mode.label + ' \u00B7 ' + mode.freq);
-    });
+    thumb.innerHTML = '<div class="nvh-mode-play">&#9654;</div><div class="nvh-mode-label">'+mode.label+'</div><div class="nvh-mode-freq">'+mode.freq+'</div>';
+    thumb.addEventListener('click', function(e) { e.stopPropagation(); openNVHVideo(mode.file, 'NVH \u2014 '+mode.label+' \u00B7 '+mode.freq); });
     grid.appendChild(thumb);
   });
 })();
 
-/* ESCAPE KEY */
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    closeRacingVideo(); closeVideo(); closeCrashVideo(); closeECBVideo(); closeAIVideo(); closeNVHVideo(); closeLightbox();
-  }
+/* PHASE 3 IMAGE ARRAY — used by lightbox */
+const phase3Images = [
+  { file: 'phase1_battery_thermal.png',      label: 'Phase 1 - VECTO Drive Cycle' },
+  { file: 'parametric_ambient_study.png',    label: 'Phase 2 - Parametric Ambient Study' },
+  { file: 'Phase3_Dashboard_eActros600.png', label: 'Phase 3 - Engineering Dashboard' },
+  { file: 'Fig1_TempDistribution.png',       label: 'Fig 1 - Temperature Distribution' },
+  { file: 'Fig2_CoolantTemp.png',            label: 'Fig 2 - Coolant & Wall Temperature' },
+  { file: 'Fig3_HTC.png',                    label: 'Fig 3 - HTC Distribution' },
+  { file: 'Fig4_PressureDrop.png',           label: 'Fig 4 - Pressure Drop' },
+  { file: 'Fig5_ThermalResistance.png',      label: 'Fig 5 - Thermal Resistance' },
+  { file: 'Fig6_Seasonal.png',               label: 'Fig 6 - Seasonal Comparison' },
+];
+
+/* CFD GALLERY */
+const ahmedImages = [
+  { file:'1.jpeg',  label:'Mesh Overview' },
+  { file:'2.jpeg',  label:'Surface Refinement' },
+  { file:'3.jpeg',  label:'Pressure Field' },
+  { file:'4.jpeg',  label:'Cp Distribution' },
+  { file:'5.jpeg',  label:'Velocity Contour' },
+  { file:'6.jpeg',  label:'Flow Streamlines' },
+  { file:'7.jpeg',  label:'Wake Structure' },
+  { file:'8.jpeg',  label:'TKE Field' },
+  { file:'9.jpeg',  label:'Rear Separation' },
+  { file:'10.jpeg', label:'Residuals Plot' },
+];
+const gallery = document.getElementById('ahmed-gallery');
+ahmedImages.forEach((img, i) => {
+  const thumb = document.createElement('div');
+  thumb.className = 'cfd-thumb';
+  thumb.innerHTML = '<img src="'+img.file+'" alt="'+img.label+'" loading="lazy"><div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div><div class="cfd-thumb-label">'+img.label+'</div>';
+  thumb.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(i, ahmedImages); });
+  gallery.appendChild(thumb);
 });
+
+/* BICYCLE GALLERY */
+const bikeImages = [
+  { file:'frequency_response.png',           label:'Frequency Response' },
+  { file:'lane_change.png',                  label:'Lane Change' },
+  { file:'lane_change_speed_comparison.png', label:'Speed Comparison' },
+  { file:'sinusoidal_steer.png',             label:'Sinusoidal Steer' },
+  { file:'speed_sweep_analysis.png',         label:'Speed Sweep' },
+  { file:'step_steer_response.png',          label:'Step Steer' },
+  { file:'understeer_oversteer.png',         label:'Understeer / Oversteer' },
+];
+const bikeGallery = document.getElementById('bike-gallery');
+bikeImages.forEach((img, i) => {
+  const thumb = document.createElement('div');
+  thumb.className = 'cfd-thumb';
+  thumb.innerHTML = '<img src="'+img.file+'" alt="'+img.label+'" loading="lazy"><div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div><div class="cfd-thumb-label">'+img.label+'</div>';
+  thumb.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(i, bikeImages); });
+  bikeGallery.appendChild(thumb);
+});
+
+/* LIGHTBOX */
+let lbIndex = 0;
+window._lbImages = ahmedImages;
+
+function openLightbox(index, images) {
+  images = images || ahmedImages;
+  window._lbImages = images;
+  lbIndex = index;
+  document.getElementById('lightbox').classList.add('show');
+  document.body.style.overflow = 'hidden';
+  updateLightbox();
+  buildDots();
+}
+function updateLightbox() {
+  const images = window._lbImages || ahmedImages;
+  const img = document.getElementById('lightbox-img');
+  img.style.opacity = '0';
+  setTimeout(() => { img.src = images[lbIndex].file; img.alt = images[lbIndex].label; img.style.opacity = '1'; }, 150);
+  document.getElementById('lightbox-counter').textContent = (lbIndex + 1) + ' / ' + images.length;
+  buildDots();
+}
+function buildDots() {
+  const images = window._lbImages || ahmedImages;
+  const dotsEl = document.getElementById('lightbox-dots');
+  dotsEl.innerHTML = '';
+  images.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'lightbox-dot' + (i === lbIndex ? ' active' : '');
+    d.addEventListener('click', () => { lbIndex = i; updateLightbox(); });
+    dotsEl.appendChild(d);
+  });
+}
+function lightboxStep(dir) {
+  const images = window._lbImages || ahmedImages;
+  lbIndex = (lbIndex + dir + images.length) % images.length;
+  updateLightbox();
+}
+function closeLightbox() { document.getElementById('lightbox').classList.remove('show'); document.body.style.overflow = ''; }
+document.getElementById('lightbox').addEventListener('click', function(e){ if(e.target===this) closeLightbox(); });
 
 /* PERSONAL PROJECTS */
 let activeCategoryPanel = null;
@@ -1598,115 +1721,14 @@ function closeCategoryPanel() {
 function toggleProjectCard(el) {
   const currentGrid = el.closest('.pp-project-grid');
   const isOpen = el.classList.contains('open');
-  currentGrid.querySelectorAll('.pp-project-card').forEach(card => {
-    card.classList.remove('open');
-  });
-  if (!isOpen) {
-    el.classList.add('open');
-  }
+  currentGrid.querySelectorAll('.pp-project-card').forEach(card => { card.classList.remove('open'); });
+  if (!isOpen) el.classList.add('open');
 }
 
-/* CFD GALLERY */
-const ahmedImages = [
-  { file: '1.jpeg',  label: 'Mesh Overview' },
-  { file: '2.jpeg',  label: 'Surface Refinement' },
-  { file: '3.jpeg',  label: 'Pressure Field' },
-  { file: '4.jpeg',  label: 'Cp Distribution' },
-  { file: '5.jpeg',  label: 'Velocity Contour' },
-  { file: '6.jpeg',  label: 'Flow Streamlines' },
-  { file: '7.jpeg',  label: 'Wake Structure' },
-  { file: '8.jpeg',  label: 'TKE Field' },
-  { file: '9.jpeg',  label: 'Rear Separation' },
-  { file: '10.jpeg', label: 'Residuals Plot' },
-];
-const gallery = document.getElementById('ahmed-gallery');
-ahmedImages.forEach((img, i) => {
-  const thumb = document.createElement('div');
-  thumb.className = 'cfd-thumb';
-  thumb.innerHTML = `
-    <img src="${img.file}" alt="${img.label}" loading="lazy">
-    <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
-    <div class="cfd-thumb-label">${img.label}</div>`;
-  thumb.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(i); });
-  gallery.appendChild(thumb);
-});
-
-/* BICYCLE MODEL GALLERY */
-const bikeImages = [
-  { file: 'frequency_response.png',           label: 'Frequency Response' },
-  { file: 'lane_change.png',                  label: 'Lane Change' },
-  { file: 'lane_change_speed_comparison.png', label: 'Speed Comparison' },
-  { file: 'sinusoidal_steer.png',             label: 'Sinusoidal Steer' },
-  { file: 'speed_sweep_analysis.png',         label: 'Speed Sweep' },
-  { file: 'step_steer_response.png',          label: 'Step Steer' },
-  { file: 'understeer_oversteer.png',         label: 'Understeer / Oversteer' },
-];
-const bikeGallery = document.getElementById('bike-gallery');
-bikeImages.forEach((img, i) => {
-  const thumb = document.createElement('div');
-  thumb.className = 'cfd-thumb';
-  thumb.innerHTML = `
-    <img src="${img.file}" alt="${img.label}" loading="lazy">
-    <div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div>
-    <div class="cfd-thumb-label">${img.label}</div>`;
-  thumb.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(i, bikeImages); });
-  bikeGallery.appendChild(thumb);
-});
-
-/* LIGHTBOX */
-let lbIndex = 0;
-window._lbImages = ahmedImages;
-
-function openLightbox(index, images) {
-  images = images || ahmedImages;
-  window._lbImages = images;
-  lbIndex = index;
-  document.getElementById('lightbox').classList.add('show');
-  document.body.style.overflow = 'hidden';
-  updateLightbox();
-  buildDots();
-}
-
-function updateLightbox() {
-  const images = window._lbImages || ahmedImages;
-  const img = document.getElementById('lightbox-img');
-  img.style.opacity = '0';
-  setTimeout(() => {
-    img.src = images[lbIndex].file;
-    img.alt = images[lbIndex].label;
-    img.style.opacity = '1';
-  }, 150);
-  document.getElementById('lightbox-counter').textContent = (lbIndex + 1) + ' / ' + images.length;
-  buildDots();
-}
-
-function buildDots() {
-  const images = window._lbImages || ahmedImages;
-  const dotsEl = document.getElementById('lightbox-dots');
-  dotsEl.innerHTML = '';
-  images.forEach((_, i) => {
-    const d = document.createElement('div');
-    d.className = 'lightbox-dot' + (i === lbIndex ? ' active' : '');
-    d.addEventListener('click', () => { lbIndex = i; updateLightbox(); });
-    dotsEl.appendChild(d);
-  });
-}
-
-function lightboxStep(dir) {
-  const images = window._lbImages || ahmedImages;
-  lbIndex = (lbIndex + dir + images.length) % images.length;
-  updateLightbox();
-}
-
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('show');
-  document.body.style.overflow = '';
-}
-
-document.getElementById('lightbox').addEventListener('click', function(e) {
-  if (e.target === this) closeLightbox();
+/* ESCAPE */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeRacingVideo(); closeVideo(); closeCrashVideo(); closeECBVideo(); closeAIVideo(); closeNVHVideo(); closeLightbox(); }
 });
 </script>
-
 </body>
 </html>
