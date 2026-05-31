@@ -988,56 +988,83 @@ footer a { color: var(--accent); text-decoration: none; }
           </div>
         </div>
 
-        <!-- ✅ PRM PATH PLANNING — FIXED CARD -->
-        <div class="pp-project-card" onclick="toggleProjectCard(this)">
-          <div class="pp-project-card-head">
-            <div>
-              <h4>PRM Path Planning &amp; Autonomous Vehicle Tracking</h4>
-              <p>End-to-end motion planning and car control pipeline designed from scratch in Python. The PRM algorithm creates a safe path based on the creation of a KD-Tree graph and a Dijkstra search. The path is then followed by a kinematic bicycle with a Pure Pursuit controller.</p>
-            </div>
-            <div class="pp-project-toggle">+</div>
+        <!-- ✅ PRM PATH PLANNING — MODAL POPUP -->
+<div class="pp-project-card" onclick="toggleProjectCard(this)">
+  <div class="pp-project-card-head">
+    <div>
+      <h4>PRM Path Planning &amp; Autonomous Vehicle Tracking</h4>
+      <p>End-to-end motion planning and car control pipeline designed from scratch in Python. The PRM algorithm creates a safe path based on the creation of a KD-Tree graph and a Dijkstra search. The path is then followed by a kinematic bicycle with a Pure Pursuit controller.</p>
+    </div>
+    <div class="pp-project-toggle">+</div>
+  </div>
+  <div class="pp-project-detail">
+    <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+      <div class="pp-detail-section">
+        <h5>Key Points</h5>
+        <ul>
+          <li>800 collision-free nodes · ~5900 roadmap edges · Dijkstra shortest path query</li>
+          <li>Kinematic bicycle model — x, y, yaw state propagation at each timestep</li>
+          <li>Index-based Pure Pursuit lateral controller with adaptive cornering speed</li>
+          <li>Animated GIF outputs — planning pipeline + vehicle tracking</li>
+        </ul>
+      </div>
+      <div class="pp-detail-section">
+        <h5>Results</h5>
+        <div class="prm-gif-grid">
+          <div class="prm-gif-item" style="cursor:pointer;" onclick="event.stopPropagation(); openPRMGif('prm_animation.gif', 'PRM Planning — Sampling · Roadmap · Path Discovery')">
+            <img src="prm_animation.gif" alt="PRM Planning" style="pointer-events:none;">
+            <div class="prm-gif-label">▶ PRM Planning</div>
           </div>
-          <div class="pp-project-detail">
-            <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
-              <div class="pp-detail-section">
-                <h5>Key Points</h5>
-                <ul>
-                  <li>800 collision-free nodes · ~5900 roadmap edges · Dijkstra shortest path query</li>
-                  <li>Kinematic bicycle model — x, y, yaw state propagation at each timestep</li>
-                  <li>Index-based Pure Pursuit lateral controller with adaptive cornering speed</li>
-                  <li>Animated GIF outputs — planning pipeline + vehicle tracking</li>
-                </ul>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Results</h5>
-                <div class="prm-gif-grid">
-                  <div class="prm-gif-item">
-                    <img src="prm_animation.gif" alt="PRM Path Planning Animation">
-                    <div class="prm-gif-label">PRM Planning</div>
-                  </div>
-                  <div class="prm-gif-item">
-                    <img src="prm_tracking.gif" alt="PRM Vehicle Tracking Animation">
-                    <div class="prm-gif-label">Vehicle Tracking</div>
-                  </div>
-                </div>
-              </div>
-              <div class="pp-detail-section">
-                <h5>Tools Used</h5>
-                <div class="pp-detail-tools">
-                  <span class="pp-tool-tag">Python 3.11</span>
-                  <span class="pp-tool-tag">NumPy</span>
-                  <span class="pp-tool-tag">SciPy (KDTree)</span>
-                  <span class="pp-tool-tag">NetworkX</span>
-                  <span class="pp-tool-tag">Matplotlib</span>
-                  <span class="pp-tool-tag">Pillow</span>
-                  <span class="pp-tool-tag">Spyder</span>
-                  <span class="pp-tool-tag">Anaconda</span>
-                </div>
-              </div>
-            </div>
+          <div class="prm-gif-item" style="cursor:pointer;" onclick="event.stopPropagation(); openPRMGif('prm_tracking.gif', 'Vehicle Tracking — Bicycle Model · Pure Pursuit Controller')">
+            <img src="prm_tracking.gif" alt="Vehicle Tracking" style="pointer-events:none;">
+            <div class="prm-gif-label">▶ Vehicle Tracking</div>
           </div>
         </div>
+      </div>
+      <div class="pp-detail-section">
+        <h5>Tools Used</h5>
+        <div class="pp-detail-tools">
+          <span class="pp-tool-tag">Python 3.11</span>
+          <span class="pp-tool-tag">NumPy</span>
+          <span class="pp-tool-tag">SciPy (KDTree)</span>
+          <span class="pp-tool-tag">NetworkX</span>
+          <span class="pp-tool-tag">Matplotlib</span>
+          <span class="pp-tool-tag">Pillow</span>
+          <span class="pp-tool-tag">Spyder</span>
+          <span class="pp-tool-tag">Anaconda</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- PRM GIF MODAL -->
+<div id="prmModal" class="modal">
+  <div class="modal-inner" style="max-width:min(92vw,900px); background:#000;">
+    <div class="modal-close" onclick="closePRMGif()">✕</div>
+    <div class="ecb-modal-title" id="prmModalTitle"></div>
+    <img id="prmModalImg" src="" alt=""
+         style="width:100%; max-height:78vh; border-radius:8px;
+                object-fit:contain; display:block; background:#000;">
+  </div>
+</div>
 
+<script>
+function openPRMGif(filename, title) {
+  document.getElementById('prmModalTitle').textContent = title;
+  document.getElementById('prmModalImg').src = filename;
+  document.getElementById('prmModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closePRMGif() {
+  document.getElementById('prmModal').classList.remove('show');
+  document.getElementById('prmModalImg').src = '';
+  document.body.style.overflow = '';
+}
+document.getElementById('prmModal').addEventListener('click', function(e) {
+  if (e.target === this) closePRMGif();
+});
+</script>
+        
       </div>
     </div>
   </div>
@@ -1787,7 +1814,7 @@ function toggleProjectCard(el) {
 
 /* ESCAPE */
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') { closeRacingVideo(); closeVideo(); closeCrashVideo(); closeECBVideo(); closeAIVideo(); closeNVHVideo(); closeLightbox(); }
+ if (e.key === 'Escape') { closeRacingVideo(); closeVideo(); closeCrashVideo(); closeECBVideo(); closeAIVideo(); closeNVHVideo(); closeLightbox(); closePRMGif(); }
 });
 </script>
 </body>
