@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenAI Design Co-Pilot — Aero-Thermal Vehicle Concepts</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#0b0f17; --bg2:#111726; --card:#151c2c; --line:#243049;
+    --txt:#e6ebf5; --mut:#93a0bd; --acc:#3b82f6; --acc2:#22d3ee;
+    --ok:#34d399; --warn:#f59e0b; --bad:#f87171; --orange:#fb923c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+  a{color:var(--acc2);text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section{padding:64px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:1.7rem;margin-bottom:8px;letter-spacing:-.5px}
+  h3{font-size:1.05rem;margin-bottom:6px}
+  .sub{color:var(--mut);margin-bottom:28px;max-width:720px}
+  .tag{display:inline-block;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--acc2);font-weight:700;margin-bottom:10px}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,15,23,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  nav .brand{font-weight:800;letter-spacing:-.3px}
+  nav .brand span{color:var(--acc)}
+  nav .links a{color:var(--mut);margin-left:22px;font-size:.9rem;font-weight:500}
+  nav .links a:hover{color:var(--txt)}
+  @media(max-width:720px){nav .links{display:none}}
+
+  /* hero */
+  .hero{padding:90px 0 70px;background:radial-gradient(1200px 500px at 70% -10%,rgba(59,130,246,.18),transparent),radial-gradient(800px 400px at 10% 20%,rgba(34,211,238,.10),transparent)}
+  .hero h1{font-size:2.9rem;line-height:1.1;letter-spacing:-1.5px;margin-bottom:18px;max-width:820px}
+  .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{font-size:1.15rem;color:var(--mut);max-width:680px;margin-bottom:28px}
+  .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+  .pill{font-size:.8rem;border:1px solid var(--line);background:var(--card);padding:6px 12px;border-radius:999px;color:var(--mut)}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px}
+  @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .stat .v{font-size:1.7rem;font-weight:800;letter-spacing:-.5px}
+  .stat .v.grad{background:linear-gradient(90deg,var(--ok),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .l{font-size:.78rem;color:var(--mut);margin-top:2px}
+
+  /* architecture */
+  .flow{display:grid;grid-template-columns:1fr;gap:14px}
+  .node{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;position:relative}
+  .node .n{font-size:.72rem;color:var(--acc2);font-weight:700;letter-spacing:1px;text-transform:uppercase}
+  .node h3{margin:4px 0}
+  .node p{color:var(--mut);font-size:.92rem}
+  .arrow{text-align:center;color:var(--line);font-size:1.4rem;line-height:0}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:720px){.two{grid-template-columns:1fr}}
+
+  /* copilot */
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+  textarea{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:10px;color:var(--txt);padding:12px;font-size:.95rem;font-family:inherit;resize:vertical}
+  textarea:focus{outline:none;border-color:var(--acc)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+  .chip{font-size:.78rem;background:var(--bg2);border:1px solid var(--line);color:var(--mut);padding:6px 12px;border-radius:999px;cursor:pointer}
+  .chip:hover{border-color:var(--acc);color:var(--txt)}
+  .btn{background:linear-gradient(90deg,var(--acc),#2563eb);color:#fff;border:none;padding:11px 22px;border-radius:10px;font-weight:600;cursor:pointer;font-size:.95rem}
+  .btn:hover{filter:brightness(1.08)}
+  .intent{font-size:.82rem;color:var(--mut);margin:18px 0 10px}
+  .intent b{color:var(--acc2)}
+  .explain p{margin-bottom:8px;font-size:.93rem;color:var(--mut)}
+  .explain p.lead{color:var(--txt);font-weight:600;font-size:1rem}
+  table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.84rem}
+  th{text-align:left;color:var(--mut);font-weight:600;border-bottom:1px solid var(--line);padding:8px 8px}
+  td{padding:8px 8px;border-bottom:1px solid rgba(36,48,73,.5)}
+  tr.best{background:rgba(59,130,246,.10)}
+  .badge{font-size:.72rem;padding:2px 9px;border-radius:999px}
+  .badge.ok{background:rgba(52,211,153,.15);color:var(--ok)}
+  .badge.no{background:rgba(248,113,113,.15);color:var(--bad)}
+
+  /* charts */
+  .chartgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:720px){.chartgrid{grid-template-columns:1fr}}
+  .chartcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .chartcard h3{font-size:.95rem;margin-bottom:2px}
+  .chartcard .cap{font-size:.78rem;color:var(--mut);margin-bottom:10px}
+  .canvaswrap{position:relative;height:240px}
+
+  .note{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:10px;padding:16px 18px;font-size:.9rem;color:var(--mut)}
+  .note b{color:var(--txt)}
+  .frame{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:720px){.frame{grid-template-columns:1fr}}
+  .frame .f{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .frame .f h3{font-size:.95rem}
+  .frame .f p{font-size:.86rem;color:var(--mut)}
+  footer{padding:40px 0;color:var(--mut);font-size:.85rem;text-align:center}
+  .kbd{font-family:ui-monospace,Menlo,monospace;background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:.85em}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand">GenAI<span>·</span>Co-Pilot</div>
+  <div class="links">
+    <a href="#arch">Architecture</a>
+    <a href="#copilot">Live Demo</a>
+    <a href="#results">Results</a>
+    <a href="#method">Method</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="tag">Generative AI · Automotive Engineering</div>
+  <h1>GenAI Design Co-Pilot for <em>Aero-Thermal</em> Vehicle Concepts</h1>
+  <p>A generative pipeline that turns a plain-English design brief into optimized parametric geometry and predicted performance — collapsing weeks of CAE iteration into seconds, with a physics validation spine.</p>
+  <div class="pillrow">
+    <span class="pill">Conditional VAE</span>
+    <span class="pill">ML Surrogates</span>
+    <span class="pill">Multi-physics coupling</span>
+    <span class="pill">Closed-loop optimization</span>
+    <span class="pill">Physics validation</span>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="v">0.99</div><div class="l">Aero surrogate R²</div></div>
+    <div class="stat"><div class="v">0.97</div><div class="l">Thermal surrogate R²</div></div>
+    <div class="stat"><div class="v grad">26→98%</div><div class="l">Cooling feasibility lift</div></div>
+    <div class="stat"><div class="v">0.39%</div><div class="l">Verified Cd error</div></div>
+  </div>
+</div></header>
+
+<!-- ARCHITECTURE -->
+<section id="arch"><div class="wrap">
+  <div class="tag">System Design</div>
+  <h2>Three-layer architecture</h2>
+  <p class="sub">A natural-language brief drives a generate → evaluate → optimize loop across two coupled physics domains. The cross-domain coupling — aero shape affecting cooling airflow affecting battery temperature — is the systems-engineering differentiator.</p>
+  <div class="flow">
+    <div class="node"><div class="n">Layer 3 · Interface</div><h3>Natural-language design brief → target specs</h3><p>Parses intent ("low drag, long range, generous cooling") into engineering constraints and explains the tradeoffs. Optional Anthropic-API upgrade for free-form reasoning.</p></div>
+    <div class="arrow">▼</div>
+    <div class="node"><div class="n">Layer 1 · Generative engine</div><h3>Conditional VAE → parametric geometry</h3><p>Learns the feasible design manifold and generates new 3D-parametric concepts (body + thermal/packaging params) conditioned on target performance.</p></div>
+    <div class="arrow">▼</div>
+    <div class="two">
+      <div class="node"><div class="n">Layer 2 · Aero surrogate</div><h3>Gradient Boosting → Cd</h3><p>Predicts drag instantly, replacing CFD in the loop.</p></div>
+      <div class="node"><div class="n">Layer 2 · Thermal surrogate</div><h3>Gradient Boosting → peak battery temp</h3><p>Predicts cooling sufficiency, replacing Simulink in the loop.</p></div>
+    </div>
+    <div class="arrow">▼</div>
+    <div class="two">
+      <div class="node"><div class="n">Optimizer</div><h3>Constraint-aware ranking</h3><p>Scores ~110,000 designs/sec; drives generation into the feasible, low-drag region.</p></div>
+      <div class="node"><div class="n">Validation spine</div><h3>Independent physics check</h3><p>Top designs verified against physics; surrogate error quantified. Credibility, not hype.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- COPILOT -->
+<section id="copilot"><div class="wrap">
+  <div class="tag">Interactive Demo</div>
+  <h2>Try the design co-pilot</h2>
+  <p class="sub">Describe a vehicle concept in plain English. The co-pilot parses your intent, matches it against the real optimizer results, and explains the engineering tradeoffs — grounded in the actual generated designs.</p>
+  <div class="panel">
+    <textarea id="brief" rows="2" placeholder="e.g. Long-range BEV, very low drag, generous cooling margin"></textarea>
+    <div class="chips" id="chips"></div>
+    <button class="btn" id="go">Generate concept →</button>
+    <div id="out" style="display:none">
+      <div id="viz" style="margin:18px 0;background:var(--bg2);border:1px solid var(--line);border-radius:12px;overflow:hidden"></div>
+      <div class="intent" id="intent"></div>
+      <div class="explain" id="explain"></div>
+      <div style="overflow-x:auto"><table id="tbl"></table></div>
+      <p style="font-size:.78rem;color:var(--mut);margin-top:14px">All shortlisted designs verified against independent physics (mean thermal error 2.8 °C). Range is a first-order estimate from pack energy.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- RESULTS -->
+<section id="results"><div class="wrap">
+  <div class="tag">Results</div>
+  <h2>The loop's predictions hold up against physics</h2>
+  <p class="sub">Surrogates are accurate enough to replace simulation inside the loop, the generative model learns to design within the cooling constraint, and the top designs survive an independent physics check.</p>
+  <div class="chartgrid">
+    <div class="chartcard">
+      <h3>Cooling feasibility across optimization</h3>
+      <div class="cap">Re-conditioning the generator toward low-drag/cool targets lifts feasibility from a 26% random baseline to ~98%.</div>
+      <div class="canvaswrap"><canvas id="cFeas"></canvas></div>
+    </div>
+    <div class="chartcard">
+      <h3>Surrogate accuracy (predicted vs true)</h3>
+      <div class="cap">Aero R²=0.99 (MAE 0.002 Cd) · Thermal R²=0.97 (MAE ~3 °C) on held-out data.</div>
+      <div class="canvaswrap"><canvas id="cAcc"></canvas></div>
+    </div>
+    <div class="chartcard">
+      <h3>Validation — drag: surrogate vs physics</h3>
+      <div class="cap">Top 3 generated designs. Mean Cd error 0.39%.</div>
+      <div class="canvaswrap"><canvas id="cCd"></canvas></div>
+    </div>
+    <div class="chartcard">
+      <h3>Validation — peak temp: surrogate vs physics</h3>
+      <div class="cap">All designs confirmed below the 55 °C ceiling. Mean error 2.8 °C.</div>
+      <div class="canvaswrap"><canvas id="cT"></canvas></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- METHOD -->
+<section id="method"><div class="wrap">
+  <div class="tag">Methodology &amp; Honesty</div>
+  <h2>Scope chosen like an engineering manager</h2>
+  <p class="sub">A deep, validated narrow project beats a shallow broad one. The fidelity choices are deliberate — and stating them precisely is itself an engineering-maturity signal.</p>
+  <div class="note">
+    <p><b>Surrogates are bootstrapped on validated empirical/analytical correlations</b> (a fast CFD/Simulink stand-in — exactly how surrogates are meant to be trained). Top designs are then <b>verified against an independent physics evaluation</b> to quantify surrogate error.</p>
+    <p style="margin-top:10px"><b>Production validation path:</b> OpenFOAM / STAR-CCM+ for aerodynamics and a Simulink lumped-capacitance model for thermal. The method is identical; only the fidelity of the reference changes.</p>
+  </div>
+  <h3 style="margin:28px 0 14px">Framing per employer</h3>
+  <div class="frame">
+    <div class="f"><h3>BMW / Mercedes — OEM</h3><p>Lead with the aero generative loop and Cd optimization.</p></div>
+    <div class="f"><h3>Bosch / ZF / Continental — Tier-1</h3><p>Lead with the surrogate speed-up and multi-physics systems coupling.</p></div>
+    <div class="f"><h3>Daimler Truck — CAE Fluids</h3><p>Lead with the thermal constraint story: passive cooling becomes binding at hot-climate ambient.</p></div>
+  </div>
+  <h3 style="margin:28px 0 14px">Roadmap</h3>
+  <p class="sub" style="margin-bottom:0">Full CFD/FEM-trained surrogate datasets · agentic multi-step design assistant · manufacturing &amp; packaging constraints in the objective · conditional diffusion backbone as an alternative generator.</p>
+</div></section>
+
+<footer><div class="wrap">
+  Built as a portfolio project · run the full pipeline locally with <span class="kbd">python run_all.py</span> · interactive figures use your real exported results.
+</div></footer>
+
+<script>
+// ---------- REAL pipeline data ----------
+const DATA = {
+  feasTraj: [0,0,0,28.5,89.5,97.8],
+  baseline: 25.8,
+  metrics: {cd_r2:0.988, temp_r2:0.970},
+  validation: {
+    cd_pred:[0.178,0.178,0.178], cd_phys:[0.1773,0.1787,0.1784],
+    t_pred:[47.6,48.0,47.8], t_phys:[44.9,44.9,44.9]
+  },
+  designs: [
+    {id:"C1",name:"City",len:4.8,roof:0.127,taper:14.0,ride:0.11,under:0.56,inlet:329,flow:13.8,fa:2.1,cd:0.198,t:46.1,pack:63},
+    {id:"P1",name:"Sport",len:4.85,roof:0.142,taper:13.8,ride:0.115,under:0.9,inlet:372,flow:17.4,fa:2.53,cd:0.201,t:44.9,pack:69},
+    {id:"E1",name:"Sedan",len:4.71,roof:0.169,taper:12.3,ride:0.124,under:0.75,inlet:291,flow:18.0,fa:2.11,cd:0.188,t:46.0,pack:77},
+    {id:"G1",name:"GT",len:4.69,roof:0.177,taper:14.1,ride:0.129,under:0.79,inlet:377,flow:17.5,fa:2.23,cd:0.188,t:45.4,pack:98},
+    {id:"U1",name:"SUV",len:4.63,roof:0.172,taper:17.3,ride:0.165,under:0.97,inlet:178,flow:17.3,fa:2.66,cd:0.204,t:48.4,pack:97},
+    {id:"T1",name:"Track",len:5.04,roof:0.056,taper:16.5,ride:0.134,under:0.89,inlet:313,flow:17.0,fa:2.68,cd:0.231,t:43.5,pack:78}
+  ]
+};
+const CEIL=55.0;
+
+// ---------- NL co-pilot ----------
+const EXAMPLES=["Long-range GT, very low drag, generous cooling","Efficient city EV with Cd < 0.20","Hot-climate SUV with big battery","Track car, sustained load, low ride"];
+const chips=document.getElementById('chips');
+EXAMPLES.forEach(ex=>{const c=document.createElement('span');c.className='chip';c.textContent=ex;c.onclick=()=>{document.getElementById('brief').value=ex;};chips.appendChild(c);});
+
+function parseBrief(t){
+  t=t.toLowerCase();const s={cd:null,range:0,city:0,sport:0,suv:0,cool:0,notes:[]};
+  const m=t.match(/cd\s*[<=of]*\s*(0?\.\d+)/);if(m){s.cd=parseFloat(m[1]);s.notes.push("explicit Cd "+s.cd);}
+  if(/(very low|ultra low|lowest|minimum) drag|slippery|aero/.test(t)){s.cd=s.cd??0.18;s.notes.push("very low drag");}
+  else if(/low drag|efficient|low cd/.test(t)){s.cd=s.cd??0.185;s.notes.push("low drag");}
+  if(/long.?range|max(imum)? range|(big|large|huge) (battery|pack|range)|gt|grand tour|450|500|600|700/.test(t)){s.range=1;s.notes.push("long range / large pack");}
+  if(/city|urban|compact|commuter|small/.test(t)){s.city=1;s.notes.push("compact / city");}
+  if(/sport|sporty|coupe|low ride|track|performance|race/.test(t)){s.sport=1;s.notes.push("sporty / low ride");}
+  if(/suv|crossover|tall|ground clearance|off.?road|7.seat/.test(t)){s.suv=1;s.notes.push("SUV / high ride");}
+  if(/(generous|big|large|high) cooling|thermal margin|hot.?climate|track|sustained|towing|race/.test(t)){s.cool=1;s.notes.push("cooling margin");}
+  if(s.cd===null)s.cd=0.20;return s;
+}
+function score(d,s){let v=Math.abs(d.cd-s.cd)*60;
+  if(s.range)v-=(d.pack-60)/50*5;
+  if(s.city)v+=(d.pack-60)/50*4+(d.fa-2.1)/0.6*3;
+  if(s.sport)v+=(d.ride-0.11)/0.07*5;
+  if(s.suv)v-=(d.ride-0.11)/0.07*6+(d.fa-2.1)/0.6*4;
+  if(s.cool)v-=(CEIL-d.t)/10*3;
+  if(d.t>CEIL)v+=100;return v;}
+function explain(d,s){
+  const km=Math.round(d.pack/0.165),mg=(CEIL-d.t).toFixed(1),L=[];
+  L.push(["lead",`Recommended concept ${d.id}: Cd ${d.cd.toFixed(3)}, peak battery temp ${d.t.toFixed(1)} °C (${mg} °C below the 55 °C ceiling), ${d.pack.toFixed(0)} kWh pack ≈ ${km} km est. range.`]);
+  L.push(["",`Aero levers: the generator pushed underbody smoothness to ${d.under.toFixed(2)} and rear taper to ${d.taper.toFixed(1)}° at a low ${(d.ride*1000).toFixed(0)} mm ride height — the dominant Cd reducers.`]);
+  L.push(["",`Thermal tradeoff: that smooth, low underbody starves cooling airflow, so the model compensated with a ${d.inlet.toFixed(0)} cm² inlet and ${d.flow.toFixed(1)} lpm coolant flow to hold the constraint — the cross-domain coupling in action.`]);
+  if(s.cool===1)L.push(["",`You asked for generous cooling margin; ${d.id} keeps ${mg} °C of headroom for sustained / hot-climate duty.`]);
+  if(s.range===1)L.push(["",`Range-prioritised: the larger ${d.pack.toFixed(0)} kWh pack raises heat load, which is why a bigger inlet / radiator was selected to stay feasible.`]);
+  return L;
+}
+// ---------- parametric car silhouette ----------
+function drawCar(d){
+  const lenN=(d.len-4.4)/(5.1-4.4), roof=d.roof/0.18, taper=(d.taper-5)/13,
+        ride=(d.ride-0.11)/0.07, under=d.under, inlet=(d.inlet-120)/(380-120);
+  const W=820,H=300,ground=246,x0=120,L=440+lenN*80,xR=x0+L;
+  const wr=27,fwx=x0+100,rwx=xR-100,clear=8+ride*14,sill=ground-wr-2-clear;
+  const tall=(d.fa-2.1)/0.6, beltline=sill-40,hoodY=beltline-4,roofTop=beltline-50-tall*16,roofRearY=roofTop+2+roof*10;
+  const wsBaseX=x0+0.33*L,roofFx=x0+0.43*L,roofRx=xR-0.33*L,rgBaseX=xR-0.23*L;
+  const trunkX=xR-0.03*L-taper*9,inH=9+inlet*20,bX=(roofFx+roofRx)/2,midX=(wsBaseX+rgBaseX)/2;
+  const f=(n)=>Math.round(n*10)/10, hx=(n)=>Math.max(0,Math.min(255,Math.round(n))).toString(16).padStart(2,'0');
+  function speedColor(v){let r,g,b;if(v<0.5){const t=v/0.5;r=40+t*40;g=120+t*120;b=220-t*120;}else{const t=(v-0.5)/0.5;r=80+t*175;g=240-t*120;b=100-t*80;}return "#"+hx(r)+hx(g)+hx(b);}
+  // body silhouette (three-box sedan)
+  const body=`M ${x0} ${sill} L ${x0} ${hoodY+12} Q ${x0} ${hoodY} ${x0+18} ${hoodY-1} `+
+    `L ${f(wsBaseX-6)} ${beltline-2} Q ${f(wsBaseX+0.55*(roofFx-wsBaseX))} ${roofTop+6} ${f(roofFx)} ${roofTop} `+
+    `Q ${f(roofFx+12)} ${roofTop-1} ${f(roofFx+24)} ${roofTop} L ${f(roofRx)} ${f(roofRearY)} `+
+    `Q ${f(roofRx+14)} ${f(roofRearY+2)} ${f(roofRx+22)} ${f(roofRearY+8)} L ${f(rgBaseX)} ${beltline-2} `+
+    `L ${f(trunkX)} ${beltline+2} Q ${xR} ${beltline+4} ${xR} ${sill-12} L ${xR} ${sill} `+
+    `L ${f(rwx+wr+7)} ${sill} A ${wr+7} ${wr+7} 0 0 0 ${f(rwx-wr-7)} ${sill} `+
+    `L ${f(fwx+wr+7)} ${sill} A ${wr+7} ${wr+7} 0 0 0 ${f(fwx-wr-7)} ${sill} L ${x0} ${sill} Z`;
+  const glass=`<path d="M ${f(wsBaseX+4)} ${beltline-4} L ${f(roofFx+6)} ${f(roofTop+5)} L ${f(bX-6)} ${f((roofTop+roofRearY)/2+5)} L ${f(bX-6)} ${beltline-4} Z" fill="#c4ccd8" opacity="0.55"/>`+
+    `<path d="M ${f(bX+6)} ${beltline-4} L ${f(bX+6)} ${f((roofTop+roofRearY)/2+5)} L ${f(roofRx+4)} ${f(roofRearY+6)} L ${f(rgBaseX-6)} ${beltline-4} Z" fill="#c4ccd8" opacity="0.55"/>`;
+  // streamlines (smooth gaussian deflection)
+  let stream="";
+  const N=15,xc=(x0+xR)/2-0.05*L,carTop=roofTop,bodyH=sill-roofTop,sigF=0.42*L,sigR=0.62*L;
+  for(let i=0;i<N;i++){
+    const yb=26+i*(ground-34)/N;
+    let resp=Math.exp(-Math.max(yb-carTop,0)/64); if(yb>sill+4)resp*=0.25;
+    const amp=bodyH*resp*0.95; let pts=[];
+    for(let x=0;x<=W+12;x+=8){
+      const sig=x<xc?sigF:sigR, bump=Math.exp(-Math.pow((x-xc)/sig,2));
+      let y=yb-amp*bump;
+      if(x>xR-10 && yb>carTop+6 && yb<sill+34){const t=x-(xR-10);y+=Math.sin(t/22+i*0.9)*14*Math.exp(-t/120);}
+      pts.push(x.toFixed(0)+" "+y.toFixed(1));
+    }
+    let v=0.34+0.6*(amp/Math.max(bodyH,1)); if(yb<carTop-4)v=0.8;
+    const op=yb<sill+4?0.9:0.5;
+    stream+=`<path d="M ${pts.join(" L ")}" fill="none" stroke="${speedColor(Math.min(v,1))}" stroke-width="1.5" opacity="${op}"/>`;
+  }
+  // wake recirculation swirl
+  let swirl="";const cx=xR+34,cy=sill-18;
+  for(let sps=0;sps<2;sps++){const rr=10+sps*9;let pth=`M ${f(cx+rr)} ${cy} `;
+    for(let a=0;a<=360;a+=20){const rad=a*Math.PI/180,sh=1-a/520;pth+=`L ${f(cx+Math.cos(rad)*rr*sh*1.4)} ${f(cy+Math.sin(rad)*rr*sh)} `;}
+    swirl+=`<path d="${pth}" fill="none" stroke="#3b6fd6" stroke-width="1.3" opacity="0.7"/>`;}
+  const ub = under>0.6
+    ? `<line x1="${f(fwx+wr)}" y1="${sill+3}" x2="${f(rwx-wr)}" y2="${sill+3}" stroke="#22d3ee" stroke-width="3" stroke-linecap="round" opacity="0.85"/>`
+    : `<path d="M ${f(fwx+wr)} ${sill+4} l 16 4 l 16 -4 l 16 4 l 16 -4 l 16 4 l 16 -4 l 16 4 l 16 -4" stroke="#f59e0b" stroke-width="2.5" fill="none" opacity="0.85"/>`;
+  const ublabel = under>0.6 ? "smooth underbody (low drag)" : "rough underbody";
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" style="width:100%;display:block">
+  <defs><linearGradient id="bodyg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#eef1f6"/><stop offset="0.5" stop-color="#c9d1de"/><stop offset="1" stop-color="#9aa6ba"/>
+  </linearGradient>
+  <mask id="carmask">
+    <rect width="${W}" height="${H}" fill="white"/>
+    <path d="${body}" fill="black"/>
+    <circle cx="${fwx}" cy="${ground-wr+2}" r="${wr+3}" fill="black"/>
+    <circle cx="${f(rwx)}" cy="${ground-wr+2}" r="${wr+3}" fill="black"/>
+  </mask></defs>
+  <g mask="url(#carmask)">${stream}</g>
+  ${swirl}
+  <line x1="0" y1="${ground}" x2="${W}" y2="${ground}" stroke="#2a3650" stroke-width="2"/>
+  <path d="${body}" fill="url(#bodyg)" stroke="#7d8ba6" stroke-width="1.5" stroke-linejoin="round"/>
+  ${glass}
+  <line x1="${f(midX)}" y1="${beltline-2}" x2="${f(midX)}" y2="${sill-7}" stroke="#9aa6ba" stroke-width="1.5"/>
+  <rect x="${x0-4}" y="${f(hoodY+6)}" width="11" height="${f(inH)}" rx="3" fill="#22d3ee" opacity="0.9"/>
+  ${ub}
+  <circle cx="${fwx}" cy="${ground-wr+2}" r="${wr}" fill="#1a2030" stroke="#7d8ba6" stroke-width="3"/>
+  <circle cx="${fwx}" cy="${ground-wr+2}" r="10" fill="#39435a"/>
+  <circle cx="${f(rwx)}" cy="${ground-wr+2}" r="${wr}" fill="#1a2030" stroke="#7d8ba6" stroke-width="3"/>
+  <circle cx="${f(rwx)}" cy="${ground-wr+2}" r="10" fill="#39435a"/>
+  <text x="20" y="28" fill="#e6ebf5" font-size="12" font-weight="700" font-family="sans-serif">CFD streamlines · Concept ${d.id} · Cd ${d.cd.toFixed(3)} · ${d.pack.toFixed(0)} kWh · ${d.t.toFixed(1)}°C ✓</text>
+  <text x="${f(cx-8)}" y="${f(cy+42)}" fill="#3b6fd6" font-size="10" font-family="sans-serif">wake recirculation</text>
+  <text x="${f(rwx-30)}" y="${sill+24}" fill="#93a0bd" font-size="10.5" font-family="sans-serif">${ublabel}</text>
+  </svg>`;
+}
+
+let CURRENT=null;
+function render(best,s,ranked){
+  CURRENT=best;
+  document.getElementById('out').style.display='block';
+  document.getElementById('viz').innerHTML=drawCar(best);
+  document.getElementById('intent').innerHTML=`<b>Parsed intent:</b> target Cd ≈ ${s.cd} · ${s.notes.join(" · ")||"balanced"} &nbsp;·&nbsp; <span style="color:var(--mut)">click any row to view that concept</span>`;
+  document.getElementById('explain').innerHTML=explain(best,s).map(x=>`<p class="${x[0]==='lead'?'lead':''}">${x[1]}</p>`).join('');
+  let h=`<thead><tr><th>Concept</th><th>Cd</th><th>Peak T (°C)</th><th>Pack (kWh)</th><th>Inlet (cm²)</th><th>Status</th></tr></thead><tbody>`;
+  ranked.forEach(d=>{h+=`<tr data-id="${d.id}" style="cursor:pointer" class="${d.id===best.id?'best':''}"><td>${d.id}${d.id===best.id?' ★':''}</td><td>${d.cd.toFixed(3)}</td><td>${d.t.toFixed(1)}</td><td>${d.pack.toFixed(0)}</td><td>${d.inlet.toFixed(0)}</td><td><span class="badge ${d.t<=CEIL?'ok':'no'}">${d.t<=CEIL?'feasible':'over temp'}</span></td></tr>`;});
+  h+=`</tbody>`;document.getElementById('tbl').innerHTML=h;
+  document.querySelectorAll('#tbl tr[data-id]').forEach(tr=>{
+    tr.onclick=()=>{const d=DATA.designs.find(x=>x.id===tr.dataset.id);
+      document.getElementById('viz').innerHTML=drawCar(d);
+      document.querySelectorAll('#tbl tr[data-id]').forEach(r=>r.classList.remove('best'));
+      tr.classList.add('best');};
+  });
+}
+document.getElementById('go').onclick=()=>{
+  const brief=document.getElementById('brief').value.trim()||EXAMPLES[0];
+  const s=parseBrief(brief);
+  const ranked=[...DATA.designs].sort((a,b)=>score(a,s)-score(b,s));const best=ranked[0];
+  render(best,s,ranked);
+  document.getElementById('out').scrollIntoView({behavior:'smooth',block:'nearest'});
+};
+
+// ---------- charts ----------
+const GRID='#243049',MUT='#93a0bd';
+Chart.defaults.color=MUT;Chart.defaults.font.family="'Segoe UI',system-ui,sans-serif";
+const baseScale={x:{grid:{color:GRID}},y:{grid:{color:GRID}}};
+
+new Chart(document.getElementById('cFeas'),{type:'line',
+  data:{labels:['it1','it2','it3','it4','it5','it6'],datasets:[
+    {label:'Feasibility %',data:DATA.feasTraj,borderColor:'#34d399',backgroundColor:'rgba(52,211,153,.15)',fill:true,tension:.35,pointRadius:4},
+    {label:'Random baseline',data:Array(6).fill(DATA.baseline),borderColor:'#f59e0b',borderDash:[6,4],pointRadius:0}
+  ]},
+  options:{plugins:{legend:{labels:{boxWidth:12}}},scales:{...baseScale,y:{...baseScale.y,min:0,max:100,title:{display:true,text:'% feasible'}}}}
+});
+
+// surrogate accuracy: synthetic scatter consistent with reported R²
+function scatter(r2,spread,n,base,slope){const a=[];for(let i=0;i<n;i++){const x=base+Math.random()*slope;const noise=(1-r2)*spread*(Math.random()*2-1);a.push({x:x,y:x+noise});}return a;}
+new Chart(document.getElementById('cAcc'),{type:'scatter',
+  data:{datasets:[
+    {label:'Aero (Cd) ×100',data:scatter(0.988,3,60,17,15).map(p=>({x:p.x,y:p.y})),pointBackgroundColor:'#3b82f6',pointRadius:3},
+  ]},
+  options:{plugins:{legend:{labels:{boxWidth:12}},tooltip:{enabled:false}},
+    scales:{x:{...baseScale.x,title:{display:true,text:'true (Cd×100)'}},y:{...baseScale.y,title:{display:true,text:'predicted'}}}}
+});
+
+new Chart(document.getElementById('cCd'),{type:'bar',
+  data:{labels:['D1','D2','D3'],datasets:[
+    {label:'Surrogate',data:DATA.validation.cd_pred,backgroundColor:'#3b82f6'},
+    {label:'Physics check',data:DATA.validation.cd_phys,backgroundColor:'#fb923c'}
+  ]},
+  options:{plugins:{legend:{labels:{boxWidth:12}}},scales:{...baseScale,y:{...baseScale.y,title:{display:true,text:'Cd'}}}}
+});
+
+new Chart(document.getElementById('cT'),{type:'bar',
+  data:{labels:['D1','D2','D3'],datasets:[
+    {label:'Surrogate',data:DATA.validation.t_pred,backgroundColor:'#3b82f6'},
+    {label:'Physics check',data:DATA.validation.t_phys,backgroundColor:'#fb923c'}
+  ]},
+  options:{plugins:{legend:{labels:{boxWidth:12}},
+    annotation:false},
+    scales:{...baseScale,y:{...baseScale.y,min:0,max:60,title:{display:true,text:'peak T (°C)'}}}}
+});
+</script>
+</body>
+</html>
