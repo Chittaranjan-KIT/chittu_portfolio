@@ -513,7 +513,7 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="pp-cat-arrow">+</div>
       <div class="pp-cat-icon">🏎️</div>
       <div class="pp-cat-title">Vehicle Dynamics</div>
-      <div class="pp-cat-count">4 Projects</div>
+      <div class="pp-cat-count">5 Projects</div>
     </div>
     <div class="pp-category-tile" onclick="toggleCategoryPanel('auto', this)">
       <div class="pp-cat-arrow">+</div>
@@ -685,6 +685,47 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
       </div>
       <div class="pp-project-grid">
+        <!-- WHEEL-FASTENER VALIDATION -->
+        <div class="pp-project-card" onclick="toggleProjectCard(this)">
+          <div class="pp-project-card-head">
+            <div>
+              <h4>Virtual Validation of Wheel-Fastener Preload &amp; Self-Loosening</h4>
+              <p>End-to-end simulation of the fastener holding a high-performance wheel to its hub: clamp-force &amp; friction modelling, preload-scatter analysis, and transverse-vibration self-loosening (Junker mechanism).</p>
+            </div>
+            <div class="pp-project-toggle">+</div>
+          </div>
+          <div class="pp-project-detail">
+            <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+              <div class="pp-detail-section">
+                <h5>Description</h5>
+                <p>A complete virtual-validation study built around the single quantity that governs joint safety — the <b>clamp force (preload)</b>. The work first models how tightening torque converts into clamp force using the VDI&nbsp;2230 torque–tension framework, decomposing the torque into its thread-friction, under-head-friction, and bolt-stretch components, then runs a Monte-Carlo study to quantify how real friction variation propagates into preload uncertainty. It then models how that preload is lost in service: a reduced-order (1-DOF) simulation of the <b>Junker self-loosening mechanism</b>, where transverse vibration shears the joint and unwinds the nut. Deliverables include preload-scatter plots, clamp-force decay curves, a loosening-threshold map, and a real-time animation of the joint losing its grip.</p>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Key Results</h5>
+                <ul>
+                  <li>Nominal preload <b>71.6 kN</b> on an M14 wheel bolt at 160 N·m (bolt stress 575 MPa); nut factor <b>K = 0.16</b>, validated against the published lubricated-steel range</li>
+                  <li>Torque decomposition: only <b>~11%</b> of applied torque stretches the bolt — ~40% lost to thread friction, ~49% under the bolt head</li>
+                  <li>Friction variation alone drives <b>~11%</b> scatter in achieved preload (60.5–86.4 kN, 5th–95th percentile); doubling thread friction collapses preload by <b>−29%</b></li>
+                  <li>Self-loosening shows a sharp threshold at <b>0.10 mm</b> transverse amplitude — below it the joint holds indefinitely; above it preload decays exponentially</li>
+                  <li>Quantified loosening rate: 0.18 mm amplitude → <b>50% preload loss in ~347 cycles</b>; 0.35 mm → ~111 cycles, reproducing real Junker-rig behaviour (DIN&nbsp;25201 / ISO&nbsp;16130)</li>
+                </ul>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Simulation Results</h5>
+                <div class="bike-gallery" id="wheel-gallery"></div>
+              </div>
+              <div class="pp-detail-section">
+                <h5>Tools Used</h5>
+                <div class="pp-detail-tools">
+                  <span class="pp-tool-tag">Python / NumPy / SciPy / Matplotlib</span>
+                  <span class="pp-tool-tag">VDI 2230 Torque–Tension</span>
+                  <span class="pp-tool-tag">Monte-Carlo / Uncertainty Quantification</span>
+                  <span class="pp-tool-tag">DIN 25201 / ISO 16130 (Junker)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -1638,6 +1679,23 @@ bikeImages.forEach((img, i) => {
   thumb.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(i, bikeImages); });
   bikeGallery.appendChild(thumb);
 });
+/* WHEEL-FASTENER GALLERY */
+const wheelImages = [
+  { file:'self_loosening_animation.gif', label:'Self-Loosening Animation (live)' },
+  { file:'self_loosening_results.png',   label:'Preload Decay & Threshold Map' },
+  { file:'preload_results.png',          label:'Torque Split & Preload Scatter' },
+];
+(function buildWheelGallery() {
+  const g = document.getElementById('wheel-gallery');
+  if (!g) return;
+  wheelImages.forEach((img, i) => {
+    const thumb = document.createElement('div');
+    thumb.className = 'cfd-thumb';
+    thumb.innerHTML = '<img src="'+img.file+'" alt="'+img.label+'" loading="lazy"><div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div><div class="cfd-thumb-label">'+img.label+'</div>';
+    thumb.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(i, wheelImages); });
+    g.appendChild(thumb);
+  });
+})();
 /* LIGHTBOX */
 let lbIndex = 0;
 window._lbImages = ahmedImages;
