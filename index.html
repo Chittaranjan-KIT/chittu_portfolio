@@ -1691,8 +1691,25 @@ const wheelImages = [
   wheelImages.forEach((img, i) => {
     const thumb = document.createElement('div');
     thumb.className = 'cfd-thumb';
-    thumb.innerHTML = '<img src="'+img.file+'" alt="'+img.label+'" loading="lazy"><div class="cfd-thumb-overlay"><div class="cfd-zoom-icon">&#x26F6;</div></div><div class="cfd-thumb-label">'+img.label+'</div>';
-    thumb.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(i, wheelImages); });
+    const isVideo = img.file.endsWith('.mp4');
+    // Show a play icon for the video, zoom icon for images
+    const overlayIcon = isVideo
+      ? '<div class="nvh-mode-play" style="width:38px;height:38px;font-size:15px;">&#9654;</div>'
+      : '<div class="cfd-zoom-icon">&#x26F6;</div>';
+    thumb.innerHTML = isVideo
+      ? '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(8,13,20,0.85);"><div class="nvh-mode-play" style="width:48px;height:48px;font-size:20px;">&#9654;</div></div><div class="cfd-thumb-label">'+img.label+'</div>'
+      : '<img src="'+img.file+'" alt="'+img.label+'" loading="lazy"><div class="cfd-thumb-overlay">'+overlayIcon+'</div><div class="cfd-thumb-label">'+img.label+'</div>';
+    thumb.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isVideo) {
+        openECBVideo(img.file, img.label);
+      } else {
+        // Build image-only list for lightbox (skip the mp4)
+        const imgOnly = wheelImages.filter(x => !x.file.endsWith('.mp4'));
+        const imgIndex = imgOnly.findIndex(x => x.file === img.file);
+        openLightbox(imgIndex, imgOnly);
+      }
+    });
     g.appendChild(thumb);
   });
 })();
