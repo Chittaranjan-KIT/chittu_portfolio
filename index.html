@@ -29,7 +29,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   color: var(--text);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
   line-height: 1.7;
   overflow-x: hidden;
@@ -439,7 +439,7 @@ footer a { color: var(--accent); text-decoration: none; }
 <nav>
   <a href="#about">About</a>
   <a href="#education">Education</a>
-  <a href="#personalprojects">Personal Project Engineering</a>
+  <a href="#personalprojects">Engineering Simulation Projects</a>
   <a href="#experience">Experience</a>
   <a href="#projects">Projects</a>
   <a href="#skills">Skills</a>
@@ -464,12 +464,12 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="section-line"></div>
   </div>
   <p class="about-prose">
-    I'm a postgraduate student pursuing my <span class="highlight">M.Sc. in Mechanical Engineering</span> at the Karlsruhe Institute of Technology (KIT), specializing in <span class="highlight">Vehicle Technology</span> and <span class="highlight">Dynamics &amp; Control</span>.
-    <br><br>
-    My work sits at the intersection of mechanical design, system dynamics, and intelligent vehicle technology. I'm driven by the challenges of developing efficient, high-performance automotive systems - from control algorithm design and simulation to hands-on prototype validation.
-    <br><br>
-    Through academic coursework and industry internships at companies like <span class="highlight">BEML Limited</span> and <span class="highlight">Mercedes-Benz</span>, I've built strong foundations in simulation-driven engineering, FEA, and embedded programming - all applied toward the future of <span class="highlight">autonomous and sustainable mobility</span>.
-  </p>
+I am pursuing an <span class="highlight">M.Sc. in Mechanical Engineering at Karlsruhe Institute of Technology</span>, specializing in Vehicle Technology and Dynamics &amp; Control.
+<br><br>
+My projects connect vehicle dynamics, control design, and engineering simulation. Recent work includes K&amp;C-based steering models, suspension comparisons, EV regenerative braking, synthetic-sensor ADAS scenarios, predictive overtaking, and circuit performance analysis in <span class="highlight">MATLAB, Simulink, and Simscape</span>.
+<br><br>
+I work with model assumptions, logged results, and visualizations to understand system behavior and communicate engineering trade-offs. My academic projects and internships also cover mechanical design, finite-element analysis, measurement systems, and embedded programming.
+</p>
 </section>
 <!-- EDUCATION -->
 <section id="education">
@@ -489,7 +489,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="edu-card">
       <div class="degree">B.E. Mechanical Engineering</div>
       <div class="school">St. Joseph's College of Engineering, India</div>
-      <p>2019 - 2023 · Final Grade: 2.0 ECTS · Coursework in FEA, Mechatronics, Kinematics, and Thermal Engineering. Final project on tribological behavior of WC-Co reinforced Al6061 MMC.</p>
+      <p>2019 - 2023 · Coursework in FEA, Mechatronics, Kinematics, and Thermal Engineering. Final project on tribological behavior of WC-Co reinforced Al6061 MMC.</p>
     </div>
   </div>
 </section>
@@ -498,7 +498,7 @@ footer a { color: var(--accent); text-decoration: none; }
   <div class="section-header">
     <div>
       <div class="section-label">Work</div>
-      <div class="section-title">Personal Project Engineering</div>
+      <div class="section-title">Engineering Simulation Projects</div>
     </div>
     <div class="section-line"></div>
   </div>
@@ -552,7 +552,7 @@ footer a { color: var(--accent); text-decoration: none; }
                 <p>End-to-end CFD simulation of external flow over an Ahmed body at 40 m/s. Mesh generated via blockMesh and snappyHexMesh (3.35M cells). Solved with simpleFoam and k-omega SST turbulence model. Post-processed in ParaView for pressure, velocity, streamlines, and wake structures.</p>
               </div>
               <div class="pp-detail-section">
-                <h5>Key Parameters</h5>
+                <h5>Key Results</h5>
                 <ul>
                   <li>Freestream velocity: 40 m/s | Re = 2.75 x 10^6</li>
                   <li>Turbulence model: k-omega SST</li>
@@ -587,7 +587,7 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-toggle">+</div>
           </div>
           <div class="pp-project-detail">
-            <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+            <div class="pp-project-detail-inner" onclick="event.stopPropagation()"><div class="pp-detail-section"><h5>Description</h5><p>3-phase end-to-end simulation: drive cycle analysis, 1D battery thermal model, and 2D CHT cold plate simulation for the Mercedes-Benz eActros 600.</p></div>
               <div class="pp-detail-section">
                 <h5>Phase 1 - Drive Cycle Analysis (Python)</h5>
                 <p>Extracted the VECTO Long Haul cycle (92,937 data points at 1 Hz) of a 40-ton truck of an electric variety. Calculated battery heat generation Q(t) dynamically during a 2-hour highway drive by using the vehicle dynamics formulae for drag, rolling resistance, grade resistance, and inertia. Physical clipping of the maximum power to 600 kW was carried out according to the specs of the eActros 600.</p>
@@ -660,7 +660,7 @@ footer a { color: var(--accent); text-decoration: none; }
                   </div>
                 </div>
               </div>
-              <div class="pp-detail-section">
+              <div class="pp-detail-section"><h5>Simulation Results</h5><p>Project outputs are summarized above. Available demonstrations are linked below.</p></div><div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
                   <span class="pp-tool-tag">Python</span>
@@ -692,7 +692,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="pp-project-toggle">+</div>
   </div>
   <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
-    <div class="pp-detail-section"><h5>Description</h5><p>Developed a configurable MATLAB/Simulink plant with Simscape steering dynamics. Suspension jounce and rack travel index steer and camber maps, while lateral tire loads introduce compliance steer. Torsion-bar flexibility, rack inertia, friction, and tire aligning moments build the steering feedback loop. The commissioning maps are synthetic and prepared for replacement with measured K&amp;C data.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Linked chassis motion, four vertical wheel motions, and four wheel-speed states to a compliant steering system.</li><li>Animated a 20-second handwheel sweep through ±500° with independent front-wheel steering and a stationary body.</li><li>Implemented a measured-maneuver correlation workflow reporting RMSE, bias, and peak error for response and steering channels.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Front-wheel steering animation, projected left/right rack loads, driver-torque hysteresis, and vehicle-response traces.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">Simscape</span><span class="pp-tool-tag">K&amp;C Lookup Tables</span><span class="pp-tool-tag">Nonlinear Tire Dynamics</span><span class="pp-tool-tag">Steering Compliance</span></div></div>
+    <div class="pp-detail-section"><h5>Description</h5><p>Developed a configurable MATLAB/Simulink plant with Simscape steering dynamics. Suspension jounce and rack travel index steer and camber maps, while lateral tire loads introduce compliance steer. Torsion-bar flexibility, rack inertia, friction, and tire aligning moments build the steering feedback loop. The commissioning maps are synthetic and prepared for replacement with measured K&amp;C data.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Linked chassis motion, four vertical wheel motions, and four wheel-speed states to a compliant steering system.</li><li>Animated a 20-second handwheel sweep through ±500° with independent front-wheel steering and a stationary body.</li><li>Implemented a measured-maneuver correlation workflow reporting RMSE, bias, and peak error for response and steering channels.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Front-wheel steering animation, projected left/right rack loads, driver-torque hysteresis, and vehicle-response traces.</p><!-- Add the project animation and result image here after uploading the files. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">Simscape</span><span class="pp-tool-tag">K&amp;C Lookup Tables</span><span class="pp-tool-tag">Nonlinear Tire Dynamics</span><span class="pp-tool-tag">Steering Compliance</span></div></div>
   </div></div>
 </div>
 
@@ -703,7 +703,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="pp-project-toggle">+</div>
   </div>
   <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
-    <div class="pp-detail-section"><h5>Description</h5><p>Built parallel two-degree-of-freedom suspension models using a 300 kg sprung mass and 40 kg unsprung mass. The active system adds a force-limited PID actuator. A DAVINCI-inspired passive model uses a viscous path and Maxwell branch to investigate frequency-selective damping. Its parameters are illustrative and require measured production data for vehicle-specific conclusions.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Evaluated all three systems over the same 100 m road at 10 m/s using a 1 ms integration step.</li><li>Active control reduced body-displacement RMS by 80.1% and unweighted body-acceleration RMS by 24.8% relative to the passive baseline.</li><li>The frequency-selective proxy reduced displacement RMS by 0.34% while acceleration RMS increased by 19.3%, exposing the trade-off for this tuning and road.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Synchronized three-system animation with springs, dampers, actuator-force arrows, body-motion histories, and a full-run metrics comparison.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">Quarter-Car Dynamics</span><span class="pp-tool-tag">PID Control</span><span class="pp-tool-tag">Frequency-Selective Damping</span><span class="pp-tool-tag">Runge–Kutta Integration</span></div></div>
+    <div class="pp-detail-section"><h5>Description</h5><p>Built parallel two-degree-of-freedom suspension models using a 300 kg sprung mass and 40 kg unsprung mass. The active system adds a force-limited PID actuator. A DAVINCI-inspired passive model uses a viscous path and Maxwell branch to investigate frequency-selective damping. Its parameters are illustrative and require measured production data for vehicle-specific conclusions.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Evaluated all three systems over the same 100 m road at 10 m/s using a 1 ms integration step.</li><li>Active control reduced body-displacement RMS by 80.1% and unweighted body-acceleration RMS by 24.8% relative to the passive baseline.</li><li>The frequency-selective proxy reduced displacement RMS by 0.34% while acceleration RMS increased by 19.3%, exposing the trade-off for this tuning and road.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Synchronized three-system animation with springs, dampers, actuator-force arrows, body-motion histories, and a full-run metrics comparison.</p><!-- Add the project animation and result image here after uploading the files. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">Quarter-Car Dynamics</span><span class="pp-tool-tag">PID Control</span><span class="pp-tool-tag">Frequency-Selective Damping</span><span class="pp-tool-tag">Runge–Kutta Integration</span></div></div>
   </div></div>
 </div>
 
@@ -714,7 +714,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="pp-project-toggle">+</div>
   </div>
   <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
-    <div class="pp-detail-section"><h5>Description</h5><p>Built a 360 V, 40 Ah battery system with a six-switch IGBT bridge, 1 kHz PWM, rotor-synchronous voltage control, and an 8:1 drivetrain. Accelerator and brake inputs drive the 30-second cycle. Logged battery voltage, current, SOC, shaft power, and vehicle speed support energy accounting and regenerative-operation checks.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Calculated 36.32 Wh net terminal energy consumption and 39.01 Wh returned charging energy over the complete cycle.</li><li>Detected regenerative operation during 98.7% of the evaluated braking windows using negative averaged battery and shaft power.</li><li>Cross-checked SOC by current integration with a 0.0323 percentage-point difference from the simulated battery SOC.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Driver dashboard, switching powertrain diagram, six-channel response plots, and logged charge/energy results.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">Simscape Electrical</span><span class="pp-tool-tag">PMSM</span><span class="pp-tool-tag">PWM Inverter</span><span class="pp-tool-tag">SOC &amp; Energy Accounting</span></div></div>
+    <div class="pp-detail-section"><h5>Description</h5><p>Built a 360 V, 40 Ah battery system with a six-switch IGBT bridge, 1 kHz PWM, rotor-synchronous voltage control, and an 8:1 drivetrain. Accelerator and brake inputs drive the 30-second cycle. Logged battery voltage, current, SOC, shaft power, and vehicle speed support energy accounting and regenerative-operation checks.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Calculated 36.32 Wh net terminal energy consumption and 39.01 Wh returned charging energy over the complete cycle.</li><li>Detected regenerative operation during 98.7% of the evaluated braking windows using negative averaged battery and shaft power.</li><li>Cross-checked SOC by current integration with a 0.0323 percentage-point difference from the simulated battery SOC.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Driver dashboard, switching powertrain diagram, six-channel response plots, and logged charge/energy results.</p><!-- Add the project animation and result image here after uploading the files. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">Simscape Electrical</span><span class="pp-tool-tag">PMSM</span><span class="pp-tool-tag">PWM Inverter</span><span class="pp-tool-tag">SOC &amp; Energy Accounting</span></div></div>
   </div></div>
 </div>
 
@@ -725,7 +725,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="pp-project-toggle">+</div>
   </div>
   <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
-    <div class="pp-detail-section"><h5>Description</h5><p>Created a curved-road encounter with a slower delivery truck, an overtaking car, and adjacent traffic. Radar tracks feed a range-based longitudinal controller, and ultrasonic clearance can request extra slowing. Camera detections, lane boundaries, and lidar samples support inspection of the scene. Steering follows the known road centerline.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Simulated an ego vehicle starting at 14 m/s behind a truck traveling at 7 m/s.</li><li>Updated and logged ego pose, speed, lead range, sensor counts, and side clearance at 0.1-second intervals.</li><li>Visualized nominal sensor coverage together with synthetic measurements and a recorded-trajectory 3D replay.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Bird’s-eye sensor coverage, ego-centric scene, Unreal Engine replay, and perception time histories.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Automated Driving Toolbox</span><span class="pp-tool-tag">Driving Scenario Designer</span><span class="pp-tool-tag">Synthetic Sensors</span><span class="pp-tool-tag">Radar Tracking</span><span class="pp-tool-tag">Unreal Engine Visualization</span></div></div>
+    <div class="pp-detail-section"><h5>Description</h5><p>Created a curved-road encounter with a slower delivery truck, an overtaking car, and adjacent traffic. Radar tracks feed a range-based longitudinal controller, and ultrasonic clearance can request extra slowing. Camera detections, lane boundaries, and lidar samples support inspection of the scene. Steering follows the known road centerline.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Simulated an ego vehicle starting at 14 m/s behind a truck traveling at 7 m/s.</li><li>Updated and logged ego pose, speed, lead range, sensor counts, and side clearance at 0.1-second intervals.</li><li>Visualized nominal sensor coverage together with synthetic measurements and a recorded-trajectory 3D replay.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Bird’s-eye sensor coverage, ego-centric scene, Unreal Engine replay, and perception time histories.</p><!-- Add the project animation and result image here after uploading the files. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Automated Driving Toolbox</span><span class="pp-tool-tag">Driving Scenario Designer</span><span class="pp-tool-tag">Synthetic Sensors</span><span class="pp-tool-tag">Radar Tracking</span><span class="pp-tool-tag">Unreal Engine Visualization</span></div></div>
   </div></div>
 </div>
 
@@ -736,7 +736,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="pp-project-toggle">+</div>
   </div>
   <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
-    <div class="pp-detail-section"><h5>Description</h5><p>Combined a maneuver supervisor with a sampled predictive controller using nonlinear lateral tire forces. Candidate lane targets and acceleration commands are evaluated against traffic clearance, road boundaries, and lateral-acceleration limits. Traffic positions and speeds are known simulation inputs, enabling a direct study of vehicle response and passing decisions.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Compared identical control logic with 1, 2, and 4 other vehicles.</li><li>In the four-vehicle run, slowed from 36 to 7.6 km/h, initiated the pass at 11.1 s, and began the return at 20.3 s.</li><li>Returned to the original lane by 24 s at 36 km/h, with peak front-wheel steering of 7.73° and approximately 1.76 m minimum modeled clearance.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Chase-view animation, bird’s-eye traffic map, maneuver-state display, and steering/speed comparisons across traffic counts.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Sampled MPC</span><span class="pp-tool-tag">Vehicle Dynamics</span><span class="pp-tool-tag">Collision Constraints</span><span class="pp-tool-tag">Driving Scenario</span><span class="pp-tool-tag">Trajectory Visualization</span></div></div>
+    <div class="pp-detail-section"><h5>Description</h5><p>Combined a maneuver supervisor with a sampled predictive controller using nonlinear lateral tire forces. Candidate lane targets and acceleration commands are evaluated against traffic clearance, road boundaries, and lateral-acceleration limits. Traffic positions and speeds are known simulation inputs, enabling a direct study of vehicle response and passing decisions.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Compared identical control logic with 1, 2, and 4 other vehicles.</li><li>In the four-vehicle run, slowed from 36 to 7.6 km/h, initiated the pass at 11.1 s, and began the return at 20.3 s.</li><li>Returned to the original lane by 24 s at 36 km/h, with peak front-wheel steering of 7.73° and approximately 1.76 m minimum modeled clearance.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Chase-view animation, bird’s-eye traffic map, maneuver-state display, and steering/speed comparisons across traffic counts.</p><!-- Add the project animation and result image here after uploading the files. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Sampled MPC</span><span class="pp-tool-tag">Vehicle Dynamics</span><span class="pp-tool-tag">Collision Constraints</span><span class="pp-tool-tag">Driving Scenario</span><span class="pp-tool-tag">Trajectory Visualization</span></div></div>
   </div></div>
 </div>
 
@@ -747,7 +747,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="pp-project-toggle">+</div>
   </div>
   <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
-    <div class="pp-detail-section"><h5>Description</h5><p>Implemented a fixed-centerline point-mass optimizer in MATLAB using CasADi and IPOPT. The formulation balances longitudinal tire force, wheel power, drag, downforce, and a hypothetical Roadster thrust-impulse budget. A Simulink model integrates optimized longitudinal force histories for a time-domain consistency check. Vehicle parameters are assumed, so the study explores model behavior rather than measured production performance.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Solved 44 standing-start laps across a 22-circuit dataset.</li><li>The modeled F1 car finished ahead in every case. Mexico City gave the smallest gap at 21.85 s, with laps of 86.70 s and 108.55 s.</li><li>MATLAB lap times matched the Python implementation to five displayed decimal places. Mexico City Simulink distance errors stayed below 0.18 m.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Side-by-side chase replay, full-calendar lap-time table, and speed, acceleration, propulsion, downforce, grip-utilization, and gap traces.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">CasADi</span><span class="pp-tool-tag">IPOPT</span><span class="pp-tool-tag">Direct Collocation</span><span class="pp-tool-tag">Python</span></div></div>
+    <div class="pp-detail-section"><h5>Description</h5><p>Implemented a fixed-centerline point-mass optimizer in MATLAB using CasADi and IPOPT. The formulation balances longitudinal tire force, wheel power, drag, downforce, and a hypothetical Roadster thrust-impulse budget. A Simulink model integrates optimized longitudinal force histories for a time-domain consistency check. Vehicle parameters are assumed, so the study explores model behavior rather than measured production performance.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Solved 44 standing-start laps across a 22-circuit dataset.</li><li>The modeled F1 car finished ahead in every case. Mexico City gave the smallest gap at 21.85 s, with laps of 86.70 s and 108.55 s.</li><li>MATLAB lap times matched the Python implementation to five displayed decimal places. Mexico City Simulink distance errors stayed below 0.18 m.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Side-by-side chase replay, full-calendar lap-time table, and speed, acceleration, propulsion, downforce, grip-utilization, and gap traces.</p><!-- Add the project animation and result image here after uploading the files. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">CasADi</span><span class="pp-tool-tag">IPOPT</span><span class="pp-tool-tag">Direct Collocation</span><span class="pp-tool-tag">Python</span></div></div>
   </div></div>
 </div>
 
@@ -758,7 +758,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="pp-project-toggle">+</div>
   </div>
   <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
-    <div class="pp-detail-section"><h5>Description</h5><p>Built a two-axle, load-sensitive tire model for quasi-steady flying-lap analysis. Longitudinal load transfer, brake bias, rear-wheel propulsion, power, and drag shape the acceleration envelope. Cornering limits initialize the speed profile, followed by acceleration and braking sweeps. A companion F1 visualization uses the separately optimized F1 lap and its aero-dependent envelope.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>The 1,250 kg, 200 kW example completed the Mexico City centerline in 143.86 s with speeds of 44.0–224.3 km/h.</li><li>The Silverstone example completed its flying lap in 167.69 s with speeds of 59.5–208.1 km/h.</li><li>The companion F1 standing-start model reached 354.8 km/h at 1.03 km and completed Mexico City in 86.70 s.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Animated track position, purple-to-yellow G-G-V surface, full speed profile, and a moving acceleration marker. The final F1 MP4 was rendered in Python from MATLAB results.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">G-G-V Envelope</span><span class="pp-tool-tag">Two-Axle Model</span><span class="pp-tool-tag">Load-Sensitive Tires</span><span class="pp-tool-tag">Forward/Backward Sweeps</span><span class="pp-tool-tag">Python Visualization</span></div></div>
+    <div class="pp-detail-section"><h5>Description</h5><p>Built a two-axle, load-sensitive tire model for quasi-steady flying-lap analysis. Longitudinal load transfer, brake bias, rear-wheel propulsion, power, and drag shape the acceleration envelope. Cornering limits initialize the speed profile, followed by acceleration and braking sweeps. A companion F1 visualization uses the separately optimized F1 lap and its aero-dependent envelope.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>The 1,250 kg, 200 kW example completed the Mexico City centerline in 143.86 s with speeds of 44.0–224.3 km/h.</li><li>The Silverstone example completed its flying lap in 167.69 s with speeds of 59.5–208.1 km/h.</li><li>The companion F1 standing-start model reached 354.8 km/h at 1.03 km and completed Mexico City in 86.70 s.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Animated track position, purple-to-yellow G-G-V surface, full speed profile, and a moving acceleration marker. The final F1 MP4 was rendered in Python from MATLAB results.</p><!-- Add the project animation and result image here after uploading the files. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">G-G-V Envelope</span><span class="pp-tool-tag">Two-Axle Model</span><span class="pp-tool-tag">Load-Sensitive Tires</span><span class="pp-tool-tag">Forward/Backward Sweeps</span><span class="pp-tool-tag">Python Visualization</span></div></div>
   </div></div>
 </div>
 
@@ -766,7 +766,7 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
-              <h4>Virtual Validation of Wheel-Fastener Preload &amp; Self-Loosening</h4>
+              <h4>Wheel-Fastener Preload &amp; Self-Loosening Simulation</h4>
               <p>End-to-end simulation of the fastener holding a high-performance wheel to its hub: clamp-force &amp; friction modelling, preload-scatter analysis, and transverse-vibration self-loosening (Junker mechanism).</p>
             </div>
             <div class="pp-project-toggle">+</div>
@@ -775,16 +775,16 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
               <div class="pp-detail-section">
                 <h5>Description</h5>
-                <p>A complete virtual-validation study built around the single quantity that governs joint safety - the <b>clamp force (preload)</b>. The work first models how tightening torque converts into clamp force using the VDI&nbsp;2230 torque–tension framework, decomposing the torque into its thread-friction, under-head-friction, and bolt-stretch components, then runs a Monte-Carlo study to quantify how real friction variation propagates into preload uncertainty. It then models how that preload is lost in service: a reduced-order (1-DOF) simulation of the <b>Junker self-loosening mechanism</b>, where transverse vibration shears the joint and unwinds the nut. Deliverables include preload-scatter plots, clamp-force decay curves, a loosening-threshold map, and a real-time animation of the joint losing its grip.</p>
+                <p>A simulation study built around the single quantity that governs joint safety - the <b>clamp force (preload)</b>. The work first models how tightening torque converts into clamp force using the VDI&nbsp;2230 torque–tension framework, decomposing the torque into its thread-friction, under-head-friction, and bolt-stretch components, then runs a Monte-Carlo study to quantify how real friction variation propagates into preload uncertainty. It then models how that preload is lost in service: a reduced-order (1-DOF) simulation of the <b>Junker self-loosening mechanism</b>, where transverse vibration shears the joint and unwinds the nut. Deliverables include preload-scatter plots, clamp-force decay curves, a loosening-threshold map, and an animation of the simulated preload loss.</p>
               </div>
               <div class="pp-detail-section">
                 <h5>Key Results</h5>
                 <ul>
-                  <li>Nominal preload <b>71.6 kN</b> on an M14 wheel bolt at 160 N·m (bolt stress 575 MPa); nut factor <b>K = 0.16</b>, validated against the published lubricated-steel range</li>
+                  <li>Nominal preload <b>71.6 kN</b> on an M14 wheel bolt at 160 N·m (bolt stress 575 MPa); nut factor <b>K = 0.16</b>, compared with a published lubricated-steel range</li>
                   <li>Torque decomposition: only <b>~11%</b> of applied torque stretches the bolt - ~40% lost to thread friction, ~49% under the bolt head</li>
                   <li>Friction variation alone drives <b>~11%</b> scatter in achieved preload (60.5–86.4 kN, 5th–95th percentile); doubling thread friction collapses preload by <b>−29%</b></li>
-                  <li>Self-loosening shows a sharp threshold at <b>0.10 mm</b> transverse amplitude - below it the joint holds indefinitely; above it preload decays exponentially</li>
-                  <li>Quantified loosening rate: 0.18 mm amplitude → <b>50% preload loss in ~347 cycles</b>; 0.35 mm → ~111 cycles, reproducing real Junker-rig behaviour (DIN&nbsp;25201 / ISO&nbsp;16130)</li>
+                  <li>Self-loosening shows a sharp threshold at <b>0.10 mm</b> transverse amplitude - below it no preload loss occurs within the modeled conditions; above it the model predicts exponential preload decay</li>
+                  <li>Quantified loosening rate: 0.18 mm amplitude → <b>50% preload loss in ~347 cycles</b>; 0.35 mm → ~111 cycles, illustrating the assumed Junker self-loosening mechanism</li>
                 </ul>
               </div>
               <div class="pp-detail-section">
@@ -820,14 +820,14 @@ footer a { color: var(--accent); text-decoration: none; }
               <div class="pp-detail-section">
                 <h5>Key Results</h5>
                 <ul>
-                  <li>Electromagnetic model: Peak torque <b>410 N·m at 641 RPM</b> · Al 6061 · B₀ = 0.8 T · COMSOL 2D axisymmetric FEM validated</li>
+                  <li>Electromagnetic model: Peak torque <b>410 N·m at 641 RPM</b> · Al 6061 · B₀ = 0.8 T · COMSOL 2D axisymmetric FEM study</li>
                   <li>B² torque scaling confirmed - doubling B-field quadruples peak torque</li>
                   <li>Structural FEM: Von Mises = <b>4.11 MPa</b> · Deformation = 0.0021 mm · Safety factor = <b>45.8</b> at 3000 RPM</li>
                   <li>Thermal CFD: Ventilated disc <b>120°C cooler</b> than plain disc (85.1°C vs 205.8°C · 10,000 W/m²)</li>
-                  <li>Ventilation channels validated as essential for ECB thermal management</li>
+                  <li>Investigated the effect of ventilation channels on ECB thermal management</li>
                 </ul>
               </div>
-              <div class="pp-detail-section">
+              <div class="pp-detail-section"><h5>Simulation Results</h5><p>Project outputs are summarized above. Available demonstrations are linked below.</p></div><div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
                   <span class="pp-tool-tag">Python / NumPy / Matplotlib</span>
@@ -844,7 +844,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <div class="pp-project-card-head">
             <div>
               <h4>Frontal Impact Test Simulation - 2012 Toyota Camry</h4>
-              <p>US NCAP 56 km/h frontal rigid wall crash test using the validated CCSA/FHWA FE model (2.25M elements) in Ansys LS-Dyna.</p>
+              <p>US NCAP 56 km/h frontal rigid wall crash test using the CCSA/FHWA FE model (2.25M elements) in Ansys LS-Dyna.</p>
             </div>
             <div class="pp-project-toggle">+</div>
           </div>
@@ -852,10 +852,10 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
               <div class="pp-detail-section">
                 <h5>Description</h5>
-                <p>Full-car frontal crash simulation based on US NCAP 56 km/h rigid wall impact using the validated CCSA/FHWA 2012 Toyota Camry FE model. Post-processing performed in LS-PrePost v4.12.6 with CFC60 filter per SAE J211.</p>
+                <p>Full-car frontal crash simulation based on US NCAP 56 km/h rigid wall impact using the CCSA/FHWA 2012 Toyota Camry FE model. Post-processing performed in LS-PrePost v4.12.6 with CFC60 filter per SAE J211.</p>
               </div>
               <div class="pp-detail-section">
-                <h5>Key Parameters</h5>
+                <h5>Key Results</h5>
                 <ul>
                   <li>Impact velocity: 56 km/h (US NCAP standard)</li>
                   <li>FE model: 2.25M elements, CCSA/FHWA Toyota Camry</li>
@@ -865,7 +865,7 @@ footer a { color: var(--accent); text-decoration: none; }
                   <li>Hourglass energy: less than 1% - energy check passed</li>
                 </ul>
               </div>
-              <div class="pp-detail-section">
+              <div class="pp-detail-section"><h5>Simulation Results</h5><p>Project outputs are summarized above. Available demonstrations are linked below.</p></div><div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
                   <span class="pp-tool-tag">Ansys LS-Dyna R16.1</span>
@@ -894,9 +894,9 @@ footer a { color: var(--accent); text-decoration: none; }
                 <p>Developed a 2-DOF linear bicycle model for vehicle lateral dynamics, implementing state-space formulation to analyze handling characteristics across operating conditions.</p>
               </div>
               <div class="pp-detail-section">
-                <h5>Key Work</h5>
+                <h5>Key Results</h5>
                 <ul>
-                  <li>Derived and validated bicycle model state-space matrices capturing lateral velocity and yaw rate dynamics</li>
+                  <li>Derived bicycle model state-space matrices capturing lateral velocity and yaw rate dynamics</li>
                   <li>Characterized understeer/oversteer behavior via understeer gradient (K_us) across front/rear cornering stiffness configurations</li>
                   <li>Conducted frequency response, step steer, and sinusoidal sweep analyses</li>
                   <li>Implemented Pacejka Magic Formula tire model</li>
@@ -936,7 +936,7 @@ footer a { color: var(--accent); text-decoration: none; }
               <div class="pp-detail-section">
                 <h5>Key Results</h5>
                 <ul>
-                  <li>Modal Analysis: <b>12 natural frequencies</b> computed (0–58 Hz) · Modes 1–6 rigid body (free-free BCs validated)</li>
+                  <li>Modal Analysis: <b>12 natural frequencies</b> computed (0–58 Hz) · Modes 1–6 rigid body (free-free boundary conditions)</li>
                   <li>Mode 7: Body lateral bending at <b>12.37 Hz</b> - most critical NVH mode</li>
                   <li>Mode 9: First torsion at <b>29.90 Hz</b> - primary structural stiffness indicator</li>
                   <li>Harmonic Response: 500 N engine excitation swept 20–100 Hz · Resonance peaks at <b>29 Hz and 38 Hz</b></li>
@@ -956,7 +956,7 @@ footer a { color: var(--accent); text-decoration: none; }
                 <p style="font-size:13px;color:rgba(212,220,232,0.7);margin-bottom:12px;">Click any mode to watch the animated deformation shape.</p>
                 <div class="nvh-mode-grid" id="nvh-mode-grid"></div>
               </div>
-              <div class="pp-detail-section">
+              <div class="pp-detail-section"><h5>Simulation Results</h5><p>Project outputs are summarized above. Available demonstrations are linked below.</p></div><div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
                   <span class="pp-tool-tag">ANSYS Mechanical 2025 R2</span>
@@ -998,7 +998,7 @@ footer a { color: var(--accent); text-decoration: none; }
                 <p>Two-lap autonomous racing pipeline on the Suzuka Circuit. Lap 1 maps the track blindly using local sensor data. Lap 2 races an optimised minimum-curvature line computed via gradient descent.</p>
               </div>
               <div class="pp-detail-section">
-                <h5>Key Parameters</h5>
+                <h5>Key Results</h5>
                 <ul>
                   <li>Sensor radius: 34 m for boundary cone detection</li>
                   <li>Track resampling: 500 points</li>
@@ -1006,7 +1006,7 @@ footer a { color: var(--accent); text-decoration: none; }
                   <li>Safety inset: 1.5 m from track walls</li>
                 </ul>
               </div>
-              <div class="pp-detail-section">
+              <div class="pp-detail-section"><h5>Simulation Results</h5><p>Project outputs are summarized above. Available demonstrations are linked below.</p></div><div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
                   <span class="pp-tool-tag">MATLAB</span>
@@ -1031,9 +1031,9 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-toggle">+</div>
           </div>
           <div class="pp-project-detail">
-            <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+            <div class="pp-project-detail-inner" onclick="event.stopPropagation()"><div class="pp-detail-section"><h5>Description</h5><p>End-to-end motion planning and car control pipeline designed from scratch in Python. The PRM algorithm creates a safe path based on the creation of a KD-Tree graph and a Dijkstra search. The path is then followed by a kinematic bicycle with a Pure Pursuit controller.</p></div>
               <div class="pp-detail-section">
-                <h5>Key Points</h5>
+                <h5>Key Results</h5>
                 <ul>
                   <li>800 collision-free nodes · ~5900 roadmap edges · Dijkstra shortest path query</li>
                   <li>Kinematic bicycle model — x, y, yaw state propagation at each timestep</li>
@@ -1042,7 +1042,7 @@ footer a { color: var(--accent); text-decoration: none; }
                 </ul>
               </div>
               <div class="pp-detail-section">
-                <h5>Results</h5>
+                <h5>Simulation Results</h5>
                 <div class="prm-gif-grid">
                   <div class="prm-gif-item" style="cursor:pointer;" onclick="event.stopPropagation(); openPRMGif('prm_animation.gif', 'PRM Planning — Sampling · Roadmap · Path Discovery')">
                     <img src="prm_animation.gif" alt="PRM Planning" style="pointer-events:none;">
@@ -1096,15 +1096,15 @@ footer a { color: var(--accent); text-decoration: none; }
                 <p>End-to-end local, private, zero-cost RAG system for Automotive Engineering - inspired by Andrej Karpathy (co-founder of OpenAI). Responses are grounded exclusively in a curated domain knowledge base, unlike general-purpose LLMs trained on internet data.</p>
               </div>
               <div class="pp-detail-section">
-                <h5>Key Highlights</h5>
+                <h5>Key Results</h5>
                 <ul>
                   <li>Knowledge base: <b>16 automotive domains</b> - vehicle dynamics, CFD, CAE/FEA, NVH, ADAS, EV, powertrain, aerodynamics, thermal management &amp; more</li>
                   <li>Pipeline: .md docs → vector embeddings → semantic retrieval → cited, domain-grounded answers</li>
                   <li>100% local inference - no cloud, no data leakage, completely free</li>
-                  <li>Knowledge graph visualization + successful RAG retrieval testing validated</li>
+                  <li>Knowledge graph visualization and retrieval testing</li>
                 </ul>
               </div>
-              <div class="pp-detail-section">
+              <div class="pp-detail-section"><h5>Simulation Results</h5><p>Project outputs are summarized above. Available demonstrations are linked below.</p></div><div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
                   <span class="pp-tool-tag">Ollama</span>
@@ -1126,7 +1126,7 @@ footer a { color: var(--accent); text-decoration: none; }
           <div class="pp-project-card-head">
             <div>
               <h4>GenAI Design Co-Pilot - Aero-Thermal Vehicle Concepts</h4>
-              <p>A generative-AI pipeline that turns a plain-English design brief into optimized, physics-validated vehicle concepts: generate, surrogate-evaluate, optimize, validate.</p>
+              <p>A generative-AI pipeline that turns a plain-English design brief into vehicle concepts evaluated with surrogate and reference models: generate, surrogate-evaluate, optimize, validate.</p>
             </div>
             <div class="pp-project-toggle">+</div>
           </div>
@@ -1134,19 +1134,19 @@ footer a { color: var(--accent); text-decoration: none; }
             <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
               <div class="pp-detail-section">
                 <h5>Description</h5>
-                <p>An end-to-end generative design system for early-stage vehicle concepts. A conditional VAE generates parametric geometry from target specs, ML surrogate models predict aerodynamic drag and peak battery temperature in milliseconds (replacing expensive CFD/Simulink inside the optimization loop), and a constraint-aware optimizer drives the design into the feasible, low-drag region. Top concepts are then verified against independent physics. Unlike a single-physics demo, it couples aerodynamics and EV thermal management, the exact systems-engineering capability OEMs and Tier-1 suppliers are investing in.</p>
+                <p>An end-to-end generative design system for early-stage vehicle concepts. A conditional VAE generates parametric geometry from target specs, ML surrogate models predict aerodynamic drag and peak battery temperature in milliseconds (replacing expensive CFD/Simulink inside the optimization loop), and a constraint-aware optimizer drives the design into the feasible, low-drag region. Top concepts are compared with reference-model predictions. The study combines aerodynamic and battery-thermal objectives for early-stage design exploration.</p>
               </div>
               <div class="pp-detail-section">
-                <h5>Key Highlights</h5>
+                <h5>Key Results</h5>
                 <ul>
                   <li><b>Two coupled physics domains</b> - aerodynamics (Cd) + EV thermal (peak battery temp), with cross-domain coupling: aero shape affects cooling airflow affects battery temperature</li>
-                  <li><b>AI surrogates replace simulation in the loop</b> - Gradient Boosting models score ~110,000 designs/second; aero R&sup2; = 0.99, thermal R&sup2; = 0.97</li>
-                  <li><b>Generative optimization</b> - cooling feasibility lifted from a 26% random baseline to ~98% under targeted conditional generation</li>
-                  <li><b>Physics-validated</b> - top designs verified against independent physics: surrogate Cd error 0.39%, thermal error ~2.8 &deg;C; all feasible</li>
+                  <li><b>Surrogate evaluation in the optimization loop</b> - Gradient Boosting models estimate aerodynamic drag and battery temperature for candidate designs</li>
+                  <li><b>Generative optimization</b> - compared randomly sampled designs with targeted conditional generation using model-defined cooling constraints</li>
+                  <li><b>Reference-model comparison</b> - compared predicted drag and battery temperature for selected designs with the project reference models.</li>
                   <li><b>Natural-language interface</b> - type a design brief and get a live CFD-style concept visualization across six archetypes (City, Sport, Sedan, GT, SUV, Track)</li>
                 </ul>
               </div>
-              <div class="pp-detail-section">
+              <div class="pp-detail-section"><h5>Simulation Results</h5><p>Project outputs are summarized above. Available demonstrations are linked below.</p></div><div class="pp-detail-section">
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
                   <span class="pp-tool-tag">Python</span>
@@ -1183,7 +1183,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="card" onclick="toggleCard(this)">
       <div class="card-header">
         <div>
-          <div class="card-title">Student Research Assistant - Measurement &amp; Testing Systems</div>
+          <div class="card-title">Measurement &amp; Testing Systems — Laboratory Coursework</div>
           <div class="card-meta"><span>Karlsruhe Institute of Technology</span> · Institute of Thermal Turbomachinery · Oct - Nov 2025</div>
         </div>
         <div class="expand-btn">+</div>
@@ -1212,7 +1212,7 @@ footer a { color: var(--accent); text-decoration: none; }
         <h5>Key Contributions</h5>
         <ul>
           <li>Designed electric powertrain concepts using CATIA</li>
-          <li>Performed FEA for design validation using ANSYS and Altair HyperWorks</li>
+          <li>Performed FEA to support design assessment using ANSYS and Altair HyperWorks</li>
           <li>Developed parameterized engineering models using Python scripts</li>
           <li>Collaborated with ECU engineering team to optimize system performance</li>
         </ul>
@@ -1350,7 +1350,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="card-header">
       <div>
         <div class="card-title">Automotive Laboratory Experiments - Vehicle Dynamics &amp; Energy Systems</div>
-        <div class="card-meta"><span>Institut fur Fahrzeugsystemtechnik</span> · KIT</div>
+        <div class="card-meta"><span>Institut für Fahrzeugsystemtechnik</span> · KIT</div>
       </div>
       <div class="expand-btn">+</div>
     </div>
@@ -1360,7 +1360,7 @@ footer a { color: var(--accent); text-decoration: none; }
       <ul>
         <li><b>Driving Resistance Analysis</b> - rolling resistance, aerodynamic drag, gradient &amp; acceleration forces</li>
         <li><b>Energy Consumption &amp; WLTP</b> - urban, suburban, and highway driving cycle efficiency</li>
-        <li><b>Tire Dynamics &amp; Traction</b> - slip ratio analysis, optimal traction (10-20% slip)</li>
+        <li><b>Tire Dynamics &amp; Traction</b> - slip ratio analysis, traction variation with slip and operating conditions</li>
         <li><b>Shock Absorber Characteristics</b> - force-velocity curves, mono/twin-tube dampers</li>
         <li><b>Viscous Coupling &amp; AWD</b> - torque distribution via fluid shear forces</li>
         <li><b>Vehicle Testing</b> - coast-down tests, dynamometer measurements</li>
@@ -1379,7 +1379,7 @@ footer a { color: var(--accent); text-decoration: none; }
       <p>Developed and characterized a WC-Co reinforced Al6061 metal matrix composite to study tribological and mechanical behavior improvements over base aluminum alloy.</p>
       <h5>Methodology</h5>
       <ul>
-        <li>Stir casting at 750°C, 350 rpm · WC-Co reinforcement: 80% · ~37 µm particle size</li>
+        <li>Stir casting at 750°C, 350 rpm · ~37 µm particle size</li>
         <li>Testing: Tensile, Compression, Impact, Hardness, Wear (ASTM standards)</li>
         <li>Characterization: SEM, Raman Spectroscopy, TGA, Electrochemical Corrosion</li>
       </ul>
@@ -1402,63 +1402,31 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="section-line"></div>
   </div>
   <div class="skills-grid">
-    <div class="skill-card" onclick="toggleSkill(this)">
-      <div class="skill-card-header">
-        <div class="skill-card-title"><span class="icon">💻</span> Engineering Software</div>
-        <span class="skill-arrow">▶</span>
-      </div>
-      <div class="skill-divider"></div>
-      <div class="skill-card-body">
-        <div class="skill-category">CAD / Simulation</div>
-        <div class="skill-row"><div class="skill-row-top">Solidworks<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
-        <div class="skill-row"><div class="skill-row-top">CATIA<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
-        <div class="skill-row"><div class="skill-row-top">ANSYS<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
-        <div class="skill-row"><div class="skill-row-top">Altair HyperWorks<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
-        <div class="skill-category">Data Acquisition</div>
-        <div class="skill-row"><div class="skill-row-top">NI LabVIEW<span>Good Knowledge</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
-      </div>
-    </div>
-    <div class="skill-card" onclick="toggleSkill(this)">
-      <div class="skill-card-header">
-        <div class="skill-card-title"><span class="icon">👨‍💻</span> Programming</div>
-        <span class="skill-arrow">▶</span>
-      </div>
-      <div class="skill-divider"></div>
-      <div class="skill-card-body">
-        <div class="skill-category">Languages</div>
-        <div class="skill-row"><div class="skill-row-top">Python<span>75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
-        <div class="skill-row"><div class="skill-row-top">C / C++ (Embedded)<span>60%</span></div><div class="skill-bar"><div class="skill-fill" data-w="60"></div></div></div>
-        <div class="skill-category">Web</div>
-        <div class="skill-row"><div class="skill-row-top">HTML / CSS<span>70%</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
-        <div class="skill-row"><div class="skill-row-top">JavaScript<span>30%</span></div><div class="skill-bar"><div class="skill-fill" data-w="30"></div></div></div>
-      </div>
-    </div>
-    <div class="skill-card" onclick="toggleSkill(this)">
-      <div class="skill-card-header">
-        <div class="skill-card-title"><span class="icon">⚙️</span> Embedded Systems</div>
-        <span class="skill-arrow">▶</span>
-      </div>
-      <div class="skill-divider"></div>
-      <div class="skill-card-body">
-        <div class="skill-row"><div class="skill-row-top">Arduino Programming<span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
-        <div class="skill-row"><div class="skill-row-top">Sensor Integration<span>75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
-        <div class="skill-row"><div class="skill-row-top">Real-Time Control<span>70%</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
-        <div class="skill-row"><div class="skill-row-top">Autonomous Navigation<span>65%</span></div><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
-      </div>
-    </div>
-    <div class="skill-card" onclick="toggleSkill(this)">
-      <div class="skill-card-header">
-        <div class="skill-card-title"><span class="icon">🧠</span> Analytics</div>
-        <span class="skill-arrow">▶</span>
-      </div>
-      <div class="skill-divider"></div>
-      <div class="skill-card-body">
-        <div class="skill-category">Office Suite</div>
-        <div class="skill-row"><div class="skill-row-top">MS Excel / Word<span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
-        <div class="skill-row"><div class="skill-row-top">PowerPoint<span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
-      </div>
-    </div>
-  </div>
+<div class="skill-card" onclick="toggleSkill(this)"><div class="skill-card-header"><div class="skill-card-title">Modeling &amp; Simulation</div><span class="skill-arrow">▶</span></div><div class="skill-divider"></div><div class="skill-card-body">
+<div class="skill-row"><div class="skill-row-top">MATLAB, Simulink &amp; Simscape</div><p>Vehicle, steering, suspension, and EV models</p></div>
+<div class="skill-row"><div class="skill-row-top">CasADi &amp; IPOPT</div><p>Fixed-centerline lap-time optimization</p></div>
+<div class="skill-row"><div class="skill-row-top">ANSYS &amp; Altair HyperWorks</div><p>Finite-element analysis projects</p></div>
+<div class="skill-row"><div class="skill-row-top">SolidWorks &amp; CATIA</div><p>Mechanical design experience</p></div>
+</div></div>
+<div class="skill-card" onclick="toggleSkill(this)"><div class="skill-card-header"><div class="skill-card-title">Vehicle Dynamics &amp; Control</div><span class="skill-arrow">▶</span></div><div class="skill-divider"></div><div class="skill-card-body">
+<div class="skill-row"><div class="skill-row-top">K&amp;C and steering dynamics</div><p>Lookup maps, rack loads, and driver torque</p></div>
+<div class="skill-row"><div class="skill-row-top">PID and sampled MPC</div><p>Suspension control and predictive overtaking</p></div>
+<div class="skill-row"><div class="skill-row-top">ADAS scenarios</div><p>Synthetic sensors and adaptive following</p></div>
+<div class="skill-row"><div class="skill-row-top">Lap performance</div><p>G-G-V envelopes and speed-profile analysis</p></div>
+</div></div>
+<div class="skill-card" onclick="toggleSkill(this)"><div class="skill-card-header"><div class="skill-card-title">Programming &amp; Measurement</div><span class="skill-arrow">▶</span></div><div class="skill-divider"></div><div class="skill-card-body">
+<div class="skill-row"><div class="skill-row-top">Python</div><p>Numerical analysis, automation, and visualization</p></div>
+<div class="skill-row"><div class="skill-row-top">C / C++</div><p>Embedded-control project experience</p></div>
+<div class="skill-row"><div class="skill-row-top">NI LabVIEW &amp; myDAQ</div><p>Laboratory measurement and acquisition</p></div>
+<div class="skill-row"><div class="skill-row-top">HTML, CSS &amp; JavaScript</div><p>Portfolio and interactive project interfaces</p></div>
+</div></div>
+<div class="skill-card" onclick="toggleSkill(this)"><div class="skill-card-header"><div class="skill-card-title">Engineering Analysis</div><span class="skill-arrow">▶</span></div><div class="skill-divider"></div><div class="skill-card-body">
+<div class="skill-row"><div class="skill-row-top">FEA and response analysis</div><p>Structural, modal, and thermal projects</p></div>
+<div class="skill-row"><div class="skill-row-top">Simulation assessment</div><p>Force balance, energy accounting, and numerical checks</p></div>
+<div class="skill-row"><div class="skill-row-top">Technical communication</div><p>Plots, animations, and engineering reports</p></div>
+<div class="skill-row"><div class="skill-row-top">Excel, Word &amp; PowerPoint</div><p>Data analysis and project documentation</p></div>
+</div></div>
+</div>
 </section>
 <!-- EXTRA -->
 <section id="additional" style="max-width:1100px;">
