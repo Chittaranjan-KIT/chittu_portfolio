@@ -685,6 +685,83 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
       </div>
       <div class="pp-project-grid">
+<!-- Vehicle dynamics project: kc-steering -->
+<div class="pp-project-card" id="project-kc-steering" onclick="toggleProjectCard(this)">
+  <div class="pp-project-card-head">
+    <div><h4>K&amp;C-Based Vehicle Dynamics &amp; Steering-Feel Simulation</h4><p>Integrated vehicle-motion and steering-feedback simulation connecting suspension lookup maps, nonlinear tire forces, rack loads, and driver torque.</p></div>
+    <div class="pp-project-toggle">+</div>
+  </div>
+  <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+    <div class="pp-detail-section"><h5>Description</h5><p>Developed a configurable MATLAB/Simulink plant with Simscape steering dynamics. Suspension jounce and rack travel index steer and camber maps, while lateral tire loads introduce compliance steer. Torsion-bar flexibility, rack inertia, friction, and tire aligning moments build the steering feedback loop. The commissioning maps are synthetic and prepared for replacement with measured K&amp;C data.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Linked chassis motion, four vertical wheel motions, and four wheel-speed states to a compliant steering system.</li><li>Animated a 20-second handwheel sweep through ±500° with independent front-wheel steering and a stationary body.</li><li>Implemented a measured-maneuver correlation workflow reporting RMSE, bias, and peak error for response and steering channels.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Front-wheel steering animation, projected left/right rack loads, driver-torque hysteresis, and vehicle-response traces.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">Simscape</span><span class="pp-tool-tag">K&amp;C Lookup Tables</span><span class="pp-tool-tag">Nonlinear Tire Dynamics</span><span class="pp-tool-tag">Steering Compliance</span></div></div>
+  </div></div>
+</div>
+
+<!-- Vehicle dynamics project: suspension -->
+<div class="pp-project-card" id="project-suspension" onclick="toggleProjectCard(this)">
+  <div class="pp-project-card-head">
+    <div><h4>Comparative Ride Dynamics of Passive, Active &amp; Frequency-Selective Suspension</h4><p>Controlled comparison of three quarter-car architectures over one continuous sequence of ramps, potholes, and bumps.</p></div>
+    <div class="pp-project-toggle">+</div>
+  </div>
+  <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+    <div class="pp-detail-section"><h5>Description</h5><p>Built parallel two-degree-of-freedom suspension models using a 300 kg sprung mass and 40 kg unsprung mass. The active system adds a force-limited PID actuator. A DAVINCI-inspired passive model uses a viscous path and Maxwell branch to investigate frequency-selective damping. Its parameters are illustrative and require measured production data for vehicle-specific conclusions.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Evaluated all three systems over the same 100 m road at 10 m/s using a 1 ms integration step.</li><li>Active control reduced body-displacement RMS by 80.1% and unweighted body-acceleration RMS by 24.8% relative to the passive baseline.</li><li>The frequency-selective proxy reduced displacement RMS by 0.34% while acceleration RMS increased by 19.3%, exposing the trade-off for this tuning and road.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Synchronized three-system animation with springs, dampers, actuator-force arrows, body-motion histories, and a full-run metrics comparison.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">Quarter-Car Dynamics</span><span class="pp-tool-tag">PID Control</span><span class="pp-tool-tag">Frequency-Selective Damping</span><span class="pp-tool-tag">Runge–Kutta Integration</span></div></div>
+  </div></div>
+</div>
+
+<!-- Vehicle dynamics project: ev-regen -->
+<div class="pp-project-card" id="project-ev-regen" onclick="toggleProjectCard(this)">
+  <div class="pp-project-card-head">
+    <div><h4>EV Regenerative Braking &amp; Switching Powertrain Simulation</h4><p>Battery-to-wheel simulation of bidirectional power flow through a PWM inverter, PMSM, and longitudinal vehicle model.</p></div>
+    <div class="pp-project-toggle">+</div>
+  </div>
+  <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+    <div class="pp-detail-section"><h5>Description</h5><p>Built a 360 V, 40 Ah battery system with a six-switch IGBT bridge, 1 kHz PWM, rotor-synchronous voltage control, and an 8:1 drivetrain. Accelerator and brake inputs drive the 30-second cycle. Logged battery voltage, current, SOC, shaft power, and vehicle speed support energy accounting and regenerative-operation checks.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Calculated 36.32 Wh net terminal energy consumption and 39.01 Wh returned charging energy over the complete cycle.</li><li>Detected regenerative operation during 98.7% of the evaluated braking windows using negative averaged battery and shaft power.</li><li>Cross-checked SOC by current integration with a 0.0323 percentage-point difference from the simulated battery SOC.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Driver dashboard, switching powertrain diagram, six-channel response plots, and logged charge/energy results.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">Simscape Electrical</span><span class="pp-tool-tag">PMSM</span><span class="pp-tool-tag">PWM Inverter</span><span class="pp-tool-tag">SOC &amp; Energy Accounting</span></div></div>
+  </div></div>
+</div>
+
+<!-- Vehicle dynamics project: adas -->
+<div class="pp-project-card" id="project-adas" onclick="toggleProjectCard(this)">
+  <div class="pp-project-card-head">
+    <div><h4>Multi-Sensor ADAS Scenario &amp; Adaptive Following Simulation</h4><p>Scenario-based perception testing combining camera, radar, lidar, and ultrasonic outputs with ego-vehicle following control.</p></div>
+    <div class="pp-project-toggle">+</div>
+  </div>
+  <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+    <div class="pp-detail-section"><h5>Description</h5><p>Created a curved-road encounter with a slower delivery truck, an overtaking car, and adjacent traffic. Radar tracks feed a range-based longitudinal controller, and ultrasonic clearance can request extra slowing. Camera detections, lane boundaries, and lidar samples support inspection of the scene. Steering follows the known road centerline.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Simulated an ego vehicle starting at 14 m/s behind a truck traveling at 7 m/s.</li><li>Updated and logged ego pose, speed, lead range, sensor counts, and side clearance at 0.1-second intervals.</li><li>Visualized nominal sensor coverage together with synthetic measurements and a recorded-trajectory 3D replay.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Bird’s-eye sensor coverage, ego-centric scene, Unreal Engine replay, and perception time histories.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Automated Driving Toolbox</span><span class="pp-tool-tag">Driving Scenario Designer</span><span class="pp-tool-tag">Synthetic Sensors</span><span class="pp-tool-tag">Radar Tracking</span><span class="pp-tool-tag">Unreal Engine Visualization</span></div></div>
+  </div></div>
+</div>
+
+<!-- Vehicle dynamics project: mpc-overtaking -->
+<div class="pp-project-card" id="project-mpc-overtaking" onclick="toggleProjectCard(this)">
+  <div class="pp-project-card-head">
+    <div><h4>Predictive Overtaking &amp; Lane-Return Control in Mixed Traffic</h4><p>Receding-horizon vehicle control that slows behind a lead car, assesses oncoming traffic, executes a pass, and returns to its lane.</p></div>
+    <div class="pp-project-toggle">+</div>
+  </div>
+  <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+    <div class="pp-detail-section"><h5>Description</h5><p>Combined a maneuver supervisor with a sampled predictive controller using nonlinear lateral tire forces. Candidate lane targets and acceleration commands are evaluated against traffic clearance, road boundaries, and lateral-acceleration limits. Traffic positions and speeds are known simulation inputs, enabling a direct study of vehicle response and passing decisions.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Compared identical control logic with 1, 2, and 4 other vehicles.</li><li>In the four-vehicle run, slowed from 36 to 7.6 km/h, initiated the pass at 11.1 s, and began the return at 20.3 s.</li><li>Returned to the original lane by 24 s at 36 km/h, with peak front-wheel steering of 7.73° and approximately 1.76 m minimum modeled clearance.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Chase-view animation, bird’s-eye traffic map, maneuver-state display, and steering/speed comparisons across traffic counts.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Sampled MPC</span><span class="pp-tool-tag">Vehicle Dynamics</span><span class="pp-tool-tag">Collision Constraints</span><span class="pp-tool-tag">Driving Scenario</span><span class="pp-tool-tag">Trajectory Visualization</span></div></div>
+  </div></div>
+</div>
+
+<!-- Vehicle dynamics project: lap-optimization -->
+<div class="pp-project-card" id="project-lap-optimization" onclick="toggleProjectCard(this)">
+  <div class="pp-project-card-head">
+    <div><h4>Minimum-Lap-Time Optimization of F1 &amp; Electric Roadster Concepts</h4><p>Standing-start circuit comparison using constrained optimal control, speed-dependent aerodynamics, and combined tire-grip limits.</p></div>
+    <div class="pp-project-toggle">+</div>
+  </div>
+  <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+    <div class="pp-detail-section"><h5>Description</h5><p>Implemented a fixed-centerline point-mass optimizer in MATLAB using CasADi and IPOPT. The formulation balances longitudinal tire force, wheel power, drag, downforce, and a hypothetical Roadster thrust-impulse budget. A Simulink model integrates optimized longitudinal force histories for a time-domain consistency check. Vehicle parameters are assumed, so the study explores model behavior rather than measured production performance.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Solved 44 standing-start laps across a 22-circuit dataset.</li><li>The modeled F1 car finished ahead in every case. Mexico City gave the smallest gap at 21.85 s, with laps of 86.70 s and 108.55 s.</li><li>MATLAB lap times matched the Python implementation to five displayed decimal places. Mexico City Simulink distance errors stayed below 0.18 m.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Side-by-side chase replay, full-calendar lap-time table, and speed, acceleration, propulsion, downforce, grip-utilization, and gap traces.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">CasADi</span><span class="pp-tool-tag">IPOPT</span><span class="pp-tool-tag">Direct Collocation</span><span class="pp-tool-tag">Python</span></div></div>
+  </div></div>
+</div>
+
+<!-- Vehicle dynamics project: ggv -->
+<div class="pp-project-card" id="project-ggv" onclick="toggleProjectCard(this)">
+  <div class="pp-project-card-head">
+    <div><h4>G-G-V Performance Mapping &amp; Circuit Speed-Profile Analysis</h4><p>From tire-force limits to circuit performance through acceleration envelopes, cornering-speed limits, and iterative forward/backward sweeps.</p></div>
+    <div class="pp-project-toggle">+</div>
+  </div>
+  <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+    <div class="pp-detail-section"><h5>Description</h5><p>Built a two-axle, load-sensitive tire model for quasi-steady flying-lap analysis. Longitudinal load transfer, brake bias, rear-wheel propulsion, power, and drag shape the acceleration envelope. Cornering limits initialize the speed profile, followed by acceleration and braking sweeps. A companion F1 visualization uses the separately optimized F1 lap and its aero-dependent envelope.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>The 1,250 kg, 200 kW example completed the Mexico City centerline in 143.86 s with speeds of 44.0–224.3 km/h.</li><li>The Silverstone example completed its flying lap in 167.69 s with speeds of 59.5–208.1 km/h.</li><li>The companion F1 standing-start model reached 354.8 km/h at 1.03 km and completed Mexico City in 86.70 s.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Animated track position, purple-to-yellow G-G-V surface, full speed profile, and a moving acceleration marker. The final F1 MP4 was rendered in Python from MATLAB results.</p><!-- Add uploaded animation and PNG here. See media-upload-guide.txt. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">G-G-V Envelope</span><span class="pp-tool-tag">Two-Axle Model</span><span class="pp-tool-tag">Load-Sensitive Tires</span><span class="pp-tool-tag">Forward/Backward Sweeps</span><span class="pp-tool-tag">Python Visualization</span></div></div>
+  </div></div>
+</div>
+
         <!-- WHEEL-FASTENER VALIDATION -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
