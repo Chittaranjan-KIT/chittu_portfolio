@@ -464,11 +464,11 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="section-line"></div>
   </div>
   <p class="about-prose">
-I am pursuing an <span class="highlight">M.Sc. in Mechanical Engineering at Karlsruhe Institute of Technology</span>, specializing in Vehicle Technology and Dynamics &amp; Control.
+I am pursuing an <span class="highlight">M.Sc. in Mechanical Engineering at Karlsruhe Institute of Technology</span>, specializing in Vehicle Technology and Dynamics &amp; Control. My interests center on <span class="highlight">vehicle dynamics, autonomous driving, and the behavior of dynamic systems</span>, with a focus on how mechanical design, sensing, and control influence system performance.
 <br><br>
-My background spans <span class="highlight">mechanical design, engineering simulation, control systems, and experimental testing</span>. Through academic projects and industry internships, I have gained experience with CAD, finite-element analysis, system modeling, measurement and data acquisition, and programming.
+Through academic projects and industry internships, I have developed experience across mechanical design, engineering simulation, experimental measurement, and programming. My projects include steering and suspension models, EV powertrains, sensor-based driving scenarios, predictive vehicle control, and circuit performance analysis. I use tools such as MATLAB, Simulink, Simscape, Python, CAD, and finite-element analysis to investigate engineering questions and evaluate design choices.
 <br><br>
-I enjoy translating engineering problems into models, designs, and experiments, then using the results to understand performance and guide improvements. I bring a practical, analytical approach to multidisciplinary work, with an interest in developing efficient and reliable products and systems.
+I enjoy connecting physical principles with practical implementation: building models, examining data, testing assumptions, and understanding why a system behaves as it does. I aim to bring this analytical and hands-on approach to multidisciplinary engineering teams developing efficient, reliable, and intelligent products.
 </p>
 </section>
 <!-- EDUCATION -->
@@ -703,7 +703,7 @@ I enjoy translating engineering problems into models, designs, and experiments, 
     <div class="pp-project-toggle">+</div>
   </div>
   <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
-    <div class="pp-detail-section"><h5>Description</h5><p>Built parallel two-degree-of-freedom suspension models using a 300 kg sprung mass and 40 kg unsprung mass. The active system adds a force-limited PID actuator. A DAVINCI-inspired passive model uses a viscous path and Maxwell branch to investigate frequency-selective damping. Its parameters are illustrative and require measured production data for vehicle-specific conclusions.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Evaluated all three systems over the same 100 m road at 10 m/s using a 1 ms integration step.</li><li>Active control reduced body-displacement RMS by 80.1% and unweighted body-acceleration RMS by 24.8% relative to the passive baseline.</li><li>The frequency-selective proxy reduced displacement RMS by 0.34% while acceleration RMS increased by 19.3%, exposing the trade-off for this tuning and road.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Synchronized three-system animation with springs, dampers, actuator-force arrows, body-motion histories, and a full-run metrics comparison.</p><!-- Add the project animation and result image here after uploading the files. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">Quarter-Car Dynamics</span><span class="pp-tool-tag">PID Control</span><span class="pp-tool-tag">Frequency-Selective Damping</span><span class="pp-tool-tag">Runge–Kutta Integration</span></div></div>
+    <div class="pp-detail-section"><h5>Description</h5><p>Built parallel two-degree-of-freedom suspension models using a 300 kg sprung mass and 40 kg unsprung mass. The active system adds a force-limited PID actuator. A DAVINCI-inspired passive model uses a viscous path and Maxwell branch to investigate frequency-selective damping. Its parameters are illustrative and require measured production data for vehicle-specific conclusions.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>Evaluated all three systems over the same 100 m road at 10 m/s using a 1 ms integration step.</li><li>Active control reduced body-displacement RMS by 80.1% and unweighted body-acceleration RMS by 24.8% relative to the passive baseline.</li><li>The frequency-selective proxy reduced displacement RMS by 0.34% while acceleration RMS increased by 19.3%, exposing the trade-off for this tuning and road.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Synchronized three-system animation with springs, dampers, actuator-force arrows, body-motion histories, and a full-run metrics comparison.</p><!-- Add the project animation and result image here after uploading the files. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Simulink</span><span class="pp-tool-tag">Quarter-Car Dynamics</span><span class="pp-tool-tag">PID Control</span><span class="pp-tool-tag">Frequency-Selective Damping</span><span class="pp-tool-tag">Runge-Kutta Integration</span></div></div>
   </div></div>
 </div>
 
@@ -758,7 +758,7 @@ I enjoy translating engineering problems into models, designs, and experiments, 
     <div class="pp-project-toggle">+</div>
   </div>
   <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
-    <div class="pp-detail-section"><h5>Description</h5><p>Built a two-axle, load-sensitive tire model for quasi-steady flying-lap analysis. Longitudinal load transfer, brake bias, rear-wheel propulsion, power, and drag shape the acceleration envelope. Cornering limits initialize the speed profile, followed by acceleration and braking sweeps. A companion F1 visualization uses the separately optimized F1 lap and its aero-dependent envelope.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>The 1,250 kg, 200 kW example completed the Mexico City centerline in 143.86 s with speeds of 44.0–224.3 km/h.</li><li>The Silverstone example completed its flying lap in 167.69 s with speeds of 59.5–208.1 km/h.</li><li>The companion F1 standing-start model reached 354.8 km/h at 1.03 km and completed Mexico City in 86.70 s.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Animated track position, purple-to-yellow G-G-V surface, full speed profile, and a moving acceleration marker. The final F1 MP4 was rendered in Python from MATLAB results.</p><!-- Add the project animation and result image here after uploading the files. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">G-G-V Envelope</span><span class="pp-tool-tag">Two-Axle Model</span><span class="pp-tool-tag">Load-Sensitive Tires</span><span class="pp-tool-tag">Forward/Backward Sweeps</span><span class="pp-tool-tag">Python Visualization</span></div></div>
+    <div class="pp-detail-section"><h5>Description</h5><p>Built a two-axle, load-sensitive tire model for quasi-steady flying-lap analysis. Longitudinal load transfer, brake bias, rear-wheel propulsion, power, and drag shape the acceleration envelope. Cornering limits initialize the speed profile, followed by acceleration and braking sweeps. A companion F1 visualization uses the separately optimized F1 lap and its aero-dependent envelope.</p></div><div class="pp-detail-section"><h5>Key Results</h5><ul><li>The 1,250 kg, 200 kW example completed the Mexico City centerline in 143.86 s with speeds of 44.0-224.3 km/h.</li><li>The Silverstone example completed its flying lap in 167.69 s with speeds of 59.5-208.1 km/h.</li><li>The companion F1 standing-start model reached 354.8 km/h at 1.03 km and completed Mexico City in 86.70 s.</li></ul></div><div class="pp-detail-section"><h5>Simulation Results</h5><p>Animated track position, purple-to-yellow G-G-V surface, full speed profile, and a moving acceleration marker. The final F1 MP4 was rendered in Python from MATLAB results.</p><!-- Add the project animation and result image here after uploading the files. --></div><div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools"><span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">G-G-V Envelope</span><span class="pp-tool-tag">Two-Axle Model</span><span class="pp-tool-tag">Load-Sensitive Tires</span><span class="pp-tool-tag">Forward/Backward Sweeps</span><span class="pp-tool-tag">Python Visualization</span></div></div>
   </div></div>
 </div>
 
@@ -775,14 +775,14 @@ I enjoy translating engineering problems into models, designs, and experiments, 
             <div class="pp-project-detail-inner" onclick="event.stopPropagation()">
               <div class="pp-detail-section">
                 <h5>Description</h5>
-                <p>A simulation study built around the single quantity that governs joint safety - the <b>clamp force (preload)</b>. The work first models how tightening torque converts into clamp force using the VDI&nbsp;2230 torque–tension framework, decomposing the torque into its thread-friction, under-head-friction, and bolt-stretch components, then runs a Monte-Carlo study to quantify how real friction variation propagates into preload uncertainty. It then models how that preload is lost in service: a reduced-order (1-DOF) simulation of the <b>Junker self-loosening mechanism</b>, where transverse vibration shears the joint and unwinds the nut. Deliverables include preload-scatter plots, clamp-force decay curves, a loosening-threshold map, and an animation of the simulated preload loss.</p>
+                <p>A simulation study built around the single quantity that governs joint safety - the <b>clamp force (preload)</b>. The work first models how tightening torque converts into clamp force using the VDI&nbsp;2230 torque-tension framework, decomposing the torque into its thread-friction, under-head-friction, and bolt-stretch components, then runs a Monte-Carlo study to quantify how real friction variation propagates into preload uncertainty. It then models how that preload is lost in service: a reduced-order (1-DOF) simulation of the <b>Junker self-loosening mechanism</b>, where transverse vibration shears the joint and unwinds the nut. Deliverables include preload-scatter plots, clamp-force decay curves, a loosening-threshold map, and an animation of the simulated preload loss.</p>
               </div>
               <div class="pp-detail-section">
                 <h5>Key Results</h5>
                 <ul>
                   <li>Nominal preload <b>71.6 kN</b> on an M14 wheel bolt at 160 N·m (bolt stress 575 MPa); nut factor <b>K = 0.16</b>, compared with a published lubricated-steel range</li>
                   <li>Torque decomposition: only <b>~11%</b> of applied torque stretches the bolt - ~40% lost to thread friction, ~49% under the bolt head</li>
-                  <li>Friction variation alone drives <b>~11%</b> scatter in achieved preload (60.5–86.4 kN, 5th–95th percentile); doubling thread friction collapses preload by <b>−29%</b></li>
+                  <li>Friction variation alone drives <b>~11%</b> scatter in achieved preload (60.5-86.4 kN, 5th-95th percentile); doubling thread friction collapses preload by <b>−29%</b></li>
                   <li>Self-loosening shows a sharp threshold at <b>0.10 mm</b> transverse amplitude - below it no preload loss occurs within the modeled conditions; above it the model predicts exponential preload decay</li>
                   <li>Quantified loosening rate: 0.18 mm amplitude → <b>50% preload loss in ~347 cycles</b>; 0.35 mm → ~111 cycles, illustrating the assumed Junker self-loosening mechanism</li>
                 </ul>
@@ -795,7 +795,7 @@ I enjoy translating engineering problems into models, designs, and experiments, 
                 <h5>Tools Used</h5>
                 <div class="pp-detail-tools">
                   <span class="pp-tool-tag">Python / NumPy / SciPy / Matplotlib</span>
-                  <span class="pp-tool-tag">VDI 2230 Torque–Tension</span>
+                  <span class="pp-tool-tag">VDI 2230 Torque-Tension</span>
                   <span class="pp-tool-tag">Monte-Carlo / Uncertainty Quantification</span>
                   <span class="pp-tool-tag">DIN 25201 / ISO 16130 (Junker)</span>
                 </div>
@@ -936,10 +936,10 @@ I enjoy translating engineering problems into models, designs, and experiments, 
               <div class="pp-detail-section">
                 <h5>Key Results</h5>
                 <ul>
-                  <li>Modal Analysis: <b>12 natural frequencies</b> computed (0–58 Hz) · Modes 1–6 rigid body (free-free boundary conditions)</li>
+                  <li>Modal Analysis: <b>12 natural frequencies</b> computed (0-58 Hz) · Modes 1-6 rigid body (free-free boundary conditions)</li>
                   <li>Mode 7: Body lateral bending at <b>12.37 Hz</b> - most critical NVH mode</li>
                   <li>Mode 9: First torsion at <b>29.90 Hz</b> - primary structural stiffness indicator</li>
-                  <li>Harmonic Response: 500 N engine excitation swept 20–100 Hz · Resonance peaks at <b>29 Hz and 38 Hz</b></li>
+                  <li>Harmonic Response: 500 N engine excitation swept 20-100 Hz · Resonance peaks at <b>29 Hz and 38 Hz</b></li>
                   <li>180° phase shift at resonance confirmed · Log-scale Bode plot (SAE/OEM standard format)</li>
                 </ul>
               </div>
@@ -1021,7 +1021,7 @@ I enjoy translating engineering problems into models, designs, and experiments, 
             </div>
           </div>
         </div>
-        <!-- PRM PATH PLANNING — MODAL POPUP -->
+        <!-- PRM PATH PLANNING - MODAL POPUP -->
         <div class="pp-project-card" onclick="toggleProjectCard(this)">
           <div class="pp-project-card-head">
             <div>
@@ -1036,19 +1036,19 @@ I enjoy translating engineering problems into models, designs, and experiments, 
                 <h5>Key Results</h5>
                 <ul>
                   <li>800 collision-free nodes · ~5900 roadmap edges · Dijkstra shortest path query</li>
-                  <li>Kinematic bicycle model — x, y, yaw state propagation at each timestep</li>
+                  <li>Kinematic bicycle model - x, y, yaw state propagation at each timestep</li>
                   <li>Index-based Pure Pursuit lateral controller with adaptive cornering speed</li>
-                  <li>Animated GIF outputs — planning pipeline + vehicle tracking</li>
+                  <li>Animated GIF outputs - planning pipeline + vehicle tracking</li>
                 </ul>
               </div>
               <div class="pp-detail-section">
                 <h5>Simulation Results</h5>
                 <div class="prm-gif-grid">
-                  <div class="prm-gif-item" style="cursor:pointer;" onclick="event.stopPropagation(); openPRMGif('prm_animation.gif', 'PRM Planning — Sampling · Roadmap · Path Discovery')">
+                  <div class="prm-gif-item" style="cursor:pointer;" onclick="event.stopPropagation(); openPRMGif('prm_animation.gif', 'PRM Planning - Sampling · Roadmap · Path Discovery')">
                     <img src="prm_animation.gif" alt="PRM Planning" style="pointer-events:none;">
                     <div class="prm-gif-label">▶ PRM Planning</div>
                   </div>
-                  <div class="prm-gif-item" style="cursor:pointer;" onclick="event.stopPropagation(); openPRMGif('prm_tracking.gif', 'Vehicle Tracking — Bicycle Model · Pure Pursuit Controller')">
+                  <div class="prm-gif-item" style="cursor:pointer;" onclick="event.stopPropagation(); openPRMGif('prm_tracking.gif', 'Vehicle Tracking - Bicycle Model · Pure Pursuit Controller')">
                     <img src="prm_tracking.gif" alt="Vehicle Tracking" style="pointer-events:none;">
                     <div class="prm-gif-label">▶ Vehicle Tracking</div>
                   </div>
@@ -1350,7 +1350,7 @@ I enjoy translating engineering problems into models, designs, and experiments, 
   <div class="card" onclick="toggleCard(this)">
   <div class="card-header">
     <div>
-      <div class="card-title">AI Pipeline for Patrol Car of the Future – AI-based, automated, and connected</div>
+      <div class="card-title">AI Pipeline for Patrol Car of the Future - AI-based, automated, and connected</div>
       <div class="card-meta"><span>Automotive Engineering Project Workshop</span> · Baden-Württemberg Police Cooperation</div>
     </div>
     <div class="expand-btn">+</div>
@@ -1467,7 +1467,9 @@ I enjoy translating engineering problems into models, designs, and experiments, 
       <span class="extra-card-toggle">+</span>
       <div class="extra-card-body">
         <ul>
-          <li>Machine Learning Automotive Certificate (Proov)<br><span>Fundamentals of Reinforcement Learning: Racing Challenge</span></li>
+          <li>Machine Learning Automotive Certificate (Proov)</li>
+          <li>Fundamentals of Reinforcement Learning: Racing Challenge</li>
+          <li>MATLAB Course Participation Certificate, KIT MINT-Kolleg Baden-Württemberg<br><span>Summer semester 2026 · Issued 30 October 2026</span></li>
           <li>MathWorks Deep Learning Onramp</li>
           <li>SAP for Automotive Supply Chain and Manufacturing</li>
 
@@ -1484,7 +1486,7 @@ I enjoy translating engineering problems into models, designs, and experiments, 
         <ul>
           <li>English - C1</li>
           <li>Tamil - C2</li>
-          <li>German - A1</li>
+          <li>German - A2</li>
         </ul>
       </div>
     </div>
@@ -1696,7 +1698,7 @@ const nvhModes = [
     const thumb = document.createElement('div');
     thumb.className = 'nvh-mode-thumb';
     thumb.innerHTML = '<div class="nvh-mode-play">&#9654;</div><div class="nvh-mode-label">'+mode.label+'</div><div class="nvh-mode-freq">'+mode.freq+'</div>';
-    thumb.addEventListener('click', function(e) { e.stopPropagation(); openNVHVideo(mode.file, 'NVH — '+mode.label+' · '+mode.freq); });
+    thumb.addEventListener('click', function(e) { e.stopPropagation(); openNVHVideo(mode.file, 'NVH - '+mode.label+' · '+mode.freq); });
     grid.appendChild(thumb);
   });
 })();
