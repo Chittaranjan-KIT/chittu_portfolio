@@ -466,9 +466,9 @@ footer a { color: var(--accent); text-decoration: none; }
   <p class="about-prose">
 I am pursuing an <span class="highlight">M.Sc. in Mechanical Engineering at Karlsruhe Institute of Technology</span>, specializing in Vehicle Technology and Dynamics &amp; Control.
 <br><br>
-My projects connect vehicle dynamics, control design, and engineering simulation. Recent work includes K&amp;C-based steering models, suspension comparisons, EV regenerative braking, synthetic-sensor ADAS scenarios, predictive overtaking, and circuit performance analysis in <span class="highlight">MATLAB, Simulink, and Simscape</span>.
+My background spans <span class="highlight">mechanical design, engineering simulation, control systems, and experimental testing</span>. Through academic projects and industry internships, I have gained experience with CAD, finite-element analysis, system modeling, measurement and data acquisition, and programming.
 <br><br>
-I work with model assumptions, logged results, and visualizations to understand system behavior and communicate engineering trade-offs. My academic projects and internships also cover mechanical design, finite-element analysis, measurement systems, and embedded programming.
+I enjoy translating engineering problems into models, designs, and experiments, then using the results to understand performance and guide improvements. I bring a practical, analytical approach to multidisciplinary work, with an interest in developing efficient and reliable products and systems.
 </p>
 </section>
 <!-- EDUCATION -->
@@ -513,7 +513,7 @@ I work with model assumptions, logged results, and visualizations to understand 
       <div class="pp-cat-arrow">+</div>
       <div class="pp-cat-icon">🏎️</div>
       <div class="pp-cat-title">Vehicle Dynamics</div>
-      <div class="pp-cat-count">5 Projects</div>
+      <div class="pp-cat-count">12 Projects</div>
     </div>
     <div class="pp-category-tile" onclick="toggleCategoryPanel('auto', this)">
       <div class="pp-cat-arrow">+</div>
@@ -1175,7 +1175,7 @@ I work with model assumptions, logged results, and visualizations to understand 
   <div class="section-header">
     <div>
       <div class="section-label">Career</div>
-      <div class="section-title">Engineering Experience</div>
+      <div class="section-title">Engineering Work Experience</div>
     </div>
     <div class="section-line"></div>
   </div>
@@ -1183,19 +1183,42 @@ I work with model assumptions, logged results, and visualizations to understand 
     <div class="card" onclick="toggleCard(this)">
       <div class="card-header">
         <div>
-          <div class="card-title">Measurement &amp; Testing Systems — Laboratory Coursework</div>
-          <div class="card-meta"><span>Karlsruhe Institute of Technology</span> · Institute of Thermal Turbomachinery · Oct - Nov 2025</div>
+          <div class="card-title">Student Research Assistant - CNC Machine-State Monitoring &amp; Data Acquisition</div>
+          <div class="card-meta"><span>wbk Institute of Production Science</span> · Karlsruhe Institute of Technology (KIT) · Nov 2026 - Present</div>
         </div>
         <div class="expand-btn">+</div>
       </div>
       <div class="card-body">
-        <p>Laboratory coursework focused on measurement engineering and experimental data acquisition using NI LabVIEW.</p>
+        <p>Research work focused on developing a high-speed, multi-sensor data acquisition architecture for CNC machining processes using NI CompactRIO, LabVIEW, and synchronized acoustic, force, and temperature measurements.</p>
         <h5>Key Work</h5>
         <ul>
-          <li>Designed measurement systems using NI myDAQ hardware and NI LabVIEW</li>
-          <li>Integrated and calibrated sensors: thermocouples, strain gauges, pressure transducers, IR cameras</li>
-          <li>Implemented FFT-based frequency analysis for signal processing</li>
-          <li>Designed automated testing procedures and error-handling mechanisms</li>
+          <li>Developing a high-speed, multi-channel data acquisition architecture using <b>NI cRIO-9049, NI-9223, and LabVIEW Real-Time</b> for CNC process monitoring.</li>
+          <li>Investigating the integration of <b>PCB Piezotronics ICP/IEPE measurement microphones, Kistler piezoelectric force sensors, and temperature sensors</b> for multi-sensor measurements.</li>
+          <li>Designing synchronized acquisition of <b>cutting forces (Fx, Fy, Fz) and acoustic signals</b> at a target sampling rate of 500 kS/s per channel.</li>
+          <li>Evaluating <b>signal conditioning, sensor excitation, input noise, anti-aliasing, and measurement bandwidth</b> to improve signal integrity.</li>
+          <li>Planning continuous raw-data acquisition and <b>TDMS logging</b>, with MATLAB-based FFT, PSD, and time-frequency analysis for subsequent signal processing.</li>
+          <li>Exploring <b>sensor fusion and data-driven machine-state classification</b> to identify machining conditions and support intelligent process monitoring.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Student Assistant - Measurement Engineering &amp; Experimental Data Acquisition</div>
+          <div class="card-meta"><span>Institute of Thermal Turbomachinery (ITS)</span> · Karlsruhe Institute of Technology (KIT) · Oct 2025 - Nov 2025</div>
+        </div>
+        <div class="expand-btn">+</div>
+      </div>
+      <div class="card-body">
+        <p>Laboratory research work focused on experimental measurement engineering, sensor integration, data acquisition, and signal processing using NI myDAQ and LabVIEW.</p>
+        <h5>Key Work</h5>
+        <ul>
+          <li>Developed experimental measurement setups using <b>NI myDAQ and NI LabVIEW</b> for sensor-based data acquisition and monitoring.</li>
+          <li>Integrated and characterized <b>thermocouples, strain gauges, pressure transducers, microphones, and infrared cameras</b> for thermal, mechanical, and acoustic measurements.</li>
+          <li>Implemented <b>signal conditioning, sensor calibration, and measurement uncertainty evaluation</b> to improve data reliability.</li>
+          <li>Performed <b>FFT-based frequency-domain analysis</b> to investigate acquired signals and identify characteristic frequency components.</li>
+          <li>Developed <b>LabVIEW-based automated measurement workflows</b>, incorporating data visualization, acquisition control, and error handling.</li>
+          <li>Analyzed experimental measurement data and presented technical findings as part of laboratory research activities.</li>
         </ul>
       </div>
     </div>
@@ -1444,6 +1467,10 @@ I work with model assumptions, logged results, and visualizations to understand 
       <span class="extra-card-toggle">+</span>
       <div class="extra-card-body">
         <ul>
+          <li>Machine Learning Automotive Certificate (Proov)<br><span>Fundamentals of Reinforcement Learning: Racing Challenge</span></li>
+          <li>MathWorks Deep Learning Onramp</li>
+          <li>SAP for Automotive Supply Chain and Manufacturing</li>
+
           <li>SAE BAJA - Certification</li>
           <li>Airbus - Fly Your Ideas Certification</li>
         </ul>
@@ -1845,3 +1872,4 @@ document.addEventListener('keydown', function(e) {
 </script>
 </body>
 </html>
+
