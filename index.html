@@ -189,7 +189,7 @@ section.visible { opacity:1; transform: translateY(0); }
 .edu-card .degree { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
 .edu-card .school { font-size: 13px; color: var(--teal); margin-bottom: 12px; }
 .edu-card p { font-size: 13px; color: var(--muted); }
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 16px; align-items: start; }
 .skill-card {
   background: var(--card-bg); border: 1px solid var(--border);
   border-radius: 12px; overflow: hidden; backdrop-filter: blur(8px);
@@ -1436,28 +1436,26 @@ I enjoy <span class="highlight">connecting physical principles with practical im
   </div>
   <div class="skills-grid">
 <div class="skill-card" onclick="toggleSkill(this)"><div class="skill-card-header"><div class="skill-card-title">Modeling &amp; Simulation</div><span class="skill-arrow">▶</span></div><div class="skill-divider"></div><div class="skill-card-body">
-<div class="skill-row"><div class="skill-row-top">MATLAB, Simulink &amp; Simscape</div><p>Vehicle, steering, suspension, and EV models</p></div>
-<div class="skill-row"><div class="skill-row-top">CasADi &amp; IPOPT</div><p>Fixed-centerline lap-time optimization</p></div>
-<div class="skill-row"><div class="skill-row-top">ANSYS &amp; Altair HyperWorks</div><p>Finite-element analysis projects</p></div>
-<div class="skill-row"><div class="skill-row-top">SolidWorks &amp; CATIA</div><p>Mechanical design experience</p></div>
+<div class="skill-row"><div class="skill-row-top">System simulation</div><p>MATLAB / Simulink</p></div>
+<div class="skill-row"><div class="skill-row-top">Simulation &amp; CAE</div><p>COMSOL, ANSYS (FEA and Fluent), STAR-CCM+</p></div>
+<div class="skill-row"><div class="skill-row-top">Currently learning</div><p>MSC Adams and LS-DYNA</p></div>
+<div class="skill-row"><div class="skill-row-top">CAD &amp; mechanical design</div><p>CATIA and SolidWorks</p></div>
 </div></div>
 <div class="skill-card" onclick="toggleSkill(this)"><div class="skill-card-header"><div class="skill-card-title">Vehicle Dynamics &amp; Control</div><span class="skill-arrow">▶</span></div><div class="skill-divider"></div><div class="skill-card-body">
-<div class="skill-row"><div class="skill-row-top">K&amp;C and steering dynamics</div><p>Lookup maps, rack loads, and driver torque</p></div>
-<div class="skill-row"><div class="skill-row-top">PID and sampled MPC</div><p>Suspension control and predictive overtaking</p></div>
-<div class="skill-row"><div class="skill-row-top">ADAS scenarios</div><p>Synthetic sensors and adaptive following</p></div>
-<div class="skill-row"><div class="skill-row-top">Lap performance</div><p>G-G-V envelopes and speed-profile analysis</p></div>
+<div class="skill-row"><div class="skill-row-top">Vehicle dynamics</div><p>Dynamic system behavior and vehicle response</p></div>
+<div class="skill-row"><div class="skill-row-top">Suspension systems</div><p>Ride dynamics and suspension behavior</p></div>
+<div class="skill-row"><div class="skill-row-top">Powertrain</div><p>Vehicle propulsion and powertrain systems</p></div>
 </div></div>
 <div class="skill-card" onclick="toggleSkill(this)"><div class="skill-card-header"><div class="skill-card-title">Programming &amp; Measurement</div><span class="skill-arrow">▶</span></div><div class="skill-divider"></div><div class="skill-card-body">
-<div class="skill-row"><div class="skill-row-top">Python</div><p>Numerical analysis, automation, and visualization</p></div>
-<div class="skill-row"><div class="skill-row-top">C / C++</div><p>Embedded-control project experience</p></div>
-<div class="skill-row"><div class="skill-row-top">NI LabVIEW &amp; myDAQ</div><p>Laboratory measurement and acquisition</p></div>
-<div class="skill-row"><div class="skill-row-top">HTML, CSS &amp; JavaScript</div><p>Portfolio and interactive project interfaces</p></div>
+<div class="skill-row"><div class="skill-row-top">Programming</div><p>Python, MATLAB, C/C++ (embedded real-time), LabVIEW and Arduino</p></div>
+<div class="skill-row"><div class="skill-row-top">Data acquisition</div><p>NI cDAQ, NI cRIO and NI LabVIEW</p></div>
+<div class="skill-row"><div class="skill-row-top">Measurement &amp; signal processing</div><p>Sensor calibration, FFT and PSD analysis</p></div>
 </div></div>
 <div class="skill-card" onclick="toggleSkill(this)"><div class="skill-card-header"><div class="skill-card-title">Engineering Analysis</div><span class="skill-arrow">▶</span></div><div class="skill-divider"></div><div class="skill-card-body">
-<div class="skill-row"><div class="skill-row-top">FEA and response analysis</div><p>Structural, modal, and thermal projects</p></div>
-<div class="skill-row"><div class="skill-row-top">Simulation assessment</div><p>Force balance, energy accounting, and numerical checks</p></div>
-<div class="skill-row"><div class="skill-row-top">Technical communication</div><p>Plots, animations, and engineering reports</p></div>
-<div class="skill-row"><div class="skill-row-top">Excel, Word &amp; PowerPoint</div><p>Data analysis and project documentation</p></div>
+<div class="skill-row"><div class="skill-row-top">External aerodynamics</div><p>Computational fluid dynamics (CFD)</p></div>
+<div class="skill-row"><div class="skill-row-top">Noise, vibration &amp; harshness</div><p>NVH analysis</p></div>
+<div class="skill-row"><div class="skill-row-top">Post-processing &amp; visualization</div><p>ParaView and MATLAB visualization</p></div>
+<div class="skill-row"><div class="skill-row-top">Engineering tools</div><p>MS Office (Excel, PowerPoint and Word) and Git</p></div>
 </div></div>
 </div>
 </section>
