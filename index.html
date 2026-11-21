@@ -523,7 +523,7 @@ I enjoy <span class="highlight">connecting physical principles with practical im
       <div class="pp-cat-arrow">+</div>
       <div class="pp-cat-icon">🏎️</div>
       <div class="pp-cat-title">Vehicle Dynamics</div>
-      <div class="pp-cat-count">11 Projects</div>
+      <div class="pp-cat-count">12 Projects</div>
     </div>
     <div class="pp-category-tile" onclick="toggleCategoryPanel('auto', this)">
       <div class="pp-cat-arrow">+</div>
@@ -695,6 +695,37 @@ I enjoy <span class="highlight">connecting physical principles with practical im
         <div class="pp-expand-close" onclick="closeCategoryPanel()">✕</div>
       </div>
       <div class="pp-project-grid">
+<!-- Vehicle dynamics project: downforce-tyre -->
+<div class="pp-project-card" id="project-downforce-tyre" onclick="toggleProjectCard(this)">
+  <div class="pp-project-card-head">
+    <div><h4>Downforce &amp; Tyre Load Sensitivity: Silverstone Lap-Time Study</h4><p>Telemetry-calibrated lap-time simulation exploring how tyre load sensitivity changes the predicted value of an aerodynamic downforce increase.</p></div>
+    <div class="pp-project-toggle">+</div>
+  </div>
+  <div class="pp-project-detail"><div class="pp-project-detail-inner" onclick="event.stopPropagation()">
+    <div class="pp-detail-section"><h5>Description</h5>
+      <p>Built a quasi-static point-mass lap-time simulator in MATLAB using archived speed and position telemetry from Verstappen's fastest 2025 British Grand Prix qualifying lap at Silverstone. Tyre grip follows a load-sensitive law, mu = mu_ref (Fz/Fz_ref)<sup>-n</sup>, with aerodynamic downforce included in vertical load. Periodic forward acceleration and backward braking sweeps enforce power, drag, and combined tyre-force limits.</p>
+      <p>Nine exponent values from 0 to 0.2 are each calibrated to the same measured lap time by adjusting the reference grip. Downforce is then varied from -10% to +10% without refitting grip, while drag is held fixed. This isolates downforce sensitivity; it does not represent a complete wing upgrade. Vehicle parameters are assumed, and DRS, load transfer, and transient tyre dynamics are not modeled.</p>
+    </div>
+    <div class="pp-detail-section"><h5>Key Results</h5><ul>
+      <li>Evaluated <b>9 tyre-exponent cases and 45 aerodynamic cases</b> using a 4,000-point lap discretization.</li>
+      <li>Calibrated each baseline to the <b>84.892 s</b> telemetry lap. Speed-profile RMSE remained <b>22.14-24.06 km/h</b>, showing why agreement in total lap time alone is not validation.</li>
+      <li>A <b>5% downforce increase</b> produced a predicted lap-time gain of <b>0.54-0.71 s</b> across the nine cases, with drag held fixed. Gains for n = 0, 0.1, and 0.2 were approximately 0.566, 0.570, and 0.679 s.</li>
+      <li>Refining the grid from 2,000 to 4,000 points changed the aerodynamic sensitivity results by at most <b>0.0202 s</b>; baseline node force demands stayed within the combined tyre-friction limit.</li>
+      <li>The exponent response was non-monotonic under recalibration. These results are exploratory model predictions, not an identified tyre law or a validated upgrade estimate.</li>
+    </ul></div>
+    <div class="pp-detail-section"><h5>Simulation Results</h5>
+      <p>Downforce-versus-lap-time curves, model-versus-telemetry speed profiles, and calibration diagnostics expose both predicted performance gains and remaining model mismatch. The near-zero lap-time error is imposed by calibration and should not be interpreted as independent validation.</p>
+<figure class="simulation-media"><a href="./downforce_sensitivity.png" target="_blank" rel="noopener"><img src="./downforce_sensitivity.png" alt="Silverstone downforce sensitivity across tyre load-sensitivity exponents" loading="lazy" decoding="async"></a><figcaption>Silverstone downforce sensitivity across tyre load-sensitivity exponents <a href="./downforce_sensitivity.png" target="_blank" rel="noopener">View full-size image</a></figcaption></figure>
+<figure class="simulation-media"><a href="./speed_comparison.png" target="_blank" rel="noopener"><img src="./speed_comparison.png" alt="Silverstone 2025 qualifying: model speed versus VER telemetry" loading="lazy" decoding="async"></a><figcaption>Silverstone 2025 qualifying: model speed versus VER telemetry <a href="./speed_comparison.png" target="_blank" rel="noopener">View full-size image</a></figcaption></figure>
+<figure class="simulation-media"><a href="./identifiability.png" target="_blank" rel="noopener"><img src="./identifiability.png" alt="Grip calibration, speed error, and parameter-sensitivity diagnostics" loading="lazy" decoding="async"></a><figcaption>Grip calibration, speed error, and parameter-sensitivity diagnostics <a href="./identifiability.png" target="_blank" rel="noopener">View full-size image</a></figcaption></figure>
+      <p>Telemetry source: <a href="https://github.com/TracingInsights-Archive/2025/tree/main/British%20Grand%20Prix/Qualifying/VER" target="_blank" rel="noopener" style="color:var(--accent)">TracingInsights public archive of FastF1 telemetry</a>.</p>
+    </div>
+    <div class="pp-detail-section"><h5>Tools Used</h5><div class="pp-detail-tools">
+      <span class="pp-tool-tag">MATLAB</span><span class="pp-tool-tag">Load-Sensitive Tyre Model</span><span class="pp-tool-tag">Forward/Backward Lap Solver</span><span class="pp-tool-tag">Telemetry Calibration</span><span class="pp-tool-tag">Sensitivity Analysis</span><span class="pp-tool-tag">Grid-Refinement Checks</span><span class="pp-tool-tag">Python Data Import</span>
+    </div></div>
+  </div></div>
+</div>
+
 <!-- Vehicle dynamics project: kc-steering -->
 <div class="pp-project-card" id="project-kc-steering" onclick="toggleProjectCard(this)">
   <div class="pp-project-card-head">
